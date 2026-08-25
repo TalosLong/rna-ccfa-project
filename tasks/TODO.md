@@ -3,7 +3,7 @@
 ## P0 — Current
 
 - [x] Create `docs/benchmark_inventory.md` listing every current benchmark dataset, its path, structure format, and whether pseudoknots are represented.
-- [ ] Create `docs/model_inventory.md` listing every runnable predictor, input format, output format, checkpoint/version, and availability of pair probabilities/logits/confidence.
+- [x] Create `docs/model_inventory.md` listing every runnable predictor, input format, output format, checkpoint/version, and availability of pair probabilities/logits/confidence.
 - [x] Locate all existing ground-truth secondary-structure files and document their paths without modifying originals.
 - [ ] Locate all existing prediction outputs and document their paths without modifying originals.
 - [ ] Define a normalized prediction schema with `rna_id`, `sequence`, `ground_truth_structure`, `source_model`, `predicted_structure`, and optional `pair_scores`.
