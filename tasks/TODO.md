@@ -6,7 +6,7 @@
 - [x] Create `docs/model_inventory.md` listing every runnable predictor, input format, output format, checkpoint/version, and availability of pair probabilities/logits/confidence.
 - [x] Locate all existing ground-truth secondary-structure files and document their paths without modifying originals.
 - [x] Locate all existing prediction outputs and document their paths without modifying originals.
-- [ ] Define a normalized prediction schema with `rna_id`, `sequence`, `ground_truth_structure`, `source_model`, `predicted_structure`, and optional `pair_scores`.
+- [x] Define a normalized prediction schema with `rna_id`, `sequence`, `ground_truth_structure`, `source_model`, `predicted_structure`, and optional `pair_scores`.
 - [ ] Implement a parser that converts every supported structure representation into a canonical base-pair list.
 - [ ] Add validation for malformed structures and sequence/structure length mismatches.
 - [ ] Implement shared Precision, Recall, and F1 from canonical base-pair lists.
