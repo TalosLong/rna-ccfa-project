@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-08-24
+Last updated: 2026-08-25
 
 ## Current Stage
 
@@ -37,6 +37,8 @@ Last updated: 2026-08-24
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
+- legacy 2D 资产有 121 个主序列/预测记录但有 123 个 GT 文件，需先冻结 ID 映射和额外记录处理规则。
+- external77 的 `GT_ALL` / `GT_CON` 目标语义及 4 个含 `N` 序列的处理规则尚未冻结。
 - 第一版 3-5 个 source predictor 未确定。
 - 各 predictor 是否提供 pair probability / confidence 尚未盘点。
 - prediction / ground truth 尚未统一成一种 schema。
