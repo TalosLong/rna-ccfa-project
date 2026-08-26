@@ -1,5 +1,6 @@
 """RNA-CCFA shared infrastructure."""
 
+from .metrics import PairEvaluation, evaluate_pairs
 from .structure import (
     Pair,
     StructureValidationError,
@@ -14,7 +15,9 @@ from .structure import (
 
 __all__ = [
     "Pair",
+    "PairEvaluation",
     "StructureValidationError",
+    "evaluate_pairs",
     "parse_dense_matrix",
     "parse_dot_bracket",
     "parse_extended_dot_bracket",

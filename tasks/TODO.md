@@ -9,9 +9,9 @@
 - [x] Define a normalized prediction schema with `rna_id`, `sequence`, `ground_truth_structure`, `source_model`, `predicted_structure`, and optional `pair_scores`.
 - [x] Implement a parser that converts every supported structure representation into a canonical base-pair list.
 - [x] Add validation for malformed structures and sequence/structure length mismatches.
-- [ ] Implement shared Precision, Recall, and F1 from canonical base-pair lists.
-- [ ] Implement MCC only if a consistent benchmark definition is available; otherwise document why it is omitted.
-- [ ] Implement per-sample TP, FP, and FN extraction.
+- [x] Implement shared Precision, Recall, and F1 from canonical base-pair lists.
+- [x] Implement MCC only if a consistent benchmark definition is available; otherwise document why it is omitted. MCC is deferred in `docs/mcc_definition_audit.md`.
+- [x] Implement per-sample TP, FP, and FN extraction.
 - [ ] Re-evaluate at least three runnable source predictors with the shared evaluator.
 - [ ] Save per-sample baseline metrics in a machine-readable table.
 - [ ] Document every mismatch between reproduced and existing benchmark metrics before continuing.

@@ -25,12 +25,13 @@ Last updated: 2026-08-26
 - [x] 完成现有 prediction outputs 的路径、格式、数量、覆盖范围和 provenance 盘点，未修改原始输出。
 - [x] 冻结 normalized prediction schema v1：JSONL record、0-based canonical pairs、pair-score sidecar 和完整 provenance contract。
 - [x] 实现 standard/extended dot-bracket、explicit pair list 和 dense pair matrix 到 canonical pairs 的 parser 与 validation，并以单元测试覆盖 crossing pairs 和 malformed inputs。
+- [x] 实现 exact canonical-pair shared evaluator，输出 per-sample TP/FP/FN pair sets、counts、Precision、Recall 和 F1；完成 MCC negative-universe 审计并暂缓 MCC。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：canonical parser 和 validation 已完成；shared evaluator 尚待实现。
+- Phase 0：canonical parser、validation 和 shared evaluator 已完成；下一项为构建 normalized Legacy-121 baseline records。
 
 ## Current Findings
 
@@ -54,8 +55,7 @@ Last updated: 2026-08-26
 
 ## Immediate Next Steps
 
-1. 基于 canonical pairs 实现 shared Precision、Recall、F1 和 per-sample TP/FP/FN；单独审计 MCC 定义。
-2. 在冻结的数据/target 协议上准备至少三个 source predictor 的 normalized baseline records，不训练 refiner。
+1. 冻结 Legacy-121 ID mapping，并为 RNAfold、PETfold 和 trRosettaRNA2 native SS 的现有历史输出构建 normalized baseline records；不运行新的 predictor inference。
 
 ## Open Questions
 
