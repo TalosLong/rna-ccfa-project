@@ -26,12 +26,13 @@ Last updated: 2026-08-26
 - [x] 冻结 normalized prediction schema v1：JSONL record、0-based canonical pairs、pair-score sidecar 和完整 provenance contract。
 - [x] 实现 standard/extended dot-bracket、explicit pair list 和 dense pair matrix 到 canonical pairs 的 parser 与 validation，并以单元测试覆盖 crossing pairs 和 malformed inputs。
 - [x] 实现 exact canonical-pair shared evaluator，输出 per-sample TP/FP/FN pair sets、counts、Precision、Recall 和 F1；完成 MCC negative-universe 审计并暂缓 MCC。
+- [x] 冻结 Legacy121 v1 sample/ID protocol：121 个 primary sequence rows 全部具备 sequence、GT、三个历史 2D prediction 与 trRosettaRNA2 pair-score NPZ，并通过 canonical parser 和长度校验；两条 GT-only records 被保留但明确排除。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：canonical parser、validation 和 shared evaluator 已完成；下一项为构建 normalized Legacy-121 baseline records。
+- Phase 0：canonical parser、validation、shared evaluator 和 Legacy121 v1 explicit manifest 已完成；下一项为从冻结 manifest 构建 normalized prediction records。
 
 ## Current Findings
 
@@ -42,7 +43,6 @@ Last updated: 2026-08-26
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
-- legacy 2D 资产有 121 个主序列/预测记录但有 123 个 GT 文件，需先冻结 ID 映射和额外记录处理规则。
 - external77 的 `GT_ALL` / `GT_CON` 目标语义及 4 个含 `N` 序列的处理规则尚未冻结。
 - 第一版 3-5 个 source predictor 未确定。
 - 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
@@ -55,7 +55,7 @@ Last updated: 2026-08-26
 
 ## Immediate Next Steps
 
-1. 冻结 Legacy-121 ID mapping，并为 RNAfold、PETfold 和 trRosettaRNA2 native SS 的现有历史输出构建 normalized baseline records；不运行新的 predictor inference。
+1. 从 `manifests/legacy121_v1.csv` 为 RNAfold、PETfold 和 trRosettaRNA2 native SS 的现有历史输出构建 normalized prediction records；不运行新的 predictor inference。
 
 ## Open Questions
 

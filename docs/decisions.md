@@ -329,3 +329,42 @@ Error Analysis
 ### Consequence
 
 Codex 不应因为后续阶段看起来更“新”就跳过前置 gate。
+
+---
+
+## Discussion — Freeze Legacy121 v1 on the primary-sequence intersection
+
+### Decision
+
+**Confirmed / 已确定**
+
+Legacy121 v1 的 evaluation universe 冻结为 121 个 primary sequence records，
+并以 `manifests/legacy121_v1.csv` 作为唯一显式 sample/ID mapping。
+
+两条 GT-only records：
+
+- `8Q4O_23_g4_nmr_matrix.db`；
+- `8TNS_24_g4_nmr_matrix.db`；
+
+继续保留且不修改，但不属于 Legacy121 v1。
+
+### Reason
+
+统一评测要求每个样本同时具备 sequence、GT、RNAfold、PETfold、
+trRosettaRNA2 native-SS DBN 和对应 pair-score NPZ。两条额外 GT 没有进入
+121-primary-sequence universe 的 sequence/prediction intersection，不能只因 GT
+文件存在而扩张 benchmark。
+
+### Alternatives Considered
+
+- 以 123 个 GT 文件为 universe，并为缺失 sequence/prediction 的两条记录留空；
+- 删除额外 GT 文件；
+- 让后续代码分别从各目录 filename heuristics 推断 ID；
+- 仅在运行时特殊处理 PETfold 的 `1A9L.db`。
+
+### Consequence
+
+后续 normalization/evaluation 必须读取冻结 manifest，不得独立推断 ID。
+PETfold `1A9L.db -> 1A9L_38_hpbulge_nmr_A` 作为显式 alias 保存。任何 manifest
+row 缺失资产、结构解析失败或长度不一致，都使 Legacy121 v1 失去 frozen
+状态，且失败必须保留在逐行 audit 中。

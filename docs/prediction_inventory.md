@@ -1,6 +1,6 @@
 # Prediction Output Inventory
 
-Last audited: 2026-08-25
+Last audited: 2026-08-26
 
 ## Scope and Classification
 
@@ -21,7 +21,7 @@ Counts below are filesystem observations, not benchmark results. No raw or histo
 | Legacy 121 | PETfold | `/root/autodl-tmp/data/ss/petfold/*.db` | 121 non-empty `.db` files | One line of standard dot-bracket | No | No | One filename anomaly exists: `1A9L.db` corresponds to `1A9L_38_hpbulge_nmr_A.fasta`; all other IDs match after the documented suffix normalization |
 | Legacy 121 | trRosettaRNA2 native SS | `/root/autodl-tmp/models/trRosettaRNA2/data/ss_native/<rna_id>/` | 121 DBN plus 121 NPZ files, all non-empty | DBN has header + structure; NPZ key `ss` is `float32` with shape `L x L` | DBN: no; NPZ: no | Yes, in `*_ss_prob.npz` | Use this directory as the canonical local path. `/root/autodl-tmp/models/trRosettaRNA2/ss_predictions_native` is a hard-linked mirror and must not be counted again |
 
-The 121 RNAfold IDs and the 121 trRosettaRNA2 native-SS directory IDs match the 121 individual legacy FASTA basenames under the documented normalization. PETfold has the single `1A9L` filename exception above. This observation does not resolve the separate 121-sequence/123-GT discrepancy.
+The 121 RNAfold IDs and the 121 trRosettaRNA2 native-SS directory IDs match the 121 individual legacy FASTA basenames under the documented normalization. PETfold has the single `1A9L` filename exception above. These mappings and the two GT-only exclusions are frozen explicitly in `manifests/legacy121_v1.csv` and `docs/legacy121_v1_protocol.md`.
 
 ### trRosettaRNA2 Related 3D/Internal Outputs
 
