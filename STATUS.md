@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-08-25
+Last updated: 2026-08-26
 
 ## Current Stage
 
@@ -24,12 +24,13 @@ Last updated: 2026-08-25
 - [x] 完成当前本机模型资产盘点；确认 RNAfold、PETfold 和 trRosettaRNA2 native SS 为可运行的 Phase 0 2D 候选，并区分 downstream-only 3D 模型。
 - [x] 完成现有 prediction outputs 的路径、格式、数量、覆盖范围和 provenance 盘点，未修改原始输出。
 - [x] 冻结 normalized prediction schema v1：JSONL record、0-based canonical pairs、pair-score sidecar 和完整 provenance contract。
+- [x] 实现 standard/extended dot-bracket、explicit pair list 和 dense pair matrix 到 canonical pairs 的 parser 与 validation，并以单元测试覆盖 crossing pairs 和 malformed inputs。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：实现 canonical parser、validation 和 shared evaluator。
+- Phase 0：canonical parser 和 validation 已完成；shared evaluator 尚待实现。
 
 ## Current Findings
 
@@ -53,9 +54,8 @@ Last updated: 2026-08-25
 
 ## Immediate Next Steps
 
-1. 按 schema v1 实现 extended dot-bracket / pair-list / matrix 到 canonical pairs 的 parser 和 validation。
-2. 基于 canonical pairs 实现 shared Precision、Recall、F1 和 per-sample TP/FP/FN；单独审计 MCC 定义。
-3. 在冻结的数据/target 协议上准备至少三个 source predictor 的 normalized baseline records，不训练 refiner。
+1. 基于 canonical pairs 实现 shared Precision、Recall、F1 和 per-sample TP/FP/FN；单独审计 MCC 定义。
+2. 在冻结的数据/target 协议上准备至少三个 source predictor 的 normalized baseline records，不训练 refiner。
 
 ## Open Questions
 

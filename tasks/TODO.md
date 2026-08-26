@@ -7,8 +7,8 @@
 - [x] Locate all existing ground-truth secondary-structure files and document their paths without modifying originals.
 - [x] Locate all existing prediction outputs and document their paths without modifying originals.
 - [x] Define a normalized prediction schema with `rna_id`, `sequence`, `ground_truth_structure`, `source_model`, `predicted_structure`, and optional `pair_scores`.
-- [ ] Implement a parser that converts every supported structure representation into a canonical base-pair list.
-- [ ] Add validation for malformed structures and sequence/structure length mismatches.
+- [x] Implement a parser that converts every supported structure representation into a canonical base-pair list.
+- [x] Add validation for malformed structures and sequence/structure length mismatches.
 - [ ] Implement shared Precision, Recall, and F1 from canonical base-pair lists.
 - [ ] Implement MCC only if a consistent benchmark definition is available; otherwise document why it is omitted.
 - [ ] Implement per-sample TP, FP, and FN extraction.
