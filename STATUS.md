@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy and strict-stem infrastructure complete, with stem-level error analysis deferred.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy, strict-stem infrastructure, and deterministic stem matching/error taxonomy protocol complete. Stem-level extraction remains deferred.
 
 当前论文方向：
 
@@ -31,7 +31,8 @@ Last updated: 2026-08-27
 - [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
 - [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
 - [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
-- [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留；未定义任何 stem error category。
+- [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留。
+- [x] 冻结 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录；尚未执行 stem-level extraction 或生成最终错误计数。
 
 ## Running / In Progress
 
@@ -39,7 +40,8 @@ Last updated: 2026-08-27
 - Git / Codex 项目上下文整理。
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
 - Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
-- Phase 1 strict-stem infrastructure 已完成；stem-level error、long-range 和 pseudoknot-specific definitions/analysis 尚未开始。
+- Phase 1 strict-stem infrastructure 已完成；stem matching/error taxonomy 已冻结，但 extraction、long-range 和 pseudoknot-specific analysis 尚未开始。
+- Phase 1 stem matching protocol 已冻结；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates、53 个 ambiguous predicted-stem components；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 
 ## Current Findings
 
@@ -118,6 +120,16 @@ stem matching，也没有赋予任何 stem error label。
 表中 fraction 为 stem pairs / total pairs；strict stem 的最小长度为 2，所有
 singleton pairs 均保留。
 
+### Legacy121 v1 stem-matching protocol audit
+
+本轮仅完成 deterministic protocol design 与 read-only candidate audit，未生成
+stem-level error labels/counts。chosen bilateral candidate filter 产生 871 条
+candidate edges，其中 11 条为潜在 register-shift candidates；758 条为 isolated
+one-to-one edges，53 个 components 存在多 GT/多 prediction ambiguity。greedy 与
+maximum-weight assignment 在 363 条 records 上选择一致，但 ambiguous components
+统一保留为 `complex_mismatch` residual，不强行分配。详细阈值比较与 pathological
+examples 见 `docs/stem_matching_protocol_audit.md`。
+
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
 ## Blockers
@@ -127,7 +139,7 @@ singleton pairs 均保留。
 - 第一版 3-5 个 source predictor 未确定。
 - 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
-- stem shift / truncation / extension 等 error definition 尚未锁定。
+- stem-level matcher/extractor 尚未实现。
 - final refiner architecture 未确定。
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
@@ -135,14 +147,14 @@ singleton pairs 均保留。
 
 ## Immediate Next Steps
 
-1. In a separate Phase 1 task, define operational stem error categories before any stem-level error analysis.
+1. Implement the frozen stem-level matcher and error extractor.
 
 ## Open Questions
 
 - 第一版选哪 3-5 个 predictor？
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
-- stem-level error 的精确定义是什么？
+- stem-level extractor 如何在后续任务中实现并导出结果？
 - pseudoknot 是否纳入 refiner v1？
 - rule-based baseline 应该做到什么强度？
 - selective refiner v1 用什么最小架构？

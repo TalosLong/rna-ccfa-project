@@ -1,0 +1,1165 @@
+{
+  "ambiguous_component_examples": [
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 4,
+          "gt_outer_pair": [
+            0,
+            23
+          ],
+          "gt_pair_count": 4,
+          "gt_register": 23,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 4,
+          "pair_union_size": 11,
+          "pred_outer_pair": [
+            0,
+            23
+          ],
+          "pred_pair_count": 11,
+          "pred_register": 23,
+          "record_id": "legacy121_v1__1e4p_24_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 4,
+          "rna_id": "1E4P_24_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 4,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            7,
+            16
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 23,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 11,
+          "pred_outer_pair": [
+            0,
+            23
+          ],
+          "pred_pair_count": 11,
+          "pred_register": 23,
+          "record_id": "legacy121_v1__1e4p_24_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1E4P_24_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1e4p_24_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1E4P_24_hpbulge_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 4,
+          "gt_outer_pair": [
+            0,
+            21
+          ],
+          "gt_pair_count": 4,
+          "gt_register": 21,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 4,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            21
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 21,
+          "record_id": "legacy121_v1__1f9l_22_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 4,
+          "rna_id": "1F9L_22_hp_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 4,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            6,
+            15
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 21,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            21
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 21,
+          "record_id": "legacy121_v1__1f9l_22_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1F9L_22_hp_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1f9l_22_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1F9L_22_hp_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 0,
+          "gt_outer_pair": [
+            15,
+            45
+          ],
+          "gt_pair_count": 4,
+          "gt_register": 60,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 4,
+          "pair_union_size": 18,
+          "pred_outer_pair": [
+            15,
+            44
+          ],
+          "pred_pair_count": 14,
+          "pred_register": 59,
+          "record_id": "legacy121_v1__1p5m_55_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": -1,
+          "right_arm_overlap": 3,
+          "rna_id": "1P5M_55_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 4,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            22,
+            37
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 59,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 14,
+          "pred_outer_pair": [
+            15,
+            44
+          ],
+          "pred_pair_count": 14,
+          "pred_register": 59,
+          "record_id": "legacy121_v1__1p5m_55_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1P5M_55_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            26,
+            33
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 59,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 14,
+          "pred_outer_pair": [
+            15,
+            44
+          ],
+          "pred_pair_count": 14,
+          "pred_register": 59,
+          "record_id": "legacy121_v1__1p5m_55_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5M_55_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1p5m_55_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1P5M_55_hpbulge_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            32,
+            48
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 6,
+          "pred_outer_pair": [
+            31,
+            49
+          ],
+          "pred_pair_count": 6,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 2,
+          "source_model": "rnafold"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            35,
+            45
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 6,
+          "pred_outer_pair": [
+            31,
+            49
+          ],
+          "pred_pair_count": 6,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "rnafold"
+        }
+      ],
+      "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+      "rna_id": "1P5O_77_hpbulge_nmr_A",
+      "source_model": "rnafold"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            32,
+            48
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 6,
+          "pred_outer_pair": [
+            31,
+            49
+          ],
+          "pred_pair_count": 6,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 2,
+          "source_model": "petfold"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            35,
+            45
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 6,
+          "pred_outer_pair": [
+            31,
+            49
+          ],
+          "pred_pair_count": 6,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "petfold"
+        }
+      ],
+      "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+      "rna_id": "1P5O_77_hpbulge_nmr_A",
+      "source_model": "petfold"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            22,
+            59
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 81,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 11,
+          "pred_outer_pair": [
+            19,
+            62
+          ],
+          "pred_pair_count": 11,
+          "pred_register": 81,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            26,
+            55
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 81,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 11,
+          "pred_outer_pair": [
+            19,
+            62
+          ],
+          "pred_pair_count": 11,
+          "pred_register": 81,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            32,
+            48
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 7,
+          "pred_outer_pair": [
+            30,
+            50
+          ],
+          "pred_pair_count": 7,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            35,
+            45
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 80,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 7,
+          "pred_outer_pair": [
+            30,
+            50
+          ],
+          "pred_pair_count": 7,
+          "pred_register": 80,
+          "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1P5O_77_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1p5o_77_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1P5O_77_hpbulge_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 4,
+          "gt_outer_pair": [
+            1,
+            28
+          ],
+          "gt_pair_count": 4,
+          "gt_register": 29,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 4,
+          "pair_union_size": 14,
+          "pred_outer_pair": [
+            0,
+            29
+          ],
+          "pred_pair_count": 14,
+          "pred_register": 29,
+          "record_id": "legacy121_v1__1s9s_101_3wj_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 4,
+          "rna_id": "1S9S_101_3wj_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 4,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 6,
+          "gt_outer_pair": [
+            7,
+            22
+          ],
+          "gt_pair_count": 6,
+          "gt_register": 29,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 6,
+          "pair_union_size": 14,
+          "pred_outer_pair": [
+            0,
+            29
+          ],
+          "pred_pair_count": 14,
+          "pred_register": 29,
+          "record_id": "legacy121_v1__1s9s_101_3wj_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 6,
+          "rna_id": "1S9S_101_3wj_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 6,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1s9s_101_3wj_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1S9S_101_3wj_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            0,
+            33
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "rnafold"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            6,
+            27
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 3,
+          "source_model": "rnafold"
+        }
+      ],
+      "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+      "rna_id": "1T28_34_hpbulge_nmr_A",
+      "source_model": "rnafold"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            0,
+            33
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "petfold"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            6,
+            27
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 3,
+          "source_model": "petfold"
+        }
+      ],
+      "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+      "rna_id": "1T28_34_hpbulge_nmr_A",
+      "source_model": "petfold"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            0,
+            33
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 9,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 9,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            6,
+            27
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 33,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 9,
+          "pred_outer_pair": [
+            0,
+            33
+          ],
+          "pred_pair_count": 9,
+          "pred_register": 33,
+          "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1T28_34_hpbulge_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1t28_34_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1T28_34_hpbulge_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 3,
+          "gt_outer_pair": [
+            0,
+            21
+          ],
+          "gt_pair_count": 3,
+          "gt_register": 21,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 3,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            21
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 21,
+          "record_id": "legacy121_v1__1tjz_26_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 3,
+          "rna_id": "1TJZ_26_hp_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 3,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 4,
+          "gt_outer_pair": [
+            5,
+            16
+          ],
+          "gt_pair_count": 4,
+          "gt_register": 21,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 4,
+          "pair_union_size": 10,
+          "pred_outer_pair": [
+            0,
+            21
+          ],
+          "pred_pair_count": 10,
+          "pred_register": 21,
+          "record_id": "legacy121_v1__1tjz_26_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 4,
+          "rna_id": "1TJZ_26_hp_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 4,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__1tjz_26_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "1TJZ_26_hp_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "candidate_edges": [
+        {
+          "exact_pair_overlap": 5,
+          "gt_outer_pair": [
+            4,
+            23
+          ],
+          "gt_pair_count": 5,
+          "gt_register": 27,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 5,
+          "pair_union_size": 9,
+          "pred_outer_pair": [
+            4,
+            23
+          ],
+          "pred_pair_count": 9,
+          "pred_register": 27,
+          "record_id": "legacy121_v1__2k5z_29_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 5,
+          "rna_id": "2K5Z_29_hp_nmr_A",
+          "selected_by_global_assignment": true,
+          "shorter_stem_pairs": 5,
+          "source_model": "trrosettarna2_native_ss"
+        },
+        {
+          "exact_pair_overlap": 2,
+          "gt_outer_pair": [
+            10,
+            17
+          ],
+          "gt_pair_count": 2,
+          "gt_register": 27,
+          "isolated_one_to_one_candidate": false,
+          "left_arm_overlap": 2,
+          "pair_union_size": 9,
+          "pred_outer_pair": [
+            4,
+            23
+          ],
+          "pred_pair_count": 9,
+          "pred_register": 27,
+          "record_id": "legacy121_v1__2k5z_29_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+          "register_delta": 0,
+          "right_arm_overlap": 2,
+          "rna_id": "2K5Z_29_hp_nmr_A",
+          "selected_by_global_assignment": false,
+          "shorter_stem_pairs": 2,
+          "source_model": "trrosettarna2_native_ss"
+        }
+      ],
+      "record_id": "legacy121_v1__2k5z_29_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "rna_id": "2K5Z_29_hp_nmr_A",
+      "source_model": "trrosettarna2_native_ss"
+    }
+  ],
+  "assignment_comparison": {
+    "differing_record_ids": [],
+    "global_matches": 811,
+    "global_objective": [
+      "maximize total exact_pair_overlap",
+      "maximize total minimum bilateral arm overlap",
+      "maximize matched edge count",
+      "minimize total pair_union_size"
+    ],
+    "greedy_matches": 811,
+    "greedy_vs_global_record_differences": 0
+  },
+  "audit_type": "candidate_diagnostics_only_no_final_stem_error_labels",
+  "audited_final_candidate_filter": "bilateral_all_but_one_shorter",
+  "candidate_component_filter_diagnostics": {
+    "by_model": {
+      "petfold": {
+        "ambiguous_components": 16,
+        "candidate_edges": 287,
+        "gt_stems": 335,
+        "gt_stems_in_ambiguous_components": 35,
+        "isolated_one_to_one_candidates": 252,
+        "predicted_stems": 312,
+        "predicted_stems_in_ambiguous_components": 16,
+        "zero_candidate_gt_stems": 48,
+        "zero_candidate_predicted_stems": 44
+      },
+      "rnafold": {
+        "ambiguous_components": 5,
+        "candidate_edges": 289,
+        "gt_stems": 335,
+        "gt_stems_in_ambiguous_components": 10,
+        "isolated_one_to_one_candidates": 279,
+        "predicted_stems": 326,
+        "predicted_stems_in_ambiguous_components": 5,
+        "zero_candidate_gt_stems": 46,
+        "zero_candidate_predicted_stems": 42
+      },
+      "trrosettarna2_native_ss": {
+        "ambiguous_components": 32,
+        "candidate_edges": 295,
+        "gt_stems": 335,
+        "gt_stems_in_ambiguous_components": 68,
+        "isolated_one_to_one_candidates": 227,
+        "predicted_stems": 295,
+        "predicted_stems_in_ambiguous_components": 32,
+        "zero_candidate_gt_stems": 40,
+        "zero_candidate_predicted_stems": 36
+      }
+    },
+    "overall": {
+      "ambiguous_components": 53,
+      "candidate_edges": 871,
+      "gt_stems": 1005,
+      "gt_stems_in_ambiguous_components": 113,
+      "isolated_one_to_one_candidates": 758,
+      "predicted_stems": 933,
+      "predicted_stems_in_ambiguous_components": 53,
+      "zero_candidate_gt_stems": 134,
+      "zero_candidate_predicted_stems": 122
+    }
+  },
+  "candidate_variants": {
+    "bilateral_2_and_half_shorter": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 53,
+      "candidate_edges": 871,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 871,
+      "potential_shift_edges": 11,
+      "predicted_stems_with_candidate": 811
+    },
+    "bilateral_all_but_one_shorter": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 53,
+      "candidate_edges": 871,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 871,
+      "potential_shift_edges": 11,
+      "predicted_stems_with_candidate": 811
+    },
+    "bilateral_at_least_1": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 55,
+      "candidate_edges": 880,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 880,
+      "potential_shift_edges": 20,
+      "predicted_stems_with_candidate": 818
+    },
+    "bilateral_at_least_2": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 53,
+      "candidate_edges": 871,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 871,
+      "potential_shift_edges": 11,
+      "predicted_stems_with_candidate": 811
+    },
+    "bilateral_full_shorter": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 53,
+      "candidate_edges": 869,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 869,
+      "potential_shift_edges": 9,
+      "predicted_stems_with_candidate": 810
+    },
+    "exact_only": {
+      "ambiguous_gt_stems": 0,
+      "ambiguous_predicted_stems": 53,
+      "candidate_edges": 860,
+      "exact_overlap_edges": 860,
+      "gt_stems_with_candidate": 860,
+      "potential_shift_edges": 0,
+      "predicted_stems_with_candidate": 801
+    }
+  },
+  "dataset": "legacy121_v1",
+  "final_error_labels_assigned": false,
+  "normalized_input_path": "/root/autodl-tmp/rna-ccfa/normalized/legacy121_v1/predictions.jsonl",
+  "normalized_input_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "potential_shift_candidates": [
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        23,
+        40
+      ],
+      "gt_pair_count": 6,
+      "gt_register": 63,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 9,
+      "pred_outer_pair": [
+        23,
+        37
+      ],
+      "pred_pair_count": 3,
+      "pred_register": 60,
+      "record_id": "legacy121_v1__1a60_44_pseudknot_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -3,
+      "right_arm_overlap": 3,
+      "rna_id": "1A60_44_pseudknot_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        15,
+        45
+      ],
+      "gt_pair_count": 4,
+      "gt_register": 60,
+      "isolated_one_to_one_candidate": false,
+      "left_arm_overlap": 4,
+      "pair_union_size": 18,
+      "pred_outer_pair": [
+        15,
+        44
+      ],
+      "pred_pair_count": 14,
+      "pred_register": 59,
+      "record_id": "legacy121_v1__1p5m_55_hpbulge_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -1,
+      "right_arm_overlap": 3,
+      "rna_id": "1P5M_55_hpbulge_nmr_A",
+      "selected_by_global_assignment": false,
+      "shorter_stem_pairs": 4,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        26,
+        52
+      ],
+      "gt_pair_count": 9,
+      "gt_register": 78,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 6,
+      "pair_union_size": 16,
+      "pred_outer_pair": [
+        29,
+        52
+      ],
+      "pred_pair_count": 7,
+      "pred_register": 81,
+      "record_id": "legacy121_v1__2krl_102_3wj_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": 3,
+      "right_arm_overlap": 7,
+      "rna_id": "2KRL_102_3wj_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 7,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        11,
+        46
+      ],
+      "gt_pair_count": 10,
+      "gt_register": 57,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 5,
+      "pair_union_size": 15,
+      "pred_outer_pair": [
+        11,
+        41
+      ],
+      "pred_pair_count": 5,
+      "pred_register": 52,
+      "record_id": "legacy121_v1__2m8k_48_pseudoknot_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -5,
+      "right_arm_overlap": 5,
+      "rna_id": "2M8K_48_pseudoknot_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 5,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        8,
+        33
+      ],
+      "gt_pair_count": 7,
+      "gt_register": 41,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 2,
+      "pair_union_size": 9,
+      "pred_outer_pair": [
+        8,
+        28
+      ],
+      "pred_pair_count": 2,
+      "pred_register": 36,
+      "record_id": "legacy121_v1__2tpk_35_pseudoknot_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -5,
+      "right_arm_overlap": 2,
+      "rna_id": "2TPK_35_pseudoknot_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 2,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        8,
+        23
+      ],
+      "gt_pair_count": 3,
+      "gt_register": 31,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 2,
+      "pair_union_size": 5,
+      "pred_outer_pair": [
+        8,
+        22
+      ],
+      "pred_pair_count": 2,
+      "pred_register": 30,
+      "record_id": "legacy121_v1__5uzt_31_hp_nmr_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -1,
+      "right_arm_overlap": 2,
+      "rna_id": "5UZT_31_hp_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 2,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        43,
+        61
+      ],
+      "gt_pair_count": 4,
+      "gt_register": 104,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 7,
+      "pred_outer_pair": [
+        43,
+        60
+      ],
+      "pred_pair_count": 3,
+      "pred_register": 103,
+      "record_id": "legacy121_v1__6ues_119_4wjpseudoknot_cryoem_a__legacy_gt__rnafold__historical_legacy121_v1",
+      "register_delta": -1,
+      "right_arm_overlap": 3,
+      "rna_id": "6UES_119_4wjpseudoknot_cryoEM_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "rnafold"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        43,
+        61
+      ],
+      "gt_pair_count": 4,
+      "gt_register": 104,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 7,
+      "pred_outer_pair": [
+        43,
+        60
+      ],
+      "pred_pair_count": 3,
+      "pred_register": 103,
+      "record_id": "legacy121_v1__6ues_119_4wjpseudoknot_cryoem_a__legacy_gt__petfold__historical_legacy121_v1",
+      "register_delta": -1,
+      "right_arm_overlap": 3,
+      "rna_id": "6UES_119_4wjpseudoknot_cryoEM_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "petfold"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        114,
+        130
+      ],
+      "gt_pair_count": 5,
+      "gt_register": 244,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 8,
+      "pred_outer_pair": [
+        114,
+        128
+      ],
+      "pred_pair_count": 3,
+      "pred_register": 242,
+      "record_id": "legacy121_v1__7lyg_142_4wj_xray_a__legacy_gt__trrosettarna2_native_ss__historical_legacy121_v1",
+      "register_delta": -2,
+      "right_arm_overlap": 3,
+      "rna_id": "7LYG_142_4wj_xray_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "trrosettarna2_native_ss"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        63,
+        80
+      ],
+      "gt_pair_count": 3,
+      "gt_register": 143,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 12,
+      "pred_outer_pair": [
+        59,
+        80
+      ],
+      "pred_pair_count": 9,
+      "pred_register": 139,
+      "record_id": "legacy121_v1__7shx_94_4wj_nmr_a__legacy_gt__rnafold__historical_legacy121_v1",
+      "register_delta": -4,
+      "right_arm_overlap": 3,
+      "rna_id": "7SHX_94_4wj_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "rnafold"
+    },
+    {
+      "exact_pair_overlap": 0,
+      "gt_outer_pair": [
+        63,
+        80
+      ],
+      "gt_pair_count": 3,
+      "gt_register": 143,
+      "isolated_one_to_one_candidate": true,
+      "left_arm_overlap": 3,
+      "pair_union_size": 12,
+      "pred_outer_pair": [
+        59,
+        80
+      ],
+      "pred_pair_count": 9,
+      "pred_register": 139,
+      "record_id": "legacy121_v1__7shx_94_4wj_nmr_a__legacy_gt__petfold__historical_legacy121_v1",
+      "register_delta": -4,
+      "right_arm_overlap": 3,
+      "rna_id": "7SHX_94_4wj_nmr_A",
+      "selected_by_global_assignment": true,
+      "shorter_stem_pairs": 3,
+      "source_model": "petfold"
+    }
+  ],
+  "predicted_stem_instances": 933,
+  "records_audited": 363,
+  "repeated_gt_stem_instances_across_363_record_comparisons": 1005
+}

@@ -194,7 +194,7 @@ sum(stem.n_pairs for stem in stems) + len(singleton_pairs)
 
 This definition does not label stems as correct, missing, shifted, truncated,
 or extended, and it does not match GT stems to predicted stems. Those
-decisions remain outside this task.
+decisions are defined in the matching protocol below.
 
 ### Strict-stem inventory layout
 
@@ -208,11 +208,82 @@ predictor. Per-record length statistics are computed over that record's strict
 stems; summary length statistics are computed over all strict stems in the
 group. Inventory quantities are descriptive only.
 
+## Stem Matching and Error Taxonomy v1
+
+This section freezes deterministic matching semantics; implementation and
+final Legacy121 stem-error counts remain a subsequent task.
+
+### Representation and candidate diagnostics
+
+Matching uses only strict stems from the definition above. For each GT/predicted
+stem pair record exact pair overlap, GT/predicted pair counts, pair-union size,
+left- and right-arm overlap, and the register `i+j` (constant across a strict
+stem) with its signed difference. No family, confidence, 3D, or other metadata
+is used.
+
+An edge is a candidate when either (a) exact pair overlap is positive, or (b)
+exact overlap is zero, registers differ, both arm overlaps are at least two,
+and each arm overlap is at least the shorter stem's arm length minus one. Thus
+at most one nucleotide on each arm of the shorter stem may be unmatched. This
+is a conservative, audited shift-evidence filter.
+
+### One-to-one assignment and ambiguity gate
+
+Candidate edges are considered as a bipartite graph. A connected component with
+more than one GT stem or more than one predicted stem is not forced into an
+arbitrary match: all involved stems receive `complex_mismatch` with an
+ambiguous-component annotation. This prevents merged/split stems from being
+contaminated by shift or boundary labels. Isolated one-GT/one-predicted-stem
+components are the eligible one-to-one matches. If a future eligible component
+has multiple edges, select a maximum-weight assignment with lexicographic
+objective: maximize total exact overlap, then total minimum arm overlap, then
+number of matched edges, then minimize pair-union size; ties are broken by the
+lexicographically smallest sorted `(gt.outer_pair, predicted.outer_pair)` list.
+
+Within an eligible isolated match, category precedence is exact, then
+truncation/extension, then shift, then complex mismatch. The component
+ambiguity gate precedes this per-edge precedence.
+
+### Primary states
+
+* `exact`: GT pair set equals predicted pair set.
+* `stem_truncation`: predicted pair set is a strict subset of GT's pair set
+  on the same register. Missing pairs may be described as outer-end,
+  inner-end, or both-end according to which ends of the ordered chain are
+  absent; a non-contiguous subset is not rescued as truncation.
+* `stem_extension`: GT pair set is a strict subset of the predicted pair set
+  on the same register. Added pairs may analogously be outer-end, inner-end,
+  or both-end.
+* `stem_shift`: an eligible isolated match with zero exact pair overlap,
+  non-zero register displacement, and the bilateral arm-overlap filter above.
+  It therefore requires positive evidence of the same local helix in a changed
+  pairing register, rather than being a residual “not otherwise classified”.
+* `complex_mismatch`: an isolated candidate with overlap that is neither exact
+  nor a strict subset/superset (for example, a shared middle run with one GT
+  boundary removed and a different predicted boundary added), or any stem in
+  an ambiguous candidate component.
+* `stem_missing`: a GT stem with no candidate edge and not part of an ambiguous
+  component. A confidently shifted candidate is therefore not called missing.
+* `unmatched_predicted_stem`: a predicted stem with no candidate edge and not
+  part of an ambiguous component. It is not automatically an extension.
+
+Examples: `(10,40),(11,39),(12,38),(13,37)` versus
+`(11,40),(12,39),(13,38)` is a shift (bilateral overlap and register delta
+`+1`); versus `(11,41),(12,40),(13,39),(14,38)` is also a shift (delta `+2`).
+The shared-register case `(11,39),(12,38),(13,37),(14,36)` is
+`complex_mismatch`, not shift, because it has overlap but is neither subset nor
+superset. Crossing stems are processed independently and receive no
+pseudoknot-specific rule.
+
+This protocol is provenance-preserving infrastructure, not a biological claim.
+Stem-level extraction, long-range and pseudoknot-specific analysis, biological
+interpretation, and refiner labels remain deferred.
+
 ## Deferred Taxonomy
 
 This document does not define or extract:
 
-- stems or `stem_missing`, `stem_truncation`, `stem_extension`, `stem_shift`;
+- implementation of the frozen stem matching/error states and final counts;
 - long-range pairs or sequence-separation bins;
 - pseudoknot-specific errors or metrics;
 - biological or causal interpretations of any error relation.
