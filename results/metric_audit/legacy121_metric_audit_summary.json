@@ -1,0 +1,172 @@
+{
+  "compatible_mismatch_details": [],
+  "compatible_mismatches": 0,
+  "compatible_sources": 0,
+  "dataset": "legacy121_v1",
+  "direct_numerical_comparisons_performed": 0,
+  "frozen_shared_baseline": {
+    "petfold": {
+      "macro_f1": 0.8968492212485739,
+      "macro_precision": 0.8952556023530504,
+      "macro_recall": 0.9077787598919441,
+      "micro_f1": 0.8656804733727811,
+      "micro_precision": 0.8585680751173709,
+      "micro_recall": 0.8729116945107399,
+      "n_samples": 121,
+      "sum_fn": 213,
+      "sum_fp": 241,
+      "sum_tp": 1463
+    },
+    "rnafold": {
+      "macro_f1": 0.9058176119079561,
+      "macro_precision": 0.9069374161618192,
+      "macro_recall": 0.9138670306547281,
+      "micro_f1": 0.8744434550311665,
+      "micro_precision": 0.8700531600708801,
+      "micro_recall": 0.8788782816229117,
+      "n_samples": 121,
+      "sum_fn": 203,
+      "sum_fp": 220,
+      "sum_tp": 1473
+    },
+    "trrosettarna2_native_ss": {
+      "macro_f1": 0.8428713642132949,
+      "macro_precision": 0.7905636556834104,
+      "macro_recall": 0.9120849106151278,
+      "micro_f1": 0.8187167273746148,
+      "micro_precision": 0.7717908082408875,
+      "micro_recall": 0.8717183770883055,
+      "n_samples": 121,
+      "sum_fn": 215,
+      "sum_fp": 432,
+      "sum_tp": 1461
+    }
+  },
+  "generated_at_utc": "2026-08-27T03:03:44Z",
+  "genuinely_compatible_historical_metric_source_exists": false,
+  "historical_native_threshold_audit": {
+    "audit_reconstructed_historical_micro_not_reported_by_source": {
+      "f1": 0.8841078600114745,
+      "precision": 0.8013520540821633,
+      "recall": 0.9859245041586693,
+      "sum_fn": 22,
+      "sum_fp": 382,
+      "sum_tp": 1541
+    },
+    "excluded_by_length_filter": [
+      "2N1Q_155_4wj_nmr_A",
+      "9G7C_224_4wj_cryoEM_A"
+    ],
+    "historical_gt_pair_sets_equal_normalized": 119,
+    "historical_macro_from_stored_rounded_samples": {
+      "f1": 0.8836621848739498,
+      "mcc": 0.8882033613445375,
+      "precision": 0.8064344537815126,
+      "recall": 0.9893831932773111
+    },
+    "sample_count": 119,
+    "sample_ids_all_in_legacy121_v1": true,
+    "shared_macro_on_same_119_ids": {
+      "f1": 0.845552675656655,
+      "precision": 0.7902522732732002,
+      "recall": 0.9169177947954359
+    },
+    "stored_metric_rows_reproduced": {
+      "f1": 119,
+      "precision": 119,
+      "recall": 119
+    },
+    "threshold_pair_counts_equal_historical_dbn": 62,
+    "threshold_pair_sets_equal_historical_dbn": 60,
+    "threshold_samples_with_multiple_partners": 57
+  },
+  "historical_source_sha256": {
+    "/root/autodl-tmp/models/trRosettaRNA2/data/nmr_f1_top1_matrices/nmr_f1_top1_summary.csv": "9f920063bf233a546efe4be02df64bb83867b8fd5a6505f8144d3e05c1f68bf0",
+    "/root/autodl-tmp/models/trRosettaRNA2/data/nmr_f1_top1_matrices/run.log": "97f55a8883be78fc5e1988e49f554e1e67d2ba37b708e02cf5f2e4e51611a5e0",
+    "/root/autodl-tmp/models/trRosettaRNA2/reports/\u5b9e\u9a8c\u603b\u7ed3_20260516-0703.md": "23fce94a9ecf116d98a8cd637d915bc49e96e21bdaf9508298028475f86814f0",
+    "/root/autodl-tmp/models/trRosettaRNA2/results/nmr_f1_stratified.csv": "43ce848cb6a5e2b7900fcd880cd802e99e0f9453b2c8a033474a1fb97d97a907",
+    "/root/autodl-tmp/models/trRosettaRNA2/results/ss_quality_vs_3d.csv": "ad0b49b54476012e2e58f70ebe267c01ef6ff6f324d78c99e8bfd2585f1bb423",
+    "/root/autodl-tmp/models/trRosettaRNA2/scripts/evaluate/eval_nmr_f1.py": "333fbb016b799354946ee0b39cb308a5ba84423d7c5b2f17a6a603fd16e76c7b",
+    "/root/autodl-tmp/models/trRosettaRNA2/scripts/plot_step_figures.py": "c9e7cd07b5572c83b3ebb53fbf77f67d9ad653739a3070693b4aedf082b037ee",
+    "/root/autodl-tmp/models/trRosettaRNA2/scripts/tools/ss_quality_analysis.py": "b17cb2d77e5ae7c82bd0be4294ce3fcbd6fe109c5ef1bb53f8606bf38de4ab0f"
+  },
+  "historical_sources_found": 2,
+  "incompatible_sources": 1,
+  "mcc_implemented_or_added_to_shared_evaluator": false,
+  "mcc_recomputed_by_audit": false,
+  "new_predictor_inference_performed": false,
+  "nmr_derived_topology_audit": {
+    "all_successful_precision_values_equal_one": true,
+    "failed_gt_only_rows": [
+      "8Q4O_23_g4_nmr",
+      "8TNS_24_g4_nmr"
+    ],
+    "gt_pair_counts_equal_shared": 121,
+    "historical_macro_from_stored_samples": {
+      "f1": 0.9626252809917356,
+      "precision": 1.0,
+      "recall": 0.9355494628099174
+    },
+    "nominal_single_chain_rows": 123,
+    "original_generator_script_found": false,
+    "referenced_original_output_root_exists": false,
+    "successful_ids_equal_legacy121_v1": true,
+    "successful_single_chain_rows": 121
+  },
+  "normalized_input_path": "/root/autodl-tmp/rna-ccfa/normalized/legacy121_v1/predictions.jsonl",
+  "normalized_input_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "normalized_input_unchanged": true,
+  "partially_compatible_sources": 1,
+  "phase0_audit_pass_reason": "Systematic read-only search completed; all relevant retained metric-source bundles were classified and documented, and no unsupported reproduction-failure claim was made.",
+  "phase0_audit_passed": true,
+  "search_scope": {
+    "artifact_types": [
+      "scripts",
+      "CSV/TSV/JSON tables",
+      "logs",
+      "notebooks",
+      "Markdown/HTML reports",
+      "presentation/PDF filenames and derivative source notes"
+    ],
+    "dependency_and_environment_trees_excluded_after_screening": true,
+    "read_only": true,
+    "root": "/root/autodl-tmp",
+    "search_terms": [
+      "RNAfold",
+      "PETfold",
+      "trRosettaRNA2/native SS",
+      "Legacy/RNA-Puzzles/NMR 121/123",
+      "Precision/Recall/F1/MCC/base-pair metrics"
+    ]
+  },
+  "source_classifications": [
+    {
+      "compatibility": "PARTIALLY_COMPATIBLE",
+      "primary_path": "/root/autodl-tmp/models/trRosettaRNA2/results/ss_quality_vs_3d.csv",
+      "source_id": "trrna2_native_threshold_ss_quality_bundle",
+      "supporting_paths": [
+        "/root/autodl-tmp/models/trRosettaRNA2/scripts/tools/ss_quality_analysis.py",
+        "/root/autodl-tmp/models/trRosettaRNA2/reports/\u5b9e\u9a8c\u603b\u7ed3_20260516-0703.md",
+        "/root/autodl-tmp/models/trRosettaRNA2/scripts/plot_step_figures.py"
+      ]
+    },
+    {
+      "compatibility": "INCOMPATIBLE",
+      "primary_path": "/root/autodl-tmp/models/trRosettaRNA2/data/nmr_f1_top1_matrices/nmr_f1_top1_summary.csv",
+      "source_id": "nmr_derived_topology_f1_bundle",
+      "supporting_paths": [
+        "/root/autodl-tmp/models/trRosettaRNA2/data/nmr_f1_top1_matrices/run.log",
+        "/root/autodl-tmp/models/trRosettaRNA2/scripts/evaluate/eval_nmr_f1.py",
+        "/root/autodl-tmp/models/trRosettaRNA2/results/nmr_f1_stratified.csv"
+      ]
+    }
+  ],
+  "unknown_sources": 0,
+  "unresolved_items": [
+    "No historical Legacy121 secondary-structure metric result or evaluation script was found for RNAfold or PETfold.",
+    "The current ss_quality_analysis.py was modified after the stored CSV and writes to benchmark_results/ while the observed table is under results/; the audited metric logic nevertheless reproduces all 119 stored rounded metric rows.",
+    "The historical threshold decoder's tie/conflict resolution is absent because it did not enforce one partner per nucleotide; the separate historical DBN decoder identity and settings remain unknown.",
+    "The historical report labels the F1 stratification as 119 samples but its printed bin counts sum to 120 (it lists 14 rather than the CSV-derived 13 in the 0.7-0.8 bin).",
+    "The NMR topology generator script and its referenced /root/autodl-tmp/NMR_secondary outputs are absent, so candidate-selection and exact pair-matching details cannot be fully reconstructed from the retained summary alone."
+  ]
+}

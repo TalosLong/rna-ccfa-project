@@ -16,7 +16,7 @@
 - [x] Build normalized Legacy121 v1 prediction records from the frozen manifest without rerunning predictors.
 - [x] Re-evaluate at least three runnable source predictors with the shared evaluator.
 - [x] Save per-sample baseline metrics in a machine-readable table.
-- [ ] Document every mismatch between reproduced and existing benchmark metrics before continuing.
+- [x] Document every mismatch between reproduced and existing benchmark metrics before continuing.
 
 ## P1 — Next
 

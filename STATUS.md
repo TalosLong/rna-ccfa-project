@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Project definition + Phase 0 setup.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level error analysis is next.
 
 当前论文方向：
 
@@ -29,12 +29,14 @@ Last updated: 2026-08-27
 - [x] 冻结 Legacy121 v1 sample/ID protocol：121 个 primary sequence rows 全部具备 sequence、GT、三个历史 2D prediction 与 trRosettaRNA2 pair-score NPZ，并通过 canonical parser 和长度校验；两条 GT-only records 被保留但明确排除。
 - [x] 完成 Legacy121 v1 normalization：从冻结 manifest 生成 363 条 schema-v1 records，363/363 有效；121 个 trRosettaRNA2 normalized pair-score sidecars 仅对副本执行 `set_diagonal_to_zero`，原始 NPZ 哈希保持不变，off-diagonal 最大绝对变化为 0。
 - [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
+- [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records 及三个 source predictor 的 infrastructure baseline 已完成；下一项为 historical metric mismatch audit。
+- Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
+- Phase 1 尚未开始；下一项仅为 pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` analysis。
 
 ## Current Findings
 
@@ -63,6 +65,25 @@ baseline，不是 refinement 结果或 paper-level performance claim。
 全部 363 条 records 的输入不变量、count identities、pair-partition 完整性和
 metric finite/range checks 均通过。MCC 与 pseudoknot-specific metrics 仍按协议暂缓。
 
+### Legacy121 historical metric audit
+
+对 `/root/autodl-tmp` 内的历史脚本、结果表、日志和报告进行了系统的
+read-only 检索。共识别 2 个需要审计的历史 metric source bundles：
+
+- trRosettaRNA2 native threshold SS quality：`PARTIALLY_COMPATIBLE`。它对 119 条
+  Legacy121 RNA 使用一致 GT 与 exact-pair scoring，但排除了 2 条长度超过
+  150 nt 的 RNA，并将 raw NPZ 以 `>0.5` 阈值重新解码，而非评估冻结的历史
+  DBN pairs。审计脚本精确复现了其 119 条 stored rounded P/R/F1
+  数值；历史 MCC 仅作清单记录而未重算。这些数值与 shared baseline 的差异不被定义为
+  reproduction failure。
+- NMR-derived topology F1：`INCOMPATIBLE`。其 121 条成功的 single-chain IDs
+  与 Legacy121 匹配，但 prediction 是 NMR-derived selected topology，不是 RNAfold、
+  PETfold 或 trRosettaRNA2 native SS。
+
+未发现真正 `COMPATIBLE` 的历史指标源，因此 compatible numerical comparisons 和
+compatible mismatches 均为 0。详细证据、兼容性轴和未解项记录在
+`docs/legacy121_metric_reproduction_audit.md`。冻结 shared evaluator 未修改，MCC 仍暂缓。
+
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
 ## Blockers
@@ -80,7 +101,7 @@ metric finite/range checks 均通过。MCC 与 pseudoknot-specific metrics 仍�
 
 ## Immediate Next Steps
 
-1. Audit reproduced Legacy121 baseline metrics against any existing historical benchmark metrics / scripts and document every compatible mismatch before P1.
+1. Phase 1 — Pair-level error analysis: `missing_pair` / `false_positive_pair` / `wrong_partner`.
 
 ## Open Questions
 
