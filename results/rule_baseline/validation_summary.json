@@ -1,0 +1,105 @@
+{
+  "dataset": "legacy121_v1",
+  "edit_log_rows": 666,
+  "evaluation_definition": {
+    "implementation": "rna_ccfa.metrics.evaluate_pairs",
+    "pair_equality": "exact canonical pair equality",
+    "pair_scores_used": false,
+    "predictor_inference_run": false,
+    "pseudoknot_specific_logic_used": false,
+    "refined_structures_persisted": false,
+    "rule_implementation": "rna_ccfa.rule_refinement.refine_prediction",
+    "statistical_tests_run": false
+  },
+  "expected_records": 363,
+  "generated_at_utc": "2026-08-27T08:31:01Z",
+  "invariant_checks": {
+    "all_deletion_accounting_identities_passed": true,
+    "all_deletions_from_immutable_original_snapshot": true,
+    "all_deletions_unique_per_record_condition": true,
+    "all_metrics_finite_and_bounded": true,
+    "all_original_predictions_valid": true,
+    "all_post_edit_predictions_valid": true,
+    "frozen_observable_trigger_counts_reproduced": true,
+    "frozen_original_counts_reproduced": true,
+    "normalized_dataset_invariants_passed": true,
+    "normalized_input_unchanged": true,
+    "only_preregistered_conditions_evaluated": true
+  },
+  "model_condition_summary_rows": 18,
+  "normalized_input_path": "/root/autodl-tmp/rna-ccfa/normalized/legacy121_v1/predictions.jsonl",
+  "normalized_input_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "null_encoding": {
+    "csv": "empty field",
+    "json": "null",
+    "undefined_when": [
+      "edit fractions when modified_pair_count == 0",
+      "correct_pair_preservation_rate when TP_before == 0"
+    ]
+  },
+  "observable_trigger_counts_by_model_condition": {
+    "petfold": {
+      "ORIGINAL": 0,
+      "R1": 10,
+      "R1_R2": 78,
+      "R1_R3": 10,
+      "R2": 68,
+      "R3": 0
+    },
+    "rnafold": {
+      "ORIGINAL": 0,
+      "R1": 13,
+      "R1_R2": 85,
+      "R1_R3": 13,
+      "R2": 72,
+      "R3": 0
+    },
+    "trrosettarna2_native_ss": {
+      "ORIGINAL": 0,
+      "R1": 63,
+      "R1_R2": 107,
+      "R1_R3": 83,
+      "R2": 44,
+      "R3": 20
+    }
+  },
+  "original_counts_by_model": {
+    "petfold": {
+      "fn": 213,
+      "fp": 241,
+      "tp": 1463
+    },
+    "rnafold": {
+      "fn": 203,
+      "fp": 220,
+      "tp": 1473
+    },
+    "trrosettarna2_native_ss": {
+      "fn": 215,
+      "fp": 432,
+      "tp": 1461
+    }
+  },
+  "per_sample_metric_rows": 2178,
+  "preregistered_conditions": [
+    "ORIGINAL",
+    "R1",
+    "R2",
+    "R3",
+    "R1_R2",
+    "R1_R3"
+  ],
+  "records_by_model": {
+    "petfold": 121,
+    "rnafold": 121,
+    "trrosettarna2_native_ss": 121
+  },
+  "schema_version": "rna-ccfa.normalized_prediction.v1",
+  "unique_rna_ids": 121,
+  "validated_records": 363,
+  "warnings": [
+    "Legacy121 was used for Phase 1 characterization; this is a pilot/feasibility evaluation.",
+    "R3 trigger coverage is source-skewed and must not be described as model-agnostic evidence.",
+    "Undefined per-sample fractions are not replaced with zero in aggregation."
+  ]
+}

@@ -40,13 +40,13 @@
 ### Rule-Based Baseline
 
 - [x] Write a minimal rule-based refinement specification before implementation.
-- [ ] Implement incompatible-pair conflict detection.
-- [ ] Implement isolated-pair handling only if included in the written baseline specification.
+- [x] Implement incompatible-pair conflict detection.
+- [x] Implement isolated-pair handling only if included in the written baseline specification.
 - [ ] Add pair-confidence filtering for predictors that expose confidence values.
-- [ ] Log every rule-based edit with RNA ID, original state, new state, triggering rule, and confidence if available.
-- [ ] Evaluate Original vs Rule-based using the shared evaluator.
-- [ ] Compute the fraction of rule edits that fix errors.
-- [ ] Compute the fraction of rule edits that destroy correct pairs.
+- [x] Log every rule-based edit with RNA ID, original state, new state, triggering rule, and confidence if available.
+- [x] Evaluate Original vs Rule-based using the shared evaluator.
+- [x] Compute the fraction of rule edits that fix errors.
+- [x] Compute the fraction of rule edits that destroy correct pairs.
 
 ### Selective Refiner
 
@@ -102,8 +102,8 @@
 - [ ] Produce performance by RNA length after final datasets are fixed.
 - [ ] Produce performance by pair sequence separation.
 - [ ] Produce pseudoknot-specific analysis only after representation/evaluator validation.
-- [ ] Count edits per RNA for each refiner.
-- [ ] Compute beneficial/neutral/harmful edit ratios.
+- [x] Count edits per RNA for each evaluated rule-baseline condition.
+- [x] Compute beneficial/harmful rule-edit ratios; deletion-only v1 has no neutral edit partition.
 - [ ] Compare selective versus non-selective edit behavior.
 - [ ] Compare model-specific versus cross-model refinement.
 - [ ] Plot performance versus evidence density.

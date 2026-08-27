@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 mainline error analysis and consolidation complete for Legacy121 v1. Pseudoknot-aware analysis is deferred to a separate PK-capable predictor side track. The Phase 2 minimal rule-based baseline specification is frozen; implementation and evaluation have not started.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. Pseudoknot-aware analysis remains a separate side track; learned selective-refiner implementation has not started.
 
 当前论文方向：
 
@@ -36,6 +36,7 @@ Last updated: 2026-08-27
 - [x] 完成 Legacy121 v1 pair sequence-separation analysis：从 121 个唯一 GT structures 冻结 relative-separation Q25/Q50/Q75/Q90 bins，保留 raw separation 作为次级变量，并完成 pair、wrong-partner 与 stem-state linkage 描述性汇总。
 - [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
 - [x] 冻结 Phase 2 minimal rule-based baseline v1：primary rules 仅使用 sequence + original predicted pair/stem/singleton features，预注册 R1 singleton deletion、R2 two-pair-stem cleanup、R3 narrow outer-terminal trimming 及两个有科学目的的组合；未实现或评估 edits。
+- [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
 
 ## Running / In Progress
 
@@ -45,13 +46,14 @@ Last updated: 2026-08-27
 - Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
-- Phase 2 specification 已冻结，rule implementation 与 Legacy121 pilot evaluation 尚未开始。
+- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；下一阶段 learned selective-refiner 仍需先冻结 leakage-safe protocol 与 evaluation design。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 
 ## Current Findings
 
-当前已确认的 empirical results 仅限以下 Phase 0 infrastructure audit、
-Legacy121 v1 baseline 与 Phase 1 pair/stem-level descriptive counts；尚无 refinement empirical finding。
+当前已确认的 empirical results 包括 Phase 0 infrastructure、Legacy121 v1 baseline、
+Phase 1 pair/stem descriptive analysis，以及下面明确标注为 pilot/feasibility 的
+Phase 2 rule-baseline findings。
 
 Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
 trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
@@ -210,6 +212,38 @@ Read-only observable audit 中，R1 trigger counts 为 RNAfold/PETfold/trRosetta
 全量 non-Watson-Crick/wobble cleanup、generic AU/GU trimming、confidence filtering、
 wrong-partner reassignment 与 missing-stem addition 均未进入 primary v1。
 
+### Legacy121 Phase 2 rule-baseline pilot
+
+以下为同一 Legacy121 数据上的 feasibility pilot，不是 independent generalization
+或 paper-level result。所有 triggers 仅使用 sequence 与 immutable original
+prediction snapshot；GT 只用于 edit 后的 beneficial/harmful annotation 和 shared
+evaluation。
+
+| Model | Condition | Beneficial / Harmful | Benefit fraction | Macro ΔF1 | Micro ΔF1 | TP preservation |
+| --- | --- | ---: | ---: | ---: | ---: | ---: |
+| RNAfold | R1 | 6 / 7 | 0.4615 | -0.001426 | -0.000784 | 0.995248 |
+| RNAfold | R2 | 31 / 41 | 0.4306 | -0.009184 | -0.005775 | 0.972166 |
+| RNAfold | R3 | 0 / 0 | undefined | 0 | 0 | 1.000000 |
+| RNAfold | R1_R3 | 6 / 7 | 0.4615 | -0.001426 | -0.000784 | 0.995248 |
+| PETfold | R1 | 8 / 2 | 0.8000 | +0.001454 | +0.001382 | 0.998633 |
+| PETfold | R2 | 35 / 33 | 0.5147 | -0.005812 | -0.002154 | 0.977444 |
+| PETfold | R3 | 0 / 0 | undefined | 0 | 0 | 1.000000 |
+| PETfold | R1_R3 | 8 / 2 | 0.8000 | +0.001454 | +0.001382 | 0.998633 |
+| trRosettaRNA2 | R1 | 49 / 14 | 0.7778 | +0.002495 | +0.006725 | 0.990418 |
+| trRosettaRNA2 | R2 | 26 / 18 | 0.5909 | -0.004276 | +0.000007 | 0.987680 |
+| trRosettaRNA2 | R3 | 20 / 0 | 1.0000 | +0.002325 | +0.004614 | 1.000000 |
+| trRosettaRNA2 | R1_R3 | 69 / 14 | 0.8313 | +0.004894 | +0.011461 | 0.990418 |
+
+R1/R3 提供 limited, source-dependent useful signal：PETfold R1 与
+trRosettaRNA2 R1/R3/R1_R3 同时提高 macro/micro F1；RNAfold 没有 useful
+condition。R3 的 20/20 beneficial edits 仅出现在 trRosettaRNA2 的 17 个 RNAs，
+RNAfold/PETfold 均为 zero coverage，不能形成 shared/model-agnostic claim。R2
+在三个模型均降低 macro F1，确认其 high-risk baseline 定位；trRosettaRNA2 R2
+出现 macro negative、micro 近零 positive 的 aggregation divergence。结果支持继续
+冻结 learned selective-refiner protocol，但不证明 signal learnable、可泛化或具备
+cross-dataset effectiveness。完整 18 条 condition 表见
+`docs/phase2_rule_baseline_results.md`。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
@@ -224,7 +258,7 @@ wrong-partner reassignment 与 missing-stem addition 均未进入 primary v1。
 
 ## Immediate Next Steps
 
-1. Implement the frozen minimal rule-based refinement baseline and run Legacy121 pilot evaluation.
+1. Freeze a leakage-safe learned selective-refiner protocol and independent evaluation design before implementation.
 
 ## Open Questions
 
