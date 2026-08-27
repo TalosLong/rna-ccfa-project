@@ -417,3 +417,44 @@ bounded, symmetric, and zero-diagonal; and prove exact preservation of every
 off-diagonal value. This is a provenance-preserving representation
 normalization. It does not modify or reinterpret the historical model outputs,
 and it does not authorize baseline metric evaluation.
+
+---
+
+## Discussion — Use GT-only relative quantiles for Legacy121 pair-separation bins
+
+### Decision
+
+**Confirmed / 已确定 for Legacy121 v1 descriptive analysis**
+
+Define raw pair separation as `j-i` and relative separation as
+`(j-i)/(L-1)`. Use the 121 unique GT structures—not predictions or error
+distributions—to set relative-separation thresholds at Q25, Q50, Q75, and Q90:
+
+```text
+0.25, 0.5142857142857142, 0.8, 0.9333333333333333
+```
+
+The Legacy121 v1 long-range descriptive stratum is relative separation greater
+than the GT-only Q90 threshold.
+
+### Reason
+
+The raw `>Q90=54 nt` tail contains 166 pairs but is concentrated in only 20
+RNAs. The relative `>Q90` tail contains 167 pairs across 100 RNAs, reducing
+length-driven concentration while preserving enough observations for
+descriptive estimates. Thresholds were selected without reference to model
+performance or error contrasts.
+
+### Alternatives Considered
+
+- raw-separation Q25/Q50/Q75/Q90 bins;
+- a hybrid relative-Q90 plus raw-Q50 gate;
+- rounded fixed relative thresholds.
+
+### Consequence
+
+Legacy121 pair-error summaries use the frozen relative bins, with raw
+separation retained as a secondary variable. TP rows appearing in both GT and
+prediction roles are counted once in summaries. These thresholds are dataset
+specific and must be validated or refit from GT-only data before cross-dataset
+use; they are not universal biological constants.

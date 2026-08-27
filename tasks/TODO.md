@@ -26,8 +26,8 @@
 - [x] Define a deterministic stem extraction procedure in `docs/error_taxonomy_v1.md`.
 - [x] Define operational criteria for `stem_missing`, `stem_truncation`, `stem_extension`, and `stem_shift`.
 - [x] Implement stem-level error extraction after definitions are frozen.
-- [ ] Add `abs(i-j)` sequence separation to every true/predicted pair record.
-- [ ] Produce long-range error summaries using bins chosen from the current data distribution.
+- [x] Add `abs(i-j)` sequence separation to every true/predicted pair record.
+- [x] Produce long-range error summaries using bins chosen from the current data distribution.
 - [ ] Verify whether pseudoknot representation is consistent across selected predictors/datasets.
 - [ ] If valid, implement pseudoknot-specific pair metrics; otherwise explicitly defer them.
 - [ ] Produce `results/error_analysis/error_summary_by_model.csv`.

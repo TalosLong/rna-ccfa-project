@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy, strict-stem infrastructure, and deterministic stem matching/error taxonomy protocol complete. Stem-level extraction remains deferred.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair/stem taxonomy and extraction plus GT-driven pair sequence-separation analysis complete. Pseudoknot representation consistency remains unaudited.
 
 当前论文方向：
 
@@ -33,6 +33,7 @@ Last updated: 2026-08-27
 - [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
 - [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留。
 - [x] 冻结并实现 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录并在 Legacy121 上完成描述性抽取。
+- [x] 完成 Legacy121 v1 pair sequence-separation analysis：从 121 个唯一 GT structures 冻结 relative-separation Q25/Q50/Q75/Q90 bins，保留 raw separation 作为次级变量，并完成 pair、wrong-partner 与 stem-state linkage 描述性汇总。
 
 ## Running / In Progress
 
@@ -40,7 +41,7 @@ Last updated: 2026-08-27
 - Git / Codex 项目上下文整理。
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
 - Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
-- Phase 1 strict-stem infrastructure 已完成；stem matching/error taxonomy 已冻结，但 extraction、long-range 和 pseudoknot-specific analysis 尚未开始。
+- Phase 1 strict-stem infrastructure、stem matching/error extraction 与 data-driven long-range analysis 已完成；pseudoknot-specific representation audit 尚未开始。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 
 ## Current Findings
@@ -148,6 +149,24 @@ examples 见 `docs/stem_matching_protocol_audit.md`。
 `stem_shift` 为 10，另有 1 个 zero-overlap shift candidate 位于 ambiguous
 component，因此未计入 shift。上述结果仅为描述性 taxonomy counts，不作生物学原因解释。
 
+### Legacy121 v1 pair sequence-separation analysis
+
+GT-only distribution 使用 121 个唯一 structures、1676 个 pairs，不按三个 predictor
+重复计数。raw separation 的 min/Q10/Q25/median/Q75/Q90/Q95/max 为
+3/7/11/20/32/54/72/221 nt；relative separation 对应为
+0.01794/0.13433/0.25/0.51429/0.8/0.93333/1/1。
+
+主分箱采用 GT-only relative Q25/Q50/Q75/Q90，五个 bins 的 GT pair counts 为
+428/412/418/251/167。冻结 long-range stratum 为
+`relative_separation > 0.9333333333333333`，包含 167 pairs（9.9642%）并覆盖
+100/121 RNAs。相比之下，raw `>Q90=54 nt` 的上尾仅覆盖 20 RNAs，因此未选为主定义。
+
+在最高 relative-separation bin，RNAfold、PETfold、trRosettaRNA2 native SS 的
+TP/FP/FN 分别为 167/6/0、167/5/0、167/15/0；对应 FP 仅占各模型全部 FP 的
+2.73%、2.07%、3.47%。三个模型的 FN 均主要位于较低 bins，而非最高 bin。
+wrong-partner events 在最高 bin 分别为 0、0、10。以上仅说明 Legacy121 v1
+的描述性集中模式，不推断生物学难度或因果机制。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
@@ -162,14 +181,13 @@ component，因此未计入 shift。上述结果仅为描述性 taxonomy counts�
 
 ## Immediate Next Steps
 
-1. Analyze pair sequence separation and define data-driven long-range bins.
+1. Audit pseudoknot representation consistency before deciding whether pseudoknot-specific metrics are valid.
 
 ## Open Questions
 
 - 第一版选哪 3-5 个 predictor？
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
-- stem-level extractor 如何在后续任务中实现并导出结果？
 - pseudoknot 是否纳入 refiner v1？
 - rule-based baseline 应该做到什么强度？
 - selective refiner v1 用什么最小架构？

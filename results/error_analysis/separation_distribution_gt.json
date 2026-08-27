@@ -1,0 +1,167 @@
+{
+  "candidate_binning_strategies": {
+    "hybrid_relative_q90_and_raw_q50_long_range": {
+      "gt_pair_count": 157,
+      "gt_pair_fraction": 0.09367541766109785,
+      "raw_threshold_exclusive": 20.0,
+      "relative_threshold_exclusive": 0.9333333333333333,
+      "rna_count": 90
+    },
+    "raw_gt_quantiles": {
+      "bins": [
+        {
+          "bin_index": 0,
+          "gt_pair_count": 438,
+          "lower_exclusive": null,
+          "rna_count": 115,
+          "upper_inclusive": 11.0
+        },
+        {
+          "bin_index": 1,
+          "gt_pair_count": 433,
+          "lower_exclusive": 11.0,
+          "rna_count": 116,
+          "upper_inclusive": 20.0
+        },
+        {
+          "bin_index": 2,
+          "gt_pair_count": 387,
+          "lower_exclusive": 20.0,
+          "rna_count": 98,
+          "upper_inclusive": 32.0
+        },
+        {
+          "bin_index": 3,
+          "gt_pair_count": 252,
+          "lower_exclusive": 32.0,
+          "rna_count": 52,
+          "upper_inclusive": 54.0
+        },
+        {
+          "bin_index": 4,
+          "gt_pair_count": 166,
+          "lower_exclusive": 54.0,
+          "rna_count": 20,
+          "upper_inclusive": null
+        }
+      ],
+      "threshold_quantiles": [
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "thresholds": [
+        11.0,
+        20.0,
+        32.0,
+        54.0
+      ]
+    },
+    "relative_gt_quantiles": {
+      "bins": [
+        {
+          "bin_index": 0,
+          "gt_pair_count": 428,
+          "lower_exclusive": null,
+          "rna_count": 92,
+          "upper_inclusive": 0.25
+        },
+        {
+          "bin_index": 1,
+          "gt_pair_count": 412,
+          "lower_exclusive": 0.25,
+          "rna_count": 116,
+          "upper_inclusive": 0.5142857142857142
+        },
+        {
+          "bin_index": 2,
+          "gt_pair_count": 418,
+          "lower_exclusive": 0.5142857142857142,
+          "rna_count": 116,
+          "upper_inclusive": 0.8
+        },
+        {
+          "bin_index": 3,
+          "gt_pair_count": 251,
+          "lower_exclusive": 0.8,
+          "rna_count": 107,
+          "upper_inclusive": 0.9333333333333333
+        },
+        {
+          "bin_index": 4,
+          "gt_pair_count": 167,
+          "lower_exclusive": 0.9333333333333333,
+          "rna_count": 100,
+          "upper_inclusive": null
+        }
+      ],
+      "threshold_quantiles": [
+        0.25,
+        0.5,
+        0.75,
+        0.9
+      ],
+      "thresholds": [
+        0.25,
+        0.5142857142857142,
+        0.8,
+        0.9333333333333333
+      ]
+    }
+  },
+  "chosen_protocol": {
+    "bin_labels": [
+      "relative_q00_q25",
+      "relative_q25_q50",
+      "relative_q50_q75",
+      "relative_q75_q90",
+      "relative_q90_q100_long_range"
+    ],
+    "boundary_rule": "lower_exclusive_upper_inclusive; final bin is > q90",
+    "long_range_definition": "relative_separation > GT-only Q90",
+    "long_range_gt_pair_count": 167,
+    "long_range_gt_pair_fraction": 0.09964200477326969,
+    "long_range_rna_count": 100,
+    "long_range_threshold_exclusive": 0.9333333333333333,
+    "primary_variable": "relative_separation",
+    "threshold_quantiles": [
+      0.25,
+      0.5,
+      0.75,
+      0.9
+    ],
+    "thresholds": [
+      0.25,
+      0.5142857142857142,
+      0.8,
+      0.9333333333333333
+    ]
+  },
+  "dataset": "legacy121_v1",
+  "gt_pair_count": 1676,
+  "normalized_input_path": "normalized/legacy121_v1/predictions.jsonl",
+  "normalized_input_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "quantile_method": "numpy_linear",
+  "raw_sequence_separation": {
+    "max": 221.0,
+    "median": 20.0,
+    "min": 3.0,
+    "q10": 7.0,
+    "q25": 11.0,
+    "q75": 32.0,
+    "q90": 54.0,
+    "q95": 72.0
+  },
+  "relative_separation": {
+    "max": 1.0,
+    "median": 0.5142857142857142,
+    "min": 0.017937219730941704,
+    "q10": 0.13432835820895522,
+    "q25": 0.25,
+    "q75": 0.8,
+    "q90": 0.9333333333333333,
+    "q95": 1.0
+  },
+  "unique_rna_count": 121
+}
