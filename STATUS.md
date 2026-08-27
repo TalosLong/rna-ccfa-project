@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 mainline error analysis and consolidation complete for Legacy121 v1. Pseudoknot-aware analysis is deferred to a separate PK-capable predictor side track. Phase 2 has not started.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 mainline error analysis and consolidation complete for Legacy121 v1. Pseudoknot-aware analysis is deferred to a separate PK-capable predictor side track. The Phase 2 minimal rule-based baseline specification is frozen; implementation and evaluation have not started.
 
 当前论文方向：
 
@@ -35,6 +35,7 @@ Last updated: 2026-08-27
 - [x] 冻结并实现 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录并在 Legacy121 上完成描述性抽取。
 - [x] 完成 Legacy121 v1 pair sequence-separation analysis：从 121 个唯一 GT structures 冻结 relative-separation Q25/Q50/Q75/Q90 bins，保留 raw separation 作为次级变量，并完成 pair、wrong-partner 与 stem-state linkage 描述性汇总。
 - [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
+- [x] 冻结 Phase 2 minimal rule-based baseline v1：primary rules 仅使用 sequence + original predicted pair/stem/singleton features，预注册 R1 singleton deletion、R2 two-pair-stem cleanup、R3 narrow outer-terminal trimming 及两个有科学目的的组合；未实现或评估 edits。
 
 ## Running / In Progress
 
@@ -44,7 +45,7 @@ Last updated: 2026-08-27
 - Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
-- Phase 2 尚未开始；下一任务只冻结 minimal rule-based baseline specification，不实现 edits。
+- Phase 2 specification 已冻结，rule implementation 与 Legacy121 pilot evaluation 尚未开始。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 
 ## Current Findings
@@ -192,6 +193,23 @@ Phase 1 支持“在 Legacy121 和三个 predictor 上存在 structured error pa
 3D benefit 或 cross-dataset claims。highest-separation bin 未出现 error enrichment，
 因此 long-range 不作为第一轮 rule baseline 的 shared target。
 
+### Phase 2 minimal rule baseline specification
+
+本节仅记录冻结设计，不是 refinement empirical finding。Primary baseline v1
+预注册三个 confidence-free、GT-free、deletion-only atomic rules：R1 删除 original
+predicted singleton pairs；R2 删除冻结最小长度的 two-pair strict stems，明确作为
+high-risk short-stem cleanup baseline；R3 仅在长度至少 3 的 original strict stem
+外端 pair 不属于 `AU/UA/GC/CG/GU/UG`、且 immediate inward pair 属于该集合时，
+删除最多一个 original outer pair。所有 triggers 从同一 immutable original
+snapshot 计算，不递归、不添加 pair、不重分配 partner。
+
+Read-only observable audit 中，R1 trigger counts 为 RNAfold/PETfold/trRosettaRNA2
+的 13/10/63 pairs；R2 为 36/34/22 stems（72/68/44 pairs）；R3 为
+0/0/20 stems。363 条 normalized predictions 的 multiple-partner conflicts 均为
+0。上述仅为不使用 GT 的 trigger-volume audit，不是 beneficial/harmful edit 结果。
+全量 non-Watson-Crick/wobble cleanup、generic AU/GU trimming、confidence filtering、
+wrong-partner reassignment 与 missing-stem addition 均未进入 primary v1。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
@@ -206,7 +224,7 @@ Phase 1 支持“在 Legacy121 和三个 predictor 上存在 structured error pa
 
 ## Immediate Next Steps
 
-1. Freeze the minimal rule-based refinement baseline specification.
+1. Implement the frozen minimal rule-based refinement baseline and run Legacy121 pilot evaluation.
 
 ## Open Questions
 

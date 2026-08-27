@@ -39,7 +39,7 @@
 
 ### Rule-Based Baseline
 
-- [ ] Write a minimal rule-based refinement specification before implementation.
+- [x] Write a minimal rule-based refinement specification before implementation.
 - [ ] Implement incompatible-pair conflict detection.
 - [ ] Implement isolated-pair handling only if included in the written baseline specification.
 - [ ] Add pair-confidence filtering for predictors that expose confidence values.
