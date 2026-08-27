@@ -28,22 +28,40 @@ Last updated: 2026-08-27
 - [x] 实现 exact canonical-pair shared evaluator，输出 per-sample TP/FP/FN pair sets、counts、Precision、Recall 和 F1；完成 MCC negative-universe 审计并暂缓 MCC。
 - [x] 冻结 Legacy121 v1 sample/ID protocol：121 个 primary sequence rows 全部具备 sequence、GT、三个历史 2D prediction 与 trRosettaRNA2 pair-score NPZ，并通过 canonical parser 和长度校验；两条 GT-only records 被保留但明确排除。
 - [x] 完成 Legacy121 v1 normalization：从冻结 manifest 生成 363 条 schema-v1 records，363/363 有效；121 个 trRosettaRNA2 normalized pair-score sidecars 仅对副本执行 `set_diagonal_to_zero`，原始 NPZ 哈希保持不变，off-diagonal 最大绝对变化为 0。
+- [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest 和 363 条 normalized prediction records 已完成；下一项为使用 shared evaluator 重算三个 source predictor baseline。
+- Phase 0：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records 及三个 source predictor 的 infrastructure baseline 已完成；下一项为 historical metric mismatch audit。
 
 ## Current Findings
 
-暂无本项目已确认的 empirical finding。
+当前已确认的 empirical results 仅限以下 Phase 0 infrastructure audit 与
+Legacy121 v1 baseline；尚无 refinement empirical finding。
 
 Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
 trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
 包含 pair scores。原始矩阵共有 5,038 个非零对角元素；normalized
 sidecars 的对角线全部为零，且所有 off-diagonal 值逐元素保持不变。
 这是表示层 normalization QA，不是 predictor 性能结果。
+
+### Legacy121 v1 infrastructure baseline
+
+使用 exact canonical base-pair equality 和共享的
+`rna_ccfa.metrics.evaluate_pairs`，对每个 predictor 的 121 条历史结构输出进行评估。
+Pair scores 未用于解码或评分；以下为 empirical Legacy121-v1 infrastructure
+baseline，不是 refinement 结果或 paper-level performance claim。
+
+| Predictor | Macro P | Macro R | Macro F1 | Micro P | Micro R | Micro F1 | TP | FP | FN | Median F1 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| RNAfold | 0.906937 | 0.913867 | 0.905818 | 0.870053 | 0.878878 | 0.874443 | 1473 | 220 | 203 | 0.972973 |
+| PETfold | 0.895256 | 0.907779 | 0.896849 | 0.858568 | 0.872912 | 0.865680 | 1463 | 241 | 213 | 0.947368 |
+| trRosettaRNA2 native SS | 0.790564 | 0.912085 | 0.842871 | 0.771791 | 0.871718 | 0.818717 | 1461 | 432 | 215 | 0.909091 |
+
+全部 363 条 records 的输入不变量、count identities、pair-partition 完整性和
+metric finite/range checks 均通过。MCC 与 pseudoknot-specific metrics 仍按协议暂缓。
 
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
@@ -62,7 +80,7 @@ sidecars 的对角线全部为零，且所有 off-diagonal 值逐元素保持不
 
 ## Immediate Next Steps
 
-1. 使用 shared evaluator 对 Legacy121 v1 的 RNAfold、PETfold 和 trRosettaRNA2 native SS normalized records 重算 baseline Precision/Recall/F1；本次 normalization 任务未执行该评估。
+1. Audit reproduced Legacy121 baseline metrics against any existing historical benchmark metrics / scripts and document every compatible mismatch before P1.
 
 ## Open Questions
 

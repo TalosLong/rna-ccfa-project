@@ -58,7 +58,22 @@ class PairEvaluation:
         return result
 
 
-def _metric_values(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
+def metric_values_from_counts(tp: int, fp: int, fn: int) -> tuple[float, float, float]:
+    """Return precision, recall, and F1 using the shared empty-set convention.
+
+    This is the count-level form of the metric definition used by
+    :func:`evaluate_pairs`. It exists so micro aggregation can reuse exactly
+    the same definition after summing TP, FP, and FN.
+    """
+
+    if any(
+        isinstance(value, bool) or not isinstance(value, int)
+        for value in (tp, fp, fn)
+    ):
+        raise TypeError("tp, fp, and fn must be integers")
+    if min(tp, fp, fn) < 0:
+        raise ValueError("tp, fp, and fn must be non-negative")
+
     if tp == 0 and fp == 0 and fn == 0:
         return 1.0, 1.0, 1.0
 
@@ -112,7 +127,7 @@ def evaluate_pairs(
     tp = len(true_positive_pairs)
     fp = len(false_positive_pairs)
     fn = len(false_negative_pairs)
-    precision, recall, f1 = _metric_values(tp, fp, fn)
+    precision, recall, f1 = metric_values_from_counts(tp, fp, fn)
 
     return PairEvaluation(
         tp=tp,

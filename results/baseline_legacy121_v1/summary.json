@@ -1,0 +1,111 @@
+{
+  "dataset": "legacy121_v1",
+  "evaluated_records": 363,
+  "evaluation_warnings": {
+    "normalized_input_warning_counts": {
+      "family_split_metadata_unavailable": 363,
+      "historical_model_version_unknown": 363,
+      "historical_output_unknown_decoder_settings": 363,
+      "petfold_alias_applied": 1,
+      "petfold_historical_alignment_input_unknown": 121,
+      "raw_sequence_lowercase": 363,
+      "trrna2_historical_checkpoint_identity_unknown": 121
+    },
+    "notes": [
+      "Historical model versions and decoder settings remain unknown where flagged by normalization.",
+      "Pair-score sidecars were not opened or used; historical predicted_structure.pairs were evaluated.",
+      "MCC and pseudoknot-specific metrics remain deferred by protocol."
+    ],
+    "pair_score_records_ignored": 121
+  },
+  "evaluator_definition": {
+    "empty_set_convention": "empty prediction and GT yields precision=recall=F1=1; otherwise a zero precision, recall, or F1 denominator yields 0",
+    "false_negatives": "ground_truth minus prediction",
+    "false_positives": "prediction minus ground_truth",
+    "implementation": "rna_ccfa.metrics.evaluate_pairs",
+    "macro_metrics": "arithmetic mean of 121 per-sample metric values",
+    "mcc_computed": false,
+    "micro_metrics": "sum TP/FP/FN over 121 samples before computing metrics",
+    "pair_equality": "exact",
+    "pair_representation": "canonical 0-based [i,j] with i < j",
+    "pair_scores_used": false,
+    "pseudoknot_specific_metrics_computed": false,
+    "std_f1": "population standard deviation across 121 per-sample F1 values (ddof=0)",
+    "true_positives": "prediction intersection ground_truth"
+  },
+  "expected_records": 363,
+  "generated_at_utc": "2026-08-27T02:42:05Z",
+  "invariant_checks": {
+    "all_metrics_finite_and_bounded": true,
+    "all_pairs_canonical_and_valid": true,
+    "ground_truth_pairs_consistent_per_rna": true,
+    "normalized_input_unchanged": true,
+    "pair_partitions_disjoint_and_complete": true,
+    "per_record_count_identities": true,
+    "record_count_exact": true,
+    "record_ids_unique": true,
+    "records_per_model_exact": true,
+    "sequences_consistent_per_rna": true,
+    "three_predictors_per_rna": true,
+    "unique_rna_count_exact": true
+  },
+  "normalized_input_path": "/root/autodl-tmp/rna-ccfa/normalized/legacy121_v1/predictions.jsonl",
+  "normalized_input_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "records_by_model": {
+    "petfold": 121,
+    "rnafold": 121,
+    "trrosettarna2_native_ss": 121
+  },
+  "schema_version": "rna-ccfa.normalized_prediction.v1",
+  "summaries_by_model": {
+    "petfold": {
+      "macro_f1": 0.8968492212485739,
+      "macro_precision": 0.8952556023530504,
+      "macro_recall": 0.9077787598919441,
+      "max_f1": 1.0,
+      "median_f1": 0.9473684210526315,
+      "micro_f1": 0.8656804733727811,
+      "micro_precision": 0.8585680751173709,
+      "micro_recall": 0.8729116945107399,
+      "min_f1": 0.0,
+      "n_samples": 121,
+      "std_f1": 0.16919222322881503,
+      "sum_fn": 213,
+      "sum_fp": 241,
+      "sum_tp": 1463
+    },
+    "rnafold": {
+      "macro_f1": 0.9058176119079561,
+      "macro_precision": 0.9069374161618192,
+      "macro_recall": 0.9138670306547281,
+      "max_f1": 1.0,
+      "median_f1": 0.972972972972973,
+      "micro_f1": 0.8744434550311665,
+      "micro_precision": 0.8700531600708801,
+      "micro_recall": 0.8788782816229117,
+      "min_f1": 0.0,
+      "n_samples": 121,
+      "std_f1": 0.16958044082271256,
+      "sum_fn": 203,
+      "sum_fp": 220,
+      "sum_tp": 1473
+    },
+    "trrosettarna2_native_ss": {
+      "macro_f1": 0.8428713642132949,
+      "macro_precision": 0.7905636556834104,
+      "macro_recall": 0.9120849106151278,
+      "max_f1": 1.0,
+      "median_f1": 0.9090909090909091,
+      "micro_f1": 0.8187167273746148,
+      "micro_precision": 0.7717908082408875,
+      "micro_recall": 0.8717183770883055,
+      "min_f1": 0.0,
+      "n_samples": 121,
+      "std_f1": 0.21849872746130172,
+      "sum_fn": 215,
+      "sum_fp": 432,
+      "sum_tp": 1461
+    }
+  },
+  "unique_rna_ids": 121
+}
