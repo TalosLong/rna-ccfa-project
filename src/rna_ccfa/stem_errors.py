@@ -160,7 +160,6 @@ def analyze_stem_errors(gt_pairs: Iterable[tuple[int, int]], predicted_pairs: It
     gt_stems = extract_strict_stems(gt_pairs, sequence=sequence, sequence_length=sequence_length)
     pred_stems = extract_strict_stems(predicted_pairs, sequence=sequence, sequence_length=sequence_length)
     edges, components, ambiguous_g, ambiguous_p = build_candidate_components(gt_stems, pred_stems)
-    edge_lookup = {(g, p): d for g, p, d in edges}
     isolated = [(g, p, d) for g, p, d in edges if len([x for x in edges if x[0] == g]) == 1 and len([x for x in edges if x[1] == p]) == 1 and g not in ambiguous_g and p not in ambiguous_p]
     matches = tuple(StemMatch(g, p, gt_stems[g], pred_stems[p], d, *classify_isolated_stem_match(gt_stems[g], pred_stems[p], d)) for g, p, d in sorted(isolated, key=lambda x: (gt_stems[x[0]].outer_pair, pred_stems[x[1]].outer_pair)))
     matched_g = {g for g, _, _ in isolated}

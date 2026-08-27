@@ -13,7 +13,11 @@ class StemErrorTests(unittest.TestCase):
         for pred, state, subtype in [(gt[1:], "stem_truncation", "outer"), (gt[:-1], "stem_truncation", "inner"), (gt[1:-1], "stem_truncation", "both")]:
             a = analyze_stem_errors(gt, pred, sequence_length=50)
             self.assertEqual((a.isolated_matches[0].state, a.isolated_matches[0].boundary_subtype), (state, subtype))
-        for pred, state, subtype in [(pairs(9,41,5), "stem_extension", "outer"), (pairs(10,40,5), "stem_extension", "inner")]:
+        for pred, state, subtype in [
+            (pairs(9, 41, 5), "stem_extension", "outer"),
+            (pairs(10, 40, 5), "stem_extension", "inner"),
+            (pairs(9, 41, 6), "stem_extension", "both"),
+        ]:
             a = analyze_stem_errors(gt, pred, sequence_length=50)
             self.assertEqual((a.isolated_matches[0].state, a.isolated_matches[0].boundary_subtype), (state, subtype))
         a = analyze_stem_errors(gt, gt, sequence_length=50)
@@ -36,6 +40,13 @@ class StemErrorTests(unittest.TestCase):
         self.assertEqual(len(a.ambiguous_components), 1)
         self.assertEqual(len(a.isolated_matches), 0)
 
+        gt = pairs(0, 20, 7)
+        pred = pairs(0, 20, 2) + pairs(5, 15, 2)
+        a = analyze_stem_errors(gt, pred, sequence_length=30)
+        self.assertEqual(len(a.ambiguous_components), 1)
+        self.assertEqual(len(a.ambiguous_components[0].gt_indices), 1)
+        self.assertEqual(len(a.ambiguous_components[0].pred_indices), 2)
+
     def test_crossing_and_order_independence(self):
         gt = [(1,8),(2,7),(4,11),(5,10)]
         a = analyze_stem_errors(gt, list(reversed(gt)), sequence_length=20)
@@ -48,7 +59,16 @@ class StemErrorTests(unittest.TestCase):
         pred = pairs(0,20,2) + [(31,38)]
         a = analyze_stem_errors(gt, pred, sequence_length=50)
         self.assertEqual(len(a.gt_stems), 1); self.assertEqual(len(a.predicted_stems), 1)
-        self.assertEqual(sum(1 for _ in a.isolated_matches) + len(a.missing_gt_indices), len(a.gt_stems))
+        ambiguous_gt = sum(len(c.gt_indices) for c in a.ambiguous_components)
+        ambiguous_pred = sum(len(c.pred_indices) for c in a.ambiguous_components)
+        self.assertEqual(
+            len(a.isolated_matches) + ambiguous_gt + len(a.missing_gt_indices),
+            len(a.gt_stems),
+        )
+        self.assertEqual(
+            len(a.isolated_matches) + ambiguous_pred + len(a.unmatched_pred_indices),
+            len(a.predicted_stems),
+        )
 
 
 if __name__ == "__main__": unittest.main()
