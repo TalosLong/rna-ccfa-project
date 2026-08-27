@@ -1,0 +1,10 @@
+pattern_name,analysis_unit,denominator_name,rnafold_rate,petfold_rate,trrosettarna2_rate,present_in_all_models,relative_consistency,notes
+wrong_partner,false_positive_pair annotation,fp_count,0.5909090909090909,0.5643153526970954,0.3912037037037037,true,MODERATELY_VARIABLE,lower conditional share in trRosettaRNA2
+pure_false_positive,false_positive_pair partition,fp_count,0.4090909090909091,0.43568464730290457,0.6087962962962963,true,MODERATELY_VARIABLE,higher conditional share in trRosettaRNA2
+linked_missing_pair,false_negative_pair annotation,fn_count,0.645320197044335,0.6431924882629108,0.7348837209302326,true,SIMILAR,observed in all models
+stem_extension,GT strict-stem disposition,gt_stem_instances,0.13134328358208955,0.1253731343283582,0.3074626865671642,true,SOURCE_MODEL_SKEWED,"shared presence but trRosettaRNA2-skewed, not shared dominance"
+stem_missing,GT strict-stem disposition,gt_stem_instances,0.1373134328358209,0.14328358208955225,0.11940298507462686,true,SIMILAR,similar GT-side rate across all models
+ambiguous_gt_stem,GT strict-stem disposition,gt_stem_instances,0.029850746268656716,0.1044776119402985,0.20298507462686566,true,SOURCE_MODEL_SKEWED,strong source-model skew
+unmatched_predicted_stem,predicted strict-stem residual,predicted_stem_instances,0.12883435582822086,0.14102564102564102,0.12203389830508475,true,SIMILAR,similar predicted-side rate across all models
+stem_truncation,GT strict-stem disposition,gt_stem_instances,0.014925373134328358,0.011940298507462687,0.0029850746268656717,true,SOURCE_MODEL_SKEWED,observed across all models but rare
+stem_shift,GT strict-stem disposition,gt_stem_instances,0.005970149253731343,0.005970149253731343,0.01791044776119403,true,SOURCE_MODEL_SKEWED,observed across all models but rare

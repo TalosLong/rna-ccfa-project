@@ -28,13 +28,12 @@
 - [x] Implement stem-level error extraction after definitions are frozen.
 - [x] Add `abs(i-j)` sequence separation to every true/predicted pair record.
 - [x] Produce long-range error summaries using bins chosen from the current data distribution.
-- [ ] Verify whether pseudoknot representation is consistent across selected predictors/datasets.
-- [ ] If valid, implement pseudoknot-specific pair metrics; otherwise explicitly defer them.
-- [ ] Produce `results/error_analysis/error_summary_by_model.csv`.
-- [ ] Produce `results/error_analysis/error_summary_by_dataset.csv`.
-- [ ] Identify the top three error types for each source predictor.
-- [ ] Identify error types shared by multiple predictors.
-- [ ] Update `docs/error_taxonomy_v1.md` with actual examples from benchmark records.
+- [x] Pseudoknot-specific analysis deferred to a separate PK-capable predictor branch; no current PK comparison claim.
+- [x] Produce `results/error_analysis/error_summary_by_model.csv`.
+- [x] Produce `results/error_analysis/error_summary_by_dataset.csv`.
+- [x] Identify the top three error types for each source predictor.
+- [x] Identify error types shared by multiple predictors.
+- [x] Update `docs/error_taxonomy_v1.md` with actual examples from benchmark records.
 
 ## P2 — Later
 

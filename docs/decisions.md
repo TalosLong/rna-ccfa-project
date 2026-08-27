@@ -458,3 +458,29 @@ separation retained as a secondary variable. TP rows appearing in both GT and
 prediction roles are counted once in summaries. These thresholds are dataset
 specific and must be validated or refit from GT-only data before cross-dataset
 use; they are not universal biological constants.
+
+---
+
+## Discussion — Keep pseudoknot-aware refinement as a separate side track
+
+### Decision
+
+**Confirmed / 已确定**
+
+The current refinement mainline consolidates the canonical pair/stem analyses
+already supported across all three Legacy121 source predictors without making
+pseudoknot-specific claims. Pseudoknot-aware analysis is deferred to a separate
+branch requiring predictors with explicit crossing-pair prediction capability.
+
+### Reason
+
+The present source predictors do not provide a representation-consistent basis
+for a three-model PK comparison. Running PK-specific metrics now would mix
+capability and representation differences with predictor errors.
+
+### Consequence
+
+Existing PK inventory and raw GT remain preserved. No PK-specific metric or
+refinement rule is implemented in the current mainline, and Phase 2 proceeds to
+the minimal rule-baseline specification using the consolidated non-PK-specific
+pair/stem evidence.

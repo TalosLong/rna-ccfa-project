@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair/stem taxonomy and extraction plus GT-driven pair sequence-separation analysis complete. Pseudoknot representation consistency remains unaudited.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 mainline error analysis and consolidation complete for Legacy121 v1. Pseudoknot-aware analysis is deferred to a separate PK-capable predictor side track. Phase 2 has not started.
 
 当前论文方向：
 
@@ -34,15 +34,18 @@ Last updated: 2026-08-27
 - [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留。
 - [x] 冻结并实现 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录并在 Legacy121 上完成描述性抽取。
 - [x] 完成 Legacy121 v1 pair sequence-separation analysis：从 121 个唯一 GT structures 冻结 relative-separation Q25/Q50/Q75/Q90 bins，保留 raw separation 作为次级变量，并完成 pair、wrong-partner 与 stem-state linkage 描述性汇总。
+- [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
-- Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
-- Phase 1 strict-stem infrastructure、stem matching/error extraction 与 data-driven long-range analysis 已完成；pseudoknot-specific representation audit 尚未开始。
+- Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
+- Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
+- Phase 2 尚未开始；下一任务只冻结 minimal rule-based baseline specification，不实现 edits。
+- Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 
 ## Current Findings
 
@@ -167,6 +170,28 @@ TP/FP/FN 分别为 167/6/0、167/5/0、167/15/0；对应 FP 仅占各模型全�
 wrong-partner events 在最高 bin 分别为 0、0、10。以上仅说明 Legacy121 v1
 的描述性集中模式，不推断生物学难度或因果机制。
 
+### Phase 1 consolidated empirical conclusions
+
+所有 ranking 均在同一统计单位内完成。Pair error-event partition 使用 `FP+FN`
+为 denominator：RNAfold/PETfold 的第一模式是 missing pair（47.99%/46.92%），
+随后为 wrong-partner FP；trRosettaRNA2 第一模式是 pure FP（40.65%），随后为
+missing pair。GT-stem error dispositions 使用 335 GT stems 为 denominator：
+RNAfold/PETfold 均以 missing（13.73%/14.33%）和 extension
+（13.13%/12.54%）为首；trRosettaRNA2 以 extension（30.75%）和 ambiguous GT
+stems（20.30%）为首。unmatched predicted-stem rates 单独使用 predicted stems
+为 denominator，三模型相近（12.88%/14.10%/12.20%）。
+
+trRosettaRNA2 的 FP excess 不能归结为 unmatched false stems：extension stems
+含 146 个 FP pairs，unmatched predicted stems 含 125 个，ambiguous predicted
+stems 含 83 个。其 predicted stems 少于 GT（295 vs 335）但 predicted pairs 更多
+（1893 vs 1676），同时 predicted strict stems 更长（mean 6.20 vs 4.88）且
+extension/merged ambiguous patterns 更多。这是结构性描述，不解释训练或生物机制。
+
+Phase 1 支持“在 Legacy121 和三个 predictor 上存在 structured error patterns”的
+有限描述性结论；不支持 learnable、correctable、model-agnostic、evidence-guided、
+3D benefit 或 cross-dataset claims。highest-separation bin 未出现 error enrichment，
+因此 long-range 不作为第一轮 rule baseline 的 shared target。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
@@ -181,14 +206,13 @@ wrong-partner events 在最高 bin 分别为 0、0、10。以上仅说明 Legacy
 
 ## Immediate Next Steps
 
-1. Audit pseudoknot representation consistency before deciding whether pseudoknot-specific metrics are valid.
+1. Freeze the minimal rule-based refinement baseline specification.
 
 ## Open Questions
 
 - 第一版选哪 3-5 个 predictor？
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
-- pseudoknot 是否纳入 refiner v1？
 - rule-based baseline 应该做到什么强度？
 - selective refiner v1 用什么最小架构？
 - leave-one-model-out 能否真正提升 unseen predictor？

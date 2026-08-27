@@ -210,8 +210,8 @@ group. Inventory quantities are descriptive only.
 
 ## Stem Matching and Error Taxonomy v1
 
-This section freezes deterministic matching semantics; implementation and
-final Legacy121 stem-error counts remain a subsequent task.
+This section freezes deterministic matching semantics. The implementation and
+Legacy121 descriptive counts must conform to these semantics.
 
 ### Representation and candidate diagnostics
 
@@ -276,14 +276,52 @@ superset. Crossing stems are processed independently and receive no
 pseudoknot-specific rule.
 
 This protocol is provenance-preserving infrastructure, not a biological claim.
-Stem-level extraction, long-range and pseudoknot-specific analysis, biological
-interpretation, and refiner labels remain deferred.
+Biological interpretation, refiner labels, and pseudoknot-specific analysis
+remain outside this taxonomy.
+
+## Legacy121 v1 Illustrative Examples
+
+These examples are non-normative illustrations of the frozen definitions. They
+were selected from the generated Phase 1 records; they do not modify category
+precedence or matching thresholds.
+
+### Pair examples
+
+- `wrong_partner`: `1BGZ_23_hp_nmr_A`, PETfold. Predicted FP `(4,18)` uses
+  nucleotide 18, whose GT partner is 6. It links to missing GT pair `(6,18)`
+  and has degree 1.
+- pure `false_positive_pair`: `17RA_21_hp_nmr_A`, RNAfold. Predicted pair
+  `(5,15)` is absent from GT and neither endpoint has a different GT partner,
+  so its wrong-partner degree is 0.
+- `missing_pair`: `1K2G_22_dumbbell_nmr_A`, PETfold. GT pair `(0,12)` is absent
+  from the prediction and neither endpoint is assigned a different predicted
+  partner.
+
+### Strict-stem examples
+
+- `stem_extension`: `17RA_21_hp_nmr_A`, PETfold. GT stem
+  `[(0,20),(1,19),(2,18),(3,17),(4,16)]` is a strict subset of predicted stem
+  `[(0,20),(1,19),(2,18),(3,17),(4,16),(5,15)]`; this is an inner extension.
+- `stem_truncation`: `9OBM_73_hp_nmr_A`, RNAfold. Predicted stem
+  `[(28,44),(29,43),(30,42)]` is the strict subset of GT stem
+  `[(27,45),(28,44),(29,43),(30,42)]` obtained by removing the outermost pair.
+- `stem_missing`: `1BGZ_23_hp_nmr_A`, PETfold. GT stem
+  `[(6,18),(7,17)]` has zero candidate predicted-stem edges.
+- `unmatched_predicted_stem`: `1B36_38_hp_nmr_A`, PETfold. Predicted stem
+  `[(24,32),(25,31)]` has zero candidate GT-stem edges.
+- `stem_shift`: `5UZT_31_hp_nmr_A`, trRosettaRNA2 native SS. GT stem
+  `[(8,23),(9,22),(10,21)]` and predicted stem `[(8,22),(9,21)]` have zero
+  exact overlap, bilateral arm overlaps of 2, and register displacement `-1`.
+- isolated `complex_mismatch`: `1JUR_22_hp_nmr_A`, trRosettaRNA2 native SS.
+  GT `[(3,16),...,(7,12)]` and prediction `[(4,15),...,(8,11)]` share four
+  same-register pairs but neither pair set is a subset of the other; this is a
+  mixed-boundary residual, not a shift.
 
 ## Deferred Taxonomy
 
-This document does not define or extract:
+This document does not define:
 
-- implementation of the frozen stem matching/error states and final counts;
-- long-range pairs or sequence-separation bins;
+- a separate long-range error taxonomy (sequence separation remains a
+  descriptive modifier defined in `docs/long_range_analysis_protocol.md`);
 - pseudoknot-specific errors or metrics;
 - biological or causal interpretations of any error relation.

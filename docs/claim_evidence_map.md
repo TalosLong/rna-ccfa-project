@@ -1,0 +1,15 @@
+# Claim–Evidence Map
+
+Status labels describe current project evidence, not intended future results.
+
+| Candidate claim | Evidence | Status | Qualification |
+| --- | --- | --- | --- |
+| Prediction errors exhibit structured patterns. | Legacy121 Phase 1 exact pair partitions, wrong-partner relations, strict-stem dispositions, and GT-derived separation strata across three predictors. | PARTIALLY_SUPPORTED | Demonstrated descriptively on one dataset and three historical predictors only. |
+| Errors are correctable. | None; no edit has been applied or evaluated. | NOT_TESTED | Requires Phase 2 Original-vs-rule evaluation with beneficial/harmful edit accounting. |
+| Refinement generalizes across predictors. | None; shared presence of error types is not transfer evidence. | NOT_TESTED | Requires leave-one-model-out or equivalent cross-predictor experiments. |
+| Sparse evidence improves refinement. | None. | NOT_TESTED | Requires controlled evidence-density and noise experiments. |
+| Refinement improves downstream 3D structure. | None. | NOT_TESTED | Requires a frozen 2D→3D protocol and paired downstream evaluation. |
+| Highest-separation interactions are a dominant shared error source. | Legacy121 GT-derived relative-separation bins. | NOT_SUPPORTED_ON_LEGACY121 | Highest bin contains 0 FNs and only 2.07–3.47% of each model's FPs; no universal conclusion beyond Legacy121. |
+
+Pseudoknot-aware claims are outside the current mainline and remain a separate
+side track requiring predictors with explicit crossing-pair output capability.
