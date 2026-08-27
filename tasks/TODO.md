@@ -50,7 +50,8 @@
 
 ### Selective Refiner
 
-- [ ] Define leakage-safe refiner train/validation/test splits.
+- [x] Define leakage-safe refiner train/validation/test splits and freeze `docs/selective_refiner_protocol_v1.md` before training.
+- [x] Audit Legacy121 KEEP/DELETE label balance and local independent-test candidates without training a model.
 - [ ] Build training records containing source prediction, ground truth, and error labels.
 - [ ] Implement a non-selective learned refiner baseline.
 - [ ] Implement a first error-detector/modification-mask model.

@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. Pseudoknot-aware analysis remains a separate side track; learned selective-refiner implementation has not started.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. The learned selective-refiner v1 experimental protocol is now frozen, but no learned model has been implemented or trained. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -37,6 +37,8 @@ Last updated: 2026-08-27
 - [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
 - [x] 冻结 Phase 2 minimal rule-based baseline v1：primary rules 仅使用 sequence + original predicted pair/stem/singleton features，预注册 R1 singleton deletion、R2 two-pair-stem cleanup、R3 narrow outer-terminal trimming 及两个有科学目的的组合；未实现或评估 edits。
 - [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
+- [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates；未实现或训练模型。
+- [x] 完成 frozen-data label/split feasibility audit：Legacy121 共 5,290 个 predicted-pair examples（KEEP 4,397、DELETE 893）；确认当前没有 test-ready independent normalized dataset，并识别 42 条 nonredundant ACGU external77 GT_CON candidate sequences。
 
 ## Running / In Progress
 
@@ -46,7 +48,7 @@ Last updated: 2026-08-27
 - Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
-- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；下一阶段 learned selective-refiner 仍需先冻结 leakage-safe protocol 与 evaluation design。
+- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 leakage-safe protocol 与 evaluation design 已冻结，implementation/training 尚未开始。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 
 ## Current Findings
@@ -244,21 +246,49 @@ RNAfold/PETfold 均为 zero coverage，不能形成 shared/model-agnostic claim�
 cross-dataset effectiveness。完整 18 条 condition 表见
 `docs/phase2_rule_baseline_results.md`。
 
+### Learned selective-refiner protocol v1
+
+本节是 training 前冻结设计与数据可行性审计，不是 learned-model result。首个
+prediction unit 为 immutable original prediction 中的每一个 canonical pair：exact TP
+标记为 `KEEP`，exact FP 标记为 `DELETE`。wrong-partner FP 保持普通 DELETE；FN/
+missing pair 不进入 deletion-only v1 的训练 universe，因此该实验仅测试
+precision-oriented cleanup，不恢复 recall。
+
+Legacy121 共包含 5,290 个 predicted-pair examples：RNAfold 1,693
+（KEEP/DELETE 1,473/220，DELETE 12.99%），PETfold 1,704
+（1,463/241，14.14%），trRosettaRNA2 1,893（1,461/432，22.82%）；pooled
+KEEP/DELETE 为 4,397/893。Legacy121 已用于 Phase 1 与 rule selection，只允许作为
+80% global-sequence-identity grouped development CV，不能作为 final independent test。
+
+本机 inventory 尚无 test-ready independent normalized three-source dataset。
+external77 的 77 条序列中有 4 条含 `N`、30 条与 Legacy121 exact overlap；在 73 条
+ACGU-only 序列中，31 条与 Legacy121 的最大 global identity >=80%，留下 42 条
+nonredundant GT_CON candidates。该 42 条集合仍须冻结 manifest/GT_CON semantics、
+生成完整三模型 predictions 并 normalization 后，才可成为 test-only dataset。
+
+Primary architecture 冻结为 two-hidden-layer width-64 pair-feature MLP；source-aware、
+source-agnostic、model-specific 与 leave-one-model-out variants 分开报告。是否存在
+learnable signal、independent effectiveness 或 model-agnostic transfer 均仍为
+`NOT_TESTED`。完整 leakage prohibitions、split、threshold selection 和 numeric go/no-go
+criteria 见 `docs/selective_refiner_protocol_v1.md`。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
 - external77 的 `GT_ALL` / `GT_CON` 目标语义及 4 个含 `N` 序列的处理规则尚未冻结。
+- 当前没有可直接用于 learned-refiner final evaluation 的 independent normalized dataset；42 条 external77 GT_CON nonredundant candidates 尚未冻结 target manifest，也没有完整三模型 prediction matrix。
 - 第一版 3-5 个 source predictor 未确定。
 - 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
-- final refiner architecture 未确定。
+- learned selective-refiner v1 的 minimal MLP architecture 已冻结；具体 optimizer/training schedule 必须在首次训练前另行冻结且不得看 test results。
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
 - 3D validation subset 和 inference protocol 未确定。
 
 ## Immediate Next Steps
 
-1. Freeze a leakage-safe learned selective-refiner protocol and independent evaluation design before implementation.
+1. Freeze and normalize the 42-sequence `external77_GT_CON_v1_nonredundant` independent test candidate, including complete RNAfold/PETfold/trRosettaRNA2 native-SS predictions, before learned-model evaluation.
+2. Implement the frozen pair-feature MLP training/evaluation pipeline without changing protocol thresholds or inspecting the independent test labels.
 
 ## Open Questions
 
@@ -266,7 +296,7 @@ cross-dataset effectiveness。完整 18 条 condition 表见
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
 - rule-based baseline 应该做到什么强度？
-- selective refiner v1 用什么最小架构？
+- external77 GT_CON target semantics 与 42-row test manifest 如何完成最终 provenance freeze？
 - leave-one-model-out 能否真正提升 unseen predictor？
 - 首个 evidence 版本用 simulated base-pair evidence，还是直接寻找真实 SHAPE/DMS/NMR？
 - refined 2D 是否值得进入 downstream 3D 主实验？
