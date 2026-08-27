@@ -1,0 +1,5 @@
+structure_role,source_model,n_structures,total_pairs,total_strict_stems,total_stem_pairs,total_singleton_pairs,fraction_pairs_in_stems,mean_stem_length,median_stem_length,max_stem_length
+ground_truth,ground_truth,121,1676,335,1636,40,0.9761336515513126,4.883582089552239,4.0,16
+prediction,rnafold,121,1693,326,1680,13,0.9923213230950975,5.153374233128834,5.0,17
+prediction,petfold,121,1704,312,1694,10,0.994131455399061,5.42948717948718,5.0,27
+prediction,trrosettarna2_native_ss,121,1893,295,1830,63,0.9667194928684627,6.203389830508475,6.0,28

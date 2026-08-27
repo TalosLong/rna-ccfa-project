@@ -154,6 +154,60 @@ Every event's `predicted_pair` must be in FP, and every
 `linked_missing_pair` must be in FN. No equality is required between the
 number of wrong-partner events and the number of missing pairs.
 
+## Strict Stem Definition v1
+
+This strict stacked-stem definition is frozen as a deterministic
+infrastructure unit for later error analysis. It is intentionally conservative
+and is not claimed to be a complete biological helix definition.
+
+For canonical pairs `(i,j)` with `i < j`, two pairs are directly
+stack-adjacent exactly when `(i+1,j-1)` exists. A strict stem is a maximal
+consecutive chain:
+
+```text
+(i,     j)
+(i+1, j-1)
+(i+2, j-2)
+...
+```
+
+No gaps are allowed. Bulges, internal loops, missing stacked pairs, and
+sequence gaps are not bridged. The minimum strict stem size is exactly
+`minimum_stem_pairs = 2`. A canonical pair with no strict stacked neighbor is
+retained as a `singleton_pair`; singleton pairs are counted separately and are
+never silently discarded.
+
+The extraction algorithm starts each chain only at a pair whose outer
+predecessor `(i-1,j+1)` is absent, then follows `(i+1,j-1)` until the chain
+ends. Stem pairs are ordered outermost to innermost and stems are sorted by
+their `outer_pair`. Singleton pairs are sorted lexicographically. This makes
+results independent of input pair ordering.
+
+Crossing stems are handled as ordinary independent chains. No pseudoknot
+classification or special case is applied. Every canonical pair belongs to
+exactly one strict stem or to the singleton set, so:
+
+```text
+sum(stem.n_pairs for stem in stems) + len(singleton_pairs)
+    == total_pair_count
+```
+
+This definition does not label stems as correct, missing, shifted, truncated,
+or extended, and it does not match GT stems to predicted stems. Those
+decisions remain outside this task.
+
+### Strict-stem inventory layout
+
+`results/error_analysis/stem_inventory_by_record.csv` contains one shared
+`ground_truth` row per RNA and one `prediction` row per normalized predictor
+record. The shared GT row uses a deterministic inventory-only `record_id` and
+stores all three corresponding normalized record IDs in `source_record_ids`;
+this preserves provenance without counting the same GT structure three times.
+The summary therefore has 121 GT structures and 121 structures for each
+predictor. Per-record length statistics are computed over that record's strict
+stems; summary length statistics are computed over all strict stems in the
+group. Inventory quantities are descriptive only.
+
 ## Deferred Taxonomy
 
 This document does not define or extract:

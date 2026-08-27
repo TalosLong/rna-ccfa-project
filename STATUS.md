@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy and extraction complete, with stem-level analysis deferred.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy and strict-stem infrastructure complete, with stem-level error analysis deferred.
 
 当前论文方向：
 
@@ -31,6 +31,7 @@ Last updated: 2026-08-27
 - [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
 - [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
 - [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
+- [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留；未定义任何 stem error category。
 
 ## Running / In Progress
 
@@ -38,7 +39,7 @@ Last updated: 2026-08-27
 - Git / Codex 项目上下文整理。
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
 - Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
-- Stem-level、long-range 和 pseudoknot-specific definitions/analysis 尚未开始。
+- Phase 1 strict-stem infrastructure 已完成；stem-level error、long-range 和 pseudoknot-specific definitions/analysis 尚未开始。
 
 ## Current Findings
 
@@ -102,6 +103,21 @@ partner 冲突的 predicted-pair 端点数。
 events 为 169；因此其 FP 在当前冻结 taxonomy 下多数为 pure FP。这是确定性
 pair-level 计数，不包含生物学或因果解释。
 
+### Legacy121 v1 strict-stem inventory
+
+以下仅为 strict stacked-stem 与 singleton 的描述性计数；没有进行 GT/prediction
+stem matching，也没有赋予任何 stem error label。
+
+| Structure | Structures | Strict stems | Stem pairs | Fraction pairs in stems | Singleton pairs |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Ground truth | 121 | 335 | 1636 / 1676 | 0.976134 | 40 |
+| RNAfold prediction | 121 | 326 | 1680 / 1693 | 0.992321 | 13 |
+| PETfold prediction | 121 | 312 | 1694 / 1704 | 0.994131 | 10 |
+| trRosettaRNA2 native SS prediction | 121 | 295 | 1830 / 1893 | 0.966719 | 63 |
+
+表中 fraction 为 stem pairs / total pairs；strict stem 的最小长度为 2，所有
+singleton pairs 均保留。
+
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
 ## Blockers
@@ -119,7 +135,7 @@ pair-level 计数，不包含生物学或因果解释。
 
 ## Immediate Next Steps
 
-1. In a separate Phase 1 task, freeze a deterministic stem extraction procedure before any stem-level analysis.
+1. In a separate Phase 1 task, define operational stem error categories before any stem-level error analysis.
 
 ## Open Questions
 
