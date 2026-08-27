@@ -1,0 +1,4 @@
+source_model,n_samples,missing_pair_count,false_positive_pair_count,wrong_partner_event_count,wrong_partner_degree1_count,wrong_partner_degree2_count,pure_false_positive_count,missing_pairs_linked_to_wrong_partner,pure_missing_pair_count,samples_with_wrong_partner
+rnafold,121,203,220,130,78,52,90,131,72,23
+petfold,121,213,241,136,85,51,105,137,76,25
+trrosettarna2_native_ss,121,215,432,169,35,134,263,158,57,20

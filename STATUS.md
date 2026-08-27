@@ -4,7 +4,7 @@ Last updated: 2026-08-27
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level error analysis is next.
+**Confirmed / 已确定:** Phase 0 complete; Phase 1 pair-level taxonomy and extraction complete, with stem-level analysis deferred.
 
 当前论文方向：
 
@@ -30,18 +30,20 @@ Last updated: 2026-08-27
 - [x] 完成 Legacy121 v1 normalization：从冻结 manifest 生成 363 条 schema-v1 records，363/363 有效；121 个 trRosettaRNA2 normalized pair-score sidecars 仅对副本执行 `set_diagonal_to_zero`，原始 NPZ 哈希保持不变，off-diagonal 最大绝对变化为 0。
 - [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
 - [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
+- [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
-- Phase 1 尚未开始；下一项仅为 pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` analysis。
+- Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
+- Stem-level、long-range 和 pseudoknot-specific definitions/analysis 尚未开始。
 
 ## Current Findings
 
-当前已确认的 empirical results 仅限以下 Phase 0 infrastructure audit 与
-Legacy121 v1 baseline；尚无 refinement empirical finding。
+当前已确认的 empirical results 仅限以下 Phase 0 infrastructure audit、
+Legacy121 v1 baseline 与 Phase 1 pair-level descriptive counts；尚无 refinement empirical finding。
 
 Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
 trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
@@ -84,6 +86,22 @@ read-only 检索。共识别 2 个需要审计的历史 metric source bundles：
 compatible mismatches 均为 0。详细证据、兼容性轴和未解项记录在
 `docs/legacy121_metric_reproduction_audit.md`。冻结 shared evaluator 未修改，MCC 仍暂缓。
 
+### Legacy121 v1 pair-level error counts
+
+`missing_pair` 与 `false_positive_pair` 分别保持原 FN/FP 计数。
+`wrong_partner` 仅标注 FP 与 FN 之间的共享端点关系；degree 为发生 GT
+partner 冲突的 predicted-pair 端点数。
+
+| Predictor | Missing | FP | Wrong-partner events | Degree 1 | Degree 2 | Pure FP | Linked missing | Pure missing | Samples with wrong partner |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| RNAfold | 203 | 220 | 130 | 78 | 52 | 90 | 131 | 72 | 23 |
+| PETfold | 213 | 241 | 136 | 85 | 51 | 105 | 137 | 76 | 25 |
+| trRosettaRNA2 native SS | 215 | 432 | 169 | 35 | 134 | 263 | 158 | 57 | 20 |
+
+在 trRosettaRNA2 native SS 的 432 个 FP 中，pure FP 为 263，wrong-partner
+events 为 169；因此其 FP 在当前冻结 taxonomy 下多数为 pure FP。这是确定性
+pair-level 计数，不包含生物学或因果解释。
+
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
 ## Blockers
@@ -101,7 +119,7 @@ compatible mismatches 均为 0。详细证据、兼容性轴和未解项记录�
 
 ## Immediate Next Steps
 
-1. Phase 1 — Pair-level error analysis: `missing_pair` / `false_positive_pair` / `wrong_partner`.
+1. In a separate Phase 1 task, freeze a deterministic stem extraction procedure before any stem-level analysis.
 
 ## Open Questions
 

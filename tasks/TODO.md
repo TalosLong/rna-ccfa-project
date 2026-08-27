@@ -20,9 +20,9 @@
 
 ## P1 — Next
 
-- [ ] Implement `missing_pair` extraction.
-- [ ] Implement `false_positive_pair` extraction.
-- [ ] Implement `wrong_partner` extraction.
+- [x] Implement `missing_pair` extraction.
+- [x] Implement `false_positive_pair` extraction.
+- [x] Implement `wrong_partner` extraction.
 - [ ] Define a deterministic stem extraction procedure in `docs/error_taxonomy_v1.md`.
 - [ ] Define operational criteria for `stem_missing`, `stem_truncation`, `stem_extension`, and `stem_shift`.
 - [ ] Implement stem-level error extraction after definitions are frozen.
