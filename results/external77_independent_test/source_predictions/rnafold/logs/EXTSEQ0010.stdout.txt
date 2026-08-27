@@ -1,0 +1,3 @@
+>EXTSEQ0010
+GGAGCAUCGUGUCUCAAGUGCUUCACGGUCACAAUAUACCGUUUCGUCGGGUGCGUGGCAAUUCGGUGCACAUCAUGUCUUUCGUGGCUGGUGUGGCUCCUCAAGGUGCGAGGGGCAAGUAUAGAGCAGAGCUCC
+(((((.((.((.(((..((((((.(((((........)))))..((((((((((...)).))))))))(((((((.(((......))))))))))(((((((.......))))))))))))).)))))))))))) (-49.00)

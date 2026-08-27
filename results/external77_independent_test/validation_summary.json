@@ -1,0 +1,32 @@
+{
+  "all_eligible_sequences_acgu_only": true,
+  "all_identity_below_0_80": true,
+  "candidate_audit": {
+    "candidate_set_matches_frozen_csv": true,
+    "external_rows": 77,
+    "frozen_csv_eligible_rows": 42,
+    "gt_semantics": "GT_CON",
+    "identity_threshold": 0.8,
+    "recomputed_eligible_rows": 42
+  },
+  "complete_three_source_matrix": false,
+  "dataset": "external77_GT_CON_v1_nonredundant",
+  "eligible_rna_count": 42,
+  "expected_complete_records": 126,
+  "generated_at_utc": "2026-08-27T09:15:49Z",
+  "gt_con_parseability": true,
+  "gt_semantics": "GT_CON",
+  "manifest_path": "/root/autodl-tmp/rna-ccfa/manifests/external77_GT_CON_v1_nonredundant_manifest.csv",
+  "manifest_sha256": "0936bf175b64227c1e6a241b664b2573cafbc930d1126f2876ad6517e4a35adc",
+  "normalization_status": "blocked_until_complete_three_source_matrix",
+  "normalized_records_produced": 0,
+  "source_failures": {
+    "petfold": "alignment input/projection protocol is not frozen for external77",
+    "trrosettarna2_native_ss": "A3M/MSA input and lossless native-SS decoder are not frozen for external77"
+  },
+  "source_valid_counts": {
+    "petfold": 0,
+    "rnafold": 42,
+    "trrosettarna2_native_ss": 0
+  }
+}

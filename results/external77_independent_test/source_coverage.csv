@@ -1,0 +1,4 @@
+source_model,expected_rnas,valid_predictions,invalid_predictions,blocked,complete_source_coverage,reason
+rnafold,42,42,0,False,True,
+petfold,42,0,0,True,False,source protocol not frozen/executable for this external set
+trrosettarna2_native_ss,42,0,0,True,False,source protocol not frozen/executable for this external set

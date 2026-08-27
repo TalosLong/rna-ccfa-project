@@ -1,0 +1,3 @@
+>EXTSEQ0015
+GCUCGGCGGUGGGGGAGCAUCUCCUGUAGGGGAGAUGUAACCCCCUUUACCUGCCGAACCCCGCCAGGCCCGGAAGGGAGCAACGGUAGGCAGGACGUCGG
+...(((((..(((((.(((((((((....)))))))))..)))))....((((((.....(((.....(((....))).....)))..)))))).))))). (-50.40)

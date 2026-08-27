@@ -39,6 +39,8 @@ Last updated: 2026-08-27
 - [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
 - [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates；未实现或训练模型。
 - [x] 完成 frozen-data label/split feasibility audit：Legacy121 共 5,290 个 predicted-pair examples（KEEP 4,397、DELETE 893）；确认当前没有 test-ready independent normalized dataset，并识别 42 条 nonredundant ACGU external77 GT_CON candidate sequences。
+- [x] 冻结 external77 GT_CON nonredundant candidate manifest 与 source failure policy：42/42 candidates independently reproduced、GT_CON parseability 通过；RNAfold 42/42 valid，PETfold 与 trRosettaRNA2 因未冻结外部 alignment/MSA+decoder protocol 保持 BLOCKED，未生成 external normalized records。
+- [x] 冻结 first-MLP implementation plan v1：feature schema、train-only normalization/class weights、AdamW schedule、五个固定 seeds、validation-only threshold grid、模型 variants、artifact layout 与 pre-training leakage checks 已记录；未训练模型。
 
 ## Running / In Progress
 
@@ -281,13 +283,14 @@ criteria 见 `docs/selective_refiner_protocol_v1.md`。
 - 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
 - learned selective-refiner v1 的 minimal MLP architecture 已冻结；具体 optimizer/training schedule 必须在首次训练前另行冻结且不得看 test results。
+- external77 candidate manifest 已冻结且 RNAfold source 输出已完成 42/42 validation；independent test 仍未 ready，因为 PETfold/trRosettaRNA2 source protocols 与完整 prediction matrix 尚未冻结/生成。
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
 - 3D validation subset 和 inference protocol 未确定。
 
 ## Immediate Next Steps
 
-1. Freeze and normalize the 42-sequence `external77_GT_CON_v1_nonredundant` independent test candidate, including complete RNAfold/PETfold/trRosettaRNA2 native-SS predictions, before learned-model evaluation.
+1. Freeze the missing PETfold external alignment/projection and trRosettaRNA2 external A3M/lossless-decoder protocols, then complete and normalize the 126-record external test matrix.
 2. Implement the frozen pair-feature MLP training/evaluation pipeline without changing protocol thresholds or inspecting the independent test labels.
 
 ## Open Questions
