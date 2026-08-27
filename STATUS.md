@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-08-26
+Last updated: 2026-08-27
 
 ## Current Stage
 
@@ -27,16 +27,23 @@ Last updated: 2026-08-26
 - [x] 实现 standard/extended dot-bracket、explicit pair list 和 dense pair matrix 到 canonical pairs 的 parser 与 validation，并以单元测试覆盖 crossing pairs 和 malformed inputs。
 - [x] 实现 exact canonical-pair shared evaluator，输出 per-sample TP/FP/FN pair sets、counts、Precision、Recall 和 F1；完成 MCC negative-universe 审计并暂缓 MCC。
 - [x] 冻结 Legacy121 v1 sample/ID protocol：121 个 primary sequence rows 全部具备 sequence、GT、三个历史 2D prediction 与 trRosettaRNA2 pair-score NPZ，并通过 canonical parser 和长度校验；两条 GT-only records 被保留但明确排除。
+- [x] 完成 Legacy121 v1 normalization：从冻结 manifest 生成 363 条 schema-v1 records，363/363 有效；121 个 trRosettaRNA2 normalized pair-score sidecars 仅对副本执行 `set_diagonal_to_zero`，原始 NPZ 哈希保持不变，off-diagonal 最大绝对变化为 0。
 
 ## Running / In Progress
 
 - 当前 RNA structure prediction benchmark 工作。
 - Git / Codex 项目上下文整理。
-- Phase 0：canonical parser、validation、shared evaluator 和 Legacy121 v1 explicit manifest 已完成；下一项为从冻结 manifest 构建 normalized prediction records。
+- Phase 0：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest 和 363 条 normalized prediction records 已完成；下一项为使用 shared evaluator 重算三个 source predictor baseline。
 
 ## Current Findings
 
 暂无本项目已确认的 empirical finding。
+
+Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
+trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
+包含 pair scores。原始矩阵共有 5,038 个非零对角元素；normalized
+sidecars 的对角线全部为零，且所有 off-diagonal 值逐元素保持不变。
+这是表示层 normalization QA，不是 predictor 性能结果。
 
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
@@ -55,7 +62,7 @@ Last updated: 2026-08-26
 
 ## Immediate Next Steps
 
-1. 从 `manifests/legacy121_v1.csv` 为 RNAfold、PETfold 和 trRosettaRNA2 native SS 的现有历史输出构建 normalized prediction records；不运行新的 predictor inference。
+1. 使用 shared evaluator 对 Legacy121 v1 的 RNAfold、PETfold 和 trRosettaRNA2 native SS normalized records 重算 baseline Precision/Recall/F1；本次 normalization 任务未执行该评估。
 
 ## Open Questions
 

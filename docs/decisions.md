@@ -368,3 +368,52 @@ trRosettaRNA2 native-SS DBN 和对应 pair-score NPZ。两条额外 GT 没有进
 PETfold `1A9L.db -> 1A9L_38_hpbulge_nmr_A` 作为显式 alias 保存。任何 manifest
 row 缺失资产、结构解析失败或长度不一致，都使 Legacy121 v1 失去 frozen
 状态，且失败必须保留在逐行 audit 中。
+
+---
+
+## Discussion — Normalize historical trRosettaRNA2 self-pair scores without changing model outputs
+
+### Decision
+
+**Confirmed / 已确定**
+
+For the 121 historical trRosettaRNA2 native-SS pair-score matrices in
+Legacy121 v1, raw NPZ files remain read-only and are retained by absolute path
+and SHA-256 in record provenance. Normalization copies the raw `ss` array into
+a generated NPZ sidecar and applies exactly one score transformation to that
+copy:
+
+```text
+set_diagonal_to_zero
+```
+
+No off-diagonal value may be clipped, rescaled, symmetrized, or otherwise
+changed. `max_off_diagonal_absolute_change == 0` is a mandatory acceptance
+criterion. The raw NPZ hash must be identical before and after normalization,
+and the normalized sidecar has a separate SHA-256.
+
+### Reason
+
+Self-pairs `i == j` are invalid in the frozen zero-based canonical RNA pair
+representation, while normalized schema v1 requires dense probability matrices
+to have an exactly zero diagonal. The historical matrices are otherwise finite,
+in `[0, 1]`, and symmetric within the frozen tolerance, so no other numerical
+transformation is justified.
+
+### Alternatives Considered
+
+- reject all historical score matrices because their raw diagonals are nonzero;
+- alter score semantics to bypass probability validation;
+- clip or rescale scores;
+- symmetrize the matrices;
+- modify the raw historical NPZ files in place.
+
+### Consequence
+
+Each normalized trRosettaRNA2 record must report pre-transformation diagonal,
+range, and asymmetry statistics; record the transformation and its reason in
+`provenance.transformations`; validate the generated `[L, L]` sidecar as finite,
+bounded, symmetric, and zero-diagonal; and prove exact preservation of every
+off-diagonal value. This is a provenance-preserving representation
+normalization. It does not modify or reinterpret the historical model outputs,
+and it does not authorize baseline metric evaluation.

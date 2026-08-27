@@ -1,0 +1,66 @@
+{
+  "acceptance_passed": true,
+  "attempted_records": 363,
+  "baseline_evaluation_performed": false,
+  "dataset": "legacy121_v1",
+  "expected_records": 363,
+  "expected_rnas": 121,
+  "generated_at_utc": "2026-08-27T02:33:25Z",
+  "invalid_records": 0,
+  "outputs": {
+    "audit_csv": "/root/autodl-tmp/rna-ccfa/results/normalization/legacy121_v1_normalization_audit.csv",
+    "predictions_jsonl": "/root/autodl-tmp/rna-ccfa/normalized/legacy121_v1/predictions.jsonl"
+  },
+  "pair_score_normalization": {
+    "all_normalized_diagonals_zero": true,
+    "diagonal_max_before": 5.396812775870785e-05,
+    "diagonal_min_before": 9.572376029609586e-07,
+    "diagonal_nonzero_count_after_total": 0,
+    "diagonal_nonzero_count_before_total": 5038,
+    "matrices_with_nonzero_diagonal_before": 121,
+    "max_asymmetry_before": 0.0,
+    "max_off_diagonal_absolute_change": 0.0,
+    "max_score_before": 0.9999841451644897,
+    "min_score_before": 9.556555369272246e-07,
+    "normalized_sidecar_count": 121,
+    "normalized_sidecar_total_size_bytes": 990708,
+    "raw_historical_npz_unchanged": true,
+    "records": 121
+  },
+  "produced_records": 363,
+  "records_by_predictor": {
+    "petfold": {
+      "invalid": 0,
+      "produced": 121,
+      "valid": 121,
+      "with_pair_scores": 0
+    },
+    "rnafold": {
+      "invalid": 0,
+      "produced": 121,
+      "valid": 121,
+      "with_pair_scores": 0
+    },
+    "trrosettarna2_native_ss": {
+      "invalid": 0,
+      "produced": 121,
+      "valid": 121,
+      "with_pair_scores": 121
+    }
+  },
+  "records_with_pair_scores": 121,
+  "schema_version": "rna-ccfa.normalized_prediction.v1",
+  "valid_records": 363,
+  "warnings": {
+    "by_code": {
+      "family_split_metadata_unavailable": 363,
+      "historical_model_version_unknown": 363,
+      "historical_output_unknown_decoder_settings": 363,
+      "petfold_alias_applied": 1,
+      "petfold_historical_alignment_input_unknown": 121,
+      "raw_sequence_lowercase": 363,
+      "trrna2_historical_checkpoint_identity_unknown": 121
+    },
+    "total_occurrences": 1695
+  }
+}
