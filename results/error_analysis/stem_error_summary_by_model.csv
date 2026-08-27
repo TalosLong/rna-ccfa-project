@@ -1,0 +1,4 @@
+source_model,n_samples,gt_stem_instances,predicted_stem_instances,exact_count,stem_truncation_count,stem_extension_count,stem_shift_count,isolated_complex_mismatch_count,ambiguous_component_count,ambiguous_gt_stem_count,ambiguous_predicted_stem_count,stem_missing_count,unmatched_predicted_stem_count,fraction_gt_stems_exact,fraction_gt_stems_missing,fraction_predicted_stems_unmatched
+rnafold,121,335,326,227,5,44,2,1,5,10,5,46,42,0.6776119402985075,0.1373134328358209,0.12883435582822086
+petfold,121,335,312,203,4,42,2,1,16,35,16,48,44,0.6059701492537314,0.14328358208955225,0.14102564102564102
+trrosettarna2_native_ss,121,335,295,112,1,103,6,5,32,68,32,40,36,0.33432835820895523,0.11940298507462686,0.12203389830508475

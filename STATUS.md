@@ -32,7 +32,7 @@ Last updated: 2026-08-27
 - [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
 - [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
 - [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留。
-- [x] 冻结 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录；尚未执行 stem-level extraction 或生成最终错误计数。
+- [x] 冻结并实现 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录并在 Legacy121 上完成描述性抽取。
 
 ## Running / In Progress
 
@@ -41,12 +41,12 @@ Last updated: 2026-08-27
 - Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
 - Phase 1 进行中：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction 和 Legacy121 descriptive counts 已完成。
 - Phase 1 strict-stem infrastructure 已完成；stem matching/error taxonomy 已冻结，但 extraction、long-range 和 pseudoknot-specific analysis 尚未开始。
-- Phase 1 stem matching protocol 已冻结；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates、53 个 ambiguous predicted-stem components；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
+- Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 
 ## Current Findings
 
 当前已确认的 empirical results 仅限以下 Phase 0 infrastructure audit、
-Legacy121 v1 baseline 与 Phase 1 pair-level descriptive counts；尚无 refinement empirical finding。
+Legacy121 v1 baseline 与 Phase 1 pair/stem-level descriptive counts；尚无 refinement empirical finding。
 
 Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
 trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
@@ -132,6 +132,22 @@ examples 见 `docs/stem_matching_protocol_audit.md`。
 
 此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
 
+### Legacy121 v1 stem-level descriptive error analysis
+
+严格按照冻结 taxonomy 实现；ambiguous components 不进行强制 GT↔prediction 配对，
+而统一记录为 `complex_mismatch` residual。
+
+| Predictor | Exact | Truncation | Extension | Shift | Isolated complex | Ambiguous components | Missing GT | Unmatched predicted |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| RNAfold | 227 | 5 | 44 | 2 | 1 | 5 | 46 | 42 |
+| PETfold | 203 | 4 | 42 | 2 | 1 | 16 | 48 | 44 |
+| trRosettaRNA2 native SS | 112 | 1 | 103 | 6 | 5 | 32 | 40 | 36 |
+
+全局 stem instances 为 GT 1005、prediction 933；isolated one-to-one components
+758，ambiguous components 53（GT 113、prediction 53）。最终 isolated
+`stem_shift` 为 10，另有 1 个 zero-overlap shift candidate 位于 ambiguous
+component，因此未计入 shift。上述结果仅为描述性 taxonomy counts，不作生物学原因解释。
+
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
@@ -139,7 +155,6 @@ examples 见 `docs/stem_matching_protocol_audit.md`。
 - 第一版 3-5 个 source predictor 未确定。
 - 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
-- stem-level matcher/extractor 尚未实现。
 - final refiner architecture 未确定。
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
@@ -147,7 +162,7 @@ examples 见 `docs/stem_matching_protocol_audit.md`。
 
 ## Immediate Next Steps
 
-1. Implement the frozen stem-level matcher and error extractor.
+1. Analyze pair sequence separation and define data-driven long-range bins.
 
 ## Open Questions
 
