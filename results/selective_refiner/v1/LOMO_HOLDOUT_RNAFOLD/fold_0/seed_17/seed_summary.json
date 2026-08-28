@@ -1,0 +1,7 @@
+{
+  "variant": "LOMO_HOLDOUT_RNAFOLD",
+  "fold": 0,
+  "seed": 17,
+  "status": "SUCCESS",
+  "selected_threshold": 0.95
+}

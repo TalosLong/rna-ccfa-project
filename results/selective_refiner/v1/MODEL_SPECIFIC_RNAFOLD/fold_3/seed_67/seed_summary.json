@@ -1,0 +1,7 @@
+{
+  "variant": "MODEL_SPECIFIC_RNAFOLD",
+  "fold": 3,
+  "seed": 67,
+  "status": "SUCCESS",
+  "selected_threshold": 0.9
+}

@@ -54,6 +54,8 @@
 - [x] Audit Legacy121 KEEP/DELETE label balance and local independent-test candidates without training a model.
 - [x] Freeze the 42-row external77 GT_CON nonredundant candidate manifest and source failure policy; complete three-source normalization passes 126/126.
 - [x] Freeze exact first-MLP hyperparameters, feature/leakage checks, and future artifact contract before training.
+- [x] Implement and execute the first Legacy121 grouped-CV selective-refiner MLP experiment (200/200 GPU runs); development gate failed; external77 learned evaluation intentionally not run.
+- [x] Generate learned pair-classification and structure/edit development summaries with source-wise and LOMO diagnostics.
 - [x] Audit PETfold and trRosettaRNA2 external source provenance; record corrected reproducibility gate.
 - [x] Complete and validate the independent external77 three-source normalized test matrix (126/126).
 - [ ] Build training records containing source prediction, ground truth, and error labels.

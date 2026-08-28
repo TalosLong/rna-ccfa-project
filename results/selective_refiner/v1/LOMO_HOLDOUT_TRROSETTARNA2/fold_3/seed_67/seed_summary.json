@@ -1,0 +1,7 @@
+{
+  "variant": "LOMO_HOLDOUT_TRROSETTARNA2",
+  "fold": 3,
+  "seed": 67,
+  "status": "SUCCESS",
+  "selected_threshold": 0.95
+}

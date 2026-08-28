@@ -1,0 +1,7 @@
+{
+  "variant": "POOLED_SOURCE_AWARE",
+  "fold": 4,
+  "seed": 53,
+  "status": "SUCCESS",
+  "selected_threshold": 0.95
+}

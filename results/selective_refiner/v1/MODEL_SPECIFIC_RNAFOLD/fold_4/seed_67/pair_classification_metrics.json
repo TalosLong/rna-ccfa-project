@@ -1,0 +1,22 @@
+{
+  "ungated": {
+    "delete_precision": 0.2894736842105263,
+    "delete_recall": 0.5789473684210527,
+    "delete_f1": 0.38596491228070173,
+    "auroc": 0.770996640537514,
+    "auprc": 0.30467639161154797,
+    "tp": 22,
+    "fp": 54,
+    "fn": 16
+  },
+  "selective": {
+    "delete_precision": 0.0,
+    "delete_recall": 0.0,
+    "delete_f1": 0.0,
+    "auroc": 0.770996640537514,
+    "auprc": 0.30467639161154797,
+    "tp": 0,
+    "fp": 1,
+    "fn": 38
+  }
+}

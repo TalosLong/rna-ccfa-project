@@ -1,0 +1,9 @@
+{
+  "status": "DEVELOPMENT_GATE_FAIL",
+  "external77_evaluated": false,
+  "pooled_selective_preservation_gate": "FAIL",
+  "per_source_delta_f1_gate": "FAIL",
+  "lomo_all_source_gate": "FAIL",
+  "training_runs": 200,
+  "failed_runs": 0
+}

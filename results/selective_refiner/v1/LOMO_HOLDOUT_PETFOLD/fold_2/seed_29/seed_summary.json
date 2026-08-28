@@ -1,0 +1,7 @@
+{
+  "variant": "LOMO_HOLDOUT_PETFOLD",
+  "fold": 2,
+  "seed": 29,
+  "status": "SUCCESS",
+  "selected_threshold": 0.95
+}

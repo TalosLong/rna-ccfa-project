@@ -4,7 +4,7 @@ Last updated: 2026-08-28
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. The learned selective-refiner v1 experimental protocol is now frozen, but no learned model has been implemented or trained. Pseudoknot-aware analysis remains a separate side track.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. The learned selective-refiner v1 Legacy121 development experiment is complete and its frozen development gate is `DEVELOPMENT_GATE_FAIL`; external77 learned-model evaluation has not been performed. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -37,10 +37,10 @@ Last updated: 2026-08-28
 - [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
 - [x] 冻结 Phase 2 minimal rule-based baseline v1：primary rules 仅使用 sequence + original predicted pair/stem/singleton features，预注册 R1 singleton deletion、R2 two-pair-stem cleanup、R3 narrow outer-terminal trimming 及两个有科学目的的组合；未实现或评估 edits。
 - [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
-- [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates；未实现或训练模型。
+- [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates。
 - [x] 完成 frozen-data label/split feasibility audit：Legacy121 共 5,290 个 predicted-pair examples（KEEP 4,397、DELETE 893）；确认当前没有 test-ready independent normalized dataset，并识别 42 条 nonredundant ACGU external77 GT_CON candidate sequences。
 - [x] 冻结 external77 GT_CON nonredundant candidate manifest 与 source failure policy；RNAfold、PETfold、trRosettaRNA2 native SS 均 42/42 valid，完成 126/126 normalized records。
-- [x] 冻结 first-MLP implementation plan v1：feature schema、train-only normalization/class weights、AdamW schedule、五个固定 seeds、validation-only threshold grid、模型 variants、artifact layout 与 pre-training leakage checks 已记录；未训练模型。
+- [x] 冻结并执行 first-MLP implementation plan v1：200/200 Legacy121 fold-seed runs completed on CUDA (RTX 3090; CUDA 11.8; PyTorch 2.5.1+cu118) with train-only preprocessing and validation-only thresholding; external77 was not evaluated.
 
 ## Running / In Progress
 
@@ -50,7 +50,7 @@ Last updated: 2026-08-28
 - Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
-- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 leakage-safe protocol 与 evaluation design 已冻结，implementation/training 尚未开始。
+- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 - external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
 - The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.

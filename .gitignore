@@ -1,3 +1,13 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+
+# Per-run learned-model binaries/raw scores are retained locally but are not
+# committed; lightweight configs and aggregate summaries remain versioned.
+results/selective_refiner/**/checkpoint.pt
+results/selective_refiner/**/per_pair_scores.csv
+results/selective_refiner/**/per_rna_edited_structures.jsonl
+results/selective_refiner/**/per_rna_structure_metrics.csv
+results/selective_refiner/v1_fullbatch_noncompliant/
+results/selective_refiner/v1_cpu_interrupted/
+results/selective_refiner/v1_gpu_failed/
