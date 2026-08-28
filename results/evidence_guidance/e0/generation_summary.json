@@ -1,0 +1,66 @@
+{
+  "canonical_corrupted_pair_failures": 0,
+  "clean_manifest_count": 7260,
+  "clean_manifest_jsonl_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+  "clean_selected_item_count": 16450,
+  "density_grid_percent": [
+    0,
+    1,
+    5,
+    10,
+    20,
+    50
+  ],
+  "deterministic_rerun_match": true,
+  "deterministic_rerun_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+  "duplicate_failures": 0,
+  "evidence_channels": [
+    "POSITIVE_PAIR_EVIDENCE",
+    "UNPAIRED_NUCLEOTIDE_EVIDENCE"
+  ],
+  "evidence_seeds": [
+    101,
+    103,
+    107,
+    109,
+    113
+  ],
+  "external77_accessed": false,
+  "frozen_fold_assignment_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+  "generator_inputs": [
+    "rna_id",
+    "sequence",
+    "ground_truth_pairs"
+  ],
+  "generator_source_sha256": "3e46e8d0b77e5ac445857ad05acf2d0f434a783ff5ec6754ffdb770ed4d16073",
+  "invalid_coordinate_failures": 0,
+  "manifest_validation_failures": 0,
+  "new_neural_training_runs": 0,
+  "noise_grid_percent": [
+    0,
+    5,
+    10,
+    20,
+    30
+  ],
+  "noise_requested_corruptions": 54,
+  "noise_successful_corruptions": 54,
+  "noise_unavailable_corruptions": 0,
+  "noise_validation_manifest_count": 10,
+  "noise_validation_rnas": {
+    "POSITIVE_PAIR_EVIDENCE": "9G7C_224_4wj_cryoEM_A",
+    "UNPAIRED_NUCLEOTIDE_EVIDENCE": "9G7C_224_4wj_cryoEM_A"
+  },
+  "normalized_legacy121_sha256": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+  "pair_channel_usable_rnas": 121,
+  "pair_universe_median": 11,
+  "pair_universe_total": 1676,
+  "prediction_fields_used": [],
+  "protocol_version": "simulated_evidence_v1",
+  "rna_count": 121,
+  "stage_e1_structure_evaluation_performed": false,
+  "status": "EVIDENCE_GUIDANCE_STAGE_E0_COMPLETE",
+  "unpaired_channel_usable_rnas": 121,
+  "unpaired_universe_median": 10,
+  "unpaired_universe_total": 1686
+}

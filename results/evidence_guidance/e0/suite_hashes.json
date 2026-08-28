@@ -1,0 +1,10 @@
+{
+  "clean_manifest_index_csv": "5ebb2cfe0aa7735fe53b3d58462d2ca8209de3ceb5e17a119be0a8de85f85965",
+  "clean_manifests_jsonl": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+  "evidence_universe_by_rna_csv": "873bac39949fda20e7885eb51fd8d6b252fad62edee2d144420f0c490e0e2c09",
+  "noise_mechanism_validation_jsonl": "346b302c1753355815ee41e257a8f50c3ea8cd63fa4a6f8e06fa154035a087b3",
+  "noise_mechanism_validation_summary_csv": "ca39b261d7489798894fc097c527b4655a3c53166cac2154cfa998556543368c",
+  "protocol_config_json": "dd02a79e4ee3a3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5",
+  "protocol_version": "simulated_evidence_v1",
+  "selected_counts_by_density_csv": "deb6344fbd820f0497daf131a7a81bab732febd94de60e1ba24deeb5b6b3d2d0"
+}

@@ -1,0 +1,54 @@
+{
+  "corruption_failure_policy": "CORRUPTION_UNAVAILABLE",
+  "density_grid_percent": [
+    0,
+    1,
+    5,
+    10,
+    20,
+    50
+  ],
+  "evidence_channels": [
+    "POSITIVE_PAIR_EVIDENCE",
+    "UNPAIRED_NUCLEOTIDE_EVIDENCE"
+  ],
+  "evidence_seeds": [
+    101,
+    103,
+    107,
+    109,
+    113
+  ],
+  "external77_accessed": false,
+  "future_e1_conditions": [
+    "ORIGINAL",
+    "V3_VETO2_FIXED",
+    "PAIR_PROTECT_ONLY",
+    "PAIR_HARD_ENFORCE",
+    "UNPAIRED_HARD_DELETE"
+  ],
+  "future_evaluation_scopes": [
+    "DIRECT_EVIDENCE_EFFECT",
+    "LOCAL_CONFLICT_EFFECT",
+    "NON_EVIDENCED_EFFECT"
+  ],
+  "generator_inputs": [
+    "rna_id",
+    "sequence",
+    "ground_truth_pairs"
+  ],
+  "noise_count_rule": "round_half_up_without_minimum_one",
+  "noise_grid_percent": [
+    0,
+    5,
+    10,
+    20,
+    30
+  ],
+  "pair_corruption_policy": "preserve_one_endpoint_and_sample_unique_canonical_non_gt_partner",
+  "protocol_version": "simulated_evidence_v1",
+  "selection_count_rule": "round_half_up_then_minimum_one_for_positive_density",
+  "stage_e1_evaluated": false,
+  "status": "FROZEN_BEFORE_EVIDENCE_GUIDED_EVALUATION",
+  "unpaired_corruption_policy": "replace_with_unique_gt_paired_position_claimed_unpaired"
+}

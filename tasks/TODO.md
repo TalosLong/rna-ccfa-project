@@ -78,6 +78,8 @@
 
 ### Cross-Model Generalization
 
+- [x] Conclude the current Legacy121 prediction-only cross-model phase after immutable v1/v2/v3 gate failures; prohibit post-hoc v4/v5 tuning as the current mainline.
+
 - [ ] Select the initial 3-5 source predictors after completing model inventory.
 - [ ] Train one pooled refiner on multiple source predictors.
 - [ ] Train model-specific refiner baselines.
@@ -88,12 +90,16 @@
 
 ### Evidence Guidance
 
-- [ ] Implement a simulated-evidence generator that samples only explicitly selected ground-truth evidence.
-- [ ] Generate candidate evidence densities of 0%, 1%, 5%, 10%, 20%, and 50%, unless pilot results justify another grid.
-- [ ] Implement a hard-evidence baseline.
+- [x] Freeze `simulated_evidence_v1` with separate positive-pair and unpaired-nucleotide channels and GT-only untargeted sampling.
+- [x] Implement a simulated-evidence generator that samples only explicitly selected ground-truth evidence.
+- [x] Generate clean Legacy121 manifests at frozen densities 0%, 1%, 5%, 10%, 20%, and 50% for five evidence seeds; complete deterministic/hash audits.
+- [x] Implement and unit-test the frozen hard-evidence transformations without evaluating structures.
+- [x] Freeze Stage E1 clean hard-baseline conditions and anti-tautology DIRECT/LOCAL/NON_EVIDENCED scopes before evaluation.
+- [ ] Execute Stage E1 clean simulated-evidence hard-baseline evaluation on Legacy121 only.
 - [ ] Add evidence input to the selective refiner.
-- [ ] Inject candidate evidence-noise levels of 5%, 10%, 20%, and 30%, unless pilot results justify another grid.
-- [ ] Track exact type/location of every corrupted evidence item.
+- [x] Implement deterministic corruption at frozen candidate noise levels 5%, 10%, 20%, and 30%; validate a small mechanism sample only.
+- [x] Track exact type/location/status of every clean or corrupted evidence item in the manifest schema.
+- [ ] Execute full Stage E4 noise robustness evaluation only after earlier stages authorize it.
 - [ ] Compare hard enforcement with learned evidence-guided refinement.
 - [ ] Decide whether a learned prediction-vs-evidence trust mechanism is needed.
 - [ ] Evaluate feasibility of real SHAPE/DMS/NMR evidence before adding any real-data claim.

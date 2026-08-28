@@ -4,7 +4,7 @@ Last updated: 2026-08-28
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`; learned selective-refiner v2 remains `V2_DEVELOPMENT_GATE_FAIL`; the no-retraining v3 Legacy121 evaluation is complete and remains `V3_DEVELOPMENT_GATE_FAIL`. external77 learned refinement has **NOT BEEN PERFORMED** and remains locked. Pseudoknot-aware analysis remains a separate side track.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`, v2 remains `V2_DEVELOPMENT_GATE_FAIL`, and v3 remains `V3_DEVELOPMENT_GATE_FAIL`; this cross-model development phase is closed for the current mainline. Simulated evidence Stage E0 is `EVIDENCE_GUIDANCE_STAGE_E0_COMPLETE`, and the project is `READY_FOR_EVIDENCE_STAGE_E1`. No evidence-guided structure condition has been evaluated, no evidence model has been trained, and external77 remains locked. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -46,6 +46,8 @@ Last updated: 2026-08-28
 - [x] 冻结 selective-refiner v2.0.1 clarification：BASE 无安全阈值时部署 `ABSTAIN_NO_REFINEMENT`，CROSS 仍须 25/25 actual thresholds；event-pooled 与 fold×seed mean gates 均有唯一 PASS/FAIL semantics。
 - [x] 完成 v2 failure interpretation 与 authoritative BASE-edit support audit：support=2 包含 211/282 harmful BASE deletions、仅 18/1571 beneficial deletions；冻结不训练新网络的 consensus-veto v3 protocol。
 - [x] 完成 v3 Legacy121 no-retraining evaluation：4 个条件、25 个匹配 fold×seed outcomes（共 100 条 condition outcomes）；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`，external77 未访问。
+- [x] 关闭当前 cross-model mainline：保留 `V3_VETO2_FIXED` 作为 development-only mechanistic comparator，不授权基于 Legacy121 的 post-hoc v4/v5 tuning。
+- [x] 冻结 `simulated_evidence_v1` 与 Stage E1 clean hard-baseline protocol；完成 7,260 个 Legacy121 clean evidence manifests、noise-mechanism sample、hash/reproducibility/leakage audits，状态 `READY_FOR_EVIDENCE_STAGE_E1`。
 
 ## Running / In Progress
 
@@ -57,6 +59,7 @@ Last updated: 2026-08-28
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 - Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
 - Selective-refiner v2 已完成 50/50 CROSS GPU runs 和 200/200 factorial outcomes，primary gate 为 `V2_DEVELOPMENT_GATE_FAIL`。v3 已按冻结 no-retraining protocol 完成 4 条件 × 25 个匹配 fold×seed outcomes；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`（22/25 threshold deployability、pooled preservation 0.987946 未达 0.99）。
+- Evidence Guidance Stage E0 已完成：两个独立 simulated channels、6 个 density、5 个 evidence seeds 的 generator/manifests 均已验证；E1 protocol 已冻结但未执行任何 predictor/refiner structure evaluation。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 - external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
 - The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.
@@ -298,6 +301,17 @@ replacement classifier。v3 fixed veto 实际保护了 211 个 harmful edits，�
 pooled preservation 未通过 gate。该结果不授权 external77，也不支持
 unseen-predictor/model-agnostic claim。
 
+### Simulated evidence Stage E0
+
+当前 cross-model prediction-only mainline 已结束；不继续在 Legacy121 上 post-hoc
+调整 v4/v5 rules/thresholds。`simulated_evidence_v1` 冻结两个抽象 channel：
+`POSITIVE_PAIR_EVIDENCE` 与 `UNPAIRED_NUCLEOTIDE_EVIDENCE`，density 为
+0/1/5/10/20/50%，evidence seeds 为 101/103/107/109/113，future noise grid 为
+0/5/10/20/30%。Legacy121 两个 universe 均覆盖 121/121 RNA；生成 7,260 个 clean
+manifests、16,450 个 seed-replicated items。deterministic rerun hash 完全一致；
+generator input contract 仅允许 RNA ID、sequence 与 GT pairs。该结果仅证明 protocol
+与 generator 可行，不证明 evidence 改善结构，也不代表任何真实实验 modality。
+
 ### external77 source-protocol gate
 
 The frozen 42-RNA GT_CON membership and sequence-leakage audit remain exact.
@@ -343,22 +357,23 @@ decision is `V2_DEVELOPMENT_GATE_FAIL`; v1 remains independently
 - Legacy121 retains the complete historical three-source 2D outputs; external77 now also has a complete frozen three-source prediction matrix for independent evaluation.
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
 - learned selective-refiner v1/v2 均已完成且 gate failed；两者结果与冻结 criteria 不得回改。v3 是结果驱动但预先冻结的新 development protocol，不训练新网络。
-- external77 candidate manifest and all three source outputs are validated 42/42, but learned evaluation remains protocol-locked until a Legacy121 development gate passes.
+- cross-model v1/v2/v3 当前 mainline 已结束；`V3_VETO2_FIXED` 仅保留为 future development comparator，不是 gate-passing method。
+- external77 candidate manifest and all three source outputs are validated 42/42, but learned/selective/evidence evaluation remains locked until a separate independent protocol is explicitly authorized.
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
 - 3D validation subset 和 inference protocol 未确定。
 
 ## Immediate Next Steps
 
-1. Keep external77 learned/refinement evaluation locked. Any future experiment must be separately specified and frozen after interpreting the failed v3 development gate; do not alter v1/v2/v3 historical results.
+1. Execute the separately frozen Legacy121 Stage E1 clean simulated-evidence hard baselines only; do not train a learned evidence model, run noise experiments, map to real modalities, or access external77.
 
 ## Open Questions
 
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
 - rule-based baseline 应该做到什么强度？
-- v3 support=2 safety veto 的 fixed ablation 已提高 preservation/F1，但 primary recalibration 未达到 pooled 0.99 preservation；后续方向尚未冻结。
+- Stage E1 的 clean simulated evidence 是否产生超出 direct/local consequences 的正 `NON_EVIDENCED_EFFECT`？
 - future unseen-predictor transfer 应采用何种不依赖固定三模型身份的 evidence contract？
-- 首个 evidence 版本用 simulated base-pair evidence，还是直接寻找真实 SHAPE/DMS/NMR？
+- Stage E5 是否存在可验证的真实 modality mapping？在此之前不得使用 SHAPE/DMS/NMR-guided claim。
 - refined 2D 是否值得进入 downstream 3D 主实验？
 - 最终更适合 AAAI/KDD AI for Sciences，还是方法更强后尝试 ICML/NeurIPS？

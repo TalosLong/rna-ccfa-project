@@ -21,3 +21,7 @@ results/selective_refiner/v1_fullbatch_noncompliant/
 results/selective_refiner/v1_cpu_interrupted/
 results/selective_refiner/v1_gpu_failed/
 results/selective_refiner/v1_partial_initial_run/
+
+# Full deterministic Stage E0 evidence payloads are regenerated from the
+# versioned generator and indexed by committed SHA256 summaries.
+results/evidence_guidance/e0/clean_manifests.jsonl
