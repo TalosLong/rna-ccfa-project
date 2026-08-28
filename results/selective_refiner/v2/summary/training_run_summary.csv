@@ -1,0 +1,3 @@
+variant,new_training_runs,failed_runs,device,gpu_model,cuda_version,pytorch_version
+CROSS_SOURCE_AGNOSTIC,25,0,cuda,NVIDIA GeForce RTX 3090,11.8,2.5.1+cu118
+CROSS_SOURCE_AWARE,25,0,cuda,NVIDIA GeForce RTX 3090,11.8,2.5.1+cu118

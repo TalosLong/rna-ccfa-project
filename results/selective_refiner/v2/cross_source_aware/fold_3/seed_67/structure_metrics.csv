@@ -1,0 +1,8 @@
+metric,value
+macro_delta_f1,0.01900983836110043
+micro_delta_f1,0.03345370009794546
+modification_precision,0.948051948051948
+delete_recall,0.6134453781512605
+correct_pair_preservation,0.9952038369304557
+modified_pair_count,77
+modified_rna_count,26

@@ -60,7 +60,7 @@
 - [x] Complete the prediction-only cross-model agreement enrichment audit and classify it `CROSS_MODEL_SIGNAL_PROMISING` on Legacy121 development data.
 - [x] Freeze `docs/selective_refiner_protocol_v2.md`, its feature contract, factorial calibration design, and exact go/no-go criteria before v2 training.
 - [x] Freeze v2.0.1 BASE/CROSS abstention, event-pooled edit metrics, all-25 paired comparisons, and binary undefined-gate handling; mark `READY_FOR_V2_TRAINING` without starting training.
-- [ ] Implement and run selective-refiner v2 on the frozen Legacy121 folds/seeds; do not access external77 unless the primary v2 gate passes.
+- [x] Implement and run selective-refiner v2 on the frozen Legacy121 folds/seeds; 50/50 CROSS GPU runs and 200/200 factorial outcomes completed; primary development gate failed; external77 remains locked.
 - [x] Audit PETfold and trRosettaRNA2 external source provenance; record corrected reproducibility gate.
 - [x] Complete and validate the independent external77 three-source normalized test matrix (126/126).
 - [ ] Build training records containing source prediction, ground truth, and error labels.

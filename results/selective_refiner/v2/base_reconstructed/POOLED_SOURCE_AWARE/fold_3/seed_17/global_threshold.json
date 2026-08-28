@@ -1,0 +1,6 @@
+{
+  "threshold": 0.85,
+  "status": "PASS",
+  "validation_only": true,
+  "v1_authoritative_threshold": 0.85
+}

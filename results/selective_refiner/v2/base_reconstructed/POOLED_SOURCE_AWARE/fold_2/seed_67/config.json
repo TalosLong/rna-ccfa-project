@@ -1,0 +1,13 @@
+{
+  "protocol_version": "selective_refiner_v2.0.1",
+  "role": "AUTHORITATIVE_V1_BASE_RECONSTRUCTION",
+  "source_v1_variant": "POOLED_SOURCE_AWARE",
+  "fold": 2,
+  "seed": 67,
+  "v1_checkpoint_sha256": "64b18cc7bf3a6629faf25c0e01575adf05f6cc12480a48bb116f3984fde73daa",
+  "train_pairs": 2940,
+  "validation_pairs": 953,
+  "test_pairs": 1397,
+  "device": "cpu_reconstruction",
+  "retrained": false
+}

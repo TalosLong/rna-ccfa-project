@@ -1,0 +1,22 @@
+{
+  "protocol_version": "selective_refiner_v2.0.1",
+  "variant": "CROSS_SOURCE_AGNOSTIC",
+  "fold": 3,
+  "seed": 41,
+  "feature_schema_hash": "764a4394c0337d786d5364aae516ef34ac820f5b9258c465293c074fce1caea7",
+  "feature_contract_hash": "7867bda8bacc8b3261898bea3d1953a1bc02010ca43db5a9f0bcff6bd9f3f5a0",
+  "train_keep": 2709,
+  "train_delete": 623,
+  "pos_weight": 4.348314606741573,
+  "lr": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size": 256,
+  "max_epochs": 100,
+  "patience": 12,
+  "gradient_clip": 5.0,
+  "selected_checkpoint_epoch": 20,
+  "device": "cuda",
+  "gpu_model": "NVIDIA GeForce RTX 3090",
+  "cuda_version": "11.8",
+  "pytorch_version": "2.5.1+cu118"
+}

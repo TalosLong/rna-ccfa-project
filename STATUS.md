@@ -302,6 +302,22 @@ because v1 failed its development gate and v2 has not been trained.
 
 ## Blockers
 
+### Selective-refiner v2 development result
+
+The frozen Legacy121 v2 experiment is complete: 50/50 new CROSS GPU training
+runs succeeded and all 200 factorial fold-seed condition outcomes were
+generated. The primary `V2A_CROSS_SOURCE_AGNOSTIC_GLOBAL` condition obtained
+only 8/25 deployable global thresholds (required 25/25), with pooled precision
+0.9141, DELETE recall 0.1550, preservation 0.9970, macro ΔF1 +0.0068 and
+micro ΔF1 +0.0100. The matched v1 BASE was precision 0.8478, recall 0.3518,
+preservation 0.9872, macro ΔF1 +0.0148 and micro ΔF1 +0.0188. The frozen
+decision is `V2_DEVELOPMENT_GATE_FAIL`; v1 remains independently
+`DEVELOPMENT_GATE_FAIL`. No v2 learned evaluation has accessed external77.
+
+- v2 training device: CUDA, NVIDIA GeForce RTX 3090, CUDA 11.8, PyTorch 2.5.1+cu118.
+- source-wise CROSS macro/micro ΔF1: RNAfold +0.0004/+0.0017; PETfold +0.0015/+0.0028; trRosettaRNA2 +0.0185/+0.0246.
+- external77 remains LOCKED; no model-agnostic or independent learned-refiner claim is supported.
+
 - refinement 项目最终 dataset 列表未确定。
 - Legacy121 retains the complete historical three-source 2D outputs; external77 now also has a complete frozen three-source prediction matrix for independent evaluation.
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
@@ -313,7 +329,7 @@ because v1 failed its development gate and v2 has not been trained.
 
 ## Immediate Next Steps
 
-1. Implement and run the frozen Legacy121-only selective-refiner v2 factorial experiment; keep external77 locked unless the primary v2 development gate passes.
+1. Keep external77 locked. Any next learned-refiner experiment requires a separately frozen protocol revision; do not use v2 failure to alter v1/v2 criteria retrospectively.
 
 ## Open Questions
 

@@ -1,0 +1,9 @@
+{
+  "thresholds": {
+    "rnafold": 0.9,
+    "petfold": 0.95,
+    "trrosettarna2_native_ss": 0.95
+  },
+  "status": "PASS",
+  "validation_only": true
+}
