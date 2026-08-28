@@ -1,0 +1,12 @@
+{
+  "dataset": "Legacy121 development only",
+  "authoritative_score_backbone": "v1 POOLED_SOURCE_AGNOSTIC",
+  "fold_seed_runs": 25,
+  "deployable_runs": 20,
+  "abstain_no_refinement_runs": 5,
+  "test_pair_score_rows_across_runs": 26450,
+  "beneficial_deletions": 1571,
+  "harmful_deletions": 282,
+  "v3_policy_evaluated": false,
+  "external77_accessed": false
+}

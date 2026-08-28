@@ -59,8 +59,11 @@
 - [x] Independently reconstruct v1 final fold/seed metrics and freeze the preservation, per-source ΔF1, and LOMO failure decomposition without modifying v1.
 - [x] Complete the prediction-only cross-model agreement enrichment audit and classify it `CROSS_MODEL_SIGNAL_PROMISING` on Legacy121 development data.
 - [x] Freeze `docs/selective_refiner_protocol_v2.md`, its feature contract, factorial calibration design, and exact go/no-go criteria before v2 training.
-- [x] Freeze v2.0.1 BASE/CROSS abstention, event-pooled edit metrics, all-25 paired comparisons, and binary undefined-gate handling; mark `READY_FOR_V2_TRAINING` without starting training.
+- [x] Freeze v2.0.1 BASE/CROSS abstention, event-pooled edit metrics, all-25 paired comparisons, and binary undefined-gate handling; this historical pretraining readiness state is superseded by the completed failed v2 result.
 - [x] Implement and run selective-refiner v2 on the frozen Legacy121 folds/seeds; 50/50 CROSS GPU runs and 200/200 factorial outcomes completed; primary development gate failed; external77 remains locked.
+- [x] Complete the formal v2 failure interpretation and authoritative BASE deletion-by-consensus audit without evaluating a new policy.
+- [x] Freeze the no-retraining `V3_BASE`, `V3_VETO2_FIXED`, `V3_VETO2_RECALIBRATED`, and agreement-only comparator protocol and binary development gate.
+- [ ] Execute the frozen 25-outcome Legacy121 v3 development evaluation using existing v1 scores only; do not evaluate external77 in the same task.
 - [x] Audit PETfold and trRosettaRNA2 external source provenance; record corrected reproducibility gate.
 - [x] Complete and validate the independent external77 three-source normalized test matrix (126/126).
 - [ ] Build training records containing source prediction, ground truth, and error labels.
@@ -117,7 +120,8 @@
 - [x] Count edits per RNA for each evaluated rule-baseline condition.
 - [x] Compute beneficial/harmful rule-edit ratios; deletion-only v1 has no neutral edit partition.
 - [ ] Compare selective versus non-selective edit behavior.
-- [ ] Compare model-specific versus cross-model refinement.
+- [x] Compare v1 BASE and v2 CROSS behavior on Legacy121 and decompose the failed precision/recall/preservation trade-off.
+- [ ] Evaluate the frozen v3 consensus-veto conditions against matched BASE without retraining.
 - [ ] Plot performance versus evidence density.
 - [ ] Plot performance versus evidence noise.
 - [ ] Add paired statistical tests only after final sample sets are fixed and document the test choice.

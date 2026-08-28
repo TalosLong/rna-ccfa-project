@@ -1,0 +1,58 @@
+{
+  "protocol_version": "selective_refiner_v3",
+  "status": "FROZEN_NOT_EXECUTED",
+  "development_data": "Legacy121_v1",
+  "folds": "existing_frozen_five_grouped_RNA_folds",
+  "score_seeds": [17, 29, 41, 53, 67],
+  "matched_outcomes_per_condition": 25,
+  "conditions": [
+    {
+      "name": "V3_BASE",
+      "role": "CONTROL",
+      "score": "authoritative_v1_POOLED_SOURCE_AGNOSTIC_p_delete",
+      "threshold": "authoritative_v1_validation_selected_global_threshold",
+      "decision": "delete_if_p_delete_gte_threshold",
+      "no_threshold": "ABSTAIN_NO_REFINEMENT"
+    },
+    {
+      "name": "V3_VETO2_FIXED",
+      "role": "MECHANISTIC_ABLATION",
+      "score": "authoritative_v1_POOLED_SOURCE_AGNOSTIC_p_delete",
+      "threshold": "exact_V3_BASE_threshold",
+      "decision": "delete_if_p_delete_gte_threshold_and_support_other_count_lt_2",
+      "support_other_count_2": "FORCE_KEEP",
+      "no_base_threshold": "ABSTAIN_NO_REFINEMENT"
+    },
+    {
+      "name": "V3_VETO2_RECALIBRATED",
+      "role": "PRIMARY",
+      "score": "authoritative_v1_POOLED_SOURCE_AGNOSTIC_p_delete",
+      "threshold_grid": [0.50, 0.55, 0.60, 0.65, 0.70, 0.75, 0.80, 0.85, 0.90, 0.95],
+      "validation_veto": "support_other_count_2_force_keep",
+      "eligibility": "overall_validation_correct_pair_preservation_gte_0.99",
+      "objective": "maximize_validation_DELETE_F1",
+      "tie_breaks": ["higher_threshold", "fewer_edits"],
+      "no_threshold": "ABSTAIN_NO_REFINEMENT"
+    },
+    {
+      "name": "AGREEMENT_ZERO_SUPPORT_RULE",
+      "role": "SECONDARY_NONLEARNED_COMPARATOR",
+      "score": null,
+      "decision": "delete_iff_support_other_count_eq_0",
+      "may_authorize_external_evaluation": false
+    }
+  ],
+  "abstention_semantics": {
+    "modified_pairs": 0,
+    "modified_RNAs": 0,
+    "beneficial_edits": 0,
+    "harmful_edits": 0,
+    "DELETE_recall": 0,
+    "correct_pair_preservation": 1,
+    "macro_delta_F1": 0,
+    "micro_delta_F1": 0,
+    "modification_precision": "NA"
+  },
+  "v3_development_outcomes_present": false,
+  "external77_evaluated": false
+}

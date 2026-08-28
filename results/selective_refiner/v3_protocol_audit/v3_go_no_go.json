@@ -1,0 +1,56 @@
+{
+  "protocol_version": "selective_refiner_v3",
+  "status": "FROZEN_BEFORE_V3_DEVELOPMENT_EVALUATION",
+  "primary_condition": "V3_VETO2_RECALIBRATED",
+  "matched_control": "V3_BASE",
+  "aggregation": {
+    "modification_precision": "event_pooled_beneficial_over_beneficial_plus_harmful_across_25_runs",
+    "DELETE_recall": "event_pooled_beneficial_over_all_original_FP_opportunities_across_25_runs",
+    "correct_pair_preservation": "event_pooled_sum_TP_after_over_sum_TP_before_across_25_runs",
+    "macro_delta_F1": "unweighted_mean_of_25_per_run_values",
+    "micro_delta_F1": "unweighted_mean_of_25_per_run_values",
+    "modified_RNA_fraction": "event_pooled_modified_heldout_RNA_instances_over_all_eligible_instances",
+    "per_source": "same_event_pooled_and_25_run_mean_definitions_within_source",
+    "paired_changes": "identical_fold_and_seed_primary_minus_control"
+  },
+  "absolute_criteria": [
+    {"id": "threshold_deployability", "requirement": "actual_validation_selected_thresholds", "operator": "eq", "value": 25, "denominator": 25},
+    {"id": "pooled_modification_precision", "operator": "gte", "value": 0.80},
+    {"id": "pooled_DELETE_recall", "operator": "gte", "value": 0.10},
+    {"id": "pooled_preservation", "operator": "gte", "value": 0.99},
+    {"id": "every_source_preservation", "operator": "gte", "value": 0.98},
+    {"id": "positive_macro_and_micro_sources", "operator": "gte_count", "value": 2, "strictly_positive": true},
+    {"id": "useful_source_modified_RNA_fraction", "operator": "gte", "value": 0.10, "applies_to": "every_source_counted_toward_positive_macro_and_micro_sources"}
+  ],
+  "matched_control_criteria": [
+    {"id": "pooled_preservation_improvement", "metric": "event_pooled_preservation", "operator": "gt", "value": "V3_BASE"},
+    {"id": "pooled_precision_noninferiority", "metric": "event_pooled_modification_precision", "operator": "gte", "value": "V3_BASE"},
+    {"id": "pooled_recall_drop", "metric": "event_pooled_DELETE_recall_difference", "operator": "gte", "value": -0.05},
+    {"id": "paired_mean_macro_delta_F1_difference", "operator": "gte", "value": 0.0},
+    {"id": "paired_mean_micro_delta_F1_difference", "operator": "gte", "value": 0.0}
+  ],
+  "non_trrosetta_criterion": {
+    "sources": ["rnafold", "petfold"],
+    "require_at_least_one": true,
+    "requirements": {"macro_delta_F1": ">0", "micro_delta_F1": ">0"}
+  },
+  "catastrophic_degradation": {
+    "fail_if_any_source": {
+      "preservation_lt": 0.98,
+      "macro_delta_F1_lt": -0.005,
+      "micro_delta_F1_lt": -0.005
+    }
+  },
+  "undefined_handling": {
+    "missing_primary_outcome": "FAIL",
+    "missing_primary_threshold": "FAIL",
+    "accounting_violation": "FAIL",
+    "required_NA": "FAIL",
+    "false_criterion": "FAIL"
+  },
+  "pass_decision": "V3_DEVELOPMENT_GATE_PASS",
+  "fail_decision": "V3_DEVELOPMENT_GATE_FAIL",
+  "external_authorization": "Only V3_DEVELOPMENT_GATE_PASS authorizes a separate external77 v3 evaluation task.",
+  "external77_locked": true,
+  "v3_evaluation_executed": false
+}

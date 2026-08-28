@@ -1,0 +1,38 @@
+{
+  "protocol_version": "selective_refiner_v3",
+  "status": "FROZEN_BEFORE_V3_DEVELOPMENT_EVALUATION",
+  "score_backbone": {
+    "variant": "v1_POOLED_SOURCE_AGNOSTIC",
+    "quantity": "p_delete",
+    "retraining_permitted": false,
+    "folds": 5,
+    "score_seeds": [17, 29, 41, 53, 67]
+  },
+  "primary_cross_model_feature": {
+    "name": "support_other_count_equals_2",
+    "definition": "Both other immutable source predictors contain the exact canonical pair (i,j).",
+    "type": "boolean_hard_keep_veto",
+    "inputs": [
+      "immutable_rnafold_prediction",
+      "immutable_petfold_prediction",
+      "immutable_trrosettarna2_native_ss_prediction"
+    ],
+    "uses_ground_truth": false,
+    "uses_pair_confidence": false,
+    "uses_source_specific_rule": false
+  },
+  "prohibited_primary_features": [
+    "partner_conflict",
+    "stem_support",
+    "support_zero_rule",
+    "pair_confidence",
+    "ground_truth",
+    "tp_fp_fn_labels_as_features",
+    "wrong_partner_annotations",
+    "source_specific_handcrafted_rules",
+    "external77_information"
+  ],
+  "missing_source_policy": "ABSTAIN_NO_REFINEMENT",
+  "new_neural_training_required": false,
+  "external77_locked": true
+}
