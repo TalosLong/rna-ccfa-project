@@ -6,23 +6,21 @@ structure is an input to source prediction.
 
 | Dependency | PETfold | trRosettaRNA2 native SS |
 |---|---|---|
-| Historical code/binary | Local PETfold executable is present, SHA-256 `99deeb0066a246b8f6ac79e13f2c60f62dd63e3f2774fb0649f0dd35ffe980ad`; DRfold checkout `9586990c79e4ca488e5f967fcc8bd5b06cd60273` | Local standalone pathway is present in the trRosettaRNA2 checkout; source condition is query-only native SS |
-| Model/checkpoint assets | `article.grm` and `scfg.rate` are present; historical use is not proven | Three retained `model_{1,2,3}_finetune.pth.tar` checkpoints; hashes are recorded in the JSON gate |
-| Required input | Legacy121 alignment files and their generation command/database snapshot | One-row, ungapped A3M containing the query sequence; external A3Ms are generated directly from the frozen manifest |
-| Historical row/query semantics | UNKNOWN: no Legacy121 alignment or row-order record | REPRODUCED: the query is the only/first row for the recovered native-SS condition |
-| Gap/coordinate semantics | BLOCKING: the historical alignment-gap to ungapped-query projection is absent | Not applicable to the query-only condition |
-| Decoder/output authority | BLOCKING: historical output mapping cannot be reconstructed | REPRODUCED: ensemble mean dense `ss` matrix, threshold `>0.5`, strongest-probability one-partner greedy decoder; raw matrix is authoritative and DBN is derived |
-| External coverage | Not run; no substitute condition permitted | 42/42 valid; finite `[L,L]` matrices and canonical pairs validated |
-| Gate status | **NONREPRODUCIBLE / BLOCKING** | **REPRODUCED source condition** |
+| Historical code/binary | REPRODUCED: `/root/autodl-tmp/PETfold/bin/PETfold`, PETfold v2.0, SHA-256 `eb0636da9e1a5a2d28d0e8b14f7c35512eceeafdd46fbcbd5523125ee3bb3446` | Local standalone pathway is present in the trRosettaRNA2 checkout; source condition is query-only native SS |
+| Model/checkpoint assets | REPRODUCED: `article.grm` and `scfg.rate` hashes are frozen in the single-sequence protocol | Three retained `model_{1,2,3}_finetune.pth.tar` checkpoints; hashes are recorded in the JSON gate |
+| Required input | REPRODUCED: direct FASTA with one ungapped query row; no biological MSA/database | One-row, ungapped A3M containing the query sequence; external A3Ms are generated directly from the frozen manifest |
+| Historical row/query semantics | REPRODUCED: 121/121 exact canonical pair-set reproduction | REPRODUCED: the query is the only/first row for the recovered native-SS condition |
+| Gap/coordinate semantics | REPRODUCED: no gaps; structure positions map directly to zero-based query coordinates | Not applicable to the query-only condition |
+| Decoder/output authority | REPRODUCED: final PETfold structure line, project parser, one-partner canonical validation | REPRODUCED: ensemble mean dense `ss` matrix, threshold `>0.5`, strongest-probability one-partner greedy decoder; raw matrix is authoritative and DBN is derived |
+| External coverage | 42/42 valid; raw output, reliability sidecar, parsed JSON, logs, and hashes retained | 42/42 valid; finite `[L,L]` matrices and canonical pairs validated |
+| Gate status | **REPRODUCED_HISTORICAL_SINGLE_SEQUENCE_CONDITION** | **REPRODUCED source condition** |
 
 ## Decision
 
-The overall gate is **BLOCKED**. PETfold cannot be run under Legacy121
-semantics because the historical alignment inputs and projection map are not
-retained. PETfold single-sequence folding would be a separately named new
-source condition and is not run here. The trRosettaRNA2 result is retained as
-an auditable source-condition result, but it does not authorize the frozen
-three-source claim or partial normalization.
+The overall gate is **PASS** for the historical source conditions. The prior
+PETfold blocker was caused by an incorrect MSA assumption and is closed by the
+121/121 exact reproduction. The trRosettaRNA2 query-only native-SS condition
+remains separately identified and fully provenance-audited.
 
 The machine-readable copy is
 `results/external77_independent_test/source_protocol_gate.json`. Detailed

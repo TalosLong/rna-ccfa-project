@@ -1,0 +1,90 @@
+{
+  "command": "PETFOLDBIN=/root/autodl-tmp/PETfold/bin /root/autodl-tmp/PETfold/bin/PETfold -f /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0031.fasta -r /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0031.petfoldrr",
+  "created_at_utc": "2026-08-28T03:51:36Z",
+  "exit_code": 0,
+  "failure_reason": "",
+  "input_fasta_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0031.fasta",
+  "input_fasta_sha256": "78b5a04b78ce879f5e8706b8dc41aaaa642b6987d20558bc50bd989d07864474",
+  "pairs": [
+    [
+      1,
+      37
+    ],
+    [
+      2,
+      36
+    ],
+    [
+      5,
+      33
+    ],
+    [
+      6,
+      32
+    ],
+    [
+      7,
+      31
+    ],
+    [
+      8,
+      30
+    ],
+    [
+      9,
+      29
+    ],
+    [
+      12,
+      24
+    ],
+    [
+      13,
+      23
+    ],
+    [
+      14,
+      22
+    ],
+    [
+      15,
+      21
+    ],
+    [
+      41,
+      57
+    ],
+    [
+      42,
+      56
+    ],
+    [
+      43,
+      55
+    ],
+    [
+      44,
+      54
+    ],
+    [
+      46,
+      53
+    ],
+    [
+      47,
+      52
+    ]
+  ],
+  "petfoldrr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0031.petfoldrr",
+  "petfoldrr_sha256": "44211f930bab777c8af35a236ef9558d6c6c2ed65e78f63b596e78db2b4fccf9",
+  "raw_stdout_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0031.stdout.txt",
+  "raw_stdout_sha256": "4f9b20de20e8e16dcd1cc472bfcb974cefc0f78384e4d14bf6228db189838001",
+  "rna_id": "EXTSEQ0031",
+  "runtime_seconds": 0.018718,
+  "sequence": "AAGUACCCUCCAAGCCCUACAGGUUGGAAGAGGGGGCUAUCAGUCCUGUAGGCAGACUC",
+  "sequence_length": 59,
+  "status": "valid",
+  "stderr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/logs/EXTSEQ0031.stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structure": ".((..(((((..((((.....))))....)))))..))...((((.((....))))))."
+}

@@ -1,0 +1,86 @@
+{
+  "command": "PETFOLDBIN=/root/autodl-tmp/PETfold/bin /root/autodl-tmp/PETfold/bin/PETfold -f /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0035.fasta -r /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0035.petfoldrr",
+  "created_at_utc": "2026-08-28T03:51:36Z",
+  "exit_code": 0,
+  "failure_reason": "",
+  "input_fasta_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0035.fasta",
+  "input_fasta_sha256": "ec82fac553012a6cb1ec663f957329a5903e826b01b572327d029d0dec227a62",
+  "pairs": [
+    [
+      0,
+      33
+    ],
+    [
+      1,
+      32
+    ],
+    [
+      2,
+      31
+    ],
+    [
+      3,
+      30
+    ],
+    [
+      4,
+      29
+    ],
+    [
+      8,
+      22
+    ],
+    [
+      9,
+      21
+    ],
+    [
+      10,
+      20
+    ],
+    [
+      11,
+      19
+    ],
+    [
+      34,
+      50
+    ],
+    [
+      35,
+      49
+    ],
+    [
+      36,
+      48
+    ],
+    [
+      37,
+      47
+    ],
+    [
+      38,
+      46
+    ],
+    [
+      39,
+      45
+    ],
+    [
+      40,
+      44
+    ]
+  ],
+  "petfoldrr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0035.petfoldrr",
+  "petfoldrr_sha256": "912cfab8c9816f5e25a37c40cf4e42520bd476b191d8ab707599dfeff5197397",
+  "raw_stdout_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0035.stdout.txt",
+  "raw_stdout_sha256": "10d47f0bbaad014a4c3745cf401c18cd6f0e0523ca9715dfda0feb0fff633e1c",
+  "rna_id": "EXTSEQ0035",
+  "runtime_seconds": 0.013777,
+  "sequence": "GGACGGGAGCUGAACCAUCCAGCGAAGAACGUCCCGACGGAUGGUUCGUCG",
+  "sequence_length": 51,
+  "status": "valid",
+  "stderr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/logs/EXTSEQ0035.stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structure": "(((((...((((.......))))......)))))(((((((...)))))))"
+}

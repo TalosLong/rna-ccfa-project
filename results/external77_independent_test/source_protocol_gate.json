@@ -1,42 +1,23 @@
 {
+  "EXTERNAL_NORMALIZED_MATRIX": "126/126 PASS",
+  "THREE_SOURCE_HISTORICAL_GATE": "PASS",
   "dataset": "external77_GT_CON_v1_nonredundant",
   "frozen_rna_count": 42,
-  "generated_at_utc": "2026-08-27T10:07:08Z",
-  "overall_gate": "BLOCKED",
-  "three_source_matrix_allowed": false,
+  "overall_gate": "PASS",
+  "petfold_condition": "REPRODUCED_HISTORICAL_SINGLE_SEQUENCE_CONDITION",
   "sources": {
-    "rnafold": {
-      "status": "REPRODUCED",
-      "command": "/usr/bin/RNAfold --noPS <input.fasta>",
-      "version": "2.4.17",
-      "coverage": "42/42"
-    },
     "petfold": {
-      "status": "NONREPRODUCIBLE",
-      "historical_semantics": "BLOCKED",
-      "binary": "/root/autodl-tmp/models/DRfold_repo/third_party/PETfold/bin/PETfold",
-      "binary_sha256": "99deeb0066a246b8f6ac79e13f2c60f62dd63e3f2774fb0649f0dd35ffe980ad",
-      "blocking_dependencies": [
-        "historical alignment files and generation command",
-        "alignment row/query semantics",
-        "alignment-gap to ungapped-query coordinate projection"
-      ],
-      "alternative": "PETfold_SINGLE_SEQUENCE_NEW_SOURCE (not executed; not historical reproduction)"
+      "coverage": "42/42",
+      "status": "REPRODUCED"
+    },
+    "rnafold": {
+      "coverage": "42/42",
+      "status": "REPRODUCED"
     },
     "trrosettarna2_native_ss": {
-      "status": "REPRODUCED",
-      "condition": "query-only single-sequence A3M",
-      "command": "/root/autodl-tmp/models/trRosettaRNA2/env_trRNA2/bin/python /root/autodl-tmp/models/trRosettaRNA2/scripts/tools/ss_predictor_standalone.py --batch <inputs> --msa_dir <msas> -o <outputs> --gpu -1 --threshold 0.5",
-      "checkpoints": {
-        "model_1_finetune.pth.tar": "23defcc04f02613c07cf9ca4653e9367845480e249a4c90e32a61cfa82bb6ec8",
-        "model_2_finetune.pth.tar": "79ee6324fcf377950d63643a538b1ecd8f5b768f27f40ac63f83060ad66c25a2",
-        "model_3_finetune.pth.tar": "6ee709e30ff32f7b90791628b8bde7aa8bc877c2e7878b9f3bcb0e66b4af4eb3"
-      },
       "coverage": "42/42",
-      "raw_score_key": "ss",
-      "decoder": "ensemble mean; threshold >0.5; strongest-probability one-partner greedy decoder",
-      "crossing_pair_note": "raw matrix retained; parenthesis-only DBN is derived and cannot encode crossings losslessly"
+      "status": "REPRODUCED"
     }
   },
-  "decision": "Do not normalize or claim the complete 126-record matrix until PETfold historical alignment/projection semantics are recovered."
+  "three_source_matrix_allowed": true
 }

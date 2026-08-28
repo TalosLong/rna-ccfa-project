@@ -1,0 +1,4 @@
+Pfold RNA structure:	((((((((.((.........................))..))))))))
+Constraints:		.((((......................................)))).
+PETfold RNA structure:	(((((((((((((((((((........))))))).)))).))))))))
+Score_{model,structure}{tree,alignment} = 0.665012

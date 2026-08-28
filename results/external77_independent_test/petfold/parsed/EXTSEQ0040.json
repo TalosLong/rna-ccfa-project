@@ -1,0 +1,86 @@
+{
+  "command": "PETFOLDBIN=/root/autodl-tmp/PETfold/bin /root/autodl-tmp/PETfold/bin/PETfold -f /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0040.fasta -r /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0040.petfoldrr",
+  "created_at_utc": "2026-08-28T03:51:36Z",
+  "exit_code": 0,
+  "failure_reason": "",
+  "input_fasta_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0040.fasta",
+  "input_fasta_sha256": "4708a1bbb2ed85b6bd051ff92d19a2f68e64e28ca49914ffb1181766df87badb",
+  "pairs": [
+    [
+      0,
+      42
+    ],
+    [
+      1,
+      41
+    ],
+    [
+      2,
+      40
+    ],
+    [
+      3,
+      39
+    ],
+    [
+      4,
+      38
+    ],
+    [
+      6,
+      37
+    ],
+    [
+      7,
+      36
+    ],
+    [
+      8,
+      35
+    ],
+    [
+      11,
+      34
+    ],
+    [
+      12,
+      33
+    ],
+    [
+      14,
+      32
+    ],
+    [
+      15,
+      31
+    ],
+    [
+      16,
+      30
+    ],
+    [
+      17,
+      29
+    ],
+    [
+      18,
+      28
+    ],
+    [
+      19,
+      27
+    ]
+  ],
+  "petfoldrr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0040.petfoldrr",
+  "petfoldrr_sha256": "ff218ddd839bbc123345504a1d3eae689a19a5bfbb98fb384896d694b3345fb5",
+  "raw_stdout_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0040.stdout.txt",
+  "raw_stdout_sha256": "4d283574fc0955c0dd2606bcf82e1bb246d05db90ea7045df39c7faaa6cd7ec6",
+  "rna_id": "EXTSEQ0040",
+  "runtime_seconds": 0.010103,
+  "sequence": "GAGACUAUCGACAUUUGAUACACUAUUUAUCAAUGGAUGUCUC",
+  "sequence_length": 43,
+  "status": "valid",
+  "stderr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/logs/EXTSEQ0040.stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structure": "(((((.(((..((.((((((.......))))))))))))))))"
+}

@@ -1,0 +1,94 @@
+{
+  "command": "PETFOLDBIN=/root/autodl-tmp/PETfold/bin /root/autodl-tmp/PETfold/bin/PETfold -f /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0027.fasta -r /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0027.petfoldrr",
+  "created_at_utc": "2026-08-28T03:51:36Z",
+  "exit_code": 0,
+  "failure_reason": "",
+  "input_fasta_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0027.fasta",
+  "input_fasta_sha256": "20b325c24f96d3bc7a3498209f6f4b7397adbf4c0cc41c821ba964e3a48fb921",
+  "pairs": [
+    [
+      0,
+      35
+    ],
+    [
+      1,
+      34
+    ],
+    [
+      2,
+      33
+    ],
+    [
+      3,
+      32
+    ],
+    [
+      4,
+      31
+    ],
+    [
+      5,
+      30
+    ],
+    [
+      6,
+      29
+    ],
+    [
+      10,
+      28
+    ],
+    [
+      11,
+      27
+    ],
+    [
+      16,
+      25
+    ],
+    [
+      17,
+      24
+    ],
+    [
+      18,
+      23
+    ],
+    [
+      36,
+      58
+    ],
+    [
+      38,
+      57
+    ],
+    [
+      39,
+      56
+    ],
+    [
+      40,
+      55
+    ],
+    [
+      41,
+      54
+    ],
+    [
+      42,
+      53
+    ]
+  ],
+  "petfoldrr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0027.petfoldrr",
+  "petfoldrr_sha256": "771bc3dbcc009ade62418bb1a85fe215118e23ab2047debc6e522cafd6c6fcb5",
+  "raw_stdout_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0027.stdout.txt",
+  "raw_stdout_sha256": "412a579c259c55f9b441ba3855a32a8106e11e2044b1689ec490a5e262c1a070",
+  "rna_id": "EXTSEQ0027",
+  "runtime_seconds": 0.026938,
+  "sequence": "GGGGGCCACAGCAGAAGCGUUCACGUCGCGGCCCCUGUCAGCCAUUGCACUCCGGCUGCGAAUUCUGCU",
+  "sequence_length": 69,
+  "status": "valid",
+  "stderr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/logs/EXTSEQ0027.stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structure": "(((((((...((....(((....))).)))))))))(.(((((..........)))))).........."
+}

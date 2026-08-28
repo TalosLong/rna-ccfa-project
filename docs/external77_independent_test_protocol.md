@@ -1,6 +1,6 @@
 # external77 Independent Test Protocol v1
 
-Status: **candidate manifest frozen; source matrix not yet complete**.
+Status: **COMPLETE — 126/126 normalized source records validated**.
 
 ## Frozen target and membership
 
@@ -49,10 +49,10 @@ RNAfold is executable with the documented historical command
 `/usr/bin/RNAfold --noPS input.fasta` (version is captured per run). Its
 outputs are validated for sequence length and canonical pair validity only.
 
-PETfold is **blocked** pending a frozen external77 alignment input and
-alignment-gap projection protocol. Its legacy command and binary are
-documented, but selecting a new alignment or silently projecting gaps would
-change prediction semantics.
+PETfold is **reproduced under the historical single-sequence condition**.
+The migrated v2.0 binary accepts a one-record ungapped FASTA (syntactically a
+one-row alignment with no biological MSA dependency), so no gap projection is
+needed.
 
 trRosettaRNA2 native SS is now **reproduced as a query-only native-SS source
 condition**. The forensic audit found 121 one-row Legacy121 A3Ms and a
@@ -62,26 +62,28 @@ strongest-pair decoder are retained under the source-prediction audit. The
 raw dense score matrix remains authoritative; parenthesis-only DBN cannot
 encode crossings losslessly.
 
-PETfold remains **blocked** pending historical alignment input and
-alignment-gap projection recovery. No new alignment or projection is used.
+PETfold is now **reproduced as the historical single-sequence condition**.
+The migrated PETfold v2.0 installation accepts a one-record ungapped FASTA;
+this is syntactically a one-row alignment but has no biological MSA
+dependency, and no gap projection is needed. The 10-RNA and 121-RNA exact
+reproduction tables are retained under `results/petfold_reproduction/`.
 
 The execution audit is generated under `results/external77_independent_test/`:
 
 - `source_runtime.csv` — command, version, environment, status, runtime, and logs;
 - `source_coverage.csv` — valid/invalid/blocked counts;
 - `provenance_manifest.csv` — hashes for generated valid source outputs;
-- `validation_summary.json` — candidate and matrix status.
+- `validation_summary.json` — candidate and matrix status;
+- `sequence_leakage_audit.csv` — maximum identity and nearest Legacy121 RNA for every frozen external RNA.
 
 ## Normalization gate
 
-No external normalized JSONL is emitted while the three-source matrix is
-incomplete. The directory
-`normalized/external77_GT_CON_v1_nonredundant/` contains a status README only.
-When all 126 source outputs are available, normalization must use schema v1,
-validate GT_CON and predictions with the existing canonical parser, preserve
-source hashes and logs, and handle trRosettaRNA2 score sidecars under the same
-diagonal-only normalization contract used for Legacy121. No baseline or
-refiner evaluation is part of this preparation step.
+Normalization uses schema v1 and the complete three-source matrix is now
+available at `normalized/external77_GT_CON_v1_nonredundant/predictions.jsonl`.
+`PYTHONPATH=src python scripts/normalize_external77.py` validates all 126
+records, preserves source hashes and logs, and handles trRosettaRNA2 score
+sidecars under the same diagonal-only normalization contract used for
+Legacy121. No baseline or refiner evaluation is part of this preparation step.
 
 ## Reproducibility and reporting
 

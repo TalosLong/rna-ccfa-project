@@ -1,0 +1,198 @@
+{
+  "command": "PETFOLDBIN=/root/autodl-tmp/PETfold/bin /root/autodl-tmp/PETfold/bin/PETfold -f /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0006.fasta -r /root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0006.petfoldrr",
+  "created_at_utc": "2026-08-28T03:51:34Z",
+  "exit_code": 0,
+  "failure_reason": "",
+  "input_fasta_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/inputs/EXTSEQ0006.fasta",
+  "input_fasta_sha256": "9b5dee4cd22906ecc5172511eddb794ae433f0432a1662fe2cbc95940ed9b67f",
+  "pairs": [
+    [
+      0,
+      121
+    ],
+    [
+      1,
+      120
+    ],
+    [
+      2,
+      119
+    ],
+    [
+      3,
+      118
+    ],
+    [
+      4,
+      117
+    ],
+    [
+      5,
+      116
+    ],
+    [
+      6,
+      115
+    ],
+    [
+      7,
+      114
+    ],
+    [
+      8,
+      113
+    ],
+    [
+      9,
+      112
+    ],
+    [
+      10,
+      111
+    ],
+    [
+      12,
+      35
+    ],
+    [
+      13,
+      34
+    ],
+    [
+      14,
+      33
+    ],
+    [
+      15,
+      32
+    ],
+    [
+      16,
+      31
+    ],
+    [
+      17,
+      30
+    ],
+    [
+      20,
+      28
+    ],
+    [
+      21,
+      27
+    ],
+    [
+      42,
+      70
+    ],
+    [
+      43,
+      69
+    ],
+    [
+      44,
+      68
+    ],
+    [
+      45,
+      67
+    ],
+    [
+      47,
+      62
+    ],
+    [
+      48,
+      61
+    ],
+    [
+      49,
+      60
+    ],
+    [
+      50,
+      59
+    ],
+    [
+      51,
+      58
+    ],
+    [
+      52,
+      57
+    ],
+    [
+      77,
+      99
+    ],
+    [
+      78,
+      98
+    ],
+    [
+      81,
+      95
+    ],
+    [
+      82,
+      94
+    ],
+    [
+      83,
+      93
+    ],
+    [
+      84,
+      92
+    ],
+    [
+      85,
+      91
+    ],
+    [
+      100,
+      110
+    ],
+    [
+      101,
+      109
+    ],
+    [
+      102,
+      108
+    ],
+    [
+      103,
+      107
+    ],
+    [
+      131,
+      144
+    ],
+    [
+      132,
+      143
+    ],
+    [
+      133,
+      142
+    ],
+    [
+      134,
+      141
+    ]
+  ],
+  "petfoldrr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0006.petfoldrr",
+  "petfoldrr_sha256": "f196d5533c408adea96cf7b02e2ae39836b13604fec4258ff244c538c944c6ae",
+  "raw_stdout_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/raw/EXTSEQ0006.stdout.txt",
+  "raw_stdout_sha256": "24380ad93c4793c6dd954e9b361db05d164af5fa9f7cef918cba682105c975d2",
+  "rna_id": "EXTSEQ0006",
+  "runtime_seconds": 0.193017,
+  "sequence": "GGUCAAAUAGGUGCCGGUCCGUGAACAACAGCCGGCUUAAAAGGGAAACCGGUAAAAGCCGGUGCGGUCCCGCCACUGUAAUUGGCCAAGCGCCAAGAGCCAGGAUACCUGCCUGUUUGAUCAGCACGAAUUCUGCGAGGACAGAUGA",
+  "sequence_length": 148,
+  "status": "valid",
+  "stderr_path": "/root/autodl-tmp/rna-ccfa/results/external77_independent_test/petfold/logs/EXTSEQ0006.stderr.txt",
+  "stderr_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "structure": "(((((((((((.((((((..((.....)).))))))......((((.((((((....))))))....))))......((..(((((.....)))))..))((((...))))))))))))))).........((((......))))..."
+}

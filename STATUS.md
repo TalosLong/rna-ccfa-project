@@ -39,7 +39,7 @@ Last updated: 2026-08-28
 - [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
 - [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates；未实现或训练模型。
 - [x] 完成 frozen-data label/split feasibility audit：Legacy121 共 5,290 个 predicted-pair examples（KEEP 4,397、DELETE 893）；确认当前没有 test-ready independent normalized dataset，并识别 42 条 nonredundant ACGU external77 GT_CON candidate sequences。
-- [x] 冻结 external77 GT_CON nonredundant candidate manifest 与 source failure policy：42/42 candidates independently reproduced、GT_CON parseability 通过；RNAfold 42/42 valid，PETfold 与 trRosettaRNA2 因未冻结外部 alignment/MSA+decoder protocol 保持 BLOCKED，未生成 external normalized records。
+- [x] 冻结 external77 GT_CON nonredundant candidate manifest 与 source failure policy；RNAfold、PETfold、trRosettaRNA2 native SS 均 42/42 valid，完成 126/126 normalized records。
 - [x] 冻结 first-MLP implementation plan v1：feature schema、train-only normalization/class weights、AdamW schedule、五个固定 seeds、validation-only threshold grid、模型 variants、artifact layout 与 pre-training leakage checks 已记录；未训练模型。
 
 ## Running / In Progress
@@ -52,8 +52,8 @@ Last updated: 2026-08-28
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 - Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 leakage-safe protocol 与 evaluation design 已冻结，implementation/training 尚未开始。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
-- external77 source-protocol forensic audit completed: trRosettaRNA2 native SS was recovered as the query-only A3M condition and validated 42/42; PETfold remains NONREPRODUCIBLE because historical alignments and ungapped-coordinate projection are absent. No substitute PETfold source was run.
-- The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; the overall gate remains BLOCKED and no three-source normalization is authorized.
+- external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
+- The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.
 
 ## Current Findings
 
@@ -264,12 +264,11 @@ Legacy121 共包含 5,290 个 predicted-pair examples：RNAfold 1,693
 KEEP/DELETE 为 4,397/893。Legacy121 已用于 Phase 1 与 rule selection，只允许作为
 80% global-sequence-identity grouped development CV，不能作为 final independent test。
 
-本机 inventory 尚无 test-ready independent normalized three-source dataset。
+本机 inventory 已有 test-ready independent normalized three-source dataset。
 external77 的 77 条序列中有 4 条含 `N`、30 条与 Legacy121 exact overlap；在 73 条
 ACGU-only 序列中，31 条与 Legacy121 的最大 global identity >=80%，留下 42 条
 nonredundant GT_CON candidates。该 42 条集合的 manifest/GT_CON semantics 已冻结；仍须
-在 PETfold historical alignment/projection 语义恢复后生成完整三模型 predictions 并
-normalization，才可成为 test-only dataset。
+三模型 predictions 与 normalization 已完成，可作为 test-only dataset。
 
 Primary architecture 冻结为 two-hidden-layer width-64 pair-feature MLP；source-aware、
 source-agnostic、model-specific 与 leave-one-model-out variants 分开报告。是否存在
@@ -283,30 +282,27 @@ The frozen 42-RNA GT_CON membership and sequence-leakage audit remain exact.
 RNAfold coverage is 42/42. The trRosettaRNA2 native-SS query-only source
 condition is provenance-complete and valid for 42/42, using the retained
 three-checkpoint ensemble and historical standalone `>0.5` greedy decoder.
-PETfold is NONREPRODUCIBLE under historical semantics: no Legacy121
-alignment inputs or alignment-gap projection map were found. Therefore the
-gate remains BLOCKED, no PETfold substitute is treated as historical, and no
-external77 normalized records or 126-record three-source matrix are claimed.
-Training readiness is `NOT_READY`.
+PETfold is reproduced under the historical single-sequence condition. The gate
+is PASS, the complete matrix is 126/126, and training readiness is
+`READY_FOR_FIRST_MLP_TRAINING`. No MLP training was done in this task.
 
 ## Blockers
 
 - refinement 项目最终 dataset 列表未确定。
 - external77 的 `GT_ALL` / `GT_CON` 目标语义及 4 个含 `N` 序列的处理规则尚未冻结。
-- 当前没有可直接用于 learned-refiner final evaluation 的 independent normalized dataset；42 条 external77 GT_CON nonredundant candidates 尚未冻结 target manifest，也没有完整三模型 prediction matrix。
+- independent external77 evaluation dataset is complete: immutable 42-RNA manifest and validated 126-record three-source matrix.
 - 第一版 3-5 个 source predictor 未确定。
-- 目前只有 legacy 121 同时具备 RNAfold、PETfold 和 trRosettaRNA2 native SS 的完整历史 2D 输出；external77 缺少完整的三模型 2D prediction matrix，进入首轮多模型评测前需要按冻结协议重跑。
+- Legacy121 retains the complete historical three-source 2D outputs; external77 now also has a complete frozen three-source prediction matrix for independent evaluation.
 - 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
 - learned selective-refiner v1 的 minimal MLP architecture 已冻结；具体 optimizer/training schedule 必须在首次训练前另行冻结且不得看 test results。
-- external77 candidate manifest 已冻结；RNAfold 与 query-only trRosettaRNA2 source 输出均已完成 42/42 validation，但 independent test 仍未 ready，因为 PETfold historical alignment/projection semantics 尚未恢复，且完整 prediction matrix 尚未生成。
+- external77 candidate manifest and all three source outputs are validated 42/42; the independent test matrix is complete and ready.
 - real experimental evidence source 未确定。
 - 最终 CCF-A venue 未确定。
 - 3D validation subset 和 inference protocol 未确定。
 
 ## Immediate Next Steps
 
-1. Recover and freeze the missing PETfold historical alignment/projection semantics; only then decide whether the complete 126-record external test matrix can be normalized.
-2. Implement the frozen pair-feature MLP training/evaluation pipeline without changing protocol thresholds or inspecting the independent test labels.
+1. Implement the frozen pair-feature MLP training/evaluation pipeline without changing protocol thresholds or inspecting the independent test labels.
 
 ## Open Questions
 
