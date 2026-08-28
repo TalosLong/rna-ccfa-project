@@ -56,6 +56,10 @@
 - [x] Freeze exact first-MLP hyperparameters, feature/leakage checks, and future artifact contract before training.
 - [x] Implement and execute the first Legacy121 grouped-CV selective-refiner MLP experiment (200/200 GPU runs); development gate failed; external77 learned evaluation intentionally not run.
 - [x] Generate learned pair-classification and structure/edit development summaries with source-wise and LOMO diagnostics.
+- [x] Independently reconstruct v1 final fold/seed metrics and freeze the preservation, per-source ΔF1, and LOMO failure decomposition without modifying v1.
+- [x] Complete the prediction-only cross-model agreement enrichment audit and classify it `CROSS_MODEL_SIGNAL_PROMISING` on Legacy121 development data.
+- [x] Freeze `docs/selective_refiner_protocol_v2.md`, its feature contract, factorial calibration design, and exact go/no-go criteria before v2 training.
+- [ ] Implement and run selective-refiner v2 on the frozen Legacy121 folds/seeds; do not access external77 unless the primary v2 gate passes.
 - [x] Audit PETfold and trRosettaRNA2 external source provenance; record corrected reproducibility gate.
 - [x] Complete and validate the independent external77 three-source normalized test matrix (126/126).
 - [ ] Build training records containing source prediction, ground truth, and error labels.
@@ -76,7 +80,7 @@
 - [ ] Run leave-one-model-out evaluation for each feasible held-out predictor.
 - [ ] Save per-predictor metrics to `results/cross_model/leave_one_model_out.csv`.
 - [ ] Compare refinement gains on weak versus strong source predictors.
-- [ ] Remove any model-agnostic claim if unseen-model transfer is not reproducible.
+- [x] Remove the current model-agnostic claim because v1 unseen-source LOMO transfer was not reproducible across all three predictors.
 
 ### Evidence Guidance
 

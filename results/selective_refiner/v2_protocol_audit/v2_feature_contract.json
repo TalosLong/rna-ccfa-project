@@ -1,0 +1,52 @@
+{
+  "protocol_version": "selective_refiner_v2",
+  "status": "FROZEN_BEFORE_V2_TRAINING",
+  "prediction_unit": "one pair in the immutable original source prediction",
+  "labels": {
+    "KEEP": "exact TP",
+    "DELETE": "exact FP",
+    "positive_class": "DELETE",
+    "missing_pairs_are_examples": false
+  },
+  "v2_base": "exact selective-refiner v1 feature contract",
+  "v2_cross_model_symmetric_features": [
+    "exact_support_other_count",
+    "any_other_exact_support",
+    "all_three_exact_agreement",
+    "endpoint_i_conflict_count",
+    "endpoint_j_conflict_count",
+    "any_partner_conflict",
+    "local_inward_pair_support_count",
+    "local_outward_pair_support_count",
+    "strict_stem_supported_by_other_model",
+    "fraction_source_stem_pairs_supported"
+  ],
+  "v2_cross_model_source_aware_additional_features": [
+    "support_by_rnafold",
+    "support_by_petfold",
+    "support_by_trrosettarna2"
+  ],
+  "audited_but_excluded_redundant_features": {
+    "endpoint_i_partner_agreement_count": "equals exact_support_other_count under the one-partner constraint",
+    "endpoint_j_partner_agreement_count": "equals exact_support_other_count under the one-partner constraint"
+  },
+  "input_requirements": {
+    "source_predictions": [
+      "rnafold",
+      "petfold",
+      "trrosettarna2_native_ss"
+    ],
+    "ground_truth": false,
+    "pair_confidence": false,
+    "complete_three_source_matrix": true,
+    "missing_source_policy": "ABSTAIN_NO_REFINEMENT"
+  },
+  "forbidden_inputs": [
+    "GT structure",
+    "TP/FP/FN fields",
+    "wrong-partner labels",
+    "Phase 1 error labels",
+    "pair-confidence matrices",
+    "external77-derived information"
+  ]
+}

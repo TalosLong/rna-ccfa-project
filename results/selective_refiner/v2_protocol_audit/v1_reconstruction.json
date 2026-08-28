@@ -1,0 +1,125 @@
+{
+  "cross_model_support_stats": {
+    "petfold": {
+      "correct_probability_support_0_1_2": [
+        0.0,
+        0.3416370106761566,
+        0.9764285714285714
+      ],
+      "fp_fraction_support_0_1_2": [
+        1.0,
+        0.6583629893238434,
+        0.023571428571428573
+      ],
+      "monotonic_correctness_increase": true,
+      "zero_support_fp_enrichment_vs_source_baseline": 7.070539419087138
+    },
+    "pooled": {
+      "correct_probability_support_0_1_2": [
+        0.15873015873015872,
+        0.3686006825938567,
+        0.9764285714285714
+      ],
+      "fp_fraction_support_0_1_2": [
+        0.8412698412698413,
+        0.6313993174061433,
+        0.023571428571428573
+      ],
+      "monotonic_correctness_increase": true,
+      "zero_support_fp_enrichment_vs_source_baseline": 4.983558186245757
+    },
+    "rnafold": {
+      "correct_probability_support_0_1_2": [
+        0.0625,
+        0.3790613718411552,
+        0.9764285714285714
+      ],
+      "fp_fraction_support_0_1_2": [
+        0.9375,
+        0.6209386281588448,
+        0.023571428571428573
+      ],
+      "monotonic_correctness_increase": true,
+      "zero_support_fp_enrichment_vs_source_baseline": 7.214488636363637
+    },
+    "trrosettarna2_native_ss": {
+      "correct_probability_support_0_1_2": [
+        0.1698924731182796,
+        0.5357142857142857,
+        0.9764285714285714
+      ],
+      "fp_fraction_support_0_1_2": [
+        0.8301075268817204,
+        0.4642857142857143,
+        0.023571428571428573
+      ],
+      "monotonic_correctness_increase": true,
+      "zero_support_fp_enrichment_vs_source_baseline": 3.6374850657108717
+    }
+  },
+  "development_gate": {
+    "external77_evaluated": false,
+    "failed_runs": 0,
+    "lomo_all_source_gate": "FAIL",
+    "per_source_delta_f1_gate": "FAIL",
+    "pooled_selective_preservation_gate": "FAIL",
+    "status": "DEVELOPMENT_GATE_FAIL",
+    "training_runs": 200
+  },
+  "external77_accessed": false,
+  "failed_final_runs": 0,
+  "final_training_runs": 200,
+  "headline_metric_checks": {
+    "POOLED_SOURCE_AGNOSTIC.correct_pair_preservation": {
+      "absolute_difference": 0.0,
+      "frozen": 0.9850926072157197,
+      "observed": 0.9850926072157197
+    },
+    "POOLED_SOURCE_AGNOSTIC.delete_recall": {
+      "absolute_difference": 1.1102230246251565e-16,
+      "frozen": 0.4283801292195618,
+      "observed": 0.4283801292195619
+    },
+    "POOLED_SOURCE_AGNOSTIC.modification_precision": {
+      "absolute_difference": 0.0,
+      "frozen": 0.8572464144169508,
+      "observed": 0.8572464144169508
+    },
+    "POOLED_SOURCE_AWARE.correct_pair_preservation": {
+      "absolute_difference": 0.0,
+      "frozen": 0.9880795569112636,
+      "observed": 0.9880795569112636
+    },
+    "POOLED_SOURCE_AWARE.delete_recall": {
+      "absolute_difference": 0.0,
+      "frozen": 0.4397344717235926,
+      "observed": 0.4397344717235926
+    },
+    "POOLED_SOURCE_AWARE.modification_precision": {
+      "absolute_difference": 1.1102230246251565e-16,
+      "frozen": 0.8753865496061206,
+      "observed": 0.8753865496061207
+    }
+  },
+  "selective_deployable_runs": {
+    "LOMO_HOLDOUT_PETFOLD": 21,
+    "LOMO_HOLDOUT_RNAFOLD": 15,
+    "LOMO_HOLDOUT_TRROSETTARNA2": 17,
+    "MODEL_SPECIFIC_PETFOLD": 14,
+    "MODEL_SPECIFIC_RNAFOLD": 20,
+    "MODEL_SPECIFIC_TRROSETTARNA2": 14,
+    "POOLED_SOURCE_AGNOSTIC": 20,
+    "POOLED_SOURCE_AWARE": 16
+  },
+  "successful_final_runs": 200,
+  "variants": [
+    "LOMO_HOLDOUT_PETFOLD",
+    "LOMO_HOLDOUT_RNAFOLD",
+    "LOMO_HOLDOUT_TRROSETTARNA2",
+    "MODEL_SPECIFIC_PETFOLD",
+    "MODEL_SPECIFIC_RNAFOLD",
+    "MODEL_SPECIFIC_TRROSETTARNA2",
+    "POOLED_SOURCE_AGNOSTIC",
+    "POOLED_SOURCE_AWARE"
+  ]
+}

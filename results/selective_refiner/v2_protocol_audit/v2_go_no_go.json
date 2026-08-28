@@ -1,0 +1,38 @@
+{
+  "protocol_version": "selective_refiner_v2",
+  "status": "FROZEN_BEFORE_V2_TRAINING",
+  "primary_condition": "V2A_CROSS_SOURCE_AGNOSTIC_GLOBAL",
+  "matched_baseline": "V2A_BASE_SOURCE_AGNOSTIC_GLOBAL",
+  "aggregation": {
+    "folds": 5,
+    "seeds": [17, 29, 41, 53, 67],
+    "required_deployable_fold_seed_runs": 25,
+    "summary": "unweighted arithmetic mean over all 25 held-out fold-seed runs",
+    "paired_comparison": "same fold and seed; mean of cross-model minus matched-base differences"
+  },
+  "absolute_gates": {
+    "pooled_modification_precision_min": 0.8,
+    "pooled_delete_recall_min": 0.1,
+    "pooled_correct_pair_preservation_min": 0.99,
+    "per_source_correct_pair_preservation_min": 0.98,
+    "sources_with_positive_macro_and_micro_delta_f1_min": 2,
+    "modified_rna_fraction_min_for_useful_source_claim": 0.1
+  },
+  "matched_improvement_gates": {
+    "pooled_modification_precision_absolute_gain_min": 0.02,
+    "pooled_correct_pair_preservation_absolute_gain_min": 0.002,
+    "pooled_delete_recall_allowed_drop_max": 0.02,
+    "paired_mean_macro_delta_f1_gain_min_exclusive": 0.0,
+    "paired_mean_micro_delta_f1_gain_min_exclusive": 0.0,
+    "rnafold_or_petfold_with_positive_macro_and_micro_delta_f1_required": true,
+    "rnafold_or_petfold_macro_and_micro_gain_over_matched_base_min_exclusive": 0.0
+  },
+  "catastrophic_degradation": {
+    "any_source_macro_or_micro_delta_f1_below": -0.005,
+    "any_source_macro_or_micro_delta_f1_drop_vs_matched_base_below": -0.005,
+    "any_source_preservation_below": 0.98,
+    "status_if_triggered": "FAIL"
+  },
+  "secondary_factorial_conditions_cannot_rescue_primary_failure": true,
+  "external77_policy": "LOCKED_UNLESS_PRIMARY_V2_DEVELOPMENT_GATE_PASS"
+}
