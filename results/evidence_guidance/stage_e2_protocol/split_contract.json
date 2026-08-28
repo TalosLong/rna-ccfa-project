@@ -1,0 +1,46 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "dataset_role": "Legacy121_grouped_development_only",
+  "fold_assignment_path": "results/selective_refiner_protocol/legacy121_grouped_cv_folds.csv",
+  "fold_assignment_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+  "rna_count": 121,
+  "source_record_count": 363,
+  "source_record_counts": {
+    "rnafold": 121,
+    "petfold": 121,
+    "trrosettarna2_native_ss": 121
+  },
+  "fold_rna_counts": {"0": 25, "1": 24, "2": 24, "3": 24, "4": 24},
+  "rotation": {
+    "test": "k",
+    "validation": "(k+1)%5",
+    "training": "remaining_three_folds"
+  },
+  "rotation_partition_counts": {
+    "0": {"training": 72, "validation": 24, "test": 25},
+    "1": {"training": 73, "validation": 24, "test": 24},
+    "2": {"training": 73, "validation": 24, "test": 24},
+    "3": {"training": 73, "validation": 24, "test": 24},
+    "4": {"training": 72, "validation": 25, "test": 24}
+  },
+  "identity_threshold": 0.8,
+  "identity_component_count": 121,
+  "identity_components_crossing_folds": 0,
+  "grouped_entities": [
+    "all_source_records_for_rna",
+    "all_density_realizations_for_rna",
+    "all_evidence_seeds_for_rna",
+    "all_candidate_pairs_for_rna",
+    "all_members_of_identity_component"
+  ],
+  "density_percent_grid": [0, 1, 5, 10, 20, 50],
+  "evidence_seeds": [101, 103, 107, 109, 113],
+  "model_seeds": [17, 29, 41, 53, 67],
+  "original_pair_examples": 5290,
+  "realizations_per_pair_per_channel": 30,
+  "full_pair_realization_rows_per_channel": 158700,
+  "no_test_rna_evidence_in_training": true,
+  "no_validation_rna_preprocessing_or_class_weight": true,
+  "external77_allowed": false
+}

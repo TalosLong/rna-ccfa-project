@@ -1,0 +1,129 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "schema_version": "e2_feature_contract_v1",
+  "authoritative_v1_feature_schema_hash": "36659d621b443d5217273681cfce77061e0f0d1fd8c3e6c226813f129d06a1c2",
+  "primary_source_mode": "SOURCE_AGNOSTIC",
+  "model_input_allowlist": [
+    "sequence",
+    "immutable_original_predicted_pairs",
+    "delivered_clean_evidence_items"
+  ],
+  "candidate_base": {
+    "numeric_fields": [
+      "sequence_length",
+      "raw_separation",
+      "relative_separation",
+      "singleton_flag",
+      "strict_stem_length",
+      "stem_pair_position",
+      "normalized_stem_position",
+      "outer_boundary_flag",
+      "inner_boundary_flag",
+      "outward_neighbor_exists",
+      "inward_neighbor_exists"
+    ],
+    "categorical_vocabularies": {
+      "base_i": ["A", "C", "G", "U", "N/OTHER"],
+      "base_j": ["A", "C", "G", "U", "N/OTHER"],
+      "pair_type": ["AA", "AC", "AG", "AU", "CA", "CC", "CG", "CU", "GA", "GC", "GG", "GU", "UA", "UC", "UG", "UU", "OTHER"],
+      "outward_pair_type": ["NONE", "AA", "AC", "AG", "AU", "CA", "CC", "CG", "CU", "GA", "GC", "GG", "GU", "UA", "UC", "UG", "UU", "OTHER"],
+      "inward_pair_type": ["NONE", "AA", "AC", "AG", "AU", "CA", "CC", "CG", "CU", "GA", "GC", "GU", "UA", "UC", "UG", "UU", "OTHER"]
+    },
+    "numeric_dimension": 11,
+    "categorical_vocabulary_indicator_dimension": 62,
+    "explicit_unknown_bucket_count": 5,
+    "categorical_one_hot_dimension": 67,
+    "encoded_dimension": 78,
+    "historical_inward_GG_behavior": "activates_inward_pair_type_unknown_bucket",
+    "source_model_included": false,
+    "snapshot": "immutable_original_prediction"
+  },
+  "coordinate_denominator": "max(sequence_length-1,1)",
+  "channels": {
+    "E2_PAIR": {
+      "evidence_channel": "POSITIVE_PAIR_EVIDENCE",
+      "item_continuous_fields": [
+        "abs_i_a_norm",
+        "abs_i_b_norm",
+        "abs_j_a_norm",
+        "abs_j_b_norm",
+        "min_endpoint_distance_norm",
+        "max_endpoint_distance_norm",
+        "candidate_span_norm",
+        "evidence_span_norm",
+        "signed_span_difference_norm",
+        "midpoint_distance_norm"
+      ],
+      "item_binary_fields": [
+        "exact_same_pair",
+        "shared_endpoint",
+        "direct_conflict"
+      ],
+      "relation_vocabulary": ["CONTAINING", "NESTED", "CROSSING", "DISJOINT"],
+      "relation_precedence": ["CONTAINING", "NESTED", "CROSSING", "DISJOINT"],
+      "direct_conflict_definition": "candidate_and_evidence_are_unequal_and_share_at_least_one_endpoint",
+      "item_input_dimension": 17,
+      "absolute_only_ablation_fields": ["a_norm", "b_norm", "evidence_span_norm", "evidence_midpoint_norm"],
+      "absolute_only_ablation_dimension": 4
+    },
+    "E2_UNPAIRED": {
+      "evidence_channel": "UNPAIRED_NUCLEOTIDE_EVIDENCE",
+      "item_continuous_fields": [
+        "abs_i_k_norm",
+        "abs_j_k_norm",
+        "min_endpoint_distance_norm",
+        "max_endpoint_distance_norm",
+        "midpoint_distance_norm"
+      ],
+      "item_binary_fields": ["k_equals_i", "k_equals_j", "k_strictly_inside_pair_interval"],
+      "inside_definition": "i < k < j",
+      "item_input_dimension": 8,
+      "absolute_only_ablation_fields": ["k_norm"],
+      "absolute_only_ablation_dimension": 1
+    }
+  },
+  "evidence_count_descriptors": {
+    "fields": ["delivered_item_count", "delivered_item_count_div_sequence_length"],
+    "dimension": 2,
+    "nominal_density_included": false,
+    "eligible_universe_size_included": false
+  },
+  "preprocessing": {
+    "formula": "z=(x-train_mean)/max(train_std,1e-8)",
+    "candidate_numeric_statistics": "training_pair_realization_rows_only",
+    "evidence_numeric_statistics": "training_candidate_item_incidences_only",
+    "count_statistics": "nonempty_training_pair_realization_rows_only",
+    "categorical_vocabulary_source": "exact_authoritative_v1_contract_with_one_unknown_bucket_per_field",
+    "empty_evidence_block_override": "all_zeros_after_preprocessing",
+    "validation_or_test_statistics_allowed": false
+  },
+  "manifest_metadata_forbidden_as_model_input": [
+    "density_percent",
+    "evidence_seed",
+    "eligible_universe_size",
+    "source_gt_sha256",
+    "original_clean_item",
+    "manifest_payload_sha256"
+  ],
+  "forbidden_inputs": [
+    "full_ground_truth_structure_except_delivered_evidence",
+    "ground_truth_label_at_inference",
+    "unselected_ground_truth_pairs",
+    "unselected_ground_truth_unpaired_positions",
+    "tp_fp_fn_annotations",
+    "wrong_partner_labels",
+    "source_error_summaries",
+    "predictor_confidence",
+    "source_model_identity",
+    "family_or_dataset_identity",
+    "external77",
+    "noisy_evidence",
+    "real_modality_data"
+  ],
+  "generator": {
+    "protocol_version": "simulated_evidence_v1",
+    "clean_suite_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "untargeted_sampling_required": true
+  }
+}

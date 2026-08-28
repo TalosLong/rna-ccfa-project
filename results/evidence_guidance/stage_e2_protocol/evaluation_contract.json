@@ -1,0 +1,117 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "primary_conditions": {
+    "E2_WITH_EVIDENCE": "primary_checkpoint_with_delivered_evidence",
+    "E2_EVIDENCE_MASKED": "same_checkpoint_with_exact_empty_evidence_block"
+  },
+  "comparators": {
+    "common": ["ORIGINAL", "V3_VETO2_FIXED"],
+    "E2_PAIR": ["PAIR_PROTECT_ONLY", "PAIR_HARD_ENFORCE"],
+    "E2_UNPAIRED": ["UNPAIRED_HARD_DELETE"]
+  },
+  "edit_space": "delete_or_keep_immutable_original_predicted_pairs_only",
+  "scopes": {
+    "scope_universe": "union_of_GT_original_and_condition_output_pairs",
+    "DIRECT_EVIDENCE_EFFECT": {
+      "E2_PAIR": "exact_delivered_evidence_pairs",
+      "E2_UNPAIRED": "nucleotide_level_compliance_no_pair_member"
+    },
+    "LOCAL_CONFLICT_EFFECT": {
+      "E2_PAIR": "non_direct_pairs_touching_any_delivered_evidence_endpoint",
+      "E2_UNPAIRED": "pairs_touching_any_delivered_evidenced_position"
+    },
+    "NON_EVIDENCED_EFFECT": "all_remaining_pairs_not_direct_or_local",
+    "disjoint": true,
+    "exhaustive": true,
+    "same_delivered_evidence_defined_scopes_for_masked_control": true,
+    "empty_set_metric_convention": "shared_exact_pair_evaluator"
+  },
+  "matched_keys": [
+    "channel",
+    "rna_id",
+    "source_model",
+    "density_percent",
+    "evidence_seed",
+    "fold",
+    "model_seed"
+  ],
+  "central_endpoints": {
+    "NON_EVIDENCED_delta_f1": "E2_WITH_EVIDENCE_minus_E2_EVIDENCE_MASKED",
+    "FULL_STRUCTURE_delta_f1": "E2_WITH_EVIDENCE_minus_E2_EVIDENCE_MASKED"
+  },
+  "required_non_evidenced_edit_metrics": [
+    "beneficial_deletions",
+    "harmful_deletions",
+    "modification_precision",
+    "correct_pair_preservation"
+  ],
+  "density_interpretation": {
+    "all_reported": [0, 1, 5, 10, 20, 50],
+    "minimum_one_coarse": [1],
+    "primary_moderate": [5, 10, 20],
+    "high_evidence_reference": [50],
+    "best_density_selection_allowed": false
+  },
+  "aggregation": {
+    "biological_unit": "RNA",
+    "evidence_seeds_are_biological_replicates": false,
+    "model_seeds_are_biological_replicates": false,
+    "fold_reassembly": "concatenate_5_heldout_folds_so_each_RNA_appears_once_per_model_seed_evidence_seed_density_source",
+    "macro": "unweighted_mean_over_RNA_rows",
+    "micro": "metric_from_summed_TP_FP_FN_counts",
+    "seed_summary": "mean_population_std_min_max_over_25_model_seed_x_evidence_seed_realizations",
+    "matched_macro": "per_RNA_WITH_minus_MASKED_then_unweighted_average_over_RNAs_sources_evidence_seeds_model_seeds",
+    "matched_micro": "per_model_seed_x_evidence_seed_micro_difference_after_5_fold_concatenation_then_mean_over_25",
+    "moderate_event_pooled": "sum_events_across_5_10_20_densities_all_folds_sources_evidence_seeds_model_seeds_then_form_ratio",
+    "source_specific": "same_rules_restricted_to_source",
+    "zero_edit_modification_precision": null,
+    "required_NA_gate_handling": "FAIL"
+  },
+  "responsiveness": {
+    "eligible_unit": "heldout_RNA_x_source_x_evidence_seed_x_model_seed",
+    "eligibility": "at_least_one_delivered_item_and_at_least_one_original_predicted_pair",
+    "decision_difference": "WITH_and_MASKED_deleted_pair_sets_are_unequal",
+    "fraction": "differing_eligible_realizations/all_eligible_realizations"
+  },
+  "integrity": [
+    "zero_density_WITH_MASKED_score_and_decision_bit_equality",
+    "scope_disjointness",
+    "scope_exhaustiveness",
+    "canonical_output_pairs",
+    "one_partner_constraint",
+    "deletion_only_subset_of_original",
+    "beneficial_plus_harmful_equals_modified",
+    "TP_after_equals_TP_before_minus_harmful",
+    "FP_after_equals_FP_before_minus_beneficial",
+    "FN_after_equals_FN_before_plus_harmful",
+    "no_test_information_in_training_checkpoint_or_threshold"
+  ],
+  "future_artifacts": {
+    "root": "results/evidence_guidance/stage_e2",
+    "per_run": [
+      "config.json",
+      "train_ids.csv",
+      "validation_ids.csv",
+      "test_ids.csv",
+      "checkpoint.pt",
+      "validation_curves.csv",
+      "selected_threshold.json",
+      "validation_pair_scores.csv",
+      "test_pair_scores.csv"
+    ],
+    "evaluation": ["per_rna_metrics.csv", "scope_metrics.csv", "evidence_response_metrics.csv"],
+    "summary": [
+      "training_summary.csv",
+      "threshold_deployability.csv",
+      "full_structure_by_density.csv",
+      "non_evidenced_by_density.csv",
+      "matched_evidence_effect.csv",
+      "metrics_by_source.csv",
+      "ablation_summary.csv",
+      "stage_e2_gate.json"
+    ]
+  },
+  "external77_access_allowed": false,
+  "noise_evaluation_allowed": false
+}

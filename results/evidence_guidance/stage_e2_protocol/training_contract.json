@@ -1,0 +1,54 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "training_started": false,
+  "channels_trained_separately": ["E2_PAIR", "E2_UNPAIRED"],
+  "one_conditional_checkpoint_per_channel_fold_model_seed": true,
+  "density_specific_training": false,
+  "clean_only": true,
+  "noise_level_percent": 0,
+  "expanded_training_rows": {
+    "rule": "every_original_pair_x_all_6_densities_x_all_5_evidence_seeds",
+    "evidence_realizations_are_biological_replicates": false,
+    "label_aware_sampling": false
+  },
+  "label": {
+    "positive_class": "DELETE",
+    "KEEP": "exact_original_predicted_pair_TP",
+    "DELETE": "exact_original_predicted_pair_FP",
+    "FN_examples_included": false
+  },
+  "loss": "BCEWithLogitsLoss",
+  "pos_weight": "KEEP_train_expanded/DELETE_train_expanded",
+  "pos_weight_partition": "training_only",
+  "zero_delete_train_policy": "HARD_TRAINING_FAILURE",
+  "optimizer": "AdamW",
+  "learning_rate": 0.001,
+  "weight_decay": 0.0001,
+  "batch_size_pair_realizations": 256,
+  "max_epochs": 100,
+  "early_stopping_patience": 12,
+  "gradient_clip_norm": 5.0,
+  "dropout": 0.1,
+  "model_seeds": [17, 29, 41, 53, 67],
+  "checkpoint_selection": {
+    "partition": "validation_only",
+    "condition": "WITH_EVIDENCE",
+    "primary_metric": "event_pooled_DELETE_F1_at_0.5",
+    "pooling": "all_6_densities_x_5_evidence_seeds_x_validation_RNAs_x_3_sources",
+    "tie_break": ["higher_event_pooled_correct_pair_preservation", "earlier_epoch"],
+    "test_metrics_allowed": false
+  },
+  "preprocessing_fit_partition": "training_only",
+  "class_weight_fit_partition": "training_only",
+  "hardware": {
+    "device_expression": "torch.device(\"cuda\" if torch.cuda.is_available() else \"cpu\")",
+    "move_model_and_all_tensors_to_device": true,
+    "hyperparameter_change_by_device": false,
+    "record": ["device", "gpu_model", "cuda_version", "pytorch_version"]
+  },
+  "future_primary_runs_per_channel": 25,
+  "future_primary_runs_total": 50,
+  "current_new_training_runs": 0,
+  "external77_allowed": false
+}

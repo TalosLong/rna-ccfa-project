@@ -96,7 +96,8 @@
 - [x] Implement and unit-test the frozen hard-evidence transformations without evaluating structures.
 - [x] Freeze Stage E1 clean hard-baseline conditions and anti-tautology DIRECT/LOCAL/NON_EVIDENCED scopes before evaluation.
 - [x] Execute Stage E1 clean simulated-evidence hard-baseline evaluation on Legacy121 only; all integrity checks pass, direct/local utility is positive, NON_EVIDENCED change is zero, and the decision is `E2_PROTOCOL_JUSTIFIED`.
-- [ ] Freeze the Stage E2 learned evidence-guidance protocol before implementing or training any evidence model.
+- [x] Freeze the Stage E2 learned evidence-guidance protocol, DeepSets architecture, same-checkpoint masked control, aggregation, ablations, and channel-specific development gates; pretraining review is `READY_FOR_E2_TRAINING` and no model has been trained.
+- [ ] Implement and execute the frozen clean Legacy121 Stage E2 protocol without redesign, noise, real-modality mapping, or external77 access.
 - [ ] Add evidence input to the selective refiner.
 - [x] Implement deterministic corruption at frozen candidate noise levels 5%, 10%, 20%, and 30%; validate a small mechanism sample only.
 - [x] Track exact type/location/status of every clean or corrupted evidence item in the manifest schema.

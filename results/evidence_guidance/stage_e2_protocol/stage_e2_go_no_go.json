@@ -1,0 +1,106 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "primary_condition": "E2_WITH_EVIDENCE",
+  "matched_control": "E2_EVIDENCE_MASKED_same_checkpoint_same_threshold",
+  "channels_evaluated_independently": ["E2_PAIR", "E2_UNPAIRED"],
+  "moderate_density_percent": [5, 10, 20],
+  "channel_criteria": [
+    {
+      "id": "A_DEPLOYABILITY",
+      "metric": "actual_validation_selected_threshold_count",
+      "operator": "==",
+      "required": 25,
+      "denominator": 25,
+      "abstention_counts": false
+    },
+    {
+      "id": "B_MODERATE_MODIFICATION_PRECISION",
+      "metric": "WITH_EVIDENCE_event_pooled_moderate_modification_precision",
+      "operator": ">=",
+      "required": 0.8
+    },
+    {
+      "id": "C_MODERATE_POOLED_PRESERVATION",
+      "metric": "WITH_EVIDENCE_event_pooled_moderate_correct_pair_preservation",
+      "operator": ">=",
+      "required": 0.99
+    },
+    {
+      "id": "D_EVERY_SOURCE_PRESERVATION",
+      "metric": "WITH_EVIDENCE_event_pooled_moderate_preservation_each_source",
+      "operator": "all_sources>=",
+      "required": 0.98,
+      "sources": ["rnafold", "petfold", "trrosettarna2_native_ss"]
+    },
+    {
+      "id": "E_FULL_MATCHED_DENSITY_BREADTH",
+      "metric": "matched_FULL_STRUCTURE_macro_and_micro_delta_f1_strictly_positive",
+      "operator": "qualifying_density_count>=",
+      "required": 2,
+      "candidate_densities": [5, 10, 20]
+    },
+    {
+      "id": "F_NON_EVIDENCED_PROPAGATION_DENSITY_BREADTH",
+      "metric": "matched_NON_EVIDENCED_macro_and_micro_delta_f1_strictly_positive",
+      "operator": "qualifying_density_count>=",
+      "required": 2,
+      "candidate_densities": [5, 10, 20]
+    },
+    {
+      "id": "G_SOURCE_BREADTH",
+      "metric": "pooled_moderate_matched_FULL_STRUCTURE_macro_and_micro_delta_f1_strictly_positive",
+      "operator": "qualifying_source_count>=",
+      "required": 2,
+      "sources": ["rnafold", "petfold", "trrosettarna2_native_ss"],
+      "additional_requirement": "at_least_one_qualifying_source_is_rnafold_or_petfold"
+    },
+    {
+      "id": "H_NON_EVIDENCED_MODIFICATION_PRECISION",
+      "metric": "WITH_EVIDENCE_event_pooled_moderate_NON_EVIDENCED_modification_precision",
+      "operator": ">=",
+      "required": 0.7
+    },
+    {
+      "id": "I_NON_EVIDENCED_PRESERVATION",
+      "metric": "WITH_EVIDENCE_event_pooled_moderate_NON_EVIDENCED_correct_pair_preservation",
+      "operator": ">=",
+      "required": 0.99
+    },
+    {
+      "id": "J_EVIDENCE_RESPONSIVENESS",
+      "metric": "WITH_vs_MASKED_deleted_pair_set_difference_fraction",
+      "operator": "at_least_one_moderate_density>=",
+      "required": 0.1,
+      "candidate_densities": [5, 10, 20]
+    }
+  ],
+  "channel_pass_logic": "PASS_if_and_only_if_all_10_criteria_true_and_no_missing_run_required_NA_integrity_or_accounting_failure",
+  "channel_outcomes": {
+    "E2_PAIR": ["E2_PAIR_GATE_PASS", "E2_PAIR_GATE_FAIL"],
+    "E2_UNPAIRED": ["E2_UNPAIRED_GATE_PASS", "E2_UNPAIRED_GATE_FAIL"]
+  },
+  "overall_pass_logic": "E2_DEVELOPMENT_GATE_PASS_if_at_least_one_channel_passes_else_E2_DEVELOPMENT_GATE_FAIL",
+  "ablation_or_other_channel_can_rescue_failed_channel": false,
+  "one_percent_or_fifty_percent_can_satisfy_moderate_gate": false,
+  "required_NA_result": "FAIL",
+  "missing_run_result": "FAIL",
+  "missing_threshold_result": "FAIL",
+  "integrity_failure_result": "FAIL",
+  "passing_channel_authorizes": "separately_frozen_noise_or_real_modality_feasibility_protocol_only",
+  "external77_authorized": false,
+  "independent_evaluation_authorized": false,
+  "allowed_pass_claims": [
+    "simulated_sparse_structural_evidence_improves_a_learned_selective_refiner",
+    "useful_non_evidenced_propagation_only_if_criterion_F_passes"
+  ],
+  "forbidden_claims": [
+    "SHAPE_guided",
+    "DMS_guided",
+    "NMR_guided",
+    "experimentally_validated",
+    "real_evidence_generalization",
+    "independent_validation",
+    "model_agnostic"
+  ]
+}

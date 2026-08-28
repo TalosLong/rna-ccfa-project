@@ -1,0 +1,76 @@
+{
+  "protocol_version": "evidence_guidance_stage_e2_v1",
+  "status": "FROZEN_BEFORE_E2_TRAINING",
+  "primary_families": ["E2_PAIR", "E2_UNPAIRED"],
+  "primary_source_mode": "SOURCE_AGNOSTIC",
+  "future_primary_training_runs_per_channel": 25,
+  "future_primary_training_runs_total": 50,
+  "candidate_encoder": {
+    "layers": [
+      {"type": "Linear", "in_features": 78, "out_features": 64},
+      {"type": "ReLU"}
+    ],
+    "output_dimension": 64
+  },
+  "evidence_item_encoder": {
+    "shared_across_items": true,
+    "layers": [
+      {"type": "Linear", "out_features": 32},
+      {"type": "ReLU"},
+      {"type": "Linear", "in_features": 32, "out_features": 32},
+      {"type": "ReLU"}
+    ],
+    "item_input_dimensions": {"E2_PAIR": 17, "E2_UNPAIRED": 8},
+    "output_dimension": 32,
+    "dropout": 0.0
+  },
+  "evidence_aggregation": {
+    "permutation_invariant": true,
+    "pooling": ["MEAN", "MAX"],
+    "pooled_dimension": 64,
+    "padding_policy": "masked_from_mean_and_max",
+    "empty_set_policy": "fixed_all_zero_pooled_vectors"
+  },
+  "evidence_descriptor_dimension": 2,
+  "complete_empty_evidence_block": "66_exact_zeros_after_preprocessing",
+  "fusion": {
+    "candidate_dimension": 64,
+    "pooled_evidence_dimension": 64,
+    "descriptor_dimension": 2,
+    "input_dimension": 130,
+    "layers": [
+      {"type": "Linear", "in_features": 130, "out_features": 128},
+      {"type": "ReLU"},
+      {"type": "Dropout", "p": 0.1},
+      {"type": "Linear", "in_features": 128, "out_features": 64},
+      {"type": "ReLU"},
+      {"type": "Dropout", "p": 0.1},
+      {"type": "Linear", "in_features": 64, "out_features": 1}
+    ],
+    "output": "DELETE_logit"
+  },
+  "deletion_only": true,
+  "forbidden_operations": [
+    "add_pair",
+    "reassign_partner",
+    "inject_evidence_pair",
+    "global_pair_decoder",
+    "recursive_stem_rebuild"
+  ],
+  "forbidden_architectures": ["Transformer", "GNN", "RNN", "pretrained_language_model"],
+  "masked_control": {
+    "same_checkpoint": true,
+    "evidence_block": "all_zeros",
+    "retraining": false,
+    "separate_recalibration": false
+  },
+  "zero_density_integrity": "WITH_EVIDENCE_and_EVIDENCE_MASKED_scores_and_decisions_must_match_bit_for_bit",
+  "required_ablations": {
+    "WITH_EVIDENCE": "primary_checkpoint_delivered_evidence",
+    "EVIDENCE_MASKED": "same_primary_checkpoint_empty_evidence_block",
+    "NO_COUNT_DESCRIPTORS": "separately_trained_same_depth_128_to_128_projection",
+    "NO_CANDIDATE_RELATIVE_GEOMETRY": "separately_trained_absolute_evidence_summary_only",
+    "BASE_V1_TOPOLOGY_ONLY": "existing_authoritative_v1_POOLED_SOURCE_AGNOSTIC_scores_no_retraining"
+  },
+  "source_aware_primary_or_rescue_allowed": false
+}
