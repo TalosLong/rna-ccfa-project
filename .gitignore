@@ -8,6 +8,10 @@ results/selective_refiner/**/checkpoint.pt
 results/selective_refiner/**/per_pair_scores.csv
 results/selective_refiner/**/per_rna_edited_structures.jsonl
 results/selective_refiner/**/per_rna_structure_metrics.csv
+results/selective_refiner/**/train_ids.csv
+results/selective_refiner/**/validation_ids.csv
+results/selective_refiner/**/test_ids.csv
 results/selective_refiner/v1_fullbatch_noncompliant/
 results/selective_refiner/v1_cpu_interrupted/
 results/selective_refiner/v1_gpu_failed/
+results/selective_refiner/v1_partial_initial_run/
