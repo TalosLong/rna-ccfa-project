@@ -1,0 +1,162 @@
+{
+  "protocol_version": "selective_refiner_v3",
+  "primary_condition": "V3_VETO2_RECALIBRATED",
+  "matched_control": "V3_BASE",
+  "decision": "V3_DEVELOPMENT_GATE_FAIL",
+  "criteria": {
+    "threshold_deployability_25_of_25": false,
+    "pooled_modification_precision": true,
+    "pooled_DELETE_recall": true,
+    "pooled_preservation": false,
+    "every_source_preservation": true,
+    "positive_macro_and_micro_sources": true,
+    "useful_source_fraction": true,
+    "pooled_preservation_gt_base": true,
+    "pooled_precision_gte_base": true,
+    "recall_drop_limit": true,
+    "paired_macro_nonnegative": true,
+    "paired_micro_nonnegative": true,
+    "non_trrosetta_positive": true,
+    "no_catastrophic_degradation": true
+  },
+  "primary_metrics": {
+    "modification_precision": 0.8952569169960475,
+    "delete_recall": 0.5072788353863382,
+    "correct_pair_preservation": 0.9879463270411645,
+    "macro_delta_f1": 0.0199597254096053,
+    "micro_delta_f1": 0.02977451082458728,
+    "beneficial_edit_count": 2265,
+    "harmful_edit_count": 265,
+    "modified_pair_count": 2530,
+    "modified_rna_count": 660,
+    "eligible_rna_count": 1815,
+    "modified_rna_fraction": 0.36363636363636365
+  },
+  "base_metrics": {
+    "modification_precision": 0.847814355099838,
+    "delete_recall": 0.35184770436730123,
+    "correct_pair_preservation": 0.9871730725494655,
+    "macro_delta_f1": 0.01476131037602014,
+    "micro_delta_f1": 0.01877045942751641,
+    "beneficial_edit_count": 1571,
+    "harmful_edit_count": 282,
+    "modified_pair_count": 1853,
+    "modified_rna_count": 557,
+    "eligible_rna_count": 1815,
+    "modified_rna_fraction": 0.3068870523415978
+  },
+  "fixed_veto_metrics": {
+    "modification_precision": 0.9562807881773399,
+    "delete_recall": 0.34781634938409856,
+    "correct_pair_preservation": 0.9967705253581988,
+    "macro_delta_f1": 0.017160307374590174,
+    "micro_delta_f1": 0.023045759514243657,
+    "beneficial_edit_count": 1553,
+    "harmful_edit_count": 71,
+    "modified_pair_count": 1624,
+    "modified_rna_count": 503,
+    "eligible_rna_count": 1815,
+    "modified_rna_fraction": 0.27713498622589533
+  },
+  "source_metrics": {
+    "rnafold": {
+      "modification_precision": 0.7261306532663316,
+      "delete_recall": 0.26272727272727275,
+      "correct_pair_preservation": 0.9852002715546504,
+      "macro_delta_f1": -0.0005328574436139211,
+      "micro_delta_f1": 0.005064095825057735,
+      "beneficial_edit_count": 289,
+      "harmful_edit_count": 109,
+      "modified_pair_count": 398,
+      "modified_rna_count": 89,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.14710743801652892
+    },
+    "petfold": {
+      "modification_precision": 0.8318181818181818,
+      "delete_recall": 0.30373443983402487,
+      "correct_pair_preservation": 0.9898838004101163,
+      "macro_delta_f1": 0.004819540041009704,
+      "micro_delta_f1": 0.011151098150007348,
+      "beneficial_edit_count": 366,
+      "harmful_edit_count": 74,
+      "modified_pair_count": 440,
+      "modified_rna_count": 118,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.19504132231404958
+    },
+    "trrosettarna2_native_ss": {
+      "modification_precision": 0.9515366430260047,
+      "delete_recall": 0.7453703703703703,
+      "correct_pair_preservation": 0.9887748117727584,
+      "macro_delta_f1": 0.05559249363142011,
+      "micro_delta_f1": 0.07111892462973772,
+      "beneficial_edit_count": 1610,
+      "harmful_edit_count": 82,
+      "modified_pair_count": 1692,
+      "modified_rna_count": 453,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.7487603305785124
+    }
+  },
+  "base_source_metrics": {
+    "rnafold": {
+      "modification_precision": 0.34782608695652173,
+      "delete_recall": 0.04363636363636364,
+      "correct_pair_preservation": 0.9877800407331976,
+      "macro_delta_f1": -0.002059408290652911,
+      "micro_delta_f1": -0.0036606767253209373,
+      "beneficial_edit_count": 48,
+      "harmful_edit_count": 90,
+      "modified_pair_count": 138,
+      "modified_rna_count": 57,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.09421487603305785
+    },
+    "petfold": {
+      "modification_precision": 0.5221238938053098,
+      "delete_recall": 0.0979253112033195,
+      "correct_pair_preservation": 0.9852358168147641,
+      "macro_delta_f1": -0.00034571418707118515,
+      "micro_delta_f1": -0.001479707226883238,
+      "beneficial_edit_count": 118,
+      "harmful_edit_count": 108,
+      "modified_pair_count": 226,
+      "modified_rna_count": 95,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.15702479338842976
+    },
+    "trrosettarna2_native_ss": {
+      "modification_precision": 0.9435862995298858,
+      "delete_recall": 0.6504629629629629,
+      "correct_pair_preservation": 0.9885010266940452,
+      "macro_delta_f1": 0.04668905360578452,
+      "micro_delta_f1": 0.05959785717485346,
+      "beneficial_edit_count": 1405,
+      "harmful_edit_count": 84,
+      "modified_pair_count": 1489,
+      "modified_rna_count": 405,
+      "eligible_rna_count": 605,
+      "modified_rna_fraction": 0.6694214876033058
+    }
+  },
+  "support_audit": {
+    "0": [
+      504,
+      80,
+      424
+    ],
+    "1": [
+      586,
+      216,
+      370
+    ],
+    "2": [
+      4200,
+      4101,
+      99
+    ]
+  },
+  "new_neural_training_runs": 0,
+  "external77_evaluated": false
+}

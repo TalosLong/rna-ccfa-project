@@ -1,0 +1,9 @@
+{
+  "base_harmful_edits": 282,
+  "base_beneficial_edits": 1571,
+  "fixed_veto_harmful_edits": 71,
+  "fixed_veto_beneficial_edits": 1553,
+  "harmful_deletions_prevented": 211,
+  "beneficial_deletions_prevented": 18,
+  "external77_evaluated": false
+}

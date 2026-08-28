@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "score_input_audit": "PASS",
+  "support_audit": {
+    "0": [
+      504,
+      80,
+      424
+    ],
+    "1": [
+      586,
+      216,
+      370
+    ],
+    "2": [
+      4200,
+      4101,
+      99
+    ]
+  },
+  "accounting_failures": [],
+  "new_neural_training_runs": 0,
+  "v3_conditions_evaluated": 100,
+  "external77_accessed": false,
+  "v1_v2_modified": false
+}

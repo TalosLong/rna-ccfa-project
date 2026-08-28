@@ -63,7 +63,7 @@
 - [x] Implement and run selective-refiner v2 on the frozen Legacy121 folds/seeds; 50/50 CROSS GPU runs and 200/200 factorial outcomes completed; primary development gate failed; external77 remains locked.
 - [x] Complete the formal v2 failure interpretation and authoritative BASE deletion-by-consensus audit without evaluating a new policy.
 - [x] Freeze the no-retraining `V3_BASE`, `V3_VETO2_FIXED`, `V3_VETO2_RECALIBRATED`, and agreement-only comparator protocol and binary development gate.
-- [ ] Execute the frozen 25-outcome Legacy121 v3 development evaluation using existing v1 scores only; do not evaluate external77 in the same task.
+- [x] Execute the frozen 25-outcome Legacy121 v3 development evaluation using existing v1 scores only; 4 conditions × 25 matched outcomes completed, primary gate `V3_DEVELOPMENT_GATE_FAIL`; external77 not evaluated.
 - [x] Audit PETfold and trRosettaRNA2 external source provenance; record corrected reproducibility gate.
 - [x] Complete and validate the independent external77 three-source normalized test matrix (126/126).
 - [ ] Build training records containing source prediction, ground truth, and error labels.
@@ -121,7 +121,7 @@
 - [x] Compute beneficial/harmful rule-edit ratios; deletion-only v1 has no neutral edit partition.
 - [ ] Compare selective versus non-selective edit behavior.
 - [x] Compare v1 BASE and v2 CROSS behavior on Legacy121 and decompose the failed precision/recall/preservation trade-off.
-- [ ] Evaluate the frozen v3 consensus-veto conditions against matched BASE without retraining.
+- [x] Evaluate the frozen v3 consensus-veto conditions against matched BASE without retraining; primary gate failed on deployability and pooled preservation.
 - [ ] Plot performance versus evidence density.
 - [ ] Plot performance versus evidence noise.
 - [ ] Add paired statistical tests only after final sample sets are fixed and document the test choice.

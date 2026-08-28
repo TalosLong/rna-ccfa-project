@@ -1,0 +1,1 @@
+{"protocol_version": "selective_refiner_v3", "condition": "V3_VETO2_RECALIBRATED", "fold": 3, "seed": 67, "new_neural_training_runs": 0, "score_backbone": "authoritative_v1_POOLED_SOURCE_AGNOSTIC", "external77_evaluated": false}

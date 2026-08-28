@@ -1,0 +1,1 @@
+{"protocol_version": "selective_refiner_v3", "condition": "AGREEMENT_ZERO_SUPPORT_RULE", "fold": 2, "seed": 17, "new_neural_training_runs": 0, "score_backbone": "authoritative_v1_POOLED_SOURCE_AGNOSTIC", "external77_evaluated": false}

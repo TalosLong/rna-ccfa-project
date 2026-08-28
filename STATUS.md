@@ -4,7 +4,7 @@ Last updated: 2026-08-28
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`; learned selective-refiner v2 is complete and remains `V2_DEVELOPMENT_GATE_FAIL`. external77 learned refinement has **NOT BEEN PERFORMED** and remains locked. The retrospective BASE-edit audit supports a minimal consensus-safety-veto hypothesis, and selective-refiner v3 is now `READY_FOR_V3_DEVELOPMENT_EVALUATION` under a frozen no-retraining protocol. No v3 condition has been evaluated. Pseudoknot-aware analysis remains a separate side track.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`; learned selective-refiner v2 remains `V2_DEVELOPMENT_GATE_FAIL`; the no-retraining v3 Legacy121 evaluation is complete and remains `V3_DEVELOPMENT_GATE_FAIL`. external77 learned refinement has **NOT BEEN PERFORMED** and remains locked. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -45,6 +45,7 @@ Last updated: 2026-08-28
 - [x] 完成 Legacy121 prediction-only cross-model agreement audit：other-source support 0/1/2 的 pooled correct fractions 为 0.1587/0.3686/0.9764；冻结并完成 selective-refiner v2，结果为 `V2_DEVELOPMENT_GATE_FAIL`，未访问 external77。
 - [x] 冻结 selective-refiner v2.0.1 clarification：BASE 无安全阈值时部署 `ABSTAIN_NO_REFINEMENT`，CROSS 仍须 25/25 actual thresholds；event-pooled 与 fold×seed mean gates 均有唯一 PASS/FAIL semantics。
 - [x] 完成 v2 failure interpretation 与 authoritative BASE-edit support audit：support=2 包含 211/282 harmful BASE deletions、仅 18/1571 beneficial deletions；冻结不训练新网络的 consensus-veto v3 protocol。
+- [x] 完成 v3 Legacy121 no-retraining evaluation：4 个条件、25 个匹配 fold×seed outcomes（共 100 条 condition outcomes）；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`，external77 未访问。
 
 ## Running / In Progress
 
@@ -55,7 +56,7 @@ Last updated: 2026-08-28
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 - Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
-- Selective-refiner v2 已完成 50/50 CROSS GPU runs 和 200/200 factorial outcomes，primary gate 为 `V2_DEVELOPMENT_GATE_FAIL`。v3 consensus-veto protocol 已冻结，状态为 `READY_FOR_V3_DEVELOPMENT_EVALUATION`；v3 只复用 authoritative v1 scores，不训练新网络，且尚未执行任何 v3 condition。
+- Selective-refiner v2 已完成 50/50 CROSS GPU runs 和 200/200 factorial outcomes，primary gate 为 `V2_DEVELOPMENT_GATE_FAIL`。v3 已按冻结 no-retraining protocol 完成 4 条件 × 25 个匹配 fold×seed outcomes；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`（22/25 threshold deployability、pooled preservation 0.987946 未达 0.99）。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 - external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
 - The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.
@@ -292,7 +293,9 @@ failed：CROSS 提高 precision/preservation，却将 recall 与 matched structu
 显著压低，且 global threshold 仅 8/25 deployable。authoritative BASE audit 显示
 support=2 占 211/282 harmful deletions、但仅占 18/1571 beneficial deletions，因此
 冻结 H3：将 exact consensus 作为 high-recall v1 score 的 hard KEEP veto，而不是
-replacement classifier。该 v3 protocol 尚未执行，不授权 external77，也不支持
+replacement classifier。v3 fixed veto 实际保护了 211 个 harmful edits，仅牺牲
+18 个 beneficial edits；recalibrated primary 因 22/25 deployability 和 0.987946
+pooled preservation 未通过 gate。该结果不授权 external77，也不支持
 unseen-predictor/model-agnostic claim。
 
 ### external77 source-protocol gate
@@ -303,9 +306,22 @@ condition is provenance-complete and valid for 42/42, using the retained
 three-checkpoint ensemble and historical standalone `>0.5` greedy decoder.
 PETfold is reproduced under the historical single-sequence condition. The source gate
 is PASS and the matrix remains 126/126. Learned external evaluation remains locked
-because both v1 and v2 failed their development gates; v3 has not been evaluated.
+because v1, v2, and v3 failed their development gates; v3 used Legacy121 only and
+did not access external77.
 
 ## Blockers
+
+### Selective-refiner v3 development result
+
+The no-retraining Legacy121 v3 evaluation reused the authoritative v1
+POOLED_SOURCE_AGNOSTIC score realizations across 5 folds × 5 seeds. The fixed
+support=2 veto prevented 211 harmful and 18 beneficial BASE deletions, raising
+preservation to 0.996771 and macro/micro ΔF1 to +0.017160/+0.023046. The
+primary recalibrated condition reached precision 0.895257, DELETE recall
+0.507279, preservation 0.987946, macro/micro ΔF1 +0.019960/+0.029775, but
+only 22/25 validation thresholds were deployable and pooled preservation was
+below the frozen 0.99 requirement. The frozen decision is
+`V3_DEVELOPMENT_GATE_FAIL`; external77 remains locked and was not accessed.
 
 ### Selective-refiner v2 development result
 
@@ -334,14 +350,14 @@ decision is `V2_DEVELOPMENT_GATE_FAIL`; v1 remains independently
 
 ## Immediate Next Steps
 
-1. Execute the separately frozen Legacy121-only v3 consensus-veto development evaluation using authoritative v1 scores; do not retrain and keep external77 locked unless the v3 primary gate passes.
+1. Keep external77 learned/refinement evaluation locked. Any future experiment must be separately specified and frozen after interpreting the failed v3 development gate; do not alter v1/v2/v3 historical results.
 
 ## Open Questions
 
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
 - rule-based baseline 应该做到什么强度？
-- v3 support=2 safety veto 能否在保持 BASE recall/structure gain 的同时达到 pooled 0.99 preservation？
+- v3 support=2 safety veto 的 fixed ablation 已提高 preservation/F1，但 primary recalibration 未达到 pooled 0.99 preservation；后续方向尚未冻结。
 - future unseen-predictor transfer 应采用何种不依赖固定三模型身份的 evidence contract？
 - 首个 evidence 版本用 simulated base-pair evidence，还是直接寻找真实 SHAPE/DMS/NMR？
 - refined 2D 是否值得进入 downstream 3D 主实验？
