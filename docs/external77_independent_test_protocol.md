@@ -54,16 +54,22 @@ alignment-gap projection protocol. Its legacy command and binary are
 documented, but selecting a new alignment or silently projecting gaps would
 change prediction semantics.
 
-trRosettaRNA2 native SS is **blocked** pending frozen A3M/MSA inputs and a
-lossless native-SS decoder for external lengths. The historical standalone
-wrapper's parenthesis-only output cannot represent crossing pairs losslessly;
-no new decoder or MSA is invented here.
+trRosettaRNA2 native SS is now **reproduced as a query-only native-SS source
+condition**. The forensic audit found 121 one-row Legacy121 A3Ms and a
+read-only rerun reproduced a stored DBN exactly. External query-only A3Ms,
+the three checkpoint hashes, the ensemble mean, and the existing `>0.5`
+strongest-pair decoder are retained under the source-prediction audit. The
+raw dense score matrix remains authoritative; parenthesis-only DBN cannot
+encode crossings losslessly.
+
+PETfold remains **blocked** pending historical alignment input and
+alignment-gap projection recovery. No new alignment or projection is used.
 
 The execution audit is generated under `results/external77_independent_test/`:
 
 - `source_runtime.csv` — command, version, environment, status, runtime, and logs;
 - `source_coverage.csv` — valid/invalid/blocked counts;
-- `provenance_manifest.csv` — hashes for generated valid RNAfold outputs;
+- `provenance_manifest.csv` — hashes for generated valid source outputs;
 - `validation_summary.json` — candidate and matrix status.
 
 ## Normalization gate
