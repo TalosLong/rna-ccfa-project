@@ -2,6 +2,10 @@
 
 Status: **FROZEN BEFORE V2 TRAINING**
 
+Protocol clarification v2.0.1 freezes abstention and all-25 paired aggregation
+semantics in `docs/selective_refiner_protocol_v2_0_1_clarification.md`; it does
+not change this protocol's scientific hypothesis or numerical thresholds.
+
 v2 is a new Legacy121 development experiment motivated by the immutable v1
 `DEVELOPMENT_GATE_FAIL`. It does not revise v1 results or gates. The hypothesis
 is:

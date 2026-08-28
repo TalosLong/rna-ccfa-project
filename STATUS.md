@@ -4,7 +4,7 @@ Last updated: 2026-08-28
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. The learned selective-refiner v1 Legacy121 development experiment is complete and its frozen development gate remains `DEVELOPMENT_GATE_FAIL`. A prediction-only cross-model audit is `CROSS_MODEL_SIGNAL_PROMISING`, and selective-refiner v2 is frozen before training. v2 has not been trained and external77 learned-model evaluation has not been performed. Pseudoknot-aware analysis remains a separate side track.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. The frozen Phase 2 rule-based baseline v1 has been implemented and evaluated as a Legacy121 pilot. The learned selective-refiner v1 Legacy121 development experiment is complete and its frozen development gate remains `DEVELOPMENT_GATE_FAIL`. A prediction-only cross-model audit is `CROSS_MODEL_SIGNAL_PROMISING`. Selective-refiner v2.0.1 now freezes BASE/CROSS abstention and all-25 paired gate aggregation semantics and is `READY_FOR_V2_TRAINING`. v2 training remains **NOT STARTED**, and external77 learned-model evaluation has not been performed. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -43,6 +43,7 @@ Last updated: 2026-08-28
 - [x] 冻结并执行 first-MLP implementation plan v1：200/200 Legacy121 fold-seed runs completed on CUDA (RTX 3090; CUDA 11.8; PyTorch 2.5.1+cu118) with train-only preprocessing and validation-only thresholding; external77 was not evaluated.
 - [x] 独立重建 v1 fold/seed 结果并完成失败分解；确认 pooled preservation、two-source ΔF1 与 RNAfold/PETfold LOMO transfer gates failed，v1 结果保持不变。
 - [x] 完成 Legacy121 prediction-only cross-model agreement audit：other-source support 0/1/2 的 pooled correct fractions 为 0.1587/0.3686/0.9764；冻结 selective-refiner v2 protocol，未训练 v2、未访问 external77。
+- [x] 冻结 selective-refiner v2.0.1 clarification：BASE 无安全阈值时部署 `ABSTAIN_NO_REFINEMENT`，CROSS 仍须 25/25 actual thresholds；event-pooled 与 fold×seed mean gates 均有唯一 PASS/FAIL semantics。
 
 ## Running / In Progress
 
@@ -53,7 +54,7 @@ Last updated: 2026-08-28
 - Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 - Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
-- Selective-refiner v2 仅完成 hypothesis/feature/go-no-go preregistration；primary comparison 为 matched v1 features versus prediction-only cross-model agreement features，training 尚未开始。
+- Selective-refiner v2.0.1 已完成 hypothesis/feature/go-no-go/abstention preregistration，状态为 `READY_FOR_V2_TRAINING`；primary comparison 为 matched v1 features versus prediction-only cross-model agreement features，training 尚未开始。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 - external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
 - The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.

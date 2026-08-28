@@ -1,0 +1,100 @@
+{
+  "protocol_version": "selective_refiner_v2.0.1",
+  "status": "READY_FOR_V2_TRAINING",
+  "clarification_only": true,
+  "v1_development_gate_unchanged": "DEVELOPMENT_GATE_FAIL",
+  "primary_condition": "V2A_CROSS_SOURCE_AGNOSTIC_GLOBAL",
+  "matched_baseline": "V2A_BASE_SOURCE_AGNOSTIC_GLOBAL",
+  "folds": 5,
+  "seeds": [17, 29, 41, 53, 67],
+  "base_threshold_availability_reference": {
+    "deployable": 20,
+    "nondeployable": 5,
+    "nondeployable_fold_seed": [
+      {"fold": 1, "seed": 17},
+      {"fold": 1, "seed": 29},
+      {"fold": 1, "seed": 41},
+      {"fold": 1, "seed": 53},
+      {"fold": 1, "seed": 67}
+    ]
+  },
+  "abstention_semantics": {
+    "trigger": "no threshold satisfies the frozen validation preservation constraint",
+    "deployment_action": "ABSTAIN_NO_REFINEMENT",
+    "prediction": "ORIGINAL_UNCHANGED",
+    "beneficial_edits": 0,
+    "harmful_edits": 0,
+    "modified_pairs": 0,
+    "modified_rnas": 0,
+    "delete_recall": 0.0,
+    "modification_precision": null,
+    "correct_pair_preservation": 1.0,
+    "macro_delta_f1": 0.0,
+    "micro_delta_f1": 0.0,
+    "threshold_0_5_fallback_forbidden": true
+  },
+  "base_threshold_deployability": {
+    "actual_threshold_required_for_each_run": false,
+    "abstention_permitted_for_matched_comparison": true
+  },
+  "cross_threshold_deployability": {
+    "required_actual_thresholds": 25,
+    "abstention_outcome_is_still_recorded_if_missing": true,
+    "any_missing_actual_threshold_gate_result": "FAIL"
+  },
+  "metric_aggregation": {
+    "modification_precision": "EVENT_POOLED: sum beneficial / (sum beneficial + sum harmful) across all 25 runs; zero-edit runs add zero events; denominator zero gives NA",
+    "delete_recall": "EVENT_POOLED: sum beneficial / sum original FP opportunities across all 25 runs; abstention adds zero beneficial edits but retains its FP opportunities in the denominator",
+    "correct_pair_preservation": "EVENT_POOLED: sum TP_after / sum TP_before across all 25 runs; abstention contributes TP_after equal to TP_before",
+    "macro_delta_f1": "UNWEIGHTED_FOLD_SEED_MEAN: arithmetic mean of 25 per-run macro delta F1 values; abstention contributes 0",
+    "micro_delta_f1": "UNWEIGHTED_FOLD_SEED_MEAN: arithmetic mean of 25 per-run micro delta F1 values; abstention contributes 0",
+    "modified_rna_fraction": "EVENT_POOLED_RNA_INSTANCES: sum modified held-out RNA instances / sum eligible held-out RNA instances across all 25 runs; abstention contributes zero modified and all eligible instances",
+    "per_source_metrics": "apply the same event-pooled rules for precision, recall, preservation, and modified-RNA fraction within each source; use unweighted 25-run means for per-source macro/micro delta F1",
+    "paired_macro_delta_f1_gain": "UNWEIGHTED_PAIRED_MEAN: mean over 25 of CROSS_run minus BASE_run; BASE abstention value is 0",
+    "paired_micro_delta_f1_gain": "UNWEIGHTED_PAIRED_MEAN: mean over 25 of CROSS_run minus BASE_run; BASE abstention value is 0",
+    "paired_preservation_gain": "UNWEIGHTED_PAIRED_MEAN: mean over 25 of CROSS_run preservation minus BASE_run preservation; BASE abstention value is 1",
+    "paired_modification_precision_gain": "difference between CROSS and BASE EVENT_POOLED modification precision; never average per-run NA values",
+    "paired_delete_recall_change": "difference between CROSS and BASE EVENT_POOLED DELETE recall"
+  },
+  "absolute_gates": {
+    "pooled_modification_precision_min": 0.8,
+    "pooled_delete_recall_min": 0.1,
+    "pooled_correct_pair_preservation_min": 0.99,
+    "per_source_correct_pair_preservation_min": 0.98,
+    "sources_with_positive_macro_and_micro_delta_f1_min": 2,
+    "modified_rna_fraction_min_for_useful_source_claim": 0.1
+  },
+  "matched_improvement_gates": {
+    "pooled_event_modification_precision_absolute_gain_min": 0.02,
+    "base_zero_total_edits_handling": "NOT_APPLICABLE_THEN_FAIL",
+    "paired_mean_preservation_gain_min": 0.002,
+    "pooled_event_delete_recall_allowed_drop_max": 0.02,
+    "paired_mean_macro_delta_f1_gain_min_exclusive": 0.0,
+    "paired_mean_micro_delta_f1_gain_min_exclusive": 0.0,
+    "rnafold_or_petfold_with_positive_macro_and_micro_delta_f1_required": true,
+    "rnafold_or_petfold_paired_macro_and_micro_gain_min_exclusive": 0.0
+  },
+  "catastrophic_degradation": {
+    "per_source_mean_macro_or_micro_delta_f1_below": -0.005,
+    "per_source_paired_mean_macro_or_micro_delta_f1_drop_below": -0.005,
+    "per_source_event_pooled_preservation_below": 0.98,
+    "status_if_triggered": "FAIL"
+  },
+  "binary_decision_policy": {
+    "all_required_gates_true": "PASS",
+    "any_required_gate_false": "FAIL",
+    "undefined_required_gate": "FAIL",
+    "training_failure_or_missing_primary_run": "FAIL",
+    "secondary_condition_can_rescue_primary": false
+  },
+  "unchanged_constraints": {
+    "preservation_target_lowered": false,
+    "precision_target_lowered": false,
+    "recall_target_lowered": false,
+    "folds_changed": false,
+    "seeds_changed": false,
+    "architecture_changed": false,
+    "transformer_added": false
+  },
+  "external77_policy": "LOCKED_UNLESS_PRIMARY_V2_DEVELOPMENT_GATE_PASS"
+}
