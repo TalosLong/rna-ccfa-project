@@ -95,7 +95,8 @@
 - [x] Generate clean Legacy121 manifests at frozen densities 0%, 1%, 5%, 10%, 20%, and 50% for five evidence seeds; complete deterministic/hash audits.
 - [x] Implement and unit-test the frozen hard-evidence transformations without evaluating structures.
 - [x] Freeze Stage E1 clean hard-baseline conditions and anti-tautology DIRECT/LOCAL/NON_EVIDENCED scopes before evaluation.
-- [ ] Execute Stage E1 clean simulated-evidence hard-baseline evaluation on Legacy121 only.
+- [x] Execute Stage E1 clean simulated-evidence hard-baseline evaluation on Legacy121 only; all integrity checks pass, direct/local utility is positive, NON_EVIDENCED change is zero, and the decision is `E2_PROTOCOL_JUSTIFIED`.
+- [ ] Freeze the Stage E2 learned evidence-guidance protocol before implementing or training any evidence model.
 - [ ] Add evidence input to the selective refiner.
 - [x] Implement deterministic corruption at frozen candidate noise levels 5%, 10%, 20%, and 30%; validate a small mechanism sample only.
 - [x] Track exact type/location/status of every clean or corrupted evidence item in the manifest schema.

@@ -4,7 +4,7 @@ Last updated: 2026-08-28
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`, v2 remains `V2_DEVELOPMENT_GATE_FAIL`, and v3 remains `V3_DEVELOPMENT_GATE_FAIL`; this cross-model development phase is closed for the current mainline. Simulated evidence Stage E0 is `EVIDENCE_GUIDANCE_STAGE_E0_COMPLETE`, and the project is `READY_FOR_EVIDENCE_STAGE_E1`. No evidence-guided structure condition has been evaluated, no evidence model has been trained, and external77 remains locked. Pseudoknot-aware analysis remains a separate side track.
+**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`, v2 remains `V2_DEVELOPMENT_GATE_FAIL`, and v3 remains `V3_DEVELOPMENT_GATE_FAIL`; this cross-model development phase is closed for the current mainline. Simulated evidence Stage E0 remains `EVIDENCE_GUIDANCE_STAGE_E0_COMPLETE`; frozen clean hard-baseline Stage E1 is complete and the progression decision is `E2_PROTOCOL_JUSTIFIED`. No E2 protocol/model has been created or trained, and external77 remains locked and unevaluated. Pseudoknot-aware analysis remains a separate side track.
 
 当前论文方向：
 
@@ -48,6 +48,7 @@ Last updated: 2026-08-28
 - [x] 完成 v3 Legacy121 no-retraining evaluation：4 个条件、25 个匹配 fold×seed outcomes（共 100 条 condition outcomes）；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`，external77 未访问。
 - [x] 关闭当前 cross-model mainline：保留 `V3_VETO2_FIXED` 作为 development-only mechanistic comparator，不授权基于 Legacy121 的 post-hoc v4/v5 tuning。
 - [x] 冻结 `simulated_evidence_v1` 与 Stage E1 clean hard-baseline protocol；完成 7,260 个 Legacy121 clean evidence manifests、noise-mechanism sample、hash/reproducibility/leakage audits，状态 `READY_FOR_EVIDENCE_STAGE_E1`。
+- [x] 完成 Stage E1 Legacy121 clean hard-baseline evaluation：54,450 条 per-RNA/source/configuration results 全部通过 0% identity、validity、scope partition 与 NON_EVIDENCED invariance checks；direct/local utility 支持 `E2_PROTOCOL_JUSTIFIED`，但 NON_EVIDENCED propagation 为严格 0。
 
 ## Running / In Progress
 
@@ -59,7 +60,7 @@ Last updated: 2026-08-28
 - Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
 - Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
 - Selective-refiner v2 已完成 50/50 CROSS GPU runs 和 200/200 factorial outcomes，primary gate 为 `V2_DEVELOPMENT_GATE_FAIL`。v3 已按冻结 no-retraining protocol 完成 4 条件 × 25 个匹配 fold×seed outcomes；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`（22/25 threshold deployability、pooled preservation 0.987946 未达 0.99）。
-- Evidence Guidance Stage E0 已完成：两个独立 simulated channels、6 个 density、5 个 evidence seeds 的 generator/manifests 均已验证；E1 protocol 已冻结但未执行任何 predictor/refiner structure evaluation。
+- Evidence Guidance Stage E0 与 frozen Stage E1 已完成：两个独立 simulated channels、6 个 density、5 个 evidence seeds 的 generator/manifests 均已验证；clean hard transformations 显示 direct/local utility，但 54,450/54,450 outcomes 的 NON_EVIDENCED pair sets 均与 ORIGINAL 相同。下一步仅授权另行冻结 E2 protocol，不授权直接训练。
 - Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
 - external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
 - The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.
@@ -312,6 +313,19 @@ manifests、16,450 个 seed-replicated items。deterministic rerun hash 完全�
 generator input contract 仅允许 RNA ID、sequence 与 GT pairs。该结果仅证明 protocol
 与 generator 可行，不证明 evidence 改善结构，也不代表任何真实实验 modality。
 
+### Simulated evidence Stage E1
+
+Stage E1 在 363 条 Legacy121 normalized source records 上执行 frozen clean hard
+baselines，保留 54,450 条 per-RNA/source/configuration results。clean-suite SHA256
+精确匹配，9,075 个 0%-density identity checks、54,450 个 coordinate/one-partner
+validations 以及全部 DIRECT/LOCAL/NON_EVIDENCED partition/invariance checks 通过。
+PAIR_HARD_ENFORCE 与 UNPAIRED_HARD_DELETE 在 50% density 的 pooled macro/micro
+ΔF1 分别为 +0.045045/+0.061022 与 +0.034332/+0.039247；所有 clean edits 均为
+beneficial，这是 clean GT-derived evidence 的局部确定性结果，不能外推到 noisy/real
+evidence。NON_EVIDENCED ΔF1 与结构变化严格为 0，因此没有 propagation evidence。
+决策为 `E2_PROTOCOL_JUSTIFIED`，含义仅是 direct/local utility 足以支持下一任务先冻结
+E2 protocol；E2 未设计、未训练，external77 未访问。
+
 ### external77 source-protocol gate
 
 The frozen 42-RNA GT_CON membership and sequence-leakage audit remain exact.
@@ -365,14 +379,14 @@ decision is `V2_DEVELOPMENT_GATE_FAIL`; v1 remains independently
 
 ## Immediate Next Steps
 
-1. Execute the separately frozen Legacy121 Stage E1 clean simulated-evidence hard baselines only; do not train a learned evidence model, run noise experiments, map to real modalities, or access external77.
+1. Freeze a separate Stage E2 learned evidence-guidance protocol before any training; Stage E1 direct/local utility justifies protocol design, while zero NON_EVIDENCED effect prohibits assuming propagation. Do not train, run noise experiments, map to real modalities, or access external77 until separately authorized.
 
 ## Open Questions
 
 - 哪些 dataset 可以在统一结构表示下公平比较？
 - 哪些 predictor 可以提供 pair probability / logits？
 - rule-based baseline 应该做到什么强度？
-- Stage E1 的 clean simulated evidence 是否产生超出 direct/local consequences 的正 `NON_EVIDENCED_EFFECT`？
+- Stage E2 能否在不把直接证据恢复误作 generalization 的前提下产生正 `NON_EVIDENCED_EFFECT`？Stage E1 的该值严格为 0。
 - future unseen-predictor transfer 应采用何种不依赖固定三模型身份的 evidence contract？
 - Stage E5 是否存在可验证的真实 modality mapping？在此之前不得使用 SHAPE/DMS/NMR-guided claim。
 - refined 2D 是否值得进入 downstream 3D 主实验？

@@ -1,0 +1,35 @@
+{
+  "clean_manifest_count": 7260,
+  "clean_suite_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+  "coordinate_and_one_partner_validity_checks": 54450,
+  "coordinate_or_one_partner_failures": 0,
+  "direct_evidence_utility_observed": true,
+  "e2_progression_decision": "E2_PROTOCOL_JUSTIFIED",
+  "external77_accessed": false,
+  "local_conflict_utility_observed": true,
+  "new_neural_training_runs": 0,
+  "noise_levels_observed": [
+    0
+  ],
+  "non_evidenced_propagation_observed": false,
+  "non_evidenced_unchanged_checks": 54450,
+  "non_evidenced_unchanged_failures": 0,
+  "normalized_source_record_count": 363,
+  "per_rna_result_rows": 54450,
+  "protocol_version": "simulated_evidence_v1",
+  "rna_count": 121,
+  "scope_disjointness_failures": 0,
+  "scope_exhaustiveness_failures": 0,
+  "scope_result_rows_internal": 163350,
+  "source_record_counts": {
+    "petfold": 121,
+    "rnafold": 121,
+    "trrosettarna2_native_ss": 121
+  },
+  "stage_e2_trained": false,
+  "status": "PASS",
+  "v3_rerun_or_retuned": false,
+  "zero_density_equality_checks": 9075,
+  "zero_density_equality_failures": 0,
+  "zero_density_hard_condition_equality_checks": 5445
+}
