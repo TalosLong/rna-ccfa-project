@@ -1,352 +1,215 @@
 # RNA CCF-A Research Project Context
 
+Last updated: 2026-08-29
+
 ## Project Goal
 
 **Confirmed / 已确定**
 
-目标是在现有 RNA 结构预测 benchmark 工作基础上，形成一条可独立推进、具备 CCF-A 投稿潜力的研究线。
+目标是在现有 RNA structure-prediction benchmark 基础上，形成一条具备 CCF-A 投稿潜力的独立研究线。
 
-当前选定方向：
+当前工作题目：
 
-> **Evidence-Guided Selective Refinement for RNA Secondary Structure Prediction**
+> **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-本项目不从零训练新的 RNA 二级结构预测器，而是研究：现有预测结果能否被选择性纠错、纠错是否能跨 predictor 泛化、稀疏/带噪结构证据是否能提高纠错可靠性，以及这些 2D 改进是否可能进一步改善下游 RNA 3D 预测。
+项目不从零训练新的 RNA 二级结构 predictor。核心对象是已有 predictor 已经输出的结构，以及如何利用稀疏外部结构证据对其 residual errors 做可靠性估计和选择性纠错，同时尽可能保留原 prediction 中已经正确的结构信息。
 
-CCF-A 是 **Confirmed / 已确定** 的投稿级别目标；具体会议尚未最终确定。
+CCF-A 是目标级别；具体 venue 尚未冻结。
 
-## Research Background
-
-**Confirmed / 已确定**
-
-当前工作主线是协助完成 RNA 结构预测 benchmark。现有 benchmark 可为本项目提供：
-
-- RNA sequence；
-- ground-truth secondary structure；
-- 多个已有 predictor 的 prediction；
-- 统一评测需求；
-- 与 DRfold 相关的 2D -> 3D 下游验证基础。
-
-因此，refinement 方向可以直接复用当前工作资产，不需要重新搭建一套完全独立的数据和模型体系。
-
-## Current Scientific Question
+## Reboot v2 Scientific Question
 
 **Confirmed / 已确定**
 
-核心科学问题：
+> Given an RNA sequence, an already-computed secondary-structure prediction from an existing predictor, and sparse external structural evidence, can a post-hoc method identify and selectively correct residual pair errors while preserving predictor information that is already correct?
 
-> Can errors in RNA secondary-structure predictions from existing predictors be detected and selectively corrected without re-predicting the whole structure, and can sparse or noisy structural evidence make this refinement more reliable?
-
-拆分为：
-
-1. 现有 RNA 二级结构预测模型主要会犯哪些错误？
-2. 能否判断哪些 pair / region 应该保留，哪些应该修改？
-3. 一个 refiner 能否用于多个 predictor，并对未见过的 predictor 有效？
-4. 稀疏或带噪的结构证据能否进一步指导 refinement？
-5. **Candidate / 待验证：** refined 2D 是否能改善 downstream RNA 3D prediction？
-
-## Motivation
-
-**Confirmed / 已确定**
-
-普通“prediction -> generic refiner -> F1 小幅提升”的故事不够强，且 RNA post-processing 已有公开研究。因此本项目强调：
-
-- **Selective**：正确部分尽量不动；
-- **Model-Agnostic / Universal**：尽可能跨 predictor；
-- **Evidence-Guided**：支持稀疏/带噪结构证据；
-- **Candidate**：验证 2D refinement 的 3D downstream value。
-
-目标流程：
+关键对比不再只是 `Original vs Refined`，而是：
 
 ```text
-RNA sequence
-    +
-source prediction
-    +
-optional prediction confidence
-    +
-optional sparse/noisy evidence
-                |
-                v
-       selective error detection
-                |
-          keep / modify
-                |
-                v
-       constrained refinement
-                |
-                v
-      refined RNA structure
+Original predictor
+vs
+local evidence enforcement
+vs
+global evidence-constrained refolding
+vs
+post-hoc evidence reconciliation
 ```
 
-## Existing Work
+因此项目必须回答：
 
-**Confirmed / 已确定 from discussion**
+> **为什么不直接在同样 evidence 下重新 fold？保留已有 predictor output 是否有独立价值？**
 
-已讨论的相关工作包括：
+## Research Questions
 
-- ICML 2024 的 RNA secondary-structure post-processing / assignment-problem framework；
-- RFold：structured matching 形式的 RNA secondary-structure prediction；
-- PriFold：引入 RNA-specific priors；
-- BEACON：RNA benchmark 作为独立研究贡献的案例；
-- DRfold 等 RNA 3D predictor：说明 secondary structure 可以作为 3D 结构预测的重要输入/先验。
+1. **RQ1 — Post-hoc necessity**：原 predictor 中是否包含 global constrained refolding 会丢失或覆盖的正确信息？
+2. **RQ2 — Safe residual-error correction**：sparse evidence 能否在高 TP preservation 下提高 FP removal？
+3. **RQ3 — Useful non-local propagation**：非直接 evidence 区域的变化是否真正 beneficial，而非 collateral damage？
+4. **RQ4 — Generalization**：reliability/correction signal 能否跨 RNA、跨 predictor、跨 dataset 保持？
+5. **RQ5 — Noise and reality**：controlled noisy evidence 和真实 SHAPE/DMS/PARS 等 evidence 下是否仍有价值？
+6. **Candidate**：若 2D 方法稳定，进一步测试 2D improvement 是否改善 downstream RNA 3D prediction。
 
-因此：
+## Task Definition
 
-> 单纯实现一个普通 Transformer Refiner 并报告少量 F1 增益，不应作为本项目的最终论文贡献。
-
-## Proposed Direction
-
-### Confirmed Core Direction
-
-**Evidence-Guided Selective Refinement for RNA Secondary Structure Prediction**
-
-目标属性：
-
-1. **Selective**
-   - 检测可能错误的 pair / region；
-   - 尽量保留已经正确的结构。
-
-2. **Model-Agnostic / Universal**
-   - 使用多个 predictor 的 prediction 训练；
-   - 通过 leave-one-model-out 测试是否能修复未见过的 predictor。
-
-3. **Evidence-Guided**
-   - 接收可选的 sparse structural evidence；
-   - 在 evidence 不完整或有噪声时学习 prediction 与 evidence 的信任关系。
-
-### Candidate Extension
-
-**Candidate / 待验证：Downstream-aware 2D -> 3D validation**
+对 sequence `x`、原始 predicted pair set `S`、外部 evidence set `E`，以及一个 original predicted pair `p=(i,j) in S`，目标是估计：
 
 ```text
-Original 2D -> 3D predictor -> 3D structure
-Refined 2D  -> 3D predictor -> 3D structure
-GT 2D       -> 3D predictor -> 3D structure
+q_ij = P(p is incorrect | x, S, E)
 ```
 
-## Dataset / Benchmark
+Primary edit space：
 
-### Confirmed Requirements
+- `KEEP`；
+- `DELETE`；
+- `ABSTAIN`。
 
-项目优先复用当前 benchmark 数据和预测结果。
+第一版不做：
 
-每个样本最终需要规范化为：
+- 添加 absent pair；
+- partner reassignment；
+- recursive stem reconstruction；
+- 创建新 pair 的全局 decoder。
+
+这样保持任务是 post-hoc quality control，而不是重新训练一个 secondary-structure predictor。
+
+## Prior-Art Boundary
+
+**Confirmed / 已确定 for current planning**
+
+以下内容不能单独作为 novelty claim：
+
+- canonical pairing / stem / stacking 等基础 RNA 结构规则；
+- isolated-pair / short-stem cleanup；
+- thermodynamic base-pair probability / confidence；
+- thermodynamic + evolutionary evidence fusion；
+- multi-predictor consensus；
+- evidence-constrained global folding；
+- generic post-hoc pair-level quality assessment 这一抽象范式。
+
+候选 novelty boundary 是：
+
+> **Predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions**：把已有 predictor output 本身视为需要保留和校准的信息源，与 sparse external evidence 做 post-hoc reconciliation，而不是完全从 sequence + evidence 重新 fold。
+
+是否可以进一步称为 `model-agnostic`、`unseen-predictor transferable`、`real-evidence robust`，必须由实验支持。
+
+## Existing Development Evidence
+
+历史结果全部保留，不重新解释：
+
+- Phase 0 normalization/evaluator infrastructure：完成；
+- Phase 1 pair/stem/separation error analysis：完成；
+- rule baseline：完成；
+- selective-refiner v1：`DEVELOPMENT_GATE_FAIL`；
+- selective-refiner v2：`V2_DEVELOPMENT_GATE_FAIL`；
+- selective-refiner v3 primary：`V3_DEVELOPMENT_GATE_FAIL`；
+- prediction-only cross-model mainline：已关闭，不允许用 Legacy121 做 post-hoc v4/v5 rescue tuning；
+- simulated clean evidence Stage E1：完成，证明 direct/local utility，但 `NON_EVIDENCED_EFFECT == 0`；
+- historical Stage E2 protocol：已冻结但 **未训练，并被 Reboot v2 在训练前 supersede**；
+- external77 three-source protocol：PASS，42 RNA x 3 sources = 126/126 normalized records，继续锁定为 independent test。
+
+## Data Roles
+
+### Legacy121 v1
+
+**Development only**：用于 baseline、architecture、calibration、threshold、ablation、simulated evidence 和 Go/No-Go。
+
+### external77-derived 42-RNA set
+
+**Locked independent test**：RNAfold、PETfold、trRosettaRNA2 native SS 均 42/42 valid；126/126 normalized records 已准备完成。在 final development protocol 冻结前不得用于 feature/threshold/model selection。
+
+## Evidence Ladder
+
+### E0 — Clean symbolic evidence
+
+- known positive pair；
+- known unpaired nucleotide。
+
+仅用于 mechanism / upper-bound development。
+
+### E1 — Controlled noisy symbolic evidence
+
+使用冻结的 corruption mechanism 和 candidate noise levels，测试 robustness 和 trust/reconciliation necessity。
+
+### E2 — Real experimental evidence
+
+候选包括 SHAPE、DMS、PARS 等。真实 probing signal 是 probabilistic evidence，不是 ground truth；必须单独做 dataset/provenance audit。
+
+## Required Baselines
+
+- **B0 Original**：原 predictor output，不修改。
+- **B1 Local Hard Evidence**：已完成的 Stage E1 local hard transformations。
+- **B2 Global Evidence-Constrained Refolding**：**新的 mandatory baseline**；使用同样 sequence + delivered evidence，通过可复现的 ViennaRNA/RNAfold constraint protocol 全局重新 fold。
+- **B3 Prediction-Only Reliability Baselines**：rule、v1 topology score、v3 fixed consensus veto、可比的 BPP/consensus 等。
+- **B4 Evidence-Masked Learned Control**：同 architecture/checkpoint 条件下屏蔽 evidence，验证增益是否来自 evidence。
+
+## Evaluation Principles
+
+### Pair reliability
+
+优先：AUPRC、Brier score、ECE、reliability diagram；AUROC 为辅助。
+
+### Refinement utility
+
+必须报告：
 
 ```text
-RNA ID
-sequence
-ground-truth secondary structure
-source predictor
-predicted secondary structure
-optional pair probability / confidence
-metadata when available
+TP_preservation = TP_after / TP_before
+FP_removal = (FP_before - FP_after) / FP_before
+modification_precision = beneficial_edits / modified_pairs
 ```
 
-### Not Yet Fixed
+同时保留 Precision、Recall、macro/micro F1、edit counts、beneficial/harmful accounting。
 
-**Candidate / 待验证**
+### Risk–utility
 
-- 具体 dataset 列表尚未锁定；
-- 第一版 source predictor 数量建议 3-5 个；
-- 完整论文阶段可扩展到 2-3 个 dataset；
-- 是否第一版就纳入 pseudoknot 取决于数据和 evaluator 是否能统一处理。
-
-## Current Pipeline
+主要比较不是单一 `Delta F1`，而是 risk–utility trade-off，例如：
 
 ```text
-existing benchmark
-    -> collect predictions
-    -> normalize formats
-    -> structure representation -> base-pair list
-    -> shared evaluator
-    -> pair/stem-level error extraction
-    -> error taxonomy
-    -> rule-based baseline
-    -> selective ML refiner
-    -> cross-model evaluation
-    -> evidence-guided refinement
-    -> full ablation
-    -> Candidate: 2D -> 3D validation
+x-axis: TP loss / 1 - TP preservation
+y-axis: FP removal
 ```
 
-当前没有已确认的 refinement 实验结果。第一阶段目标是建立可复现的 error-analysis 与 evaluation pipeline，而不是立即训练模型。
+### Non-evidenced effect
 
-## Candidate Method
+分别报告 non-evidenced modification precision、FP removal、TP loss。问题不是“是否传播”，而是传播是否有益。
 
-**Candidate / 待验证**
+### Evidence efficiency
 
-### 1. Error Detector
+报告 `FP_removed / evidence_items`、`Delta_F1 / evidence_items` 等。
 
-输入可包含：
+### Matching robustness
 
-- RNA sequence context；
-- predicted structure；
-- candidate pair positions；
-- pair probability / confidence（若可获得）；
-- local structural context。
+历史与 primary metric 继续使用 exact canonical pair equality；最终 paper-level evaluation 额外加入 +/-1 endpoint flexible matching robustness，不改写历史 exact 结果。
 
-初始输出：
+## Reboot Roadmap
 
 ```text
-correct / incorrect
+R0 Literature & novelty freeze        COMPLETE
+R1 Task/protocol redefinition         CURRENT
+R2 Global constrained-refolding       NEXT
+R3 Reliability baseline suite
+R4 Clean learned evidence reconciliation
+R5 Noise robustness
+R6 Cross-predictor transfer / LOMO
+R7 Locked external77 independent test
+R8 Real evidence
+R9 Final calibrated selective correction
+Optional 2D -> 3D validation
 ```
 
-### 2. Modification Mask
+## Go / No-Go
 
-对 pair / structural element 预测是否需要修改：
+- **Gate A — Post-hoc necessity**：若 global constrained refolding 在 preservation/FP-removal trade-off 上全面支配 post-hoc 方法，停止 post-hoc mainline。
+- **Gate B — Learned utility**：在 prospectively frozen high-preservation operating point（当前目标 `TP_preservation >= 0.99`）下，learned method 必须优于 strongest frozen non-learned baseline，且不能只依赖单一 source。
+- **Gate C — Noise robustness**：若 5–10% controlled noise 即导致负 structure utility 或不可接受 TP loss，不进入 real-evidence claim，除非先冻结新的 trust mechanism。
+- **Gate D — Independent generalization**：external77 只打开一次；若 development effect 不能保持方向，不得在 external77 上调参救结果。
 
-```text
-M(i, j) in [0, 1]
-```
+## Immediate Constraint
 
-### 3. Refined Pair Scores + Constrained Decoding
+**Do not train historical Stage E2.**
 
-Refiner 输出 corrected pair scores，再通过 constrained decoder 得到合法 secondary structure。
+下一项实验任务是：
 
-具体网络结构尚未确定。Transformer 只是 Candidate，不是既定方案。
+> **R2 — 冻结并实现 global evidence-constrained refolding baseline，先回答“为什么不直接在 evidence 下重新 fold？”**
 
-### 4. Preservation Objective
+R2、R3 冻结并完成后，才允许冻结新的 R4 learned protocol。
 
-**Candidate / 待验证**
-
-目标是避免破坏原本正确的 pair。候选形式：
-
-```text
-L = L_structure
-  + lambda * L_preserve
-  + beta * L_error_detection
-```
-
-具体 loss 和权重尚未确定。
-
-## Evaluation Strategy
-
-### Core Metrics
-
-**Confirmed / 已确定**
-
-- Precision
-- Recall
-- F1
-- MCC（若当前结构表示支持一致定义）
-- pair-level TP / FP / FN
-
-### Error-Specific Analysis
-
-**Confirmed / 已确定**
-
-需要分析：
-
-- missing pair；
-- false-positive pair；
-- wrong partner；
-- stem-level error；
-- long-range pair error；
-- pseudoknot-related error（前提是表示和 evaluator 一致）。
-
-候选 stem taxonomy：
-
-- missing stem；
-- stem truncation；
-- stem extension；
-- stem shift；
-- wrong-partner stem。
-
-具体定义必须在报告结果前固定。
-
-### Cross-Model Evaluation
-
-**Confirmed / 已确定 as planned experiment**
-
-```text
-train refiner on A + B + C
-hold out D
-evaluate on D
-```
-
-如果 transfer 失败，不得继续声称 model-agnostic。
-
-### Evidence-Guided Evaluation
-
-**Candidate / 待验证**
-
-候选 evidence density：
-
-```text
-0%, 1%, 5%, 10%, 20%, 50%
-```
-
-候选 noise level：
-
-```text
-5%, 10%, 20%, 30%
-```
-
-讨论过的 evidence 类型：
-
-- known base pairs；
-- known unpaired nucleotides；
-- contact / distance constraints；
-- SHAPE；
-- DMS；
-- NMR。
-
-目前没有确定真实实验数据源。
-
-### Candidate 3D Metrics
-
-- RMSD
-- TM-score
-- lDDT
-
-最终使用哪些取决于 3D predictor 和数据。
-
-## Expected Contributions
-
-以下均为 **Candidate / 待验证**，只有实验支持后才能写成论文 claim：
-
-1. 多 predictor 的 RNA secondary-structure prediction error taxonomy；
-2. selective refinement：显式避免修改已经正确的结构；
-3. model-agnostic refinement：跨 predictor transfer；
-4. sparse/noisy evidence-aware refinement；
-5. downstream 2D -> 3D benefit。
-
-Benchmark normalization 和简单多模型对比只是基础设施，不作为主要贡献。
-
-## Known Risks
-
-1. 不同 predictor 的错误分布可能差异太大，Universal Refiner 难以成立。
-2. 并非所有 predictor 都提供 pair probability / logits。
-3. Refiner 可能只改善弱模型，却破坏强模型。
-4. Rule-based baseline 可能已经覆盖大部分可修复收益。
-5. 2D F1 改善未必带来 3D 改善。
-6. Simulated evidence 可能无法代表真实实验数据。
-7. Pseudoknot 在不同工具/数据中的表示可能不一致。
-8. Refiner train/test 必须严格避免 sample leakage。
-9. 最终 CCF-A venue 与 deadline 尚未锁定。
-10. 如果最终只有小幅 aggregate F1 gain，而没有 cross-model / evidence / downstream 价值，论文强度可能不足。
-
-## Important Constraints
-
-**Confirmed / 已确定**
-
-- 不虚构实验结果。
-- 不把 benchmark-only 工作包装成主要贡献。
-- 不从大型新 predictor / foundation model 开始。
-- 先做 error analysis，再设计最终 refiner。
-- 所有 source predictor 使用同一个 evaluator。
-- 保存 raw prediction、normalized prediction 和 per-sample result。
-- 控制 refiner 数据泄漏。
-- 每个阶段先得到可复现 signal，再进入下一阶段。
-
-固定执行顺序：
-
-```text
-Error Analysis
--> Rule-Based Baseline
--> Selective Refiner
--> Cross-Model Evaluation
--> Evidence Guidance
--> Full Ablation
--> Candidate 2D-to-3D Validation
-```
+详细 reboot specification 见 `docs/project_reboot_v2.md`。
