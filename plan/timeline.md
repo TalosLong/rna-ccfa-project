@@ -1,264 +1,281 @@
-# Timeline
+# Timeline — Project Reboot v2
 
-## Phase 0 — Benchmark and Data Setup
+Last updated: 2026-08-29
 
-**Target period: 2026-08-24 to 2026-09-06**
+This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
-目标：
+## Historical Work — Complete / Closed
 
-建立 refinement 实验可复用的数据、prediction、parser 和 evaluator 层。
-
-任务：
-- [ ] Inventory 当前 benchmark datasets。
-- [ ] Inventory 当前可运行 source predictors。
-- [ ] 标记各 predictor 是否输出 pair probability / logits / confidence。
-- [ ] 定义 normalized prediction schema。
-- [ ] 实现/验证统一 secondary-structure -> base-pair parser。
-- [ ] 实现 shared evaluator。
-- [ ] 用 shared evaluator 重算 source predictor baseline。
-- [ ] 记录与现有 benchmark 指标的任何差异。
-
-产出：
-
-- dataset/model inventory；
-- normalized prediction format；
-- shared parser/evaluator；
-- reproduced baseline table。
-
-完成标准：
-
-至少 3 个 source predictor 可以通过同一 evaluator 从 normalized output 得到 per-sample 和 aggregate 指标。
+- Phase 0 normalization/evaluator infrastructure: complete.
+- Phase 1 error taxonomy and descriptive analysis: complete.
+- Rule-based refinement pilot: complete.
+- Selective-refiner v1: `DEVELOPMENT_GATE_FAIL`.
+- Selective-refiner v2: `V2_DEVELOPMENT_GATE_FAIL`.
+- Selective-refiner v3 primary: `V3_DEVELOPMENT_GATE_FAIL`.
+- Prediction-only cross-model mainline: closed; no Legacy121 v4/v5 rescue tuning.
+- Simulated evidence Stage E1: complete.
+- Historical Stage E2 protocol: frozen but untrained; superseded before training by Reboot v2.
+- external77 historical source-protocol gate: PASS; 126/126 normalized independent records complete and locked.
 
 ---
 
-## Phase 1 — Error Analysis
+## R0 — Literature & Novelty Freeze
 
-**Target period: 2026-09-07 to 2026-09-20**
+**Status: COMPLETE FOR REBOOT**
 
-目标：
+Goal: define what is already prior art and what the rebooted project may legitimately test.
 
-明确现有 RNA predictor 的主要错误类型和跨模型共有错误。
+Frozen boundary:
 
-任务：
-- [ ] missing pair extractor。
-- [ ] false-positive pair extractor。
-- [ ] wrong-partner extractor。
-- [ ] 定义并实现 stem extraction。
-- [ ] 定义 stem missing/truncation/extension/shift。
-- [ ] long-range pair analysis。
-- [ ] pseudoknot analysis（仅在表示一致时）。
-- [ ] 输出 per-model/per-dataset error summary。
+- basic RNA structural rules are not novelty;
+- pair probability/confidence is not novelty;
+- predictor consensus is not novelty;
+- evidence-constrained global folding is not novelty;
+- generic post-hoc pair QA as an abstract task is not novelty.
 
-产出：
+Candidate research gap:
 
-- error taxonomy v1；
-- per-sample error records；
-- cross-model error summary。
-
-完成标准：
-
-能够回答：当前 benchmark 中最常见的三个 error type 是什么，哪些在多个 predictor 中重复出现？
+> predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions.
 
 ---
 
-## Phase 2 — Rule-Based Refinement Baseline
+## R1 — Task and Protocol Redefinition
 
-**Target period: 2026-09-21 to 2026-10-04**
+**Target: immediate / current**
 
-目标：
+Goal: update all authoritative documents before new training.
 
-建立 learned method 必须超越的简单 correction baseline。
+Tasks:
 
-任务：
-- [ ] 固定最小 rule set。
-- [ ] structural validity / conflict checks。
-- [ ] confidence-aware rule（若可用）。
-- [ ] 记录每个 modification。
-- [ ] Original vs Rule-based evaluation。
-- [ ] beneficial/harmful edit analysis。
+- [x] Create `docs/project_reboot_v2.md`.
+- [x] Replace project scientific question in `CONTEXT.md`.
+- [x] Replace `plan/research_plan.md`.
+- [ ] Update `STATUS.md`.
+- [ ] Update `tasks/TODO.md`.
+- [ ] Update `docs/decisions.md` and claim boundary.
+- [ ] Update `AGENTS.md` execution rules.
+- [ ] Mark historical E2 as superseded-before-training everywhere it appears as the next action.
 
-产出：
+Completion gate:
 
-- rule-based refiner；
-- baseline comparison table；
-- edit-quality analysis。
-
-完成标准：
-
-无论总体 F1 是否提升，都能定量说明简单 post-processing 的上限和副作用。
+No authoritative file should instruct Codex to train historical E2.
 
 ---
 
-## Phase 3 — Selective Refiner
+## R2 — Global Evidence-Constrained Refolding Baseline
 
-**Target period: 2026-10-05 to 2026-10-25**
+**Status: NEXT EXPERIMENT**
 
-目标：
+Goal:
 
-验证 selective correction 是否优于 generic learned correction。
+Answer the foundational question:
 
-任务：
-- [ ] 定义 refiner train/val/test split。
-- [ ] 构建 error labels。
-- [ ] non-selective learned baseline。
-- [ ] error detector / modification mask。
-- [ ] refined pair score prediction。
-- [ ] constrained decoder（若需要）。
-- [ ] preservation objective。
-- [ ] Original / Rule / Non-selective / Selective comparison。
+> Why not simply refold the RNA from sequence under the same sparse evidence?
 
-产出：
+Primary baseline:
 
-- selective refiner v1；
-- method comparison；
-- first ablation。
+- reproducible ViennaRNA/RNAfold hard-constraint global refolding;
+- same Legacy121 RNAs;
+- same clean symbolic evidence manifests where constraint semantics match;
+- no learned model;
+- no external77 access.
 
-完成标准：
+Required analyses:
 
-至少在一个稳定 benchmark setting 上获得可复现 selective-refinement 结果。
+- Original vs local-hard vs global-refold;
+- exact pair metrics;
+- TP preservation;
+- FP removal;
+- modification precision;
+- direct/local/non-evidenced decomposition;
+- evidence efficiency;
+- source-wise effects;
+- constraint compliance and output validity.
 
-Go/No-Go：
+Completion gate:
 
-若 selective refinement 没有稳定 signal，先诊断 error detection / decoding / correction headroom，不进入 evidence 阶段。
-
----
-
-## Phase 4 — Cross-Model / Universal Refinement
-
-**Target period: 2026-10-26 to 2026-11-15**
-
-目标：
-
-测试 Refiner 是否跨 source predictor transfer。
-
-任务：
-- [ ] pooled multi-model training。
-- [ ] model-specific baseline。
-- [ ] leave-one-model-out evaluation。
-- [ ] with/without source-model ID（若实现）。
-- [ ] weak vs strong predictor analysis。
-
-产出：
-
-- leave-one-model-out table；
-- universal vs model-specific comparison。
-
-完成标准：
-
-明确支持或否定 model-agnostic claim。
+R2 protocol must be frozen before execution. Results determine whether post-hoc preservation has enough headroom to justify R4.
 
 ---
 
-## Phase 5 — Evidence-Guided Refinement
+## R3 — Reliability Baseline Suite
 
-**Target period: 2026-11-16 to 2026-12-06**
+Goal:
 
-目标：
+Place all simple confidence/reliability alternatives under one evaluation framework.
 
-验证 sparse/noisy structural evidence 的独立价值。
+Candidate comparators:
 
-任务：
-- [ ] controlled simulated-evidence generator。
-- [ ] candidate evidence-density experiments。
-- [ ] hard-evidence baseline。
-- [ ] evidence-aware selective refiner。
-- [ ] controlled noise injection。
-- [ ] learned trust mechanism（若结果需要）。
-- [ ] 评估是否需要真实 SHAPE/DMS/NMR 数据。
+- structural/rule score;
+- historical v1 topology score;
+- historical v3 fixed consensus veto;
+- compatible thermodynamic BPP;
+- cross-model agreement.
 
-产出：
+Metrics:
 
-- density response curve；
-- noise robustness curve；
-- evidence-guided comparison。
+- AUPRC;
+- Brier score;
+- ECE;
+- risk–utility curves;
+- TP preservation / FP removal.
 
-完成标准：
+Completion gate:
 
-能够判断 evidence 是否提供 prediction-only refinement 之外的独立收益。
-
----
-
-## Phase 6 — Full Experiments and Ablation
-
-**Target period: 2026-12-07 to 2026-12-20**
-
-目标：
-
-冻结方法，完成论文级主实验。
-
-任务：
-- [ ] freeze architecture/training protocol。
-- [ ] 跑全部已选 predictor/dataset。
-- [ ] 完成核心 ablation。
-- [ ] error-specific analysis。
-- [ ] length / long-range / PK analysis（若有效）。
-- [ ] paired statistical analysis（根据最终数据选择）。
-- [ ] 记录 runtime/resource（若属于 claim）。
-
-产出：
-
-- final main-result tables；
-- final ablation tables；
-- final analysis figures。
-
-完成标准：
-
-主要 paper claim 不再依赖新的大规模方法修改。
+Strongest non-learned comparator must be frozen before R4 training.
 
 ---
 
-## Phase 7 — Candidate 2D -> 3D Validation
+## R4 — Clean Learned Evidence Reconciliation
 
-**Target period: 2026-12-21 to 2027-01-05**
+Goal:
 
-**Candidate / 待验证**
+Test whether a simple learned post-hoc method uses clean sparse evidence better than all frozen baselines.
 
-目标：
+Requirements before training:
 
-判断 refined 2D 是否改善 RNA 3D prediction。
+- R2 complete;
+- R3 complete;
+- new R4 protocol frozen;
+- B0/B1/B2/B4 comparison fixed;
+- calibration and operating-point procedure fixed;
+- external77 still locked.
 
-任务：
-- [ ] 选择有 GT 3D 的 RNA subset。
-- [ ] freeze 一个 3D inference pipeline。
-- [ ] 准备 original/refined/GT 三种 2D input。
-- [ ] 同配置跑 3D inference。
-- [ ] 汇总 RMSD/TM-score/lDDT（按可用性）。
-- [ ] 分析关键 error correction 与 3D improvement 的关系。
+Candidate implementation:
 
-产出：
+Reuse the historical E2 candidate/evidence encoder as a starting architecture, but under new reboot success criteria.
 
-- 2D-to-3D comparison table；
-- per-target downstream analysis。
+Primary Go/No-Go:
 
-完成标准：
-
-明确决定 3D validation 进入 main paper、secondary analysis，还是不进入 paper claim。
+At a prospectively frozen high-preservation operating point, learned reconciliation must improve FP removal over the strongest frozen non-learned baseline and not be driven by one source only.
 
 ---
 
-## Phase 8 — Paper Writing and Submission Preparation
+## R5 — Controlled Noise Robustness
 
-**Target period: 2027-01 onward**
+Goal:
 
-目标：
+Determine whether evidence reconciliation remains useful when symbolic evidence is imperfect.
 
-将已经验证的结果组织成 CCF-A submission。
+Candidate noise levels:
 
-任务：
-- [ ] freeze paper claims。
-- [ ] 删除未被实验支持的 claim。
-- [ ] 写 Introduction / Related Work / Method / Experiments。
-- [ ] 建 claim-evidence map。
-- [ ] 整理 reproducibility appendix。
-- [ ] 最终确认 CCF-A venue classification、track、paper type、deadline。
+```text
+5%, 10%, 20%, 30%
+```
 
-产出：
+Analyze:
 
-- manuscript draft；
-- figure/table set；
-- reproducibility materials；
-- final venue decision。
+- performance degradation;
+- harmful edit growth;
+- calibration shift;
+- evidence trust/conflict behavior.
 
-完成标准：
+Gate:
 
-论文只包含被完成实验支持的贡献，并与最终会议 scope 匹配。
+If low noise already destroys utility/safety, do not advance to real-evidence claims without freezing a new trust mechanism first.
+
+---
+
+## R6 — Cross-Predictor Transfer
+
+Goal:
+
+Test whether the learned reliability signal transfers across source predictors.
+
+Experiments:
+
+- pooled multi-source;
+- source-wise;
+- leave-one-model-out.
+
+Rule:
+
+`Model-agnostic` or `unseen-predictor transfer` becomes a paper claim only if supported prospectively. Failure is reported as source dependence, not rescued by repeated Legacy121 tuning.
+
+---
+
+## R7 — Locked Independent Test
+
+Dataset:
+
+`external77`-derived 42 RNAs x 3 predictors = 126 records.
+
+Goal:
+
+One-shot independent evaluation after model, feature set, calibration, thresholds and analysis are frozen.
+
+Rule:
+
+Do not tune on external77. If the effect does not preserve direction, no cross-dataset generalization claim.
+
+---
+
+## R8 — Real Evidence
+
+Goal:
+
+Evaluate one or more experimentally grounded evidence modalities only after R4-R7 justify continuation.
+
+Candidate modalities:
+
+- SHAPE;
+- DMS;
+- PARS;
+- other audited probing data.
+
+Requirements:
+
+- explicit dataset provenance;
+- mapping from measurement to evidence representation;
+- missingness/noise semantics;
+- separation from GT labels.
+
+---
+
+## R9 — Final Calibrated Selective Correction
+
+Goal:
+
+Freeze final `KEEP / DELETE / ABSTAIN` policy and paper-level analysis.
+
+Deliverables:
+
+- final reliability calibration;
+- risk–utility curves;
+- evidence-efficiency curves;
+- source-wise/generalization results;
+- independent-test result;
+- noise/real-evidence result if authorized;
+- exact + flexible-match robustness;
+- final statistical analysis;
+- claim–evidence map.
+
+---
+
+## Optional — 2D -> 3D Downstream Validation
+
+Only after the rebooted 2D task is stable.
+
+Candidate design:
+
+```text
+Original 2D -> frozen 3D pipeline
+Reconciled 2D -> same frozen 3D pipeline
+GT 2D -> same frozen 3D pipeline
+```
+
+No 3D claim without reproducible paired downstream benefit.
+
+---
+
+## Current Immediate Sequence
+
+```text
+R1 documentation freeze
+-> R2 protocol freeze
+-> R2 global constrained-refolding baseline
+-> R3 reliability baselines
+-> R4 learned clean evidence reconciliation
+```
+
+**Historical Stage E2 training is not an authorized next step.**
