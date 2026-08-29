@@ -4,36 +4,30 @@ Last updated: 2026-08-29
 
 ## Current Stage
 
-**PROJECT REBOOT v2 ACTIVE**
+**PROJECT REBOOT v2 — R2 CURRENT**
 
-The previous mainline `Evidence-Guided Selective Refinement for RNA Secondary Structure Prediction` has been superseded at the planning level by:
+Current working direction:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-The reboot occurred **before any historical Stage E2 model was trained**.
+R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. The next authorized experiment is R2: a matched global evidence-constrained refolding baseline.
 
-Current execution state:
-
-- R0 Literature & novelty freeze: **COMPLETE FOR REBOOT**.
-- R1 Task/protocol redefinition: **IN PROGRESS / DOCUMENT FREEZE**.
-- R2 Global evidence-constrained refolding baseline: **NEXT EXPERIMENT**.
-- Historical `evidence_guidance_stage_e2_v1`: **FROZEN BUT SUPERSEDED BEFORE TRAINING**.
-- No new learned model is authorized until R2 and R3 are completed and a new R4 protocol is frozen.
+The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
 ## Rebooted Scientific Question
 
 > Given an RNA sequence, an already-computed secondary-structure prediction from an existing predictor, and sparse external structural evidence, can a post-hoc method identify and selectively correct residual pair errors while preserving predictor information that is already correct?
 
-The mandatory comparison is now:
+Mandatory comparison:
 
 ```text
-Original predictor
+B0 Original predictor
 vs
-local evidence enforcement
+B1 local hard evidence enforcement
 vs
-global evidence-constrained refolding
+B2 global evidence-constrained refolding
 vs
-post-hoc evidence reconciliation
+future B4/R4 post-hoc learned evidence reconciliation
 ```
 
 The project must explicitly answer:
@@ -42,36 +36,37 @@ The project must explicitly answer:
 
 ## Novelty Boundary
 
-The project no longer treats the following as candidate main contributions by themselves:
+Do not claim novelty for these components by themselves:
 
 - basic RNA pairing/stem/stacking rules;
 - isolated-pair or short-stem cleanup;
-- thermodynamic pair probability/confidence;
+- pair probability/confidence;
 - thermodynamic + evolutionary evidence fusion;
-- multi-predictor consensus;
+- predictor consensus;
 - evidence-constrained global folding;
-- generic pair-level post-hoc quality assessment as an abstract ML formulation.
+- generic pair-level post-hoc QA as an abstract ML task;
+- benchmark normalization/evaluator infrastructure.
 
-The current candidate contribution is narrower:
+Current candidate contribution:
 
 > **Predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions.**
 
-`Model-agnostic`, `unseen-predictor`, `real-evidence robust`, and `3D benefit` remain unconfirmed candidate claims.
+`Model-agnostic`, `unseen-predictor`, `real-evidence robust`, and `3D benefit` remain candidate claims only.
 
 ## Preserved Historical Results
 
 No prior result is deleted or reinterpreted.
 
-### Infrastructure / Error Analysis
+### Infrastructure and error analysis
 
-- Legacy121 v1 manifest and normalization complete.
-- 121 RNAs x 3 sources = 363 normalized prediction records valid.
-- Shared exact canonical-pair evaluator complete.
-- Pair-level missing/FP/wrong-partner analysis complete.
-- Strict stem extraction/matching taxonomy complete.
-- Sequence-separation analysis complete.
+- Legacy121 v1: 121 RNAs, 363 normalized source predictions.
+- RNAfold / PETfold / trRosettaRNA2 native SS each have 121 valid records.
+- shared exact canonical-pair evaluator complete.
+- pair-level missing/FP/wrong-partner analysis complete.
+- strict stem extraction/matching taxonomy complete.
+- sequence-separation analysis complete.
 
-### Legacy121 Infrastructure Baseline
+### Legacy121 infrastructure baseline
 
 | Predictor | Macro F1 | Micro F1 | TP | FP | FN |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -81,107 +76,55 @@ No prior result is deleted or reinterpreted.
 
 These are infrastructure baselines, not refinement claims.
 
-### Rule / Learned Prediction-Only Development
+### Prediction-only refinement development
 
-- Rule-based pilot: complete.
+- Rule baseline: complete.
 - selective-refiner v1: `DEVELOPMENT_GATE_FAIL`.
 - selective-refiner v2: `V2_DEVELOPMENT_GATE_FAIL`.
 - selective-refiner v3 primary: `V3_DEVELOPMENT_GATE_FAIL`.
-- Prediction-only cross-model mainline: **CLOSED FOR THE CURRENT MAINLINE**.
-- No post-hoc Legacy121 v4/v5 rescue tuning is authorized.
+- prediction-only cross-model mainline: **CLOSED FOR CURRENT MAINLINE**.
+- no Legacy121 v4/v5 rescue tuning is authorized.
 
-The v1-v3 sequence established that prediction-only topology/agreement contains some error/protection signal, but not enough to support a preregistered source-general safe refiner.
+### Simulated evidence development
 
-### Simulated Evidence Development
+- clean simulated evidence generator: complete/reproducible.
+- Stage E1 local hard baseline: complete.
+- direct/local utility: positive under clean evidence semantics.
+- `NON_EVIDENCED_EFFECT == 0` because B1 is local by construction.
+- historical E2 architecture remains a candidate implementation asset only.
 
-- simulated-evidence generator: complete and reproducible.
-- Stage E1 clean hard-baseline evaluation: complete.
-- Clean evidence has strong direct/local correction utility.
-- `NON_EVIDENCED_EFFECT == 0` for Stage E1 because the transformations are local by construction.
-- Stage E1 is retained as the rebooted B1 local-hard baseline.
+## Independent Test
 
-### Historical Stage E2
+external77-derived 42-RNA set is ready and locked:
 
-- `evidence_guidance_stage_e2_v1` was frozen before training.
-- It contains a usable candidate branch + DeepSets-style evidence encoder design.
-- **It must not be executed as originally planned.**
-- Its architecture may be reused later as an implementation starting point for R4, but its original success criteria are superseded by Reboot v2 because they did not include the mandatory global constrained-refolding comparator.
-
-## Independent Test Status
-
-The former PETfold external blocker is closed.
-
-external77-derived 42-RNA independent set:
-
-- RNAfold: 42/42 valid.
-- PETfold: 42/42 valid under reproduced historical single-sequence condition.
-- trRosettaRNA2 native SS: 42/42 valid under recovered query-only condition.
+- RNAfold: 42/42 valid;
+- PETfold: 42/42 valid under reproduced historical single-sequence condition;
+- trRosettaRNA2 native SS: 42/42 valid under recovered query-only condition;
 - normalized matrix: **126/126 PASS**.
 
-This dataset remains **LOCKED** until R7. It may not be used for feature selection, threshold tuning, architecture selection, or rescue analysis.
-
-## Reboot Data Roles
-
-### Legacy121
-
-Development only:
-
-- baseline design;
-- architecture and feature selection;
-- calibration/threshold selection;
-- ablation;
-- simulated evidence;
-- Go/No-Go decisions.
-
-### external77-derived 42
-
-Locked independent evaluation only.
+Role: **R7 one-shot independent evaluation only**. No development/tuning access.
 
 ## Evidence Ladder
 
-- **E0 Clean symbolic evidence**: positive pair / unpaired nucleotide; mechanism and upper-bound development.
-- **E1 Controlled noisy symbolic evidence**: frozen corruption levels; robustness/trust testing.
-- **E2 Real experimental evidence**: candidate SHAPE/DMS/PARS or related modalities after dedicated audit.
+- **E0 clean symbolic**: positive pair / unpaired nucleotide; mechanism and upper-bound development.
+- **E1 controlled noisy symbolic**: robustness/trust testing.
+- **E2 real experimental evidence**: candidate SHAPE/DMS/PARS after dedicated audit.
 
-Real probing measurements are evidence, not ground truth.
-
-## Mandatory Baselines After Reboot
-
-### B0 — Original Predictor
-
-No modification.
-
-### B1 — Local Hard Evidence
-
-Completed Stage E1 conditions.
-
-### B2 — Global Evidence-Constrained Refolding
-
-**NEXT mandatory baseline.**
-
-Use the same sequence and delivered clean evidence while allowing a classical folding algorithm to re-optimize the whole RNA structure. Initial target: reproducible ViennaRNA/RNAfold hard constraints.
-
-### B3 — Prediction-Only Reliability Baselines
-
-Retain frozen/mechanistic comparators such as rule-based scores, historical v1 topology score, historical v3 fixed consensus veto, compatible BPP and simple agreement.
-
-### B4 — Evidence-Masked Learned Control
-
-Required for future R4 learned experiments.
+Real probing signals are evidence, not GT.
 
 ## Reboot Evaluation
 
-### Pair Reliability
+### Pair reliability
 
 Planned primary metrics:
 
 - AUPRC for DELETE/FP;
 - Brier score;
-- ECE / reliability diagram;
+- ECE / reliability diagrams;
 - high-risk-pair precision;
 - AUROC as secondary.
 
-### Refinement Utility
+### Refinement utility
 
 Mandatory:
 
@@ -191,36 +134,30 @@ FP_removal = (FP_before - FP_after) / FP_before
 modification_precision = beneficial_edits / modified_pairs
 ```
 
-Also report Precision, Recall, macro/micro F1 and full edit accounting.
+Also retain Precision, Recall, macro/micro F1 and complete edit accounting.
 
-### Risk–Utility
+### Risk–utility
 
-Primary comparison should emphasize TP-loss vs FP-removal trade-off rather than only aggregate Delta F1.
+Primary method comparison emphasizes TP loss versus FP removal rather than only aggregate `Delta F1`.
 
-### Non-Evidenced Effects
+### Non-evidenced effect
 
-Report separately:
+Report non-evidenced modification precision, FP removal and TP loss. The question is whether propagation is useful rather than merely present.
 
-- non-evidenced modification precision;
-- non-evidenced FP removal;
-- non-evidenced TP loss.
-
-The question is whether propagation is useful, not whether it merely occurs.
-
-### Evidence Efficiency
+### Evidence efficiency
 
 Report correction benefit per delivered evidence item.
 
-### Pair Matching
+### Matching
 
-Exact canonical-pair matching remains primary for continuity. Final paper-level robustness may add a separately reported +/-1 endpoint flexible match analysis without changing historical exact results.
+Exact canonical-pair equality remains primary. Final paper-level robustness may separately add +/-1 endpoint flexible matching without rewriting historical exact results.
 
-## Reboot Roadmap
+## Roadmap
 
 ```text
 R0 Literature & novelty freeze              COMPLETE
-R1 Task/protocol redefinition               CURRENT
-R2 Global constrained-refolding baseline    NEXT
+R1 Task/protocol redefinition               COMPLETE
+R2 Global constrained-refolding baseline    CURRENT
 R3 Reliability baseline suite
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
@@ -235,36 +172,45 @@ Optional 2D -> 3D validation
 
 ### Gate A — Post-hoc necessity
 
-If global constrained refolding dominates the post-hoc approach across relevant TP-preservation / FP-removal trade-offs, stop the post-hoc mainline.
+If matched global constrained refolding dominates the relevant TP-preservation / FP-removal trade-off, stop the post-hoc mainline.
 
 ### Gate B — Learned utility
 
-At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), the learned method must improve FP removal over the strongest frozen non-learned baseline and must not depend on one source only.
+At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), a future learned R4 method must improve FP removal over the strongest frozen non-learned baseline and not be driven by one source only.
 
 ### Gate C — Noise robustness
 
-If 5-10% evidence noise causes negative structure utility or unsafe TP loss, do not advance to a real-evidence claim without a prospectively frozen trust mechanism.
+If 5-10% controlled evidence noise causes negative structure utility or unsafe TP loss, do not advance to a real-evidence claim without a prospectively frozen trust mechanism.
 
 ### Gate D — Independent generalization
 
-external77 is opened once under a frozen protocol. If the effect fails to preserve direction, no cross-dataset generalization claim and no tuning on external77.
+Open external77 once. If the development effect does not preserve direction, no cross-dataset generalization claim and no external77 rescue tuning.
 
-## Current Blockers
+## Current Task — R2 Protocol Freeze
 
-No external-data blocker currently prevents R2.
+Before any full R2 run:
 
-The main scientific blocker is now intentional:
+1. audit installed ViennaRNA/RNAfold version and hard-constraint interface;
+2. define `POSITIVE_PAIR_EVIDENCE` -> hard pair constraint mapping;
+3. define `UNPAIRED_NUCLEOTIDE_EVIDENCE` -> hard unpaired constraint mapping;
+4. define unsatisfiable/incompatible constraint behavior;
+5. freeze whether pair and unpaired channels remain separate;
+6. reuse the clean Legacy121 evidence manifests without external77 access;
+7. freeze parser/validation/provenance requirements;
+8. create `docs/global_constrained_refolding_r2_protocol.md` before full evaluation.
 
-> The project must establish the behavior of a strong classical global evidence-constrained refolding baseline before any new learned evidence model is trained.
+## Current Restrictions
 
-## Immediate Next Steps
+- **Do not train historical Stage E2.**
+- **Do not access external77.**
+- **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
+- **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
 
-1. Finish R1 authoritative-document freeze.
-2. Audit installed ViennaRNA/RNAfold version and hard-constraint interface.
-3. Freeze `docs/global_constrained_refolding_r2_protocol.md` before executing evaluation.
-4. Implement R2 on Legacy121 clean evidence only.
-5. Compare B0/B1/B2 using exact metrics, preservation, FP removal, direct/local/non-evidenced decomposition and evidence efficiency.
-6. Do not access external77.
-7. Do not train historical Stage E2.
+Detailed current-mainline documents:
 
-Detailed reboot contract: `docs/project_reboot_v2.md`.
+- `docs/project_reboot_v2.md`
+- `docs/reboot_v2_decisions.md`
+- `docs/reboot_v2_claim_evidence_map.md`
+- `plan/research_plan.md`
+- `plan/timeline.md`
+- `tasks/TODO.md`
