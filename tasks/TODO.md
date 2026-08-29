@@ -35,13 +35,16 @@ Last updated: 2026-08-29
 - [x] Define mapping from `UNPAIRED_NUCLEOTIDE_EVIDENCE` to hard unpaired constraints as `x`; exact semantics verified on toys.
 - [x] Define behavior for incompatible/unsatisfiable constraints before evaluation: fail closed and retain an explicit status; never drop or reinterpret evidence.
 - [x] Freeze pair and unpaired channels as separate primary R2 channels.
-- [x] Audit reuse of frozen Legacy121 clean manifests; 87/3,630 pair manifests contain crossing evidence unsupported by standard non-PK ViennaRNA, so execution is blocked.
+- [x] Audit reuse of frozen Legacy121 clean manifests; 87/3,630 pair manifests contain crossing evidence unsupported by standard non-PK ViennaRNA.
+- [x] Freeze prospective v1.0.1 crossing policy: exclude whole crossing manifests without modifying delivered evidence.
+- [x] Freeze matched B0/B1/B2 manifest universe and generate the manifest-ID-filtered B1 view.
+- [x] Freeze coverage reporting and RNA-balanced macro / event-pooled micro aggregation semantics.
 - [x] Freeze output parser, validity checks, and provenance fields in the blocked protocol/implementation plan.
 - [x] Create `docs/global_constrained_refolding_r2_protocol.md`; status is `R2_PROTOCOL_BLOCKED` before full execution because of the crossing-evidence semantic blocker.
 
 ### Implementation
 
-- [ ] Implement the complete constrained RNAfold adapter without modifying raw historical predictions (blocked pending crossing-evidence decision).
+- [ ] Implement the complete constrained RNAfold adapter without modifying raw historical predictions (authorized on R2_ELIGIBLE manifests).
 - [x] Add unit/toy tests for hard pair constraints.
 - [x] Add unit/toy tests for hard unpaired constraints.
 - [x] Add explicit tests/reporting for unsatisfiable and crossing constraints.
@@ -176,6 +179,6 @@ Last updated: 2026-08-29
 
 ## Immediate Next Task
 
-> **Resolve the crossing positive-pair evidence semantics prospectively; only then implement and execute the frozen R2 global hard-constraint refolding baseline.**
+> **Implement and execute the frozen R2 global hard-constraint refolding baseline on the deterministic R2_ELIGIBLE matched universe.**
 
 No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.

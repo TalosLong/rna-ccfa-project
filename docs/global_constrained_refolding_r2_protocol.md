@@ -2,17 +2,18 @@
 
 ## Status
 
-**`R2_PROTOCOL_BLOCKED`**
+**`R2_PROTOCOL_AMENDED` — `READY_FOR_R2_EXECUTION`**
 
-Freeze checkpoint: **FROZEN BEFORE R2 EXECUTION**. The specification below is
-not an authorization to run the blocked benchmark.
+Freeze checkpoint: **FROZEN BEFORE R2 EXECUTION**. Prospective amendment
+v1.0.1 is frozen in `docs/global_constrained_refolding_r2_crossing_policy.md`
+and governs the eligibility universe below.
 
-This protocol is frozen before any R2 execution for the semantically supported
-non-pseudoknot cases. A complete Legacy121 R2 benchmark is not authorized
-because 87 frozen positive-pair evidence manifests contain mutually crossing
-delivered pairs, which standard ViennaRNA non-pseudoknot constraints cannot
-represent simultaneously. No evidence item may be silently dropped,
-replaced, or reinterpreted to bypass this blocker.
+Protocol v1.0 originally froze before execution. The crossing-evidence
+capability blocker was discovered before formal execution and is resolved
+prospectively by excluding an entire crossing manifest from B2, without
+modifying delivered evidence. Formal R2 execution is authorized only on the
+matched `R2_ELIGIBLE` universe; historical full-universe E1/B1 results remain
+unchanged.
 
 ## Scientific question
 
@@ -123,7 +124,7 @@ forced-unpaired position is also forced paired, or when forced pairs cross.
 It must not delete an offending evidence item and must not downgrade a forced
 pair to “paired with any partner.”
 
-## Pseudoknot policy and current blocker
+## Pseudoknot policy and eligibility amendment
 
 Standard ViennaRNA dynamic programming and ordinary dot-bracket parentheses
 represent nested structures but not general pseudoknots/crossing pairs. The
@@ -133,11 +134,13 @@ one crossing pair among delivered evidence items. They are therefore not
 representable by the standard B2 interface. R2 remains a non-pseudoknot
 mainline and makes no pseudoknot-support claim.
 
-The current blocker is semantic, not a missing option: excluding those
-manifests, dropping crossing items, sequentially folding each pair, or using a
-different pseudoknot-capable algorithm would change the frozen primary
-comparison and requires a new prospective decision. Until that decision is
-made, no Legacy121 R2 benchmark or R2 result table may be generated.
+The prospective v1.0.1 policy is a solver-capability/representability
+exclusion, not a performance or GT selection. A complete delivered pair set
+is `R2_ELIGIBLE` iff it is noncrossing. Any crossing relation marks the whole
+manifest `R2_INELIGIBLE_CROSSING_EVIDENCE`; B2 is skipped for that manifest and
+no item is dropped. Primary B0/B1/B2 comparisons use identical eligible
+manifest IDs, with B1 filtered by ID only. RNA-balanced macro aggregation and
+zero-coverage handling are frozen in the amendment document.
 
 ## Folding output and validation contract
 
@@ -196,5 +199,6 @@ TP-preservation/FP-removal risk–utility comparison, record Gate A failure and
 stop the post-hoc mainline. If B2 leaves headroom, R3 may freeze the simple
 reliability baselines; only then may a new R4 protocol be designed.
 
-No R2 execution is authorized while the crossing-evidence blocker remains
-unresolved.
+R2 execution is authorized on `R2_ELIGIBLE` manifests after the v1.0.1 audit
+artifacts and tests pass. No pseudoknot-capable solver or crossing-evidence
+rewrite is authorized.

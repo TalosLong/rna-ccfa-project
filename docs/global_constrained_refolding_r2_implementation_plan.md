@@ -3,10 +3,9 @@
 ## Status and execution boundary
 
 This is an implementation plan only. The environment audit and toy interface
-checks passed for noncrossing hard constraints, but the frozen clean suite has
-87 crossing positive-pair manifests that standard ViennaRNA cannot represent.
-The complete R2 runner must not be implemented or launched until the blocker
-has a separately documented prospective resolution. No Legacy121 benchmark,
+checks passed. Prospective amendment v1.0.1 now classifies the 87 crossing
+positive-pair manifests as solver-capability-ineligible and authorizes the
+runner on the matched `R2_ELIGIBLE` universe only. No Legacy121 benchmark,
 learned training, noisy evidence, real modality, or external77 access is part
 of this plan.
 
@@ -117,15 +116,14 @@ Create `tests/test_global_constrained_refolding_r2.py` with:
 - a guard that the future runner does not import external77, noise, or real
   modality paths and does not pass source predictions into the fold adapter.
 
-The current audit script is `scripts/audit_global_constrained_refolding_r2.py`.
-It is intentionally limited to environment metadata, frozen clean-manifest
-crossing detection, and seven short toy checks; its output is retained under
-`results/global_constrained_refolding_r2/integrity/`.
+The current audit scripts are `scripts/audit_global_constrained_refolding_r2.py`
+and `scripts/audit_r2_manifest_eligibility.py`. They are limited to
+environment metadata, deterministic clean-manifest eligibility/coverage, the
+manifest-ID-filtered B1 view, and seven short toy checks; outputs are retained
+under `results/global_constrained_refolding_r2/integrity/`.
 
 ## Completion criteria
 
-R2 may move from `R2_PROTOCOL_BLOCKED` to
-`READY_FOR_R2_IMPLEMENTATION` only after a prospective decision resolves the
-crossing evidence semantics without dropping or changing delivered items.
-Formal R2 execution remains a separate task after implementation, tests, and
-the complete protocol are independently reviewed.
+R2 is `R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION` after the v1.0.1
+eligibility, coverage, matched-universe, aggregation, and test checks. Formal
+R2 execution remains a separate task and must use eligible manifests only.

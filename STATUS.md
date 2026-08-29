@@ -4,13 +4,13 @@ Last updated: 2026-08-29
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2_PROTOCOL_BLOCKED**
+**PROJECT REBOOT v2 — R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION**
 
 Current working direction:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit and toy validation are complete, but the protocol is blocked before formal execution by crossing clean pair-evidence manifests that standard ViennaRNA cannot represent.
+R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit, crossing-policy amendment, coverage audit, matched-universe freeze, and aggregation freeze are complete. Formal R2 execution is authorized on eligible manifests only; crossing manifests remain excluded as a solver-capability condition.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -157,7 +157,7 @@ Exact canonical-pair equality remains primary. Final paper-level robustness may 
 ```text
 R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
-R2 Global constrained-refolding baseline    PROTOCOL_BLOCKED
+R2 Global constrained-refolding baseline    PROTOCOL_AMENDED / READY_FOR_R2_EXECUTION
 R3 Reliability baseline suite
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
@@ -199,7 +199,7 @@ Before any full R2 run:
 7. freeze parser/validation/provenance requirements;
 8. create `docs/global_constrained_refolding_r2_protocol.md` before full evaluation.
 
-### R2 audit result
+### R2 audit and amendment result
 
 - `/usr/bin/RNAfold`, version 2.4.17, is the frozen candidate executable;
   Python `RNA` bindings are absent in all three probed environments.
@@ -211,10 +211,11 @@ Before any full R2 run:
 - The clean suite has 7,260 manifests; 87/3,630
   `POSITIVE_PAIR_EVIDENCE` manifests across 11 RNAs contain crossing delivered
   pairs. Standard non-pseudoknot ViennaRNA DBN constraints cannot express these
-  pairs simultaneously. Dropping or rewriting them would change the frozen
-  evidence semantics, so formal Legacy121 R2 execution is not authorized.
-- Authoritative state is `R2_PROTOCOL_BLOCKED`, not `R2_COMPLETE` or
-  `READY_FOR_R2_IMPLEMENTATION`.
+  pairs simultaneously. Prospective amendment v1.0.1 excludes those whole
+  manifests without modifying evidence.
+- Eligibility, density/seed/RNA coverage, matched B1 filtering, and
+  RNA-balanced macro aggregation are frozen before execution.
+- Authoritative state is `R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION`.
 
 ## Current Restrictions
 
