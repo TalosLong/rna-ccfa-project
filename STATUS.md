@@ -1,406 +1,270 @@
 # Current Status
 
-Last updated: 2026-08-28
+Last updated: 2026-08-29
 
 ## Current Stage
 
-**Confirmed / 已确定:** Phase 0 and Phase 1 mainline are complete for Legacy121 v1. Learned selective-refiner v1 remains `DEVELOPMENT_GATE_FAIL`, v2 remains `V2_DEVELOPMENT_GATE_FAIL`, and v3 remains `V3_DEVELOPMENT_GATE_FAIL`; this cross-model development phase is closed for the current mainline. Simulated evidence Stage E0 remains `EVIDENCE_GUIDANCE_STAGE_E0_COMPLETE`; frozen clean hard-baseline Stage E1 is complete and the progression decision remains `E2_PROTOCOL_JUSTIFIED`. Stage E2 protocol `evidence_guidance_stage_e2_v1` is now frozen before training and the project is `READY_FOR_E2_TRAINING`. No E2 model has been implemented or trained; noisy evidence, real modality mapping, and external77 remain locked and unevaluated. Pseudoknot-aware analysis remains a separate side track.
+**PROJECT REBOOT v2 ACTIVE**
 
-当前论文方向：
+The previous mainline `Evidence-Guided Selective Refinement for RNA Secondary Structure Prediction` has been superseded at the planning level by:
 
-> **Evidence-Guided Selective Refinement for RNA Secondary Structure Prediction**
+> **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-现有 RNA benchmark 工作仍作为基础设施推进，但目前没有已确认的 refinement 实验结果。
+The reboot occurred **before any historical Stage E2 model was trained**.
 
-## Completed
+Current execution state:
 
-- [x] 明确目标：形成一篇 CCF-A 级别的 RNA / AI4Science 论文。
-- [x] 放弃“generalization / family-split benchmark 作为主课题”的方案。
-- [x] 选择 RNA secondary-structure prediction refinement 作为当前研究方向。
-- [x] 明确普通 post-processing 或 generic Transformer Refiner + 小幅 F1 提升不足以作为目标贡献。
-- [x] 确定当前方法概念的三条主线：Selective、Cross-Model / Model-Agnostic、Evidence-Guided。
-- [x] 将 2D -> 3D downstream validation 定位为 Candidate strengthening experiment，而不是项目起点。
-- [x] 确定执行顺序：error analysis -> rule baseline -> selective refiner -> cross-model -> evidence -> ablation -> optional 3D。
-- [x] 完成当前本机模型资产盘点；确认 RNAfold、PETfold 和 trRosettaRNA2 native SS 为可运行的 Phase 0 2D 候选，并区分 downstream-only 3D 模型。
-- [x] 完成现有 prediction outputs 的路径、格式、数量、覆盖范围和 provenance 盘点，未修改原始输出。
-- [x] 冻结 normalized prediction schema v1：JSONL record、0-based canonical pairs、pair-score sidecar 和完整 provenance contract。
-- [x] 实现 standard/extended dot-bracket、explicit pair list 和 dense pair matrix 到 canonical pairs 的 parser 与 validation，并以单元测试覆盖 crossing pairs 和 malformed inputs。
-- [x] 实现 exact canonical-pair shared evaluator，输出 per-sample TP/FP/FN pair sets、counts、Precision、Recall 和 F1；完成 MCC negative-universe 审计并暂缓 MCC。
-- [x] 冻结 Legacy121 v1 sample/ID protocol：121 个 primary sequence rows 全部具备 sequence、GT、三个历史 2D prediction 与 trRosettaRNA2 pair-score NPZ，并通过 canonical parser 和长度校验；两条 GT-only records 被保留但明确排除。
-- [x] 完成 Legacy121 v1 normalization：从冻结 manifest 生成 363 条 schema-v1 records，363/363 有效；121 个 trRosettaRNA2 normalized pair-score sidecars 仅对副本执行 `set_diagonal_to_zero`，原始 NPZ 哈希保持不变，off-diagonal 最大绝对变化为 0。
-- [x] 完成 Legacy121 v1 shared baseline evaluation：仅评估 363 条 normalized records 中的历史 `predicted_structure.pairs`，保存 per-sample metrics、精确 TP/FP/FN pair partitions 及 model-level macro/micro summaries；未使用 pair scores，未计算 MCC。
-- [x] 完成 Legacy121 historical metric reproduction / mismatch audit：系统检索到 2 组历史指标资产，分类为 0 `COMPATIBLE`、1 `PARTIALLY_COMPATIBLE`、1 `INCOMPATIBLE`、0 `UNKNOWN`；未对不兼容数值作 reproduction-failure 判定。
-- [x] 冻结 Phase 1 pair-level error taxonomy 并完成 Legacy121 抽取：`missing_pair` 与 `false_positive_pair` 严格等于 shared evaluator 的 FN/FP partitions，`wrong_partner` 作为共享端点的关系型注释，不是第三个互斥 metric partition。
-- [x] 冻结 strict stacked-stem definition v1 并完成 Legacy121 descriptive inventory：仅连接直接相邻的 `(i+1,j-1)` pairs，最小 stem 长度为 2，singleton pairs 单独保留。
-- [x] 冻结并实现 deterministic stem matching/error taxonomy v1：一对一候选匹配、歧义 component gate、exact/truncation/extension/shift/complex/missing/unmatched 状态及可审计阈值均已记录并在 Legacy121 上完成描述性抽取。
-- [x] 完成 Legacy121 v1 pair sequence-separation analysis：从 121 个唯一 GT structures 冻结 relative-separation Q25/Q50/Q75/Q90 bins，保留 raw separation 作为次级变量，并完成 pair、wrong-partner 与 stem-state linkage 描述性汇总。
-- [x] 完成 Phase 1 Error Analysis Consolidation：pair/stem/separation units 分开归一化汇总，生成 per-model/per-dataset/top/shared pattern tables、Phase 1 scientific summary、claim-evidence map 和 Phase 2 target priorities；未定义或执行任何结构编辑。
-- [x] 冻结 Phase 2 minimal rule-based baseline v1：primary rules 仅使用 sequence + original predicted pair/stem/singleton features，预注册 R1 singleton deletion、R2 two-pair-stem cleanup、R3 narrow outer-terminal trimming 及两个有科学目的的组合；未实现或评估 edits。
-- [x] 实现并完成 Legacy121 Phase 2 rule-baseline pilot：严格运行 6 个预注册 conditions，保存 2,178 条 sample-condition metrics、18 条 model-condition summaries 和 666 条 unique edit logs；全部 input/output validation 与 deletion-only accounting identities 通过。
-- [x] 冻结 leakage-safe learned selective-refiner protocol v1：primary unit 为 original predicted pair 的 KEEP/DELETE；定义 80% global-identity grouped split、source-aware/source-agnostic/LOMO variants、MLP baseline、validation-only thresholding、evaluation endpoints 与 training 前 go/no-go gates。
-- [x] 完成 frozen-data label/split feasibility audit：Legacy121 共 5,290 个 predicted-pair examples（KEEP 4,397、DELETE 893）；确认当前没有 test-ready independent normalized dataset，并识别 42 条 nonredundant ACGU external77 GT_CON candidate sequences。
-- [x] 冻结 external77 GT_CON nonredundant candidate manifest 与 source failure policy；RNAfold、PETfold、trRosettaRNA2 native SS 均 42/42 valid，完成 126/126 normalized records。
-- [x] 冻结并执行 first-MLP implementation plan v1：200/200 Legacy121 fold-seed runs completed on CUDA (RTX 3090; CUDA 11.8; PyTorch 2.5.1+cu118) with train-only preprocessing and validation-only thresholding; external77 was not evaluated.
-- [x] 独立重建 v1 fold/seed 结果并完成失败分解；确认 pooled preservation、two-source ΔF1 与 RNAfold/PETfold LOMO transfer gates failed，v1 结果保持不变。
-- [x] 完成 Legacy121 prediction-only cross-model agreement audit：other-source support 0/1/2 的 pooled correct fractions 为 0.1587/0.3686/0.9764；冻结并完成 selective-refiner v2，结果为 `V2_DEVELOPMENT_GATE_FAIL`，未访问 external77。
-- [x] 冻结 selective-refiner v2.0.1 clarification：BASE 无安全阈值时部署 `ABSTAIN_NO_REFINEMENT`，CROSS 仍须 25/25 actual thresholds；event-pooled 与 fold×seed mean gates 均有唯一 PASS/FAIL semantics。
-- [x] 完成 v2 failure interpretation 与 authoritative BASE-edit support audit：support=2 包含 211/282 harmful BASE deletions、仅 18/1571 beneficial deletions；冻结不训练新网络的 consensus-veto v3 protocol。
-- [x] 完成 v3 Legacy121 no-retraining evaluation：4 个条件、25 个匹配 fold×seed outcomes（共 100 条 condition outcomes）；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`，external77 未访问。
-- [x] 关闭当前 cross-model mainline：保留 `V3_VETO2_FIXED` 作为 development-only mechanistic comparator，不授权基于 Legacy121 的 post-hoc v4/v5 tuning。
-- [x] 冻结 `simulated_evidence_v1` 与 Stage E1 clean hard-baseline protocol；完成 7,260 个 Legacy121 clean evidence manifests、noise-mechanism sample、hash/reproducibility/leakage audits，状态 `READY_FOR_EVIDENCE_STAGE_E1`。
-- [x] 完成 Stage E1 Legacy121 clean hard-baseline evaluation：54,450 条 per-RNA/source/configuration results 全部通过 0% identity、validity、scope partition 与 NON_EVIDENCED invariance checks；direct/local utility 支持 `E2_PROTOCOL_JUSTIFIED`，但 NON_EVIDENCED propagation 为严格 0。
-- [x] 冻结 `evidence_guidance_stage_e2_v1` learned deletion-only protocol：两个独立 channel、DeepSets-style evidence encoder、same-checkpoint masked control、exact RNA splits、aggregation、ablation 与 binary go/no-go semantics 均完成 pretraining audit；状态 `READY_FOR_E2_TRAINING`，训练尚未开始。
+- R0 Literature & novelty freeze: **COMPLETE FOR REBOOT**.
+- R1 Task/protocol redefinition: **IN PROGRESS / DOCUMENT FREEZE**.
+- R2 Global evidence-constrained refolding baseline: **NEXT EXPERIMENT**.
+- Historical `evidence_guidance_stage_e2_v1`: **FROZEN BUT SUPERSEDED BEFORE TRAINING**.
+- No new learned model is authorized until R2 and R3 are completed and a new R4 protocol is frozen.
 
-## Running / In Progress
+## Rebooted Scientific Question
 
-- 当前 RNA structure prediction benchmark 工作。
-- Git / Codex 项目上下文整理。
-- Phase 0 已完成：canonical parser、validation、shared evaluator、Legacy121 v1 explicit manifest、363 条 normalized prediction records、三个 source predictor 的 infrastructure baseline 及 historical metric mismatch audit 均已完成。
-- Phase 1 当前主线已完成：pair-level `missing_pair` / `false_positive_pair` / `wrong_partner` taxonomy、extraction、Legacy121 descriptive counts 与 consolidation 均已完成。
-- Phase 1 strict-stem infrastructure、stem matching/error extraction、data-driven long-range analysis 与 consolidation 已完成。
-- Phase 1 stem matching protocol 已冻结并实现；Legacy121 候选审计显示 chosen filter 有 871 条 candidate edges、11 个潜在 shift candidates（其中 10 个 isolated、1 个 ambiguous）；greedy 与 maximum-weight assignment 在 363 条 records 上选择一致，但歧义 components 不被强制匹配。
-- Phase 2 frozen rule baseline 已实现并完成 Legacy121 pilot；learned selective-refiner v1 implementation/training 已完成 Legacy121 grouped development，development gate 为 `DEVELOPMENT_GATE_FAIL`。
-- Selective-refiner v2 已完成 50/50 CROSS GPU runs 和 200/200 factorial outcomes，primary gate 为 `V2_DEVELOPMENT_GATE_FAIL`。v3 已按冻结 no-retraining protocol 完成 4 条件 × 25 个匹配 fold×seed outcomes；primary `V3_VETO2_RECALIBRATED` 为 `V3_DEVELOPMENT_GATE_FAIL`（22/25 threshold deployability、pooled preservation 0.987946 未达 0.99）。
-- Evidence Guidance Stage E0 与 frozen Stage E1 已完成：两个独立 simulated channels、6 个 density、5 个 evidence seeds 的 generator/manifests 均已验证；clean hard transformations 显示 direct/local utility，但 54,450/54,450 outcomes 的 NON_EVIDENCED pair sets 均与 ORIGINAL 相同。E2 protocol 已冻结并通过 pretraining review；下一步仅授权按该协议执行 clean Legacy121 E2 training，不授权 noisy、real-modality 或 external77 evaluation。
-- Pseudoknot-aware refinement 已从当前主线移至 future side track；该分支需要显式输出 crossing pairs 的 predictor，现有 PK inventory 保留不变。
-- external77 source-protocol forensic audit completed: trRosettaRNA2 native SS and PETfold historical single-sequence conditions were reproduced; all three sources validate 42/42 and the normalized matrix is 126/126.
-- The source-protocol gate is recorded in `docs/external77_source_protocol_gate.md` and `results/external77_independent_test/source_protocol_gate.json`; `THREE_SOURCE_HISTORICAL_GATE = PASS` and `EXTERNAL_NORMALIZED_MATRIX = 126/126 PASS`.
+> Given an RNA sequence, an already-computed secondary-structure prediction from an existing predictor, and sparse external structural evidence, can a post-hoc method identify and selectively correct residual pair errors while preserving predictor information that is already correct?
 
-## Current Findings
+The mandatory comparison is now:
 
-当前已确认的 empirical results 包括 Phase 0 infrastructure、Legacy121 v1 baseline、
-Phase 1 pair/stem descriptive analysis，以及下面明确标注为 pilot/feasibility 的
-Phase 2 rule-baseline findings。
+```text
+Original predictor
+vs
+local evidence enforcement
+vs
+global evidence-constrained refolding
+vs
+post-hoc evidence reconciliation
+```
 
-Normalization infrastructure audit：363/363 records 有效；RNAfold、PETfold 和
-trRosettaRNA2 native SS 各 121 条。仅 trRosettaRNA2 的 121 条 records
-包含 pair scores。原始矩阵共有 5,038 个非零对角元素；normalized
-sidecars 的对角线全部为零，且所有 off-diagonal 值逐元素保持不变。
-这是表示层 normalization QA，不是 predictor 性能结果。
+The project must explicitly answer:
 
-### Legacy121 v1 infrastructure baseline
+> **Why not simply refold the RNA under the same evidence?**
 
-使用 exact canonical base-pair equality 和共享的
-`rna_ccfa.metrics.evaluate_pairs`，对每个 predictor 的 121 条历史结构输出进行评估。
-Pair scores 未用于解码或评分；以下为 empirical Legacy121-v1 infrastructure
-baseline，不是 refinement 结果或 paper-level performance claim。
+## Novelty Boundary
 
-| Predictor | Macro P | Macro R | Macro F1 | Micro P | Micro R | Micro F1 | TP | FP | FN | Median F1 |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| RNAfold | 0.906937 | 0.913867 | 0.905818 | 0.870053 | 0.878878 | 0.874443 | 1473 | 220 | 203 | 0.972973 |
-| PETfold | 0.895256 | 0.907779 | 0.896849 | 0.858568 | 0.872912 | 0.865680 | 1463 | 241 | 213 | 0.947368 |
-| trRosettaRNA2 native SS | 0.790564 | 0.912085 | 0.842871 | 0.771791 | 0.871718 | 0.818717 | 1461 | 432 | 215 | 0.909091 |
+The project no longer treats the following as candidate main contributions by themselves:
 
-全部 363 条 records 的输入不变量、count identities、pair-partition 完整性和
-metric finite/range checks 均通过。MCC 与 pseudoknot-specific metrics 仍按协议暂缓。
+- basic RNA pairing/stem/stacking rules;
+- isolated-pair or short-stem cleanup;
+- thermodynamic pair probability/confidence;
+- thermodynamic + evolutionary evidence fusion;
+- multi-predictor consensus;
+- evidence-constrained global folding;
+- generic pair-level post-hoc quality assessment as an abstract ML formulation.
 
-### Legacy121 historical metric audit
+The current candidate contribution is narrower:
 
-对 `/root/autodl-tmp` 内的历史脚本、结果表、日志和报告进行了系统的
-read-only 检索。共识别 2 个需要审计的历史 metric source bundles：
+> **Predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions.**
 
-- trRosettaRNA2 native threshold SS quality：`PARTIALLY_COMPATIBLE`。它对 119 条
-  Legacy121 RNA 使用一致 GT 与 exact-pair scoring，但排除了 2 条长度超过
-  150 nt 的 RNA，并将 raw NPZ 以 `>0.5` 阈值重新解码，而非评估冻结的历史
-  DBN pairs。审计脚本精确复现了其 119 条 stored rounded P/R/F1
-  数值；历史 MCC 仅作清单记录而未重算。这些数值与 shared baseline 的差异不被定义为
-  reproduction failure。
-- NMR-derived topology F1：`INCOMPATIBLE`。其 121 条成功的 single-chain IDs
-  与 Legacy121 匹配，但 prediction 是 NMR-derived selected topology，不是 RNAfold、
-  PETfold 或 trRosettaRNA2 native SS。
+`Model-agnostic`, `unseen-predictor`, `real-evidence robust`, and `3D benefit` remain unconfirmed candidate claims.
 
-未发现真正 `COMPATIBLE` 的历史指标源，因此 compatible numerical comparisons 和
-compatible mismatches 均为 0。详细证据、兼容性轴和未解项记录在
-`docs/legacy121_metric_reproduction_audit.md`。冻结 shared evaluator 未修改，MCC 仍暂缓。
+## Preserved Historical Results
 
-### Legacy121 v1 pair-level error counts
+No prior result is deleted or reinterpreted.
 
-`missing_pair` 与 `false_positive_pair` 分别保持原 FN/FP 计数。
-`wrong_partner` 仅标注 FP 与 FN 之间的共享端点关系；degree 为发生 GT
-partner 冲突的 predicted-pair 端点数。
+### Infrastructure / Error Analysis
 
-| Predictor | Missing | FP | Wrong-partner events | Degree 1 | Degree 2 | Pure FP | Linked missing | Pure missing | Samples with wrong partner |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| RNAfold | 203 | 220 | 130 | 78 | 52 | 90 | 131 | 72 | 23 |
-| PETfold | 213 | 241 | 136 | 85 | 51 | 105 | 137 | 76 | 25 |
-| trRosettaRNA2 native SS | 215 | 432 | 169 | 35 | 134 | 263 | 158 | 57 | 20 |
+- Legacy121 v1 manifest and normalization complete.
+- 121 RNAs x 3 sources = 363 normalized prediction records valid.
+- Shared exact canonical-pair evaluator complete.
+- Pair-level missing/FP/wrong-partner analysis complete.
+- Strict stem extraction/matching taxonomy complete.
+- Sequence-separation analysis complete.
 
-在 trRosettaRNA2 native SS 的 432 个 FP 中，pure FP 为 263，wrong-partner
-events 为 169；因此其 FP 在当前冻结 taxonomy 下多数为 pure FP。这是确定性
-pair-level 计数，不包含生物学或因果解释。
+### Legacy121 Infrastructure Baseline
 
-### Legacy121 v1 strict-stem inventory
-
-以下仅为 strict stacked-stem 与 singleton 的描述性计数；没有进行 GT/prediction
-stem matching，也没有赋予任何 stem error label。
-
-| Structure | Structures | Strict stems | Stem pairs | Fraction pairs in stems | Singleton pairs |
+| Predictor | Macro F1 | Micro F1 | TP | FP | FN |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| Ground truth | 121 | 335 | 1636 / 1676 | 0.976134 | 40 |
-| RNAfold prediction | 121 | 326 | 1680 / 1693 | 0.992321 | 13 |
-| PETfold prediction | 121 | 312 | 1694 / 1704 | 0.994131 | 10 |
-| trRosettaRNA2 native SS prediction | 121 | 295 | 1830 / 1893 | 0.966719 | 63 |
+| RNAfold | 0.905818 | 0.874443 | 1473 | 220 | 203 |
+| PETfold | 0.896849 | 0.865680 | 1463 | 241 | 213 |
+| trRosettaRNA2 native SS | 0.842871 | 0.818717 | 1461 | 432 | 215 |
 
-表中 fraction 为 stem pairs / total pairs；strict stem 的最小长度为 2，所有
-singleton pairs 均保留。
+These are infrastructure baselines, not refinement claims.
 
-### Legacy121 v1 stem-matching protocol audit
+### Rule / Learned Prediction-Only Development
 
-本轮仅完成 deterministic protocol design 与 read-only candidate audit，未生成
-stem-level error labels/counts。chosen bilateral candidate filter 产生 871 条
-candidate edges，其中 11 条为潜在 register-shift candidates；758 条为 isolated
-one-to-one edges，53 个 components 存在多 GT/多 prediction ambiguity。greedy 与
-maximum-weight assignment 在 363 条 records 上选择一致，但 ambiguous components
-统一保留为 `complex_mismatch` residual，不强行分配。详细阈值比较与 pathological
-examples 见 `docs/stem_matching_protocol_audit.md`。
+- Rule-based pilot: complete.
+- selective-refiner v1: `DEVELOPMENT_GATE_FAIL`.
+- selective-refiner v2: `V2_DEVELOPMENT_GATE_FAIL`.
+- selective-refiner v3 primary: `V3_DEVELOPMENT_GATE_FAIL`.
+- Prediction-only cross-model mainline: **CLOSED FOR THE CURRENT MAINLINE**.
+- No post-hoc Legacy121 v4/v5 rescue tuning is authorized.
 
-此前讨论中出现的 F1、RMSD 示例数值均为说明用示例，不得视为实验结果。
+The v1-v3 sequence established that prediction-only topology/agreement contains some error/protection signal, but not enough to support a preregistered source-general safe refiner.
 
-### Legacy121 v1 stem-level descriptive error analysis
+### Simulated Evidence Development
 
-严格按照冻结 taxonomy 实现；ambiguous components 不进行强制 GT↔prediction 配对，
-而统一记录为 `complex_mismatch` residual。
+- simulated-evidence generator: complete and reproducible.
+- Stage E1 clean hard-baseline evaluation: complete.
+- Clean evidence has strong direct/local correction utility.
+- `NON_EVIDENCED_EFFECT == 0` for Stage E1 because the transformations are local by construction.
+- Stage E1 is retained as the rebooted B1 local-hard baseline.
 
-| Predictor | Exact | Truncation | Extension | Shift | Isolated complex | Ambiguous components | Missing GT | Unmatched predicted |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| RNAfold | 227 | 5 | 44 | 2 | 1 | 5 | 46 | 42 |
-| PETfold | 203 | 4 | 42 | 2 | 1 | 16 | 48 | 44 |
-| trRosettaRNA2 native SS | 112 | 1 | 103 | 6 | 5 | 32 | 40 | 36 |
+### Historical Stage E2
 
-全局 stem instances 为 GT 1005、prediction 933；isolated one-to-one components
-758，ambiguous components 53（GT 113、prediction 53）。最终 isolated
-`stem_shift` 为 10，另有 1 个 zero-overlap shift candidate 位于 ambiguous
-component，因此未计入 shift。上述结果仅为描述性 taxonomy counts，不作生物学原因解释。
+- `evidence_guidance_stage_e2_v1` was frozen before training.
+- It contains a usable candidate branch + DeepSets-style evidence encoder design.
+- **It must not be executed as originally planned.**
+- Its architecture may be reused later as an implementation starting point for R4, but its original success criteria are superseded by Reboot v2 because they did not include the mandatory global constrained-refolding comparator.
 
-### Legacy121 v1 pair sequence-separation analysis
+## Independent Test Status
 
-GT-only distribution 使用 121 个唯一 structures、1676 个 pairs，不按三个 predictor
-重复计数。raw separation 的 min/Q10/Q25/median/Q75/Q90/Q95/max 为
-3/7/11/20/32/54/72/221 nt；relative separation 对应为
-0.01794/0.13433/0.25/0.51429/0.8/0.93333/1/1。
+The former PETfold external blocker is closed.
 
-主分箱采用 GT-only relative Q25/Q50/Q75/Q90，五个 bins 的 GT pair counts 为
-428/412/418/251/167。冻结 long-range stratum 为
-`relative_separation > 0.9333333333333333`，包含 167 pairs（9.9642%）并覆盖
-100/121 RNAs。相比之下，raw `>Q90=54 nt` 的上尾仅覆盖 20 RNAs，因此未选为主定义。
+external77-derived 42-RNA independent set:
 
-在最高 relative-separation bin，RNAfold、PETfold、trRosettaRNA2 native SS 的
-TP/FP/FN 分别为 167/6/0、167/5/0、167/15/0；对应 FP 仅占各模型全部 FP 的
-2.73%、2.07%、3.47%。三个模型的 FN 均主要位于较低 bins，而非最高 bin。
-wrong-partner events 在最高 bin 分别为 0、0、10。以上仅说明 Legacy121 v1
-的描述性集中模式，不推断生物学难度或因果机制。
+- RNAfold: 42/42 valid.
+- PETfold: 42/42 valid under reproduced historical single-sequence condition.
+- trRosettaRNA2 native SS: 42/42 valid under recovered query-only condition.
+- normalized matrix: **126/126 PASS**.
 
-### Phase 1 consolidated empirical conclusions
+This dataset remains **LOCKED** until R7. It may not be used for feature selection, threshold tuning, architecture selection, or rescue analysis.
 
-所有 ranking 均在同一统计单位内完成。Pair error-event partition 使用 `FP+FN`
-为 denominator：RNAfold/PETfold 的第一模式是 missing pair（47.99%/46.92%），
-随后为 wrong-partner FP；trRosettaRNA2 第一模式是 pure FP（40.65%），随后为
-missing pair。GT-stem error dispositions 使用 335 GT stems 为 denominator：
-RNAfold/PETfold 均以 missing（13.73%/14.33%）和 extension
-（13.13%/12.54%）为首；trRosettaRNA2 以 extension（30.75%）和 ambiguous GT
-stems（20.30%）为首。unmatched predicted-stem rates 单独使用 predicted stems
-为 denominator，三模型相近（12.88%/14.10%/12.20%）。
+## Reboot Data Roles
 
-trRosettaRNA2 的 FP excess 不能归结为 unmatched false stems：extension stems
-含 146 个 FP pairs，unmatched predicted stems 含 125 个，ambiguous predicted
-stems 含 83 个。其 predicted stems 少于 GT（295 vs 335）但 predicted pairs 更多
-（1893 vs 1676），同时 predicted strict stems 更长（mean 6.20 vs 4.88）且
-extension/merged ambiguous patterns 更多。这是结构性描述，不解释训练或生物机制。
+### Legacy121
 
-Phase 1 支持“在 Legacy121 和三个 predictor 上存在 structured error patterns”的
-有限描述性结论；不支持 learnable、correctable、model-agnostic、evidence-guided、
-3D benefit 或 cross-dataset claims。highest-separation bin 未出现 error enrichment，
-因此 long-range 不作为第一轮 rule baseline 的 shared target。
+Development only:
 
-### Phase 2 minimal rule baseline specification
+- baseline design;
+- architecture and feature selection;
+- calibration/threshold selection;
+- ablation;
+- simulated evidence;
+- Go/No-Go decisions.
 
-本节仅记录冻结设计，不是 refinement empirical finding。Primary baseline v1
-预注册三个 confidence-free、GT-free、deletion-only atomic rules：R1 删除 original
-predicted singleton pairs；R2 删除冻结最小长度的 two-pair strict stems，明确作为
-high-risk short-stem cleanup baseline；R3 仅在长度至少 3 的 original strict stem
-外端 pair 不属于 `AU/UA/GC/CG/GU/UG`、且 immediate inward pair 属于该集合时，
-删除最多一个 original outer pair。所有 triggers 从同一 immutable original
-snapshot 计算，不递归、不添加 pair、不重分配 partner。
+### external77-derived 42
 
-Read-only observable audit 中，R1 trigger counts 为 RNAfold/PETfold/trRosettaRNA2
-的 13/10/63 pairs；R2 为 36/34/22 stems（72/68/44 pairs）；R3 为
-0/0/20 stems。363 条 normalized predictions 的 multiple-partner conflicts 均为
-0。上述仅为不使用 GT 的 trigger-volume audit，不是 beneficial/harmful edit 结果。
-全量 non-Watson-Crick/wobble cleanup、generic AU/GU trimming、confidence filtering、
-wrong-partner reassignment 与 missing-stem addition 均未进入 primary v1。
+Locked independent evaluation only.
 
-### Legacy121 Phase 2 rule-baseline pilot
+## Evidence Ladder
 
-以下为同一 Legacy121 数据上的 feasibility pilot，不是 independent generalization
-或 paper-level result。所有 triggers 仅使用 sequence 与 immutable original
-prediction snapshot；GT 只用于 edit 后的 beneficial/harmful annotation 和 shared
-evaluation。
+- **E0 Clean symbolic evidence**: positive pair / unpaired nucleotide; mechanism and upper-bound development.
+- **E1 Controlled noisy symbolic evidence**: frozen corruption levels; robustness/trust testing.
+- **E2 Real experimental evidence**: candidate SHAPE/DMS/PARS or related modalities after dedicated audit.
 
-| Model | Condition | Beneficial / Harmful | Benefit fraction | Macro ΔF1 | Micro ΔF1 | TP preservation |
-| --- | --- | ---: | ---: | ---: | ---: | ---: |
-| RNAfold | R1 | 6 / 7 | 0.4615 | -0.001426 | -0.000784 | 0.995248 |
-| RNAfold | R2 | 31 / 41 | 0.4306 | -0.009184 | -0.005775 | 0.972166 |
-| RNAfold | R3 | 0 / 0 | undefined | 0 | 0 | 1.000000 |
-| RNAfold | R1_R3 | 6 / 7 | 0.4615 | -0.001426 | -0.000784 | 0.995248 |
-| PETfold | R1 | 8 / 2 | 0.8000 | +0.001454 | +0.001382 | 0.998633 |
-| PETfold | R2 | 35 / 33 | 0.5147 | -0.005812 | -0.002154 | 0.977444 |
-| PETfold | R3 | 0 / 0 | undefined | 0 | 0 | 1.000000 |
-| PETfold | R1_R3 | 8 / 2 | 0.8000 | +0.001454 | +0.001382 | 0.998633 |
-| trRosettaRNA2 | R1 | 49 / 14 | 0.7778 | +0.002495 | +0.006725 | 0.990418 |
-| trRosettaRNA2 | R2 | 26 / 18 | 0.5909 | -0.004276 | +0.000007 | 0.987680 |
-| trRosettaRNA2 | R3 | 20 / 0 | 1.0000 | +0.002325 | +0.004614 | 1.000000 |
-| trRosettaRNA2 | R1_R3 | 69 / 14 | 0.8313 | +0.004894 | +0.011461 | 0.990418 |
+Real probing measurements are evidence, not ground truth.
 
-R1/R3 提供 limited, source-dependent useful signal：PETfold R1 与
-trRosettaRNA2 R1/R3/R1_R3 同时提高 macro/micro F1；RNAfold 没有 useful
-condition。R3 的 20/20 beneficial edits 仅出现在 trRosettaRNA2 的 17 个 RNAs，
-RNAfold/PETfold 均为 zero coverage，不能形成 shared/model-agnostic claim。R2
-在三个模型均降低 macro F1，确认其 high-risk baseline 定位；trRosettaRNA2 R2
-出现 macro negative、micro 近零 positive 的 aggregation divergence。结果支持继续
-冻结 learned selective-refiner protocol，但不证明 signal learnable、可泛化或具备
-cross-dataset effectiveness。完整 18 条 condition 表见
-`docs/phase2_rule_baseline_results.md`。
+## Mandatory Baselines After Reboot
 
-### Learned selective-refiner protocol v1
+### B0 — Original Predictor
 
-本节是 training 前冻结设计与数据可行性审计，不是 learned-model result。首个
-prediction unit 为 immutable original prediction 中的每一个 canonical pair：exact TP
-标记为 `KEEP`，exact FP 标记为 `DELETE`。wrong-partner FP 保持普通 DELETE；FN/
-missing pair 不进入 deletion-only v1 的训练 universe，因此该实验仅测试
-precision-oriented cleanup，不恢复 recall。
+No modification.
 
-Legacy121 共包含 5,290 个 predicted-pair examples：RNAfold 1,693
-（KEEP/DELETE 1,473/220，DELETE 12.99%），PETfold 1,704
-（1,463/241，14.14%），trRosettaRNA2 1,893（1,461/432，22.82%）；pooled
-KEEP/DELETE 为 4,397/893。Legacy121 已用于 Phase 1 与 rule selection，只允许作为
-80% global-sequence-identity grouped development CV，不能作为 final independent test。
+### B1 — Local Hard Evidence
 
-本机 inventory 已有 test-ready independent normalized three-source dataset。
-external77 的 77 条序列中有 4 条含 `N`、30 条与 Legacy121 exact overlap；在 73 条
-ACGU-only 序列中，31 条与 Legacy121 的最大 global identity >=80%，留下 42 条
-nonredundant GT_CON candidates。该 42 条集合的 manifest/GT_CON semantics 已冻结；仍须
-三模型 predictions 与 normalization 已完成，可作为 test-only dataset。
+Completed Stage E1 conditions.
 
-Primary architecture 冻结为 two-hidden-layer width-64 pair-feature MLP；source-aware、
-source-agnostic、model-specific 与 leave-one-model-out variants 分开报告。v1 已显示
-source-dependent learnable signal，但 pooled 0.99 preservation、two-source positive
-ΔF1 与 all-source LOMO transfer 均失败；因此 model-agnostic 与 independent
-effectiveness claims 不成立/未测试。完整结果见
-`docs/selective_refiner_mlp_development_results_v1.md`。
+### B2 — Global Evidence-Constrained Refolding
 
-### Selective-refiner v2 result and v3 frozen hypothesis
+**NEXT mandatory baseline.**
 
-Legacy121 retrospective audit first computed cross-model features from the immutable
-three-source predictions and joined GT labels only afterward. Other-model exact support
-0/1/2 对应 pooled correct fraction 0.1587/0.3686/0.9764，且三个 source 均单调增加；
-audit classification 为 `CROSS_MODEL_SIGNAL_PROMISING`。v2 已完成但 primary gate
-failed：CROSS 提高 precision/preservation，却将 recall 与 matched structure gain
-显著压低，且 global threshold 仅 8/25 deployable。authoritative BASE audit 显示
-support=2 占 211/282 harmful deletions、但仅占 18/1571 beneficial deletions，因此
-冻结 H3：将 exact consensus 作为 high-recall v1 score 的 hard KEEP veto，而不是
-replacement classifier。v3 fixed veto 实际保护了 211 个 harmful edits，仅牺牲
-18 个 beneficial edits；recalibrated primary 因 22/25 deployability 和 0.987946
-pooled preservation 未通过 gate。该结果不授权 external77，也不支持
-unseen-predictor/model-agnostic claim。
+Use the same sequence and delivered clean evidence while allowing a classical folding algorithm to re-optimize the whole RNA structure. Initial target: reproducible ViennaRNA/RNAfold hard constraints.
 
-### Simulated evidence Stage E0
+### B3 — Prediction-Only Reliability Baselines
 
-当前 cross-model prediction-only mainline 已结束；不继续在 Legacy121 上 post-hoc
-调整 v4/v5 rules/thresholds。`simulated_evidence_v1` 冻结两个抽象 channel：
-`POSITIVE_PAIR_EVIDENCE` 与 `UNPAIRED_NUCLEOTIDE_EVIDENCE`，density 为
-0/1/5/10/20/50%，evidence seeds 为 101/103/107/109/113，future noise grid 为
-0/5/10/20/30%。Legacy121 两个 universe 均覆盖 121/121 RNA；生成 7,260 个 clean
-manifests、16,450 个 seed-replicated items。deterministic rerun hash 完全一致；
-generator input contract 仅允许 RNA ID、sequence 与 GT pairs。该结果仅证明 protocol
-与 generator 可行，不证明 evidence 改善结构，也不代表任何真实实验 modality。
+Retain frozen/mechanistic comparators such as rule-based scores, historical v1 topology score, historical v3 fixed consensus veto, compatible BPP and simple agreement.
 
-### Simulated evidence Stage E1
+### B4 — Evidence-Masked Learned Control
 
-Stage E1 在 363 条 Legacy121 normalized source records 上执行 frozen clean hard
-baselines，保留 54,450 条 per-RNA/source/configuration results。clean-suite SHA256
-精确匹配，9,075 个 0%-density identity checks、54,450 个 coordinate/one-partner
-validations 以及全部 DIRECT/LOCAL/NON_EVIDENCED partition/invariance checks 通过。
-PAIR_HARD_ENFORCE 与 UNPAIRED_HARD_DELETE 在 50% density 的 pooled macro/micro
-ΔF1 分别为 +0.045045/+0.061022 与 +0.034332/+0.039247；所有 clean edits 均为
-beneficial，这是 clean GT-derived evidence 的局部确定性结果，不能外推到 noisy/real
-evidence。NON_EVIDENCED ΔF1 与结构变化严格为 0，因此没有 propagation evidence。
-决策为 `E2_PROTOCOL_JUSTIFIED`，含义仅是 direct/local utility 足以支持冻结
-E2 protocol；该协议现已冻结，但 E2 模型仍未实现或训练，external77 未访问。
+Required for future R4 learned experiments.
 
-### Simulated evidence Stage E2 frozen protocol
+## Reboot Evaluation
 
-`evidence_guidance_stage_e2_v1` 冻结两个独立 source-agnostic deletion-only
-experiments：`E2_PAIR` 与 `E2_UNPAIRED`。每个 channel 使用 5 folds × 5 model
-seeds，共 25 个 future primary runs；相同 checkpoint/threshold 的
-WITH_EVIDENCE 与 EVIDENCE_MASKED 是 primary matched comparison。架构采用
-candidate encoder 与 mean+max DeepSets evidence encoder，不添加 Transformer，且
-每个 evidence item 可影响每个 original candidate pair。5/10/20% 为 primary
-moderate regime；NON_EVIDENCED matched effect、safety、source breadth、response
-fraction 与 25/25 threshold deployability 均在训练前冻结。pretraining audit 为
-`READY_FOR_E2_TRAINING`。当前 E2 training runs = 0，external77 仍锁定。
+### Pair Reliability
 
-### external77 source-protocol gate
+Planned primary metrics:
 
-The frozen 42-RNA GT_CON membership and sequence-leakage audit remain exact.
-RNAfold coverage is 42/42. The trRosettaRNA2 native-SS query-only source
-condition is provenance-complete and valid for 42/42, using the retained
-three-checkpoint ensemble and historical standalone `>0.5` greedy decoder.
-PETfold is reproduced under the historical single-sequence condition. The source gate
-is PASS and the matrix remains 126/126. Learned external evaluation remains locked
-because v1, v2, and v3 failed their development gates; v3 used Legacy121 only and
-did not access external77.
+- AUPRC for DELETE/FP;
+- Brier score;
+- ECE / reliability diagram;
+- high-risk-pair precision;
+- AUROC as secondary.
 
-## Blockers
+### Refinement Utility
 
-### Selective-refiner v3 development result
+Mandatory:
 
-The no-retraining Legacy121 v3 evaluation reused the authoritative v1
-POOLED_SOURCE_AGNOSTIC score realizations across 5 folds × 5 seeds. The fixed
-support=2 veto prevented 211 harmful and 18 beneficial BASE deletions, raising
-preservation to 0.996771 and macro/micro ΔF1 to +0.017160/+0.023046. The
-primary recalibrated condition reached precision 0.895257, DELETE recall
-0.507279, preservation 0.987946, macro/micro ΔF1 +0.019960/+0.029775, but
-only 22/25 validation thresholds were deployable and pooled preservation was
-below the frozen 0.99 requirement. The frozen decision is
-`V3_DEVELOPMENT_GATE_FAIL`; external77 remains locked and was not accessed.
+```text
+TP_preservation = TP_after / TP_before
+FP_removal = (FP_before - FP_after) / FP_before
+modification_precision = beneficial_edits / modified_pairs
+```
 
-### Selective-refiner v2 development result
+Also report Precision, Recall, macro/micro F1 and full edit accounting.
 
-The frozen Legacy121 v2 experiment is complete: 50/50 new CROSS GPU training
-runs succeeded and all 200 factorial fold-seed condition outcomes were
-generated. The primary `V2A_CROSS_SOURCE_AGNOSTIC_GLOBAL` condition obtained
-only 8/25 deployable global thresholds (required 25/25), with pooled precision
-0.9141, DELETE recall 0.1550, preservation 0.9970, macro ΔF1 +0.0068 and
-micro ΔF1 +0.0100. The matched v1 BASE was precision 0.8478, recall 0.3518,
-preservation 0.9872, macro ΔF1 +0.0148 and micro ΔF1 +0.0188. The frozen
-decision is `V2_DEVELOPMENT_GATE_FAIL`; v1 remains independently
-`DEVELOPMENT_GATE_FAIL`. No v2 learned evaluation has accessed external77.
+### Risk–Utility
 
-- v2 training device: CUDA, NVIDIA GeForce RTX 3090, CUDA 11.8, PyTorch 2.5.1+cu118.
-- source-wise CROSS macro/micro ΔF1: RNAfold +0.0004/+0.0017; PETfold +0.0015/+0.0028; trRosettaRNA2 +0.0185/+0.0246.
-- external77 remains LOCKED; no model-agnostic or independent learned-refiner claim is supported.
+Primary comparison should emphasize TP-loss vs FP-removal trade-off rather than only aggregate Delta F1.
 
-- refinement 项目最终 dataset 列表未确定。
-- Legacy121 retains the complete historical three-source 2D outputs; external77 now also has a complete frozen three-source prediction matrix for independent evaluation.
-- 初始三个可运行 2D 候选中，现有 trRosettaRNA2 native SS 输出保留了 pair-score NPZ；RNAfold/PETfold 可在重跑时输出概率，但 legacy `.db` 未保留这些值。
-- learned selective-refiner v1/v2 均已完成且 gate failed；两者结果与冻结 criteria 不得回改。v3 是结果驱动但预先冻结的新 development protocol，不训练新网络。
-- cross-model v1/v2/v3 当前 mainline 已结束；`V3_VETO2_FIXED` 仅保留为 future development comparator，不是 gate-passing method。
-- external77 candidate manifest and all three source outputs are validated 42/42, but learned/selective/evidence evaluation remains locked until a separate independent protocol is explicitly authorized.
-- real experimental evidence source 未确定。
-- 最终 CCF-A venue 未确定。
-- 3D validation subset 和 inference protocol 未确定。
+### Non-Evidenced Effects
+
+Report separately:
+
+- non-evidenced modification precision;
+- non-evidenced FP removal;
+- non-evidenced TP loss.
+
+The question is whether propagation is useful, not whether it merely occurs.
+
+### Evidence Efficiency
+
+Report correction benefit per delivered evidence item.
+
+### Pair Matching
+
+Exact canonical-pair matching remains primary for continuity. Final paper-level robustness may add a separately reported +/-1 endpoint flexible match analysis without changing historical exact results.
+
+## Reboot Roadmap
+
+```text
+R0 Literature & novelty freeze              COMPLETE
+R1 Task/protocol redefinition               CURRENT
+R2 Global constrained-refolding baseline    NEXT
+R3 Reliability baseline suite
+R4 Clean learned evidence reconciliation
+R5 Controlled noise robustness
+R6 Cross-predictor transfer / LOMO
+R7 Locked external77 independent test
+R8 Real experimental evidence
+R9 Final calibrated KEEP/DELETE/ABSTAIN
+Optional 2D -> 3D validation
+```
+
+## Go / No-Go Gates
+
+### Gate A — Post-hoc necessity
+
+If global constrained refolding dominates the post-hoc approach across relevant TP-preservation / FP-removal trade-offs, stop the post-hoc mainline.
+
+### Gate B — Learned utility
+
+At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), the learned method must improve FP removal over the strongest frozen non-learned baseline and must not depend on one source only.
+
+### Gate C — Noise robustness
+
+If 5-10% evidence noise causes negative structure utility or unsafe TP loss, do not advance to a real-evidence claim without a prospectively frozen trust mechanism.
+
+### Gate D — Independent generalization
+
+external77 is opened once under a frozen protocol. If the effect fails to preserve direction, no cross-dataset generalization claim and no tuning on external77.
+
+## Current Blockers
+
+No external-data blocker currently prevents R2.
+
+The main scientific blocker is now intentional:
+
+> The project must establish the behavior of a strong classical global evidence-constrained refolding baseline before any new learned evidence model is trained.
 
 ## Immediate Next Steps
 
-1. Implement and train only the frozen clean Legacy121 `evidence_guidance_stage_e2_v1` protocol in a separate execution task. Do not change architecture, folds, densities, seeds, thresholds, aggregation, or gates; do not run noise/real-modality/external77 evaluation.
+1. Finish R1 authoritative-document freeze.
+2. Audit installed ViennaRNA/RNAfold version and hard-constraint interface.
+3. Freeze `docs/global_constrained_refolding_r2_protocol.md` before executing evaluation.
+4. Implement R2 on Legacy121 clean evidence only.
+5. Compare B0/B1/B2 using exact metrics, preservation, FP removal, direct/local/non-evidenced decomposition and evidence efficiency.
+6. Do not access external77.
+7. Do not train historical Stage E2.
 
-## Open Questions
-
-- 哪些 dataset 可以在统一结构表示下公平比较？
-- 哪些 predictor 可以提供 pair probability / logits？
-- rule-based baseline 应该做到什么强度？
-- Stage E2 能否在不把直接证据恢复误作 generalization 的前提下产生正 `NON_EVIDENCED_EFFECT`？Stage E1 的该值严格为 0。
-- future unseen-predictor transfer 应采用何种不依赖固定三模型身份的 evidence contract？
-- Stage E5 是否存在可验证的真实 modality mapping？在此之前不得使用 SHAPE/DMS/NMR-guided claim。
-- refined 2D 是否值得进入 downstream 3D 主实验？
-- 最终更适合 AAAI/KDD AI for Sciences，还是方法更强后尝试 ICML/NeurIPS？
+Detailed reboot contract: `docs/project_reboot_v2.md`.
