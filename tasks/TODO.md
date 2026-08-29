@@ -4,10 +4,10 @@ Last updated: 2026-08-29
 
 ## R0 — Literature & Novelty Freeze
 
-- [x] Establish that basic RNA structural rules are prior art, not novelty.
-- [x] Establish that pair probability/confidence is prior art.
-- [x] Establish that multi-predictor consensus is prior art.
-- [x] Establish that evidence-constrained global folding is prior art.
+- [x] Establish basic RNA structural rules as prior art, not novelty.
+- [x] Establish pair probability/confidence as prior art.
+- [x] Establish multi-predictor consensus as prior art.
+- [x] Establish evidence-constrained global folding as prior art.
 - [x] Identify post-hoc pair-level QA analogues in structural bioinformatics.
 - [x] Freeze candidate gap as predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions.
 
@@ -17,137 +17,113 @@ Last updated: 2026-08-29
 - [x] Rewrite `CONTEXT.md` around the rebooted scientific question.
 - [x] Rewrite `plan/research_plan.md`.
 - [x] Rewrite `plan/timeline.md`.
-- [x] Replace this TODO with the R0-R9 roadmap.
-- [ ] Update `STATUS.md` to set R2 as the next experiment.
-- [ ] Append reboot decisions to `docs/decisions.md`.
-- [ ] Update `docs/claim_evidence_map.md` to reflect the new novelty boundary and superseded E2 claim.
-- [ ] Update `AGENTS.md` so Codex does not run historical E2 training.
-- [ ] Verify no authoritative document still says historical E2 training is the next step.
+- [x] Replace the execution TODO with the R0-R9 roadmap.
+- [x] Update `STATUS.md` to make R2 the next experiment.
+- [x] Add `docs/reboot_v2_decisions.md` as the current-mainline decision supplement.
+- [x] Add `docs/reboot_v2_claim_evidence_map.md` as the reboot claim map.
+- [x] Update `AGENTS.md` so Codex cannot run historical E2 training.
+- [x] Remove historical E2 training as an authorized next step from current authoritative documents.
 
-### R1 completion gate
+**R1 gate: PASS.**
 
-No new learned training is authorized until all authoritative project documents point to R2.
-
-## R2 — Global Evidence-Constrained Refolding Baseline
+## R2 — Global Evidence-Constrained Refolding Baseline — CURRENT
 
 ### Protocol freeze
 
-- [ ] Audit installed ViennaRNA/RNAfold version and exact constraint syntax/API.
+- [ ] Audit installed ViennaRNA/RNAfold version and exact hard-constraint syntax/API.
 - [ ] Define mapping from `POSITIVE_PAIR_EVIDENCE` to hard pair constraints.
 - [ ] Define mapping from `UNPAIRED_NUCLEOTIDE_EVIDENCE` to hard unpaired constraints.
-- [ ] Define behavior for incompatible/unsatisfiable constraint sets before any evaluation.
+- [ ] Define behavior for incompatible/unsatisfiable constraints before evaluation.
 - [ ] Freeze whether pair and unpaired channels remain separate in primary R2.
-- [ ] Reuse exactly the frozen Legacy121 RNA splits/evidence manifests where semantically valid.
-- [ ] Freeze output parser/validation and provenance fields.
-- [ ] Freeze `docs/global_constrained_refolding_r2_protocol.md` before executing the full evaluation.
+- [ ] Reuse the frozen Legacy121 clean evidence manifests where semantically valid.
+- [ ] Freeze output parser, validity checks, and provenance fields.
+- [ ] Create and freeze `docs/global_constrained_refolding_r2_protocol.md` before full execution.
 
 ### Implementation
 
-- [ ] Implement constrained RNAfold adapter without touching raw historical predictions.
+- [ ] Implement constrained RNAfold adapter without modifying raw historical predictions.
 - [ ] Add unit tests for hard pair constraints.
 - [ ] Add unit tests for hard unpaired constraints.
-- [ ] Add tests for unsatisfiable constraints and explicit failure reporting.
-- [ ] Validate output length, one-partner legality and canonical parser compatibility.
-- [ ] Retain raw RNAfold stdout/stderr, command/config and version provenance.
+- [ ] Add explicit tests/reporting for unsatisfiable constraints.
+- [ ] Validate output length, pair legality and canonical parser compatibility.
+- [ ] Retain RNAfold version/config/command/stdout/stderr provenance.
 
 ### Evaluation
 
-- [ ] Evaluate B0 Original vs B1 local hard baseline vs B2 global constrained refolding on Legacy121 only.
+- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only.
 - [ ] Report exact Precision/Recall/F1.
 - [ ] Report TP preservation.
 - [ ] Report FP removal.
 - [ ] Report modification precision.
-- [ ] Reuse/directly map DIRECT / LOCAL_CONFLICT / NON_EVIDENCED scope definitions where valid.
+- [ ] Map/reuse DIRECT / LOCAL_CONFLICT / NON_EVIDENCED scopes where valid.
 - [ ] Report non-evidenced modification precision, FP removal and TP loss.
-- [ ] Report evidence efficiency (`FP_removed / evidence_items`, optional `Delta_F1 / evidence_items`).
-- [ ] Report source-wise and evidence-density summaries.
-- [ ] Verify all accounting identities and constraint-compliance checks.
+- [ ] Report evidence efficiency (`FP_removed / evidence_items` and optional `Delta_F1 / evidence_items`).
+- [ ] Report source-wise and density-wise summaries.
+- [ ] Verify accounting identities, constraint compliance and reproducibility.
 - [ ] Write `docs/global_constrained_refolding_r2_results.md`.
 
-### R2 decision
+### Gate A
 
-- [ ] Decide whether there is plausible post-hoc preservation headroom after seeing B2.
-- [ ] If B2 dominates any reasonable post-hoc correction-preservation target, record Gate A failure and stop the post-hoc mainline.
+- [ ] Decide whether source-prediction preservation has plausible headroom versus B2.
+- [ ] If B2 dominates the relevant TP-preservation/FP-removal trade-off, record Gate A failure and stop the post-hoc mainline.
 
 ## R3 — Reliability Baseline Suite
 
 - [ ] Freeze pair-reliability evaluation protocol.
-- [ ] Re-evaluate historical v1 topology score as a reliability baseline without retuning it.
-- [ ] Re-evaluate historical v3 fixed consensus veto as a mechanistic comparator without retuning it.
+- [ ] Evaluate historical v1 topology score without retuning.
+- [ ] Evaluate historical v3 fixed consensus veto without retuning.
 - [ ] Add simple exact cross-model agreement score.
-- [ ] Audit feasibility of predictor-independent thermodynamic BPP for every predicted pair.
-- [ ] If feasible, implement RNAfold BPP baseline with frozen protocol.
-- [ ] Compute AUPRC for DELETE/FP class.
-- [ ] Compute AUROC as secondary discrimination metric.
+- [ ] Audit feasibility of predictor-independent thermodynamic BPP for predicted pairs.
+- [ ] If feasible, freeze and implement RNAfold BPP baseline.
+- [ ] Compute AUPRC for DELETE/FP.
+- [ ] Compute AUROC as secondary metric.
 - [ ] Compute Brier score.
-- [ ] Compute ECE and reliability bins.
-- [ ] Produce risk–utility curves under validation-defined operating points.
-- [ ] Freeze strongest non-learned comparator before R4.
+- [ ] Compute ECE/reliability bins.
+- [ ] Produce risk–utility curves.
+- [ ] Freeze the strongest non-learned comparator before R4.
 
-## Historical Stage E2 — Superseded
+## Historical Stage E2 — Superseded Before Training
 
-- [x] Historical `evidence_guidance_stage_e2_v1` protocol was frozen before training.
-- [x] Historical E2 architecture remains a candidate implementation asset.
-- [ ] **DO NOT execute historical E2 training.** It is superseded by Reboot v2 before training.
-- [ ] Any future learned clean-evidence experiment must be frozen as R4 and include B2/R3 comparators.
+- [x] `evidence_guidance_stage_e2_v1` remains an immutable historical protocol/design artifact.
+- [x] Its architecture may be reused later as a candidate implementation asset.
+- [x] It is **not authorized for execution** under its historical success criteria.
+- [ ] Any future learned clean-evidence experiment must be frozen as R4 after R2/R3.
 
 ## R4 — Clean Learned Evidence Reconciliation
 
-### Prerequisites
-
-- [ ] R2 complete.
-- [ ] R3 complete.
-- [ ] Gate A does not terminate the mainline.
-
-### Protocol
-
+- [ ] Require R2 complete, R3 complete, and Gate A not terminating the mainline.
 - [ ] Freeze a new R4 protocol before training.
-- [ ] Define primary output as pair-level error probability for original predicted pairs.
-- [ ] Keep primary edit space `KEEP / DELETE / ABSTAIN`; no pair addition.
-- [ ] Reuse simple source-agnostic candidate features unless R3 provides a prospective reason to change them.
-- [ ] Reuse/adapt historical DeepSets evidence encoder if still appropriate.
+- [ ] Define pair-level calibrated error probability as the primary learned output.
+- [ ] Keep `KEEP / DELETE / ABSTAIN`; no pair addition in primary R4.
 - [ ] Define matched evidence-masked control B4.
-- [ ] Define train-only preprocessing and calibration.
-- [ ] Define validation-only operating-point selection.
-- [ ] Freeze high-preservation primary operating point; current candidate target is `TP_preservation >= 0.99`.
-- [ ] Freeze Gate B criteria before training.
-
-### Evaluation
-
+- [ ] Freeze train-only preprocessing/calibration and validation-only operating-point selection.
+- [ ] Freeze high-preservation operating point; current candidate target `TP_preservation >= 0.99`.
 - [ ] Compare B0/B1/B2/B3/B4 vs learned R4.
-- [ ] Report AUPRC/Brier/ECE.
-- [ ] Report TP-preservation / FP-removal curves.
-- [ ] Report modification precision.
-- [ ] Report direct/local/non-evidenced behavior.
-- [ ] Report evidence efficiency.
+- [ ] Report AUPRC/Brier/ECE and risk–utility curves.
+- [ ] Report direct/local/non-evidenced behavior and evidence efficiency.
 - [ ] Report source-wise behavior.
 - [ ] Do not access external77.
 
 ### Gate B
 
-- [ ] Learned method must improve FP removal over the strongest frozen non-learned baseline at the frozen high-preservation operating point.
+- [ ] Learned method must beat the strongest frozen non-learned baseline in FP removal at the frozen high-preservation operating point.
 - [ ] Improvement must not be driven by only one source.
-- [ ] If failed, do not escalate to Transformer/GNN/foundation-model architecture as a rescue.
+- [ ] If failed, do not escalate architecture complexity as a rescue.
 
 ## R5 — Controlled Noise Robustness
 
-- [ ] Reuse frozen corruption mechanisms at 5%, 10%, 20%, 30% where still semantically valid.
-- [ ] Freeze noisy-evidence protocol before execution.
-- [ ] Evaluate calibration shift and risk–utility degradation.
-- [ ] Evaluate harmful-edit growth.
-- [ ] Compare blind trust vs any prospectively frozen trust mechanism.
-- [ ] Apply Gate C at low noise (5-10%).
-- [ ] Do not make a real-evidence claim if low noise destroys safety/utility.
+- [ ] Freeze noisy-evidence protocol using controlled 5%, 10%, 20%, 30% corruption where valid.
+- [ ] Evaluate calibration shift, risk–utility degradation and harmful-edit growth.
+- [ ] Apply Gate C at 5-10% noise.
+- [ ] Do not advance to real-evidence claims if low noise destroys safety/utility without a prospectively frozen trust mechanism.
 
 ## R6 — Cross-Predictor Transfer
 
 - [ ] Freeze source-wise and LOMO protocol.
-- [ ] Run pooled multi-source evaluation.
-- [ ] Run source-specific evaluation.
-- [ ] Run leave-one-model-out evaluation for each feasible held-out predictor.
+- [ ] Run pooled, source-specific and leave-one-model-out evaluations.
 - [ ] Compare calibration and risk–utility under predictor shift.
 - [ ] Promote `model-agnostic` / `unseen-predictor transfer` only if supported.
-- [ ] Do not perform repeated Legacy121 rescue tuning if LOMO fails.
+- [ ] Do not repeatedly retune Legacy121 to rescue LOMO failure.
 
 ## R7 — Locked Independent Test
 
@@ -156,58 +132,50 @@ No new learned training is authorized until all authoritative project documents 
 - [x] PETfold 42/42 valid under reproduced historical single-sequence condition.
 - [x] trRosettaRNA2 native SS 42/42 valid under recovered query-only condition.
 - [x] normalized independent matrix 126/126 valid.
-- [ ] Keep external77 inaccessible for model/feature/threshold selection until R7.
-- [ ] Freeze final model, calibration, operating point and analysis plan before opening external77.
+- [ ] Keep external77 locked until R7.
+- [ ] Freeze model/features/calibration/operating point/analysis before opening it.
 - [ ] Run one-shot independent evaluation.
-- [ ] Apply Gate D.
-- [ ] Do not tune on external77 to rescue a failed development claim.
+- [ ] Apply Gate D; no tuning on external77 to rescue a failed claim.
 
 ## R8 — Real Experimental Evidence
 
-- [ ] Identify candidate datasets with both structure reference and SHAPE/DMS/PARS or related probing data.
-- [ ] Audit license/access/provenance and sample overlap with development/test data.
-- [ ] Define measurement-to-evidence mapping prospectively.
-- [ ] Define missingness and noise semantics.
-- [ ] Keep probing signal distinct from GT labels.
+- [ ] Identify candidate structure+probing datasets.
+- [ ] Audit provenance, licensing/access and overlap with development/test data.
+- [ ] Freeze measurement-to-evidence mapping, missingness and noise semantics.
+- [ ] Keep probing measurements distinct from GT labels.
 - [ ] Compare classical evidence-constrained folding vs post-hoc reconciliation under the same real evidence.
-- [ ] Make no real-evidence claim unless dataset/protocol audit passes.
 
 ## R9 — Final Calibrated Selective Correction
 
 - [ ] Freeze final `KEEP / DELETE / ABSTAIN` policy.
-- [ ] Produce reliability diagrams and final calibration tables.
-- [ ] Produce risk–utility curves.
-- [ ] Produce evidence-efficiency curves.
-- [ ] Produce source-wise and generalization tables.
-- [ ] Add exact-match primary and +/-1-endpoint flexible-match robustness analysis.
-- [ ] Perform paired statistical tests only after final sample sets/metrics are frozen.
-- [ ] Preserve all per-sample artifacts used by statistics/figures.
-- [ ] Update `docs/claim_evidence_map.md` with only supported paper claims.
+- [ ] Produce final reliability diagrams/calibration tables.
+- [ ] Produce risk–utility and evidence-efficiency curves.
+- [ ] Produce source-wise/generalization/independent-test summaries.
+- [ ] Add exact primary + separately reported +/-1-endpoint flexible-match robustness.
+- [ ] Freeze paired statistical analysis after final samples/metrics are fixed.
+- [ ] Update reboot claim map with only supported paper claims.
 
 ## Optional — 2D -> 3D Validation
 
-- [ ] Enter only after the rebooted 2D mainline is stable.
-- [ ] Freeze one 3D pipeline before comparison.
-- [ ] Use identical inference settings for Original 2D / Reconciled 2D / GT 2D.
-- [ ] Report paired downstream metrics only if the 3D pipeline supports them reproducibly.
-- [ ] Do not keep a 3D claim if benefit is absent or inconsistent.
+- [ ] Enter only after rebooted 2D mainline is stable.
+- [ ] Freeze one 3D inference pipeline and identical Original/Reconciled/GT-2D conditions.
+- [ ] Keep 3D out of claims if paired downstream benefit is absent or inconsistent.
 
 ## Paper Constraints
 
-- [x] Do not claim benchmark normalization as a main contribution.
-- [x] Do not claim RNA post-processing itself is novel.
-- [x] Do not claim basic pair/stem rules are novel.
-- [x] Do not claim pair confidence itself is novel.
-- [x] Do not claim evidence-constrained folding itself is novel.
-- [x] Do not claim generic post-hoc pair QA is a new abstract task.
-- [ ] Do not claim model agnosticism before R6 supports it.
-- [ ] Do not claim independent generalization before R7.
-- [ ] Do not claim noisy/real-evidence robustness before R5/R8.
-- [ ] Do not claim 3D benefit before optional paired downstream validation.
-- [ ] Select final CCF-A venue only after the validated contribution type is clear.
+- [x] Benchmark normalization is infrastructure, not main contribution.
+- [x] Basic RNA pair/stem rules are not novel.
+- [x] Pair confidence is not novel.
+- [x] Predictor consensus is not novel.
+- [x] Evidence-constrained folding is not novel.
+- [x] Generic post-hoc pair QA is not claimed as a new abstract task.
+- [ ] No model-agnostic claim before R6.
+- [ ] No independent-generalization claim before R7.
+- [ ] No noisy/real-evidence claim before R5/R8.
+- [ ] No 3D claim before optional downstream validation.
 
 ## Immediate Next Task
 
-> **R2 protocol freeze: design the global ViennaRNA/RNAfold hard-constraint refolding baseline using the existing clean simulated-evidence manifests.**
+> **R2 protocol freeze: audit ViennaRNA/RNAfold and design the matched global hard-constraint refolding baseline using the existing clean Legacy121 evidence manifests.**
 
-No new learned training is authorized before R2 and R3 are completed and a new R4 protocol is frozen.
+No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.
