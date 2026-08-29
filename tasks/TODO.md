@@ -30,27 +30,27 @@ Last updated: 2026-08-29
 
 ### Protocol freeze
 
-- [ ] Audit installed ViennaRNA/RNAfold version and exact hard-constraint syntax/API.
-- [ ] Define mapping from `POSITIVE_PAIR_EVIDENCE` to hard pair constraints.
-- [ ] Define mapping from `UNPAIRED_NUCLEOTIDE_EVIDENCE` to hard unpaired constraints.
-- [ ] Define behavior for incompatible/unsatisfiable constraints before evaluation.
-- [ ] Freeze whether pair and unpaired channels remain separate in primary R2.
-- [ ] Reuse the frozen Legacy121 clean evidence manifests where semantically valid.
-- [ ] Freeze output parser, validity checks, and provenance fields.
-- [ ] Create and freeze `docs/global_constrained_refolding_r2_protocol.md` before full execution.
+- [x] Audit installed ViennaRNA/RNAfold version and exact hard-constraint syntax/API; `/usr/bin/RNAfold` 2.4.17 supports the required noncrossing hard forms, with no Python `RNA` binding installed.
+- [x] Define mapping from `POSITIVE_PAIR_EVIDENCE` to hard pair constraints as matching `()` plus `--enforceConstraint`; exact partner semantics verified on toys.
+- [x] Define mapping from `UNPAIRED_NUCLEOTIDE_EVIDENCE` to hard unpaired constraints as `x`; exact semantics verified on toys.
+- [x] Define behavior for incompatible/unsatisfiable constraints before evaluation: fail closed and retain an explicit status; never drop or reinterpret evidence.
+- [x] Freeze pair and unpaired channels as separate primary R2 channels.
+- [x] Audit reuse of frozen Legacy121 clean manifests; 87/3,630 pair manifests contain crossing evidence unsupported by standard non-PK ViennaRNA, so execution is blocked.
+- [x] Freeze output parser, validity checks, and provenance fields in the blocked protocol/implementation plan.
+- [x] Create `docs/global_constrained_refolding_r2_protocol.md`; status is `R2_PROTOCOL_BLOCKED` before full execution because of the crossing-evidence semantic blocker.
 
 ### Implementation
 
-- [ ] Implement constrained RNAfold adapter without modifying raw historical predictions.
-- [ ] Add unit tests for hard pair constraints.
-- [ ] Add unit tests for hard unpaired constraints.
-- [ ] Add explicit tests/reporting for unsatisfiable constraints.
-- [ ] Validate output length, pair legality and canonical parser compatibility.
-- [ ] Retain RNAfold version/config/command/stdout/stderr provenance.
+- [ ] Implement the complete constrained RNAfold adapter without modifying raw historical predictions (blocked pending crossing-evidence decision).
+- [x] Add unit/toy tests for hard pair constraints.
+- [x] Add unit/toy tests for hard unpaired constraints.
+- [x] Add explicit tests/reporting for unsatisfiable and crossing constraints.
+- [x] Validate toy output length, pair legality and canonical parser compatibility.
+- [x] Freeze the required RNAfold version/config/command/stdout/stderr provenance fields.
 
 ### Evaluation
 
-- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only.
+- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only (blocked; not started).
 - [ ] Report exact Precision/Recall/F1.
 - [ ] Report TP preservation.
 - [ ] Report FP removal.
@@ -176,6 +176,6 @@ Last updated: 2026-08-29
 
 ## Immediate Next Task
 
-> **R2 protocol freeze: audit ViennaRNA/RNAfold and design the matched global hard-constraint refolding baseline using the existing clean Legacy121 evidence manifests.**
+> **Resolve the crossing positive-pair evidence semantics prospectively; only then implement and execute the frozen R2 global hard-constraint refolding baseline.**
 
 No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.

@@ -1,0 +1,355 @@
+{
+  "alternate_binary_versions": [
+    {
+      "path": "/root/autodl-tmp/models/trRosettaRNA2/scripts/bin/RNAfold",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "RNAfold 2.4.14"
+    },
+    {
+      "path": "/root/autodl-tmp/models/DRfold_repo/third_party/ViennaRNA-2.0.7/Progs/RNAfold",
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "RNAfold 2.0.7"
+    }
+  ],
+  "binary_path": "/usr/bin/RNAfold",
+  "blocker": "87 clean POSITIVE_PAIR_EVIDENCE manifests contain crossing delivered pairs; standard ViennaRNA non-pseudoknot DBN constraints cannot express all of them simultaneously without dropping or changing evidence semantics.",
+  "clean_manifest_crossing_audit": {
+    "clean_manifest_count": 7260,
+    "crossing_examples": [
+      {
+        "density_percent": 20,
+        "evidence_seed": 103,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 20,
+        "evidence_seed": 107,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 20,
+        "evidence_seed": 113,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 50,
+        "evidence_seed": 101,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 50,
+        "evidence_seed": 103,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 50,
+        "evidence_seed": 107,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 50,
+        "evidence_seed": 109,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 50,
+        "evidence_seed": 113,
+        "rna_id": "1A60_44_pseudknot_nmr_A"
+      },
+      {
+        "density_percent": 20,
+        "evidence_seed": 101,
+        "rna_id": "1E95_36_pseudoknot_nmr_A"
+      },
+      {
+        "density_percent": 20,
+        "evidence_seed": 103,
+        "rna_id": "1E95_36_pseudoknot_nmr_A"
+      }
+    ],
+    "crossing_pair_manifest_count": 87,
+    "crossing_pair_manifest_fraction": 0.023966942148760332,
+    "crossing_rna_count": 11,
+    "pair_channel_manifest_count": 3630,
+    "standard_non_pseudoknot_dbn_can_represent_all_pair_constraints": false
+  },
+  "constraint_help": {
+    "supports_constraint_option": true,
+    "supports_dangles": true,
+    "supports_enforce_constraint": true,
+    "supports_noLP": true,
+    "supports_shape_soft_constraints": true,
+    "supports_temperature": true
+  },
+  "external77_accessed": false,
+  "full_help_sha256": "066b3069bf4fb04e74ad0beef9399d9d013d15a3b67272b5d8d7f3c0bd481482",
+  "hard_constraint_semantics": {
+    "commands_file_support": "--commands is advertised but not used",
+    "constraint_file_support": "-C optional filename is a ViennaRNA command-file interface, not a plain DBN constraint line; R2 uses stdin",
+    "constraint_input": "stdin constraint line after sequence with -C --enforceConstraint",
+    "coordinate_conversion": "project 0-based position + 1 = ViennaRNA 1-based position",
+    "crossing_pair_sets": false,
+    "forced_pair_specific_partner": true,
+    "forced_unpaired": true
+  },
+  "help_sha256": "21bdf4d4b2134fa2e6735e42eeff4da46e09fdc8b84cf4e6dfaf9f36a10702a7",
+  "legacy121_benchmark_started": false,
+  "python_binding": {
+    "installed": false,
+    "probe_results": [
+      {
+        "interpreter": "python",
+        "returncode": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+        "stdout": ""
+      },
+      {
+        "interpreter": "/root/miniconda3/bin/python",
+        "returncode": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+        "stdout": ""
+      },
+      {
+        "interpreter": "/root/miniconda3/envs/nufold_P/bin/python",
+        "returncode": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+        "stdout": ""
+      }
+    ],
+    "probed_interpreters": [
+      "python",
+      "/root/miniconda3/bin/python",
+      "/root/miniconda3/envs/nufold_P/bin/python"
+    ]
+  },
+  "status": "R2_PROTOCOL_BLOCKED",
+  "toy_tests": [
+    {
+      "constraint": "(.......)",
+      "constraint_satisfied": true,
+      "name": "first_last_pair",
+      "pairs": [
+        [
+          0,
+          8
+        ]
+      ],
+      "rnafold": {
+        "command": [
+          "/usr/bin/RNAfold",
+          "--noPS",
+          "-C",
+          "--enforceConstraint"
+        ],
+        "dbn": "(((...)))",
+        "pairs_zero_based": [
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            2,
+            6
+          ]
+        ],
+        "stderr": "",
+        "stdout": ">r2_toy\nGGGAAACCC\n(((...))) ( -1.20)\n"
+      },
+      "sequence": "GGGAAACCC",
+      "unpaired": [],
+      "vienna_positions": {
+        "pairs": [
+          [
+            1,
+            9
+          ]
+        ],
+        "unpaired": []
+      }
+    },
+    {
+      "constraint": "........x",
+      "constraint_satisfied": true,
+      "name": "last_position_unpaired",
+      "pairs": [],
+      "rnafold": {
+        "command": [
+          "/usr/bin/RNAfold",
+          "--noPS",
+          "-C",
+          "--enforceConstraint"
+        ],
+        "dbn": "((....)).",
+        "pairs_zero_based": [
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            6
+          ]
+        ],
+        "stderr": "",
+        "stdout": ">r2_toy\nGGGAAACCC\n((....)). ( -1.00)\n"
+      },
+      "sequence": "GGGAAACCC",
+      "unpaired": [
+        8
+      ],
+      "vienna_positions": {
+        "pairs": [],
+        "unpaired": [
+          9
+        ]
+      }
+    },
+    {
+      "constraint": ".(........).",
+      "constraint_satisfied": true,
+      "name": "internal_pair",
+      "pairs": [
+        [
+          1,
+          10
+        ]
+      ],
+      "rnafold": {
+        "command": [
+          "/usr/bin/RNAfold",
+          "--noPS",
+          "-C",
+          "--enforceConstraint"
+        ],
+        "dbn": ".(........).",
+        "pairs_zero_based": [
+          [
+            1,
+            10
+          ]
+        ],
+        "stderr": "",
+        "stdout": ">r2_toy\nGGGAAACCCGGG\n.(........). (  4.10)\n"
+      },
+      "sequence": "GGGAAACCCGGG",
+      "unpaired": [],
+      "vienna_positions": {
+        "pairs": [
+          [
+            2,
+            11
+          ]
+        ],
+        "unpaired": []
+      }
+    },
+    {
+      "constraint": "((........))",
+      "constraint_satisfied": true,
+      "name": "multiple_nested_pairs",
+      "pairs": [
+        [
+          0,
+          11
+        ],
+        [
+          1,
+          10
+        ]
+      ],
+      "rnafold": {
+        "command": [
+          "/usr/bin/RNAfold",
+          "--noPS",
+          "-C",
+          "--enforceConstraint"
+        ],
+        "dbn": "((((....))))",
+        "pairs_zero_based": [
+          [
+            0,
+            11
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            3,
+            8
+          ]
+        ],
+        "stderr": "",
+        "stdout": ">r2_toy\nGCGCGCGCGCGC\n((((....)))) ( -5.10)\n"
+      },
+      "sequence": "GCGCGCGCGCGC",
+      "unpaired": [],
+      "vienna_positions": {
+        "pairs": [
+          [
+            1,
+            12
+          ],
+          [
+            2,
+            11
+          ]
+        ],
+        "unpaired": []
+      }
+    },
+    {
+      "constraint": "......x..",
+      "constraint_satisfied": true,
+      "name": "internal_unpaired",
+      "pairs": [],
+      "rnafold": {
+        "command": [
+          "/usr/bin/RNAfold",
+          "--noPS",
+          "-C",
+          "--enforceConstraint"
+        ],
+        "dbn": ".........",
+        "pairs_zero_based": [],
+        "stderr": "",
+        "stdout": ">r2_toy\nGGGAAACCC\n......... (  0.00)\n"
+      },
+      "sequence": "GGGAAACCC",
+      "unpaired": [
+        6
+      ],
+      "vienna_positions": {
+        "pairs": [],
+        "unpaired": [
+          7
+        ]
+      }
+    },
+    {
+      "constraint_satisfied": true,
+      "expected_rejection": "crossing forced pairs are unsupported by standard DBN constraints",
+      "name": "crossing_pairs"
+    },
+    {
+      "constraint_satisfied": true,
+      "expected_rejection": "a nucleotide cannot be forced paired and unpaired",
+      "name": "pair_unpaired_conflict"
+    }
+  ],
+  "version_command": [
+    "/usr/bin/RNAfold",
+    "--version"
+  ],
+  "version_stdout": "RNAfold 2.4.17"
+}

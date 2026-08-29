@@ -1,0 +1,222 @@
+Usage: RNAfold [OPTIONS] [<input0.fa>] [<input1.fa>]...
+Calculate minimum free energy secondary structures and partition function of
+RNAs
+
+The program reads RNA sequences, calculates their minimum free energy (mfe)
+structure and prints the mfe structure in bracket notation and its free energy.
+If not specified differently using commandline arguments, input is accepted
+from stdin or read from an input file, and output printed to stdout. If the -p
+option was given it also computes the partition function (pf) and base pairing
+probability matrix, and prints the free energy of the thermodynamic ensemble,
+the frequency of the mfe structure in the ensemble, and the ensemble diversity
+to stdout.
+
+It also produces PostScript files with plots of the resulting secondary
+structure graph and a "dot plot" of the base pairing matrix.
+The dot plot shows a matrix of squares with area proportional to the pairing
+probability in the upper right half, and one square for each pair in the
+minimum free energy structure in the lower left half. For each pair i-j with
+probability p>10E-6 there is a line of the form
+
+i  j  sqrt(p)  ubox
+
+in the PostScript file, so that the pair probabilities can be easily extracted.
+
+Sequences may be provided in a simple text format where each sequence occupies
+a single line. Output files are named "rna.ps" and "dot.ps". Existing files
+of the same name will be overwritten.
+
+It is also possible to provide sequence data in FASTA format. In this case, the
+first word of the FASTA header will be used as prefix for output file names.
+PostScript files "prefix_ss.ps" and "prefix_dp.ps" are produced for the
+structure and dot plot, respectively. Note, however, that once FASTA input was
+provided all following sequences must be in FASTA format too.
+
+To avoid problems with certain operating systems and/or file systems the prefix
+will ALWAYS be sanitized! This step substitutes any special character in the
+prefix by a filename delimiter. See the --filename-delim option to change the
+delimiting character according to your requirements.
+
+The program will continue to read new sequences until a line consisting of the
+single character @ or an end of file (EOF) condition is encountered.
+
+
+
+  -h, --help                    Print help and exit
+      --detailed-help           Print help, including all details and hidden
+                                  options, and exit
+      --full-help               Print help, including hidden options, and exit
+  -V, --version                 Print version and exit
+
+General Options:
+  Command line options which alter the general behavior of this program
+
+
+  -v, --verbose                 Be verbose.
+
+                                    (default=off)
+  -j, --jobs[=number]           Split batch input into jobs and start
+                                  processing in parallel using multiple
+                                  threads. A value of 0 indicates to use as
+                                  many parallel threads as computation cores
+                                  are available.
+                                    (default=`0')
+      --unordered               Do not try to keep output in order with input
+                                  while parallel processing is in place.
+                                    (default=off)
+  -i, --infile=<filename>       Read a file instead of reading from stdin
+
+  -o, --outfile[=<filename>]    Print output to file instead of stdout
+
+  -t, --layout-type=INT         Choose the layout algorithm.
+                                    (default=`1')
+      --noPS                    Do not produce postscript drawing of the mfe
+                                  structure.
+
+                                    (default=off)
+      --noDP                    Do not produce dot-plot postscript file
+                                  containing base pair or stack
+                                  probabilitities.
+                                    (default=off)
+      --noconv                  Do not automatically substitute nucleotide
+                                  "T" with "U"
+
+                                    (default=off)
+      --auto-id                 Automatically generate an ID for each sequence.
+                                    (default=off)
+      --id-prefix=prefix        Prefix for automatically generated IDs (as used
+                                  in output file names)
+
+                                    (default=`sequence')
+      --id-delim=delimiter      Change the delimiter between prefix and
+                                  increasing number for automatically generated
+                                  IDs (as used in output file names)
+
+                                    (default=`_')
+      --id-digits=INT           Specify the number of digits of the counter in
+                                  automatically generated alignment IDs.
+                                    (default=`4')
+      --id-start=LONG           Specify the first number in automatically
+                                  generated alignment IDs.
+                                    (default=`1')
+      --filename-delim=delimiter
+                                Change the delimiting character that is used
+                                  for sanitized filenames
+
+                                    (default=`ID-delimiter')
+      --filename-full           Use full FASTA header to create filenames
+
+                                    (default=off)
+
+Structure Constraints:
+  Command line options to interact with the structure constraints feature of
+  this program
+
+
+      --maxBPspan=INT           Set the maximum base pair span
+
+                                    (default=`-1')
+  -C, --constraint[=<filename>] Calculate structures subject to constraints.
+                                    (default=`')
+      --batch                   Use constraints for multiple sequences.
+                                    (default=off)
+      --canonicalBPonly         Remove non-canonical base pairs from the
+                                  structure constraint
+
+                                    (default=off)
+      --enforceConstraint       Enforce base pairs given by round brackets ( )
+                                  in structure constraint
+
+                                    (default=off)
+      --shape=<filename>        Use SHAPE reactivity data to guide structure
+                                  predictions
+
+
+      --shapeMethod=D|Z|W       Select SHAPE reactivity data incorporation
+                                  strategy.
+                                    (default=`D')
+      --shapeConversion=M|C|S|L|O
+                                Select method to convert SHAPE reactivities to
+                                  pairing probabilities.
+                                    (default=`O')
+      --motif=SEQUENCE,STRUCTURE,ENERGY
+                                Specify stabilizing effect of ligand binding to
+                                  a particular sequence/structure motif.
+
+      --commands=<filename>     Read additional commands from file
+
+
+Algorithms:
+  Select additional algorithms which should be included in the calculations.
+  The Minimum free energy (MFE) and a structure representative are calculated
+  in any case.
+
+
+  -p, --partfunc[=INT]          Calculate the partition function and base
+                                  pairing probability matrix.
+                                    (default=`1')
+      --MEA[=gamma]             Calculate an MEA (maximum expected accuracy)
+                                  structure, where the expected accuracy is
+                                  computed from the pair probabilities: each
+                                  base pair (i,j) gets a score 2*gamma*p_ij and
+                                  the score of an unpaired base is given by the
+                                  probability of not forming a pair.
+                                    (default=`1.')
+  -S, --pfScale=scaling factor  In the calculation of the pf use scale*mfe as
+                                  an estimate for the ensemble free energy
+                                  (used to avoid overflows).
+
+  -c, --circ                    Assume a circular (instead of linear) RNA
+                                  molecule.
+
+                                    (default=off)
+      --ImFeelingLucky          Return exactly one stochastically backtracked
+                                  structure
+                                    (default=off)
+      --bppmThreshold=<value>   Set the threshold for base pair probabilities
+                                  included in the postscript output
+                                    (default=`1e-5')
+  -g, --gquad                   Incoorporate G-Quadruplex formation into the
+                                  structure prediction algorithm.
+
+                                    (default=off)
+
+Model Details:
+  -T, --temp=DOUBLE             Rescale energy parameters to a temperature of
+                                  temp C. Default is 37C.
+
+
+  -4, --noTetra                 Do not include special tabulated stabilizing
+                                  energies for tri-, tetra- and hexaloop
+                                  hairpins.
+                                    (default=off)
+  -d, --dangles=INT             How to treat "dangling end" energies for
+                                  bases adjacent to helices in free ends and
+                                  multi-loops
+                                    (default=`2')
+      --noLP                    Produce structures without lonely pairs
+                                  (helices of length 1).
+                                    (default=off)
+      --noGU                    Do not allow GU pairs
+
+                                    (default=off)
+      --noClosingGU             Do not allow GU pairs at the end of helices
+
+                                    (default=off)
+  -P, --paramFile=paramfile     Read energy parameters from paramfile, instead
+                                  of using the default parameter set.
+
+      --nsp=STRING              Allow other pairs in addition to the usual
+                                  AU,GC,and GU pairs.
+
+  -e, --energyModel=INT         Rarely used option to fold sequences from the
+                                  artificial ABCD... alphabet, where A pairs B,
+                                  C-D etc.  Use the energy parameters for GC
+                                  (-e 1) or AU (-e 2) pairs.
+
+
+      --betaScale=DOUBLE        Set the scaling of the Boltzmann factors
+                                    (default=`1.')
+
+If in doubt our program is right, nature is at fault.
+Comments should be sent to rna@tbi.univie.ac.at.

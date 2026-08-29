@@ -176,3 +176,25 @@ Pseudoknot-aware refinement remains a separate side track. 2D->3D validation rem
 ### Consequence
 
 Neither branch may block R2-R7 or be used to rescue a failed core claim.
+
+---
+
+## Decision — R2 hard-constraint environment is blocked by crossing evidence
+
+**Confirmed / 已确定 (2026-08-29)**
+
+The audited R2 candidate is `/usr/bin/RNAfold` 2.4.17. Its CLI expresses an
+exact forced partner with matching round brackets plus `--enforceConstraint`,
+and forced unpaired positions with `x`; project coordinates convert uniquely
+from zero-based to ViennaRNA one-based positions by adding one. Python
+ViennaRNA bindings are absent in the probed environments.
+
+The frozen clean Legacy121 suite contains 87 of 3,630 positive-pair manifests
+with mutually crossing delivered evidence pairs across 11 RNAs. Standard
+ViennaRNA non-pseudoknot dynamic programming cannot express those pair sets
+simultaneously. Dropping, rewriting, sequentially folding, or replacing those
+constraints would change the frozen evidence semantics.
+
+**Consequence:** R2 is `R2_PROTOCOL_BLOCKED`; no formal Legacy121 R2 benchmark,
+learned training, noisy/real evidence, or external77 access is authorized until
+a separate prospective decision resolves the crossing-evidence semantics.

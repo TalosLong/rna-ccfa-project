@@ -1,0 +1,20 @@
+[
+  {
+    "interpreter": "python",
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+    "stdout": ""
+  },
+  {
+    "interpreter": "/root/miniconda3/bin/python",
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+    "stdout": ""
+  },
+  {
+    "interpreter": "/root/miniconda3/envs/nufold_P/bin/python",
+    "returncode": 1,
+    "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 1, in <module>\nModuleNotFoundError: No module named 'RNA'\n",
+    "stdout": ""
+  }
+]

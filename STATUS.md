@@ -4,13 +4,13 @@ Last updated: 2026-08-29
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2 CURRENT**
+**PROJECT REBOOT v2 — R2_PROTOCOL_BLOCKED**
 
 Current working direction:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. The next authorized experiment is R2: a matched global evidence-constrained refolding baseline.
+R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit and toy validation are complete, but the protocol is blocked before formal execution by crossing clean pair-evidence manifests that standard ViennaRNA cannot represent.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -157,7 +157,7 @@ Exact canonical-pair equality remains primary. Final paper-level robustness may 
 ```text
 R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
-R2 Global constrained-refolding baseline    CURRENT
+R2 Global constrained-refolding baseline    PROTOCOL_BLOCKED
 R3 Reliability baseline suite
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
@@ -199,12 +199,31 @@ Before any full R2 run:
 7. freeze parser/validation/provenance requirements;
 8. create `docs/global_constrained_refolding_r2_protocol.md` before full evaluation.
 
+### R2 audit result
+
+- `/usr/bin/RNAfold`, version 2.4.17, is the frozen candidate executable;
+  Python `RNA` bindings are absent in all three probed environments.
+- `()` with `--enforceConstraint` expresses a specific forced partner, and
+  `x` expresses forced unpaired; project coordinates use the unique
+  `project_position + 1` ViennaRNA conversion.
+- Seven toy/coordinate/unsatisfiable-constraint checks passed, including
+  parser round-trip and nested-pair checks.
+- The clean suite has 7,260 manifests; 87/3,630
+  `POSITIVE_PAIR_EVIDENCE` manifests across 11 RNAs contain crossing delivered
+  pairs. Standard non-pseudoknot ViennaRNA DBN constraints cannot express these
+  pairs simultaneously. Dropping or rewriting them would change the frozen
+  evidence semantics, so formal Legacy121 R2 execution is not authorized.
+- Authoritative state is `R2_PROTOCOL_BLOCKED`, not `R2_COMPLETE` or
+  `READY_FOR_R2_IMPLEMENTATION`.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
 - **Do not access external77.**
 - **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
+- **Do not begin formal R2 execution until the crossing-evidence semantics are
+  resolved by a new prospective decision.**
 
 Detailed current-mainline documents:
 
