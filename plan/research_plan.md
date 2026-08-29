@@ -1,429 +1,326 @@
-# Research Plan
+# Research Plan — Reboot v2
 
-## 1. Research Question
+Last updated: 2026-08-29
 
-**Confirmed / 已确定**
+## 1. Working Direction
 
-> Can RNA secondary-structure predictions from existing predictors be selectively corrected, without re-predicting the entire structure, and can sparse or noisy structural evidence make this correction more reliable?
+> **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-子问题：
+The project studies whether an already-computed RNA secondary-structure prediction can be selectively quality-controlled using sparse external structural evidence, while preserving useful information already captured by the source predictor.
 
-1. 多个 predictor 是否存在稳定、重复的 error pattern？
-2. selective correction 是否优于 unconditional re-prediction？
-3. 一个 refiner 是否可以跨 source predictor 泛化？
-4. sparse / noisy evidence 是否能提高 refinement？
-5. **Candidate / 待验证：** refined 2D 是否改善 downstream 3D？
-
-## 2. Hypothesis
-
-以下全部为 **Candidate / 待验证**：
-
-- H1：不同 predictor 存在部分共享的结构化错误模式。
-- H2：显式 keep/modify 的 selective refiner 优于 non-selective refiner。
-- H3：部分 error pattern 可跨 predictor transfer。
-- H4：少量结构证据可提高 refinement。
-- H5：证据含噪时，learned trust 比 hard enforcement 更稳健。
-- H6：修复部分关键 2D error，尤其 long-range / pseudoknot-related error，可能改善 3D。
-
-## 3. Overall Experimental Design
+The primary scientific comparison is:
 
 ```text
-A. Benchmark normalization
--> B. Error analysis
--> C. Rule-based refinement
--> D. Selective learned refinement
--> E. Cross-model evaluation
--> F. Evidence-guided refinement
--> G. Full benchmark + ablation
--> H. Candidate 2D -> 3D validation
+Original predictor
+vs
+local evidence enforcement
+vs
+global evidence-constrained refolding
+vs
+post-hoc evidence reconciliation
 ```
 
-### Benchmark Work vs Paper Contribution
+The project does not assume that post-hoc reconciliation is useful; R2-R4 must establish that it adds value over simply refolding under the same evidence.
 
-**Benchmark / infrastructure：**
+## 2. Core Research Questions
 
-- 收集已有 predictor outputs；
-- 统一格式；
-- 统一 evaluator；
-- 复现 source predictor 指标；
-- 输出 per-sample metrics。
+### RQ1 — Post-hoc necessity
 
-这些是必要基础设施，不作为主要 CCF-A contribution。
+Does the original predictor output retain correct information that can be damaged or overwritten by global evidence-constrained refolding?
 
-**Potential paper contribution：**
+### RQ2 — Safe correction
 
-- cross-model error taxonomy；
-- selective refinement；
-- leave-one-model-out transfer；
-- sparse/noisy evidence-aware correction；
-- Candidate downstream 3D benefit。
+Can sparse evidence improve false-positive removal while maintaining high correct-pair preservation?
 
-## 4. Baselines
+### RQ3 — Useful non-local effect
 
-### B0 — Original Predictor Output
+Can a method make beneficial corrections outside the directly evidenced/local-conflict region, rather than merely causing global collateral changes?
 
-**Confirmed / 已确定**
+### RQ4 — Generalization
 
-所有方法都必须和 source predictor 原始 prediction 比较。
+Does the signal hold across predictors, RNA groups, and a locked independent dataset?
 
-### B1 — Rule-Based Refinement
+### RQ5 — Robustness and real evidence
 
-**Confirmed / 已确定 as required baseline**
+How does performance degrade under controlled evidence noise, and does any effect survive real probing evidence?
 
-候选规则：
+### Candidate downstream question
 
-- structural validity / pair conflict correction；
-- isolated low-confidence pair removal；
-- compatible high-confidence candidate addition；
-- basic pairing plausibility；
-- 可选简单 energy / pairing score。
+Does a validated 2D improvement improve downstream RNA 3D prediction under an identical frozen 3D pipeline?
 
-具体规则在检查 predictor output 后锁定。
+## 3. Task Definition
 
-### B2 — Non-Selective Learned Refiner
-
-**Confirmed / 已确定 as comparison concept**
-
-用于验证 selective mechanism 是否真的有价值。
-
-### B3 — Selective Refiner
-
-**Confirmed / 已确定 as target method family**
-
-包含 error detector / modification mask + refinement。
-
-### B4 — Published RNA Post-Processing Baseline
-
-**Candidate / 待验证**
-
-若代码和输入兼容，加入已讨论过的 assignment-problem-based RNA post-processing 方法。
-
-## 5. Experiments
-
-### Experiment 1 — Benchmark Normalization and Reproduction
-
-Goal:
-建立所有后续实验共用的输入、parser 和 evaluator。
-
-Input:
-现有 benchmark datasets、ground truth、source predictor outputs、可选 pair scores。
-
-Method:
-统一格式，转换为 canonical base-pair list，使用 shared evaluator 重算指标。
-
-Comparison:
-shared evaluator vs 现有 benchmark 已保存结果（若有）。
-
-Metrics:
-Precision、Recall、F1、MCC（若定义一致）、per-sample TP/FP/FN。
-
-Expected conclusion:
-不是科学结论；目标是确认后续实验的 evaluation protocol 可复现。
-
----
-
-### Experiment 2 — Cross-Model Error Taxonomy
-
-Goal:
-确认主要 error types，以及这些错误是否在多个 predictor 中重复出现。
-
-Input:
-normalized predictions + ground truth。
-
-Method:
-提取：
-
-- missing pair；
-- false-positive pair；
-- wrong partner；
-- stem missing / truncation / extension / shift；
-- long-range interaction error；
-- pseudoknot-related error（若支持）。
-
-Comparison:
-不同 predictor、不同 dataset。
-
-Metrics:
-各 error type 数量、占比、per-RNA error count、按 RNA length / pair separation 分层统计。
-
-Expected conclusion:
-**Candidate / 待验证：** 存在足够稳定的 shared error patterns，为 Universal Refiner 提供依据。
-
----
-
-### Experiment 3 — Rule-Based Refinement
-
-Goal:
-验证简单 deterministic post-processing 是否已有明显 correction headroom。
-
-Input:
-sequence、original prediction、pair confidence（若有）。
-
-Method:
-固定一组简单规则进行纠错，并记录每次修改。
-
-Comparison:
-Original vs Rule-based refined。
-
-Metrics:
-Precision、Recall、F1、MCC、修改次数、beneficial/harmful edit ratio。
-
-Expected conclusion:
-建立 learned method 必须超越的强简单 baseline。
-
----
-
-### Experiment 4 — Selective Refiner v1
-
-Goal:
-验证 selective correction 是否优于 generic learned refinement。
-
-Input:
-sequence、predicted structure、optional pair confidence、local structural features。
-
-Method:
+For sequence `x`, original predicted pair set `S`, delivered evidence `E`, and an original predicted pair `p=(i,j) in S`, estimate:
 
 ```text
-input
--> error detector / modification mask
--> refined pair scores
--> constrained decoder
--> refined structure
+q_ij = P(p is incorrect | x, S, E)
 ```
 
-Candidate objectives:
+Primary decisions:
 
 ```text
-L_structure + L_error_detection + L_preserve
+KEEP / DELETE / ABSTAIN
 ```
 
-Comparison:
-Original / Rule-based / Non-selective Refiner / Selective Refiner。
+The first rebooted mainline is deletion-only. It does not add absent pairs, reassign partners, rebuild stems, or generate a new full structure from scratch.
 
-Metrics:
-Precision、Recall、F1、MCC、modification precision、modification recall、correct-pair preservation rate。
+## 4. Prior-Art Boundary
 
-Expected conclusion:
-**Candidate / 待验证：** selective mechanism 能减少 destructive edits 并提高整体结构质量。
+The following are treated as prior art/baselines rather than contributions:
 
----
+- RNA canonical-pair/stem/stacking rules;
+- isolated-pair and short-stem cleanup;
+- thermodynamic base-pair probability/confidence;
+- thermodynamic + evolutionary evidence fusion;
+- predictor consensus/ensemble confidence;
+- evidence-constrained global folding;
+- generic post-hoc pair-level quality assessment as an abstract ML problem.
 
-### Experiment 5 — Leave-One-Model-Out Cross-Model Refinement
+The candidate contribution is narrower:
 
-Goal:
-验证 Refiner 是否学习到 predictor-independent error patterns。
+> **Predictor-output-preserving evidence reconciliation for RNA secondary-structure predictions.**
 
-Input:
-多个 source predictor 的 predictions。
+`Model-agnostic`, `unseen-predictor`, `real-evidence robust`, and `3D benefit` are candidate claims only.
 
-Method:
+## 5. Historical Evidence Preserved
+
+- Phase 0 normalization/evaluator: complete.
+- Phase 1 error taxonomy and descriptive analysis: complete.
+- Rule baseline: complete.
+- Selective-refiner v1: `DEVELOPMENT_GATE_FAIL`.
+- Selective-refiner v2: `V2_DEVELOPMENT_GATE_FAIL`.
+- Selective-refiner v3 primary: `V3_DEVELOPMENT_GATE_FAIL`.
+- Prediction-only cross-model mainline: closed for the current mainline; no Legacy121 v4/v5 rescue tuning.
+- Simulated evidence Stage E1: complete; direct/local utility positive, non-evidenced effect exactly zero.
+- Historical Stage E2: frozen but untrained; superseded by Reboot v2 before training.
+- external77-derived independent matrix: 42 RNAs x 3 predictors = 126/126 valid; remains locked.
+
+## 6. Data Strategy
+
+### Legacy121 v1
+
+Development-only dataset for:
+
+- baseline design;
+- model/feature selection;
+- calibration and threshold selection;
+- ablation;
+- simulated evidence;
+- Go/No-Go decisions.
+
+### external77-derived 42-RNA set
+
+Locked independent test only. No feature redesign, model selection, threshold tuning, or rescue analysis may use it before R7.
+
+## 7. Evidence Ladder
+
+### Level E0 — Clean symbolic evidence
+
+- positive base-pair evidence;
+- unpaired-nucleotide evidence.
+
+Purpose: mechanism/upper-bound development.
+
+### Level E1 — Controlled noisy symbolic evidence
+
+Frozen corruption mechanisms and candidate noise levels are used to study robustness and the need for learned trust.
+
+### Level E2 — Real experimental evidence
+
+Candidate modalities: SHAPE, DMS, PARS and related probing data after a separate provenance/data audit. Real probing is evidence, not GT.
+
+## 8. Required Baselines
+
+### B0 — Original Predictor
+
+No modification.
+
+### B1 — Local Hard Evidence
+
+Completed Stage E1 local hard transformations.
+
+### B2 — Global Evidence-Constrained Refolding
+
+**Mandatory new baseline before learned training.**
+
+Use the same sequence and the same delivered sparse evidence, but allow a classical folding algorithm to re-optimize the complete structure. The first frozen implementation should use a reproducible ViennaRNA/RNAfold hard-constraint protocol.
+
+This baseline answers:
+
+> Why not simply refold from sequence under the evidence?
+
+### B3 — Prediction-Only Reliability Baselines
+
+Retain as mechanistic comparators:
+
+- rule-based conditions;
+- historical v1 topology-only score;
+- historical v3 fixed consensus veto;
+- compatible pair-confidence/BPP baseline;
+- simple cross-model agreement where semantically valid.
+
+### B4 — Evidence-Masked Learned Control
+
+Matched learned condition without usable evidence, required to attribute any gain to evidence rather than model capacity.
+
+## 9. Candidate Learned Method
+
+Internal working name: **Evidence Reconciliation Network (ERN)**.
+
+The historical E2 DeepSets-style architecture may be reused as an implementation starting point because it already supports a source-agnostic candidate branch and permutation-invariant evidence-set encoding.
+
+However, the historical E2 success criteria are superseded. A new R4 protocol must be frozen after R2/R3 and must compare against B0/B1/B2/B4.
+
+No Transformer/GNN/foundation-model escalation is authorized unless a simple architecture first establishes signal beyond the strongest frozen non-learned baseline.
+
+## 10. Metrics
+
+### Pair reliability
+
+Primary candidates:
+
+- AUPRC for `DELETE`/FP;
+- Brier score;
+- ECE;
+- reliability diagrams;
+- precision among highest-risk pairs.
+
+AUROC is secondary.
+
+### Refinement utility
+
+Mandatory:
 
 ```text
-train: A + B + C
-test: held-out D
+TP_preservation = TP_after / TP_before
+FP_removal = (FP_before - FP_after) / FP_before
+modification_precision = beneficial_edits / modified_pairs
 ```
 
-Comparison:
-model-specific refiner / pooled multi-model refiner / leave-one-model-out refiner。
+Also report Precision, Recall, macro/micro F1, edit counts, beneficial/harmful decomposition.
 
-Metrics:
-F1 delta、Precision/Recall delta、modification precision、weak vs strong predictor improvement。
+### Risk–utility
 
-Expected conclusion:
-**Candidate / 待验证：** unseen predictor 仍能得到可复现 improvement。
-
----
-
-### Experiment 6 — Sparse Evidence Guidance
-
-Goal:
-确定部分结构证据在多稀疏时仍有帮助。
-
-Input:
-source prediction + sequence + sparse structural evidence。
-
-Method:
-先使用 ground truth 构造 controlled simulated evidence。
-
-Candidate density：
+Primary comparison should use curves/operating points such as:
 
 ```text
-0%, 1%, 5%, 10%, 20%, 50%
+x-axis: TP loss or 1 - TP preservation
+y-axis: FP removal
 ```
 
-Comparison:
-prediction-only refiner / hard evidence injection / evidence-guided selective refiner。
+The main question is whether post-hoc reconciliation gives a better correction-preservation trade-off than B2, not whether it achieves a small isolated F1 gain.
 
-Metrics:
-F1、Precision、Recall、evidence satisfaction rate、correct-pair preservation。
+### Non-evidenced effects
 
-Expected conclusion:
-**Candidate / 待验证：** sparse evidence 在较低密度下即可提供独立增益。
+Report separately:
 
----
+- non-evidenced modification precision;
+- non-evidenced FP removal;
+- non-evidenced TP loss.
 
-### Experiment 7 — Noisy Evidence Robustness
+### Evidence efficiency
 
-Goal:
-测试错误或冲突 evidence 是否会破坏 refinement。
+Report benefit per delivered evidence item, including `FP_removed / evidence_items` and optionally `Delta_F1 / evidence_items`.
 
-Input:
-Experiment 6 的 sparse evidence。
+### Matching robustness
 
-Method:
-Controlled noise injection。
+Exact canonical-pair matching remains primary. Add +/-1-endpoint flexible matching only as a separate final robustness analysis; never rewrite historical exact results.
 
-Candidate noise：
+## 11. Experimental Stages
+
+### R0 — Literature & novelty freeze
+
+**Status: COMPLETE FOR REBOOT.**
+
+### R1 — Task/protocol redefinition
+
+**Status: CURRENT.**
+
+Freeze project documents and supersede historical E2 training before any learned run.
+
+### R2 — Global constrained-refolding baseline
+
+Freeze and implement a clean hard-constraint global-refolding protocol on Legacy121 using the same clean evidence manifestations as B1 wherever semantics match.
+
+Required outputs:
+
+- full-structure metrics;
+- TP preservation;
+- FP removal;
+- modification precision;
+- direct/local/non-evidenced decomposition;
+- evidence efficiency;
+- source-wise summaries;
+- exact identity/constraint compliance checks.
+
+### R3 — Reliability baseline suite
+
+Assemble BPP/structural/consensus/history comparators under the new pair-reliability and risk-control metrics.
+
+### R4 — Clean learned evidence reconciliation
+
+Freeze a new protocol only after R2/R3 are complete. Train simple ERN and compare against B0/B1/B2/B4.
+
+### R5 — Noise robustness
+
+Evaluate controlled symbolic evidence corruption. Decide prospectively whether a trust mechanism is required.
+
+### R6 — Cross-predictor transfer
+
+Run source-wise and LOMO analyses. Promote `model-agnostic` only if supported.
+
+### R7 — Locked independent external test
+
+Open external77 once after model, features, calibration, thresholds, and analysis are frozen.
+
+### R8 — Real evidence
+
+Audit and evaluate real probing modalities only if R4-R7 justify continuation.
+
+### R9 — Final calibrated selective correction
+
+Freeze KEEP/DELETE/ABSTAIN policy, final ablations, statistics, and claims.
+
+### Optional — 2D -> 3D validation
+
+Only after the 2D task is stable.
+
+## 12. Go / No-Go Gates
+
+### Gate A — Post-hoc necessity
+
+If global constrained refolding dominates the post-hoc approach across the relevant TP-preservation / FP-removal trade-off, stop the post-hoc mainline.
+
+### Gate B — Learned reconciliation utility
+
+At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), the learned method must improve FP removal over the strongest frozen non-learned baseline and must not depend on only one source.
+
+### Gate C — Noise robustness
+
+If 5-10% controlled evidence noise causes negative structure utility or unsafe TP loss, do not make a real-evidence claim without first freezing a new trust mechanism.
+
+### Gate D — Independent generalization
+
+external77 is opened once. If the development effect does not preserve direction, do not claim cross-dataset generalization and do not tune on external77 to rescue the result.
+
+## 13. Paper Story if Successful
 
 ```text
-5%, 10%, 20%, 30%
+Prediction-only topology/consensus is insufficient for safe correction
+-> sparse external evidence has direct/local utility
+-> global constrained refolding is a strong traditional comparator
+-> post-hoc reconciliation preserves source-predictor information while using evidence
+-> calibrated reliability gives a better correction-preservation trade-off
+-> effect survives noise, predictor shifts, and locked independent data
+-> optional real probing and 3D validation establish practical relevance
 ```
 
-Comparison:
-hard constraint / evidence-guided without trust / evidence-guided with learned trust（若实现）。
+## 14. Immediate Next Step
 
-Metrics:
-F1 vs noise、harmful modification ratio、evidence satisfaction、trust/calibration behavior（若实现）。
+**Do not train historical Stage E2.**
 
-Expected conclusion:
-**Candidate / 待验证：** learned evidence trust 比盲目 hard enforcement 更稳健。
+Next task:
 
----
+> **R2 — Freeze and implement the global evidence-constrained refolding baseline.**
 
-### Experiment 8 — Full Error-Specific Benchmark
-
-Goal:
-说明最终方法到底修复了哪些结构错误。
-
-Input:
-Best refiner from Experiments 4-7。
-
-Method:
-按 error type、RNA length、pair separation、PK/non-PK 分层。
-
-Comparison:
-Original vs Refined across source predictors。
-
-Metrics:
-Overall F1/MCC、error-specific recovery、long-range pair F1、PK F1（若有效）。
-
-Expected conclusion:
-明确 method boundary 和真实 improvement source。
-
----
-
-### Experiment 9 — Candidate 2D -> 3D Validation
-
-**Candidate / 待验证**
-
-Goal:
-测试 refined 2D 是否能改善 RNA 3D prediction。
-
-Input:
-sequence、original 2D、refined 2D、GT 2D、GT 3D。
-
-Method:
-同一 3D predictor、同一 inference config，三种 2D input：
-
-```text
-A: original 2D
-B: refined 2D
-C: ground-truth 2D
-```
-
-Comparison:
-A vs B vs C。
-
-Metrics:
-Candidate: RMSD、TM-score、lDDT。
-
-Expected conclusion:
-**Candidate / 待验证：** 2D correction 的 downstream value 是否真实存在。
-
-## 6. Ablation Studies
-
-**Confirmed planned concepts：**
-
-- w/o selective mechanism；
-- w/o evidence；
-- w/o pair confidence（若使用）；
-- w/o constrained decoding（若使用）；
-- w/o preservation objective（若使用）。
-
-**Candidate：**
-
-- with/without source-model identity；
-- pair-level vs stem-aware representation；
-- evidence type；
-- evidence density；
-- evidence noise；
-- weak vs strong source predictor。
-
-## 7. Analysis
-
-必须保留：
-
-1. cross-model error distribution；
-2. 每个 RNA 的 modification count；
-3. beneficial / neutral / harmful edit ratio；
-4. correct-pair preservation；
-5. RNA length analysis；
-6. pair sequence-separation analysis；
-7. pseudoknot analysis（若合法）；
-8. weak vs strong predictor analysis；
-9. leave-one-model-out transfer；
-10. evidence density/noise curves。
-
-统计显著性：
-
-**Candidate / 待验证。** 最终 sample set 固定后，再根据 paired per-RNA metric 分布选择合适检验，不提前硬编码统计方法。
-
-## 8. Potential Method Contribution
-
-**Candidate / 待验证**
-
-目标方法表述：
-
-> A selective, model-agnostic RNA secondary-structure refinement framework that detects likely errors, preserves already-correct structure, and uses sparse/noisy structural evidence through a learned trust mechanism.
-
-候选组件：
-
-- error detector；
-- modification mask；
-- preservation-aware objective；
-- constrained decoder；
-- cross-predictor training；
-- evidence encoder；
-- prediction-vs-evidence trust。
-
-最终架构必须由 error analysis 和 baseline 结果驱动，不为了“复杂”而加模块。
-
-## 9. Paper Contribution
-
-### Supporting / Benchmark Contribution
-
-- shared evaluation pipeline；
-- cross-model error taxonomy；
-- error-specific benchmark analysis。
-
-这些目前不被视为足够的 main contribution。
-
-### Candidate Main Contribution
-
-1. Selective refinement；
-2. Cross-predictor transfer；
-3. Sparse/noisy evidence-aware correction；
-4. Candidate 2D -> 3D downstream benefit。
-
-最终论文只保留被实验支持的 claim。
-
-## 10. Risks and Alternative Plans
-
-- Universal transfer 失败 -> 改为 model-conditioned / model-specific，不宣称 model-agnostic。
-- 部分 predictor 无 confidence -> shared refiner 使用 structure + sequence，confidence 仅作为 subset ablation。
-- Rule baseline 很强 -> 把重点转向 cross-model / evidence / downstream。
-- Refiner 伤害强模型 -> 加强 selective keep/modify 与 preservation objective。
-- simulated evidence 不够真实 -> 再评估 SHAPE/DMS/NMR 数据，但必须先定义 dataset/protocol。
-- pseudoknot 表示不一致 -> 第一版不强行纳入。
-- 2D 提升不转化为 3D -> 3D 作为 negative/secondary analysis，不作为主 claim。
-- 方法对顶会仍太窄 -> AI4Science 路线加强科学验证；ICML/NeurIPS 路线需加强一般化 structured-refinement 方法贡献。
+Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.
