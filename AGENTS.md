@@ -9,12 +9,16 @@ Before substantial work, read:
 - `CONTEXT.md`;
 - `STATUS.md`;
 - `docs/project_reboot_v2.md`;
+- `docs/reboot_v2_decisions.md`;
+- `docs/reboot_v2_claim_evidence_map.md`;
 - `plan/research_plan.md`;
 - `plan/timeline.md`;
 - `tasks/TODO.md`;
-- `docs/decisions.md`.
+- historical `docs/decisions.md` when older decisions/provenance are relevant.
 
 Treat Confirmed/Frozen content as a constraint. Treat Candidate content as unconfirmed and do not present it as a fixed method, result, or paper claim.
+
+When a Reboot v2 decision conflicts with older planning, the Reboot v2 documents govern the current mainline; historical files remain provenance and must not be rewritten to erase prior decisions.
 
 Do not invent experimental results, alter raw historical data, or reinterpret failed gates as successes.
 
@@ -98,8 +102,8 @@ A simple learned method must first demonstrate value beyond the strongest frozen
 
 - Update `tasks/TODO.md` whenever a listed task is completed.
 - Update `STATUS.md` when project stage, blocker, finding, gate, or immediate next action changes.
-- Record durable scientific decisions in `docs/decisions.md`; do not use it as an experiment log.
-- Update `docs/claim_evidence_map.md` when a claim's evidence state changes.
+- Record new reboot-level durable decisions in `docs/reboot_v2_decisions.md`; keep `docs/decisions.md` as historical decision provenance.
+- Update `docs/reboot_v2_claim_evidence_map.md` when a reboot claim's evidence state changes; keep the historical claim map unchanged as provenance unless a correction is necessary.
 - Report results before changing a frozen research protocol unless the protocol itself specifies the gate response.
 - Preserve raw, normalized, per-sample and aggregate artifacts separately.
 
