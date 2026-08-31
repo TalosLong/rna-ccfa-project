@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 ## R0 — Literature & Novelty Freeze
 
@@ -26,7 +26,7 @@ Last updated: 2026-08-29
 
 **R1 gate: PASS.**
 
-## R2 — Global Evidence-Constrained Refolding Baseline — CURRENT
+## R2 — Global Evidence-Constrained Refolding Baseline — PARTIAL / BLOCKED
 
 ### Protocol freeze
 
@@ -44,7 +44,7 @@ Last updated: 2026-08-29
 
 ### Implementation
 
-- [ ] Implement the complete constrained RNAfold adapter without modifying raw historical predictions (authorized on R2_ELIGIBLE manifests).
+- [x] Implement the constrained RNAfold adapter and formal runner without modifying raw historical predictions or passing source identity/predictions into folding.
 - [x] Add unit/toy tests for hard pair constraints.
 - [x] Add unit/toy tests for hard unpaired constraints.
 - [x] Add explicit tests/reporting for unsatisfiable and crossing constraints.
@@ -53,7 +53,12 @@ Last updated: 2026-08-29
 
 ### Evaluation
 
-- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only (blocked; not started).
+- [x] Invoke the frozen command for all 7,173 `R2_ELIGIBLE` realizations and retain all 87 frozen crossing skips.
+- [x] Record 7,153 PASS realizations and 20 fail-closed minimum-loop constraint-satisfaction failures without deleting or substituting rows.
+- [x] Verify all 1,210 zero-density realizations are identical within RNA across both channels and five seeds.
+- [x] Verify historical RNAfold vs R2 0% exact pair-set identity is 121/121 as provenance context only.
+- [ ] Prospectively resolve the minimum-loop representability blocker; do not change eligibility, evidence, or ViennaRNA parameters under the current protocol.
+- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only (blocked; formal metrics not started).
 - [ ] Report exact Precision/Recall/F1.
 - [ ] Report TP preservation.
 - [ ] Report FP removal.
@@ -62,8 +67,8 @@ Last updated: 2026-08-29
 - [ ] Report non-evidenced modification precision, FP removal and TP loss.
 - [ ] Report evidence efficiency (`FP_removed / evidence_items` and optional `Delta_F1 / evidence_items`).
 - [ ] Report source-wise and density-wise summaries.
-- [ ] Verify accounting identities, constraint compliance and reproducibility.
-- [ ] Write `docs/global_constrained_refolding_r2_results.md`.
+- [ ] Verify accounting identities and 100% eligible constraint compliance after an authorized blocker resolution.
+- [x] Write `docs/global_constrained_refolding_r2_results.md` as a partial-execution blocker report; no scientific metric interpretation included.
 
 ### Gate A
 

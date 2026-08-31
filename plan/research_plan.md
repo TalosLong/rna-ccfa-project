@@ -1,6 +1,6 @@
 # Research Plan — Reboot v2
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 ## 1. Working Direction
 
@@ -234,13 +234,20 @@ Exact canonical-pair matching remains primary. Add +/-1-endpoint flexible matchi
 
 ### R1 — Task/protocol redefinition
 
-**Status: CURRENT.**
+**Status: COMPLETE.**
 
 Freeze project documents and supersede historical E2 training before any learned run.
 
 ### R2 — Global constrained-refolding baseline
 
+**Status: PARTIAL / BLOCKED.**
+
 Freeze and implement a clean hard-constraint global-refolding protocol on Legacy121 using the same clean evidence manifestations as B1 wherever semantics match.
+
+The fixed execution produced 7,153 constraint-compliant eligible folds, 87
+frozen crossing skips, and 20 eligible failures where ViennaRNA omitted a
+forced pair that violates its minimum-loop setting. Formal metrics remain
+stopped pending a prospective resolution.
 
 Required outputs:
 
@@ -321,6 +328,7 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 Next task:
 
-> **R2 — Freeze and implement the global evidence-constrained refolding baseline.**
+> **Prospectively resolve the R2 minimum-loop constraint blocker without using
+> partial performance results, then rerun the complete frozen comparison.**
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

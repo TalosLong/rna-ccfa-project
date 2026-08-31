@@ -25,3 +25,7 @@ results/selective_refiner/v1_partial_initial_run/
 # Full deterministic Stage E0 evidence payloads are regenerated from the
 # versioned generator and indexed by committed SHA256 summaries.
 results/evidence_guidance/e0/clean_manifests.jsonl
+
+# R2 retains complete stdout/stderr execution provenance locally; the parsed
+# structures and integrity summaries are the versioned machine-readable view.
+results/global_constrained_refolding_r2/raw/

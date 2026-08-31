@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -64,7 +64,7 @@ No authoritative file should instruct Codex to train historical E2.
 
 ## R2 — Global Evidence-Constrained Refolding Baseline
 
-**Status: NEXT EXPERIMENT**
+**Status: PARTIAL / BLOCKED — MINIMUM-LOOP CONSTRAINT**
 
 Goal:
 
@@ -95,6 +95,12 @@ Required analyses:
 Completion gate:
 
 R2 protocol must be frozen before execution. Results determine whether post-hoc preservation has enough headroom to justify R4.
+
+Current execution checkpoint: all 7,173 frozen eligible rows were invoked;
+7,153 passed and 20 failed constraint satisfaction because RNAfold omitted
+forced pairs that violate its minimum-loop setting. The 87 crossing manifests
+were skipped exactly as frozen. No formal metric analysis or Gate A decision
+is permitted before a prospective blocker resolution.
 
 ---
 
@@ -273,7 +279,8 @@ No 3D claim without reproducible paired downstream benefit.
 ```text
 R1 documentation freeze
 -> R2 protocol freeze
--> R2 global constrained-refolding baseline
+-> R2 minimum-loop blocker resolution
+-> complete R2 global constrained-refolding baseline
 -> R3 reliability baselines
 -> R4 learned clean evidence reconciliation
 ```

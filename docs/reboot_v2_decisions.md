@@ -1,6 +1,6 @@
 # Project Reboot v2 — Research Decisions
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 This file supplements the historical `docs/decisions.md`. Earlier decisions remain part of project history; the decisions below govern the rebooted mainline when they conflict with older planning.
 
@@ -219,3 +219,29 @@ constraints would change the frozen evidence semantics.
 **Consequence:** R2 is `R2_PROTOCOL_BLOCKED`; no formal Legacy121 R2 benchmark,
 learned training, noisy/real evidence, or external77 access is authorized until
 a separate prospective decision resolves the crossing-evidence semantics.
+
+---
+
+## Execution finding — R2 minimum-loop constraint blocker remains unresolved
+
+**Confirmed observation / no resolution decision selected (2026-08-31)**
+
+The frozen R2 command was invoked for all 7,173 `R2_ELIGIBLE` realizations.
+It produced 7,153 constraint-compliant PASS records. In 20 positive-pair
+realizations across four RNAs, ViennaRNA 2.4.17 emitted an explicit warning
+that a forced pair encloses only two nucleotides, violates the model's minimum
+loop size of three nucleotides, and is therefore omitted. The output failed the
+post-fold hard-constraint check exactly as required. All 87 crossing manifests
+were skipped according to v1.0.1 and were not involved in this failure.
+
+This is not a transient subprocess failure and cannot be corrected by rerunning
+the same command. Excluding the 20 manifests would change the frozen comparison
+universe; deleting or rewriting their evidence would change evidence semantics;
+and changing the ViennaRNA minimum-loop setting would change the frozen folding
+model. None of those choices is made retrospectively here.
+
+**Consequence:** current state is
+`R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT`. Formal matched metrics,
+edit/scope decompositions, interpretation, Gate A, and R3/R4 progression remain
+stopped pending a separate prospective resolution. The partial execution and
+blocker artifacts are retained rather than deleting or imputing failed rows.

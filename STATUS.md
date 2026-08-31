@@ -1,16 +1,16 @@
 # Current Status
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION**
+**PROJECT REBOOT v2 — R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT**
 
 Current working direction:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit, crossing-policy amendment, coverage audit, matched-universe freeze, and aggregation freeze are complete. Formal R2 execution is authorized on eligible manifests only; crossing manifests remain excluded as a solver-capability condition.
+R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit, crossing-policy amendment, coverage audit, matched-universe freeze, and aggregation freeze are complete. The fixed R2 command handled all 7,260 protocol rows: 7,153 eligible folds passed, 87 crossing manifests were skipped exactly as frozen, and 20 additional eligible pair-channel manifests failed hard-constraint satisfaction because ViennaRNA omitted forced pairs that violate its frozen minimum loop size. Formal B0/B1/B2 metric analysis has not started.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -186,7 +186,7 @@ If 5-10% controlled evidence noise causes negative structure utility or unsafe T
 
 Open external77 once. If the development effect does not preserve direction, no cross-dataset generalization claim and no external77 rescue tuning.
 
-## Current Task — R2 Protocol Freeze
+## Current Task — R2 Execution Blocker
 
 Before any full R2 run:
 
@@ -199,7 +199,7 @@ Before any full R2 run:
 7. freeze parser/validation/provenance requirements;
 8. create `docs/global_constrained_refolding_r2_protocol.md` before full evaluation.
 
-### R2 audit and amendment result
+### R2 execution and blocker result
 
 - `/usr/bin/RNAfold`, version 2.4.17, is the frozen candidate executable;
   Python `RNA` bindings are absent in all three probed environments.
@@ -215,7 +215,22 @@ Before any full R2 run:
   manifests without modifying evidence.
 - Eligibility, density/seed/RNA coverage, matched B1 filtering, and
   RNA-balanced macro aggregation are frozen before execution.
-- Authoritative state is `R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION`.
+- The formal runner invoked `/usr/bin/RNAfold` for all 7,173 frozen eligible
+  realizations and retained all 87 frozen crossing skips without substitution.
+- 7,153 eligible realizations passed parsing, validity, and constraint checks.
+- 20 pair-channel realizations across four RNAs failed constraint satisfaction.
+  Every failure contains one forced pair with only two enclosed nucleotides
+  (`j-i=3`); RNAfold warns that the pair violates the minimum loop size of
+  three nucleotides and omits the constraint.
+- This is a deterministic solver/model representability failure, not a
+  transient process failure. The same frozen command cannot resolve it.
+- All 1,210 zero-density realizations were identical within RNA across five
+  seeds and both channels. Historical RNAfold and R2 0% pair sets were also
+  identical for 121/121 RNAs; this is provenance context only.
+- Authoritative state is
+  `R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT`. No B0/B1/B2 metrics,
+  edit/scope summaries, interpretation, or Gate A decision are authorized
+  until a prospective decision resolves the newly discovered blocker.
 
 ## Current Restrictions
 
@@ -223,8 +238,9 @@ Before any full R2 run:
 - **Do not access external77.**
 - **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
-- **Do not begin formal R2 execution until the crossing-evidence semantics are
-  resolved by a new prospective decision.**
+- **Formal R2 execution is authorized only on the frozen R2_ELIGIBLE universe.**
+- **Do not run formal R2 metric analysis or advance to R3 until the minimum-loop
+  constraint blocker is resolved prospectively.**
 
 Detailed current-mainline documents:
 

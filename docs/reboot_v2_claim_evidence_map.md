@@ -1,6 +1,6 @@
 # Reboot v2 Claim–Evidence Map
 
-Last updated: 2026-08-29
+Last updated: 2026-08-31
 
 This file supplements the historical `docs/claim_evidence_map.md`. Historical claims/results remain unchanged; this map defines the claims allowed after Project Reboot v2.
 
@@ -9,11 +9,11 @@ This file supplements the historical `docs/claim_evidence_map.md`. Historical cl
 | Prediction-only topology/agreement is sufficient for safe source-general correction. | v1/v2/v3 development gates failed. | **NOT SUPPORTED** | Closed for current mainline; no Legacy121 v4/v5 rescue tuning. |
 | Clean symbolic evidence has direct/local correction value. | Stage E1: all clean hard edits beneficial under frozen semantics; direct/local effects positive. | **SUPPORTED_DEVELOPMENT_ONLY** | Already retained as B1; not a novelty claim. |
 | Clean local hard evidence propagates useful information to non-evidenced pairs. | Stage E1 non-evidenced pair set unchanged in all evaluations. | **NOT SUPPORTED / STRUCTURALLY ZERO IN B1** | R2/R4 compare useful non-local changes rather than mere propagation. |
-| Global constrained refolding is a strong alternative to post-hoc reconciliation. | `/usr/bin/RNAfold` 2.4.17 audited; prospective v1.0.1 eligibility excludes 87/3,630 crossing manifests as solver-capability exclusions and freezes matched comparison. | **MANDATORY BASELINE READY FOR EXECUTION** | Run matched R2 on 3,543 eligible pair manifests and all eligible unpaired manifests; no performance claim yet. |
-| Preserving the source predictor output adds value over refolding from sequence under the same evidence. | No matched B2 comparison; formal R2 execution was not started because of the hard-constraint semantic blocker. | **PRIMARY CLAIM NOT TESTED** | Gate A after an unblocked R2/R3 comparison; use TP-preservation/FP-removal risk–utility trade-off. |
+| Global constrained refolding is a strong alternative to post-hoc reconciliation. | The fixed command handled all 7,173 frozen eligible realizations: 7,153 passed and 20 failed because ViennaRNA omitted forced pairs that violate its minimum loop size; 87 crossing manifests were skipped as frozen. No performance summary was computed. | **MANDATORY BASELINE PARTIAL / BLOCKED** | Prospectively resolve the minimum-loop representability blocker, restore complete matched constraint-compliant coverage, then run the frozen analysis. |
+| Preserving the source predictor output adds value over refolding from sequence under the same evidence. | B2 structures are incomplete for 20 frozen eligible manifests and formal matched B0/B1/B2 analysis was intentionally not started. | **PRIMARY CLAIM NOT TESTED** | Gate A only after an authorized blocker resolution and complete matched analysis; use the frozen TP-preservation/FP-removal trade-off. |
 | A learned post-hoc method can estimate pair-level residual error better than non-learned baselines. | Historical v1 shows source-dependent signal but failed pooled/source-general gates; no rebooted B2/B3 comparison. | **NOT TESTED UNDER REBOOT** | R3 frozen baselines + R4 learned evaluation; AUPRC/Brier/ECE/risk–utility. |
 | Learned evidence reconciliation improves FP removal at high TP preservation. | Historical E2 untrained. | **NOT TESTED** | R4; primary high-preservation operating point prospectively frozen. |
-| Evidence can improve non-evidenced pairs without excessive collateral TP loss. | B1 cannot test propagation; R2 has not generated B2 structures. | **NOT TESTED** | R2 and later R4 non-evidenced modification precision, FP removal and TP loss. |
+| Evidence can improve non-evidenced pairs without excessive collateral TP loss. | B1 cannot test propagation; partial R2 outputs were not analyzed because 20 eligible realizations failed hard-constraint satisfaction. | **NOT TESTED** | Complete R2 after prospective blocker resolution, then report frozen non-evidenced modification precision, FP removal and TP loss. |
 | The method is model-agnostic / transfers to unseen predictors. | v1 LOMO did not reproduce across all three predictors. | **NOT SUPPORTED CURRENTLY** | R6 LOMO under rebooted method; claim only if supported. |
 | The method generalizes across datasets. | external77 126/126 independent matrix is prepared but intentionally untested by learned methods. | **NOT TESTED** | R7 one-shot locked independent evaluation. |
 | The method is robust to noisy evidence. | Corruption mechanism exists but full rebooted noisy evaluation not run. | **NOT TESTED** | R5 controlled noise with Gate C. |

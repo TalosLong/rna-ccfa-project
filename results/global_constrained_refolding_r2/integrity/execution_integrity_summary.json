@@ -1,0 +1,61 @@
+{
+  "constraint_satisfaction_pass_count": 7153,
+  "eligibility_protocol_version": "global_constrained_refolding_r2_protocol_v1.0.1",
+  "eligible_realization_count": 7173,
+  "executed_rnafold_count": 7173,
+  "external77_accessed": false,
+  "historical_e2_executed": false,
+  "ineligible_crossing_skip_count": 87,
+  "input_hashes": {
+    "clean_manifests_jsonl": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "normalized_legacy121_predictions_jsonl": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+    "r2_manifest_eligibility_csv": "b01487b0751cd0beba2220d58b69334a2e8b85264e90950e8a80320157300373",
+    "r2_matched_b1_view_csv": "d90641209a2f86e1c4f8aa0651eb2752ac7dff4378a263d8fc3f6a4bccd1cf34"
+  },
+  "learned_model_trained": false,
+  "output_validation_pass_count": 7153,
+  "pass_count": 7153,
+  "protocol_realization_count": 7260,
+  "protocol_version": "global_constrained_refolding_r2_protocol_v1.0.1",
+  "retry_policy": {
+    "adaptive_retry": false,
+    "retry_count": 0
+  },
+  "rnafold_config": {
+    "binary": "/usr/bin/RNAfold",
+    "circular": false,
+    "dangles": 2,
+    "expected_version": "RNAfold 2.4.17",
+    "gquad": false,
+    "mode": "linear MFE standard non-pseudoknot DP",
+    "noClosingGU": false,
+    "noGU": false,
+    "noLP": false,
+    "parameter_set": "ViennaRNA default",
+    "retry_count": 0,
+    "soft_constraints": false,
+    "temperature_celsius": 37.0,
+    "timeout_seconds": 30.0
+  },
+  "rnafold_version_audit": {
+    "command": [
+      "/usr/bin/RNAfold",
+      "--version"
+    ],
+    "return_code": 0,
+    "runtime_seconds": 0.00124373659491539,
+    "stderr": "",
+    "stdout": "RNAfold 2.4.17\n",
+    "version": "RNAfold 2.4.17"
+  },
+  "source_identity_used_for_folding": false,
+  "source_prediction_used_for_folding": false,
+  "status": "PARTIAL",
+  "status_counts": {
+    "CONSTRAINT_SATISFACTION_FAIL": 20,
+    "PASS": 7153,
+    "R2_INELIGIBLE_CROSSING_EVIDENCE": 87
+  },
+  "technical_failure_count": 20,
+  "unexpected_constraint_violation_count": 20
+}

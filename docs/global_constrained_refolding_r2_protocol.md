@@ -191,6 +191,37 @@ deletions, unchanged pairs, and any one-partner/validity failures. Direct,
 local, and non-evidenced scope assignment is based on the union of `G`, `S`,
 and `R`, with the same delivered evidence set used for B0, B1, and B2.
 
+### Pre-execution metric clarification (2026-08-31)
+
+This clarification was frozen before any formal R2 folding output or metric
+was generated. It does not change the eligible universe, folding command,
+constraint semantics, scope partition, or aggregation unit.
+
+The primary matched B1 condition is the channel-appropriate completed hard
+transformation: `PAIR_HARD_ENFORCE` for positive-pair evidence and
+`UNPAIRED_HARD_DELETE` for unpaired-nucleotide evidence. The historical
+`PAIR_PROTECT_ONLY` condition remains an immutable E1 contextual reference but
+is not substituted for B1 in the primary B0/B1/B2 table.
+
+For a full refold, beneficial and harmful modifications are defined only from
+the decomposition above:
+
+```text
+beneficial_changes      = removed_FP + new_TP
+harmful_changes         = lost_TP + new_FP
+modified_pair_events    = beneficial_changes + harmful_changes
+modification_precision  = beneficial_changes / modified_pair_events
+```
+
+The same definition is used after restricting all pair sets to a frozen
+DIRECT, LOCAL_CONFLICT, or NON_EVIDENCED scope. A zero denominator is always
+reported as NA, never as zero or one. The same uniform NA rule applies to
+`TP_preservation` when original TP is zero, `FP_removal` when original FP is
+zero, and evidence-efficiency ratios when delivered evidence count is zero.
+Event-pooled values are computed from pooled numerators and denominators.
+RNA-balanced values first pool eligible realization counts within RNA and then
+average the defined RNA-level ratios; denominator-zero RNA values remain NA.
+
 ## Go / No-Go relation
 
 R2 is not itself a learned-method success/fail gate. It supplies the mandatory

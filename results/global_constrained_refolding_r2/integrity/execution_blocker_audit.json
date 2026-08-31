@@ -1,0 +1,121 @@
+{
+  "affected_rna_count": 4,
+  "affected_rna_ids": [
+    "2ES5_23_hp_nmr_A",
+    "2MTJ_47_3wj_nmr_A",
+    "2N3Q_62_3wj_nmr_A",
+    "8JHP_27_hpbulge_nmr_A"
+  ],
+  "constraint_satisfaction_failure_count": 20,
+  "eligible_execution_count": 7173,
+  "external77_accessed": false,
+  "failure_classification": "SOLVER_HARD_CONSTRAINT_REPRESENTABILITY_MINIMUM_LOOP_SIZE",
+  "failure_count_by_channel": {
+    "POSITIVE_PAIR_EVIDENCE": 20
+  },
+  "failure_count_by_density": {
+    "10": 4,
+    "20": 4,
+    "5": 2,
+    "50": 10
+  },
+  "formal_metric_analysis_started": false,
+  "frozen_crossing_skip_count": 87,
+  "historical_rnafold_vs_r2_zero_identity_count": 121,
+  "historical_rnafold_vs_r2_zero_identity_rate": 1.0,
+  "historical_rnafold_vs_r2_zero_total": 121,
+  "learned_model_trained": false,
+  "offending_pairs": [
+    {
+      "affected_manifest_count": 6,
+      "affected_manifest_ids": [
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_05__seed_103__noise_00",
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_05__seed_109__noise_00",
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_10__seed_107__noise_00",
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_50__seed_101__noise_00",
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_50__seed_107__noise_00",
+        "simulated_evidence_v1__2ES5_23_hp_nmr_A__positive_pair_evidence__density_50__seed_113__noise_00"
+      ],
+      "enclosed_nucleotide_count": 2,
+      "pair_one_based": [
+        10,
+        13
+      ],
+      "pair_zero_based": [
+        9,
+        12
+      ],
+      "rna_id": "2ES5_23_hp_nmr_A"
+    },
+    {
+      "affected_manifest_count": 3,
+      "affected_manifest_ids": [
+        "simulated_evidence_v1__2MTJ_47_3wj_nmr_A__positive_pair_evidence__density_10__seed_107__noise_00",
+        "simulated_evidence_v1__2MTJ_47_3wj_nmr_A__positive_pair_evidence__density_20__seed_113__noise_00",
+        "simulated_evidence_v1__2MTJ_47_3wj_nmr_A__positive_pair_evidence__density_50__seed_113__noise_00"
+      ],
+      "enclosed_nucleotide_count": 2,
+      "pair_one_based": [
+        13,
+        16
+      ],
+      "pair_zero_based": [
+        12,
+        15
+      ],
+      "rna_id": "2MTJ_47_3wj_nmr_A"
+    },
+    {
+      "affected_manifest_count": 3,
+      "affected_manifest_ids": [
+        "simulated_evidence_v1__2N3Q_62_3wj_nmr_A__positive_pair_evidence__density_20__seed_107__noise_00",
+        "simulated_evidence_v1__2N3Q_62_3wj_nmr_A__positive_pair_evidence__density_50__seed_103__noise_00",
+        "simulated_evidence_v1__2N3Q_62_3wj_nmr_A__positive_pair_evidence__density_50__seed_113__noise_00"
+      ],
+      "enclosed_nucleotide_count": 2,
+      "pair_one_based": [
+        18,
+        21
+      ],
+      "pair_zero_based": [
+        17,
+        20
+      ],
+      "rna_id": "2N3Q_62_3wj_nmr_A"
+    },
+    {
+      "affected_manifest_count": 8,
+      "affected_manifest_ids": [
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_10__seed_101__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_10__seed_109__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_20__seed_101__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_20__seed_107__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_50__seed_101__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_50__seed_107__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_50__seed_109__noise_00",
+        "simulated_evidence_v1__8JHP_27_hpbulge_nmr_A__positive_pair_evidence__density_50__seed_113__noise_00"
+      ],
+      "enclosed_nucleotide_count": 2,
+      "pair_one_based": [
+        12,
+        15
+      ],
+      "pair_zero_based": [
+        11,
+        14
+      ],
+      "rna_id": "8JHP_27_hpbulge_nmr_A"
+    }
+  ],
+  "pass_count": 7153,
+  "protocol_realization_count": 7260,
+  "raw_execution_sha256": "902e237aa496ae9d76a9c4c5cf211fc50d1dcb0664825a511e8724845be17538",
+  "reason": "ViennaRNA 2.4.17 warns that each forced pair encloses only two nucleotides, violates the frozen minimum loop size of three nucleotides, and is omitted.",
+  "resolution_boundary": "Any resolution requires a prospective decision that changes eligibility, delivered-evidence semantics, or frozen ViennaRNA model settings; no such change is made here.",
+  "same_command_retry_can_resolve": false,
+  "status": "R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT",
+  "transient_process_failure": false,
+  "zero_density_realization_count": 1210,
+  "zero_density_reproducibility_pass": true,
+  "zero_density_rna_count": 121
+}
