@@ -50,11 +50,11 @@ Tasks:
 - [x] Create `docs/project_reboot_v2.md`.
 - [x] Replace project scientific question in `CONTEXT.md`.
 - [x] Replace `plan/research_plan.md`.
-- [ ] Update `STATUS.md`.
-- [ ] Update `tasks/TODO.md`.
-- [ ] Update `docs/decisions.md` and claim boundary.
-- [ ] Update `AGENTS.md` execution rules.
-- [ ] Mark historical E2 as superseded-before-training everywhere it appears as the next action.
+- [x] Update `STATUS.md`.
+- [x] Update `tasks/TODO.md`.
+- [x] Update `docs/decisions.md` and claim boundary.
+- [x] Update `AGENTS.md` execution rules.
+- [x] Mark historical E2 as superseded-before-training everywhere it appears as the next action.
 
 Completion gate:
 
@@ -64,7 +64,7 @@ No authoritative file should instruct Codex to train historical E2.
 
 ## R2 — Global Evidence-Constrained Refolding Baseline
 
-**Status: PARTIAL / BLOCKED — MINIMUM-LOOP CONSTRAINT**
+**Status: COMPLETE — PROTOCOL v1.0.2**
 
 Goal:
 
@@ -96,11 +96,11 @@ Completion gate:
 
 R2 protocol must be frozen before execution. Results determine whether post-hoc preservation has enough headroom to justify R4.
 
-Current execution checkpoint: all 7,173 frozen eligible rows were invoked;
-7,153 passed and 20 failed constraint satisfaction because RNAfold omitted
-forced pairs that violate its minimum-loop setting. The 87 crossing manifests
-were skipped exactly as frozen. No formal metric analysis or Gate A decision
-is permitted before a prospective blocker resolution.
+Completion checkpoint: protocol v1.0.2 prospectively refroze 7,153 eligible
+rows (3,523 pair; 3,630 unpaired). All were validated at 100% constraint
+satisfaction, formal matched B0/B1/B2 analysis completed, and the 107
+capability exclusions were kept outside the metric universe. Gate A remains
+undecided because R4 does not yet exist.
 
 ---
 
@@ -281,6 +281,7 @@ R1 documentation freeze
 -> R2 protocol freeze
 -> R2 minimum-loop blocker resolution
 -> complete R2 global constrained-refolding baseline
+-> R2 interpretation and R3 protocol freeze
 -> R3 reliability baselines
 -> R4 learned clean evidence reconciliation
 ```

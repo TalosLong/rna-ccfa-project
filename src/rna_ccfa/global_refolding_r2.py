@@ -21,7 +21,8 @@ from .structure import Pair, parse_structure, validate_pairs
 
 PAIR_CHANNEL = "POSITIVE_PAIR_EVIDENCE"
 UNPAIRED_CHANNEL = "UNPAIRED_NUCLEOTIDE_EVIDENCE"
-R2_PROTOCOL_VERSION = "global_constrained_refolding_r2_protocol_v1.0.1"
+R2_PROTOCOL_VERSION = "global_constrained_refolding_r2_protocol_v1.0.2"
+MINIMUM_LOOP_ENCLOSED_NUCLEOTIDES = 3
 ALLOWED_PAIR_TYPES = frozenset({"AU", "UA", "GC", "CG", "GU", "UG"})
 
 
@@ -93,6 +94,37 @@ def contains_crossing_pairs(pairs: Iterable[Sequence[int]], sequence_length: int
     )
 
 
+def minimum_loop_compatible(pair: Sequence[int]) -> bool:
+    """Return whether one canonical pair meets frozen ViennaRNA TURN semantics."""
+
+    if len(pair) != 2:
+        raise ValueError("pair must contain exactly two coordinates")
+    i, j = pair
+    if isinstance(i, bool) or isinstance(j, bool) or not isinstance(i, int) or not isinstance(j, int):
+        raise ValueError("pair coordinates must be integers")
+    if i < 0 or i >= j:
+        raise ValueError("pair must be canonical with 0 <= i < j")
+    return j - i - 1 >= MINIMUM_LOOP_ENCLOSED_NUCLEOTIDES
+
+
+def pair_capability_flags(
+    pairs: Iterable[Sequence[int]], sequence_length: int
+) -> dict[str, bool | int | None]:
+    """Classify crossing and minimum-loop solver capability independently."""
+
+    canonical = validate_pairs(pairs, sequence_length=sequence_length)
+    separations = [j - i for i, j in canonical]
+    return {
+        "crossing_flag": any(
+            pairs_cross(pair, other)
+            for index, pair in enumerate(canonical)
+            for other in canonical[index + 1 :]
+        ),
+        "minimum_loop_flag": any(not minimum_loop_compatible(pair) for pair in canonical),
+        "minimum_pair_separation": min(separations) if separations else None,
+    }
+
+
 def build_constraint_string(
     sequence_length: int,
     pair_items: Iterable[Sequence[int]] = (),
@@ -131,6 +163,13 @@ def build_constraint_string(
         raise ConstraintBuildError(
             "UNSUPPORTED_CROSSING_CONSTRAINT",
             "crossing forced pairs are unsupported by standard DBN constraints",
+        )
+    short_pairs = [pair for pair in pairs if not minimum_loop_compatible(pair)]
+    if short_pairs:
+        raise ConstraintBuildError(
+            "UNSUPPORTED_MINIMUM_LOOP_CONSTRAINT",
+            "forced pairs violate frozen ViennaRNA minimum loop size: "
+            f"{short_pairs}",
         )
 
     symbols = ["."] * sequence_length

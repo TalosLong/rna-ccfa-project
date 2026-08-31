@@ -1,0 +1,12 @@
+channel,density_percent,eligible_manifest_count,eligible_rna_count,ineligible_manifest_count,rna_count,rna_id,total_manifest_count
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,1A60_44_pseudknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,1E95_36_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,1RNK_36_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,2K95_48_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,20,0,0,5,1,2M8K_48_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,2M8K_48_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,2TPK_35_pseudoknot_nmr_A,5
+POSITIVE_PAIR_EVIDENCE,20,0,0,5,1,6UES_119_4wjpseudoknot_cryoEM_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,6UES_119_4wjpseudoknot_cryoEM_A,5
+POSITIVE_PAIR_EVIDENCE,20,0,0,5,1,9G7C_224_4wj_cryoEM_A,5
+POSITIVE_PAIR_EVIDENCE,50,0,0,5,1,9G7C_224_4wj_cryoEM_A,5

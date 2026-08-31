@@ -184,7 +184,7 @@ y-axis: FP removal
 ```text
 R0 Literature & novelty freeze        COMPLETE
 R1 Task/protocol redefinition         COMPLETE
-R2 Global constrained-refolding       PARTIAL / BLOCKED
+R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite
 R4 Clean learned evidence reconciliation
 R5 Noise robustness
@@ -206,15 +206,16 @@ Optional 2D -> 3D validation
 
 **Do not train historical Stage E2.**
 
-R2 fixed-command execution 已处理全部 7,260 protocol rows：7,153 个
-eligible realization 通过，87 个 crossing manifest 按冻结策略 skip，20 个
-eligible pair manifest 因 ViennaRNA minimum-loop constraint 被忽略而失败。
-正式 B0/B1/B2 analysis 尚未开始。
+R2 v1.0.2 已前瞻性冻结 crossing 与 minimum-loop capability eligibility。
+amended universe 为 7,153 个 realization（pair 3,523；unpaired 3,630），
+全部通过 provenance、parser、validity 与 constraint 检查。正式 B0/B1/B2
+analysis 已完成；B2 overall Macro/Micro F1 为 0.924648/0.904747，B1 为
+0.889352/0.872422，B0 为 0.878635/0.861068。
 
 下一项任务是：
 
-> **在不查看 partial performance metrics 的前提下，前瞻性解决 R2
-> minimum-loop representability blocker，再完成完整 matched baseline。**
+> **解释已完成的 R2 comparator，并前瞻性冻结 R3 reliability-baseline
+> protocol；不要自动启动 R3 implementation。**
 
 R2、R3 冻结并完成后，才允许冻结新的 R4 learned protocol。
 

@@ -422,12 +422,11 @@ must not be retuned after the fact or relabeled as successes.
 
 **Do not train the historical Stage E2 protocol.**
 
-The next experiment is R2:
+R2 global evidence-constrained refolding is complete under protocol v1.0.2.
+The next authorized planning action is:
 
-> Freeze and implement a global evidence-constrained refolding baseline using
-> the same clean evidence semantics, then compare its full-structure,
-> preservation, direct/local/non-evidenced, and evidence-efficiency behavior
-> against Original and the completed local hard baseline.
+> Interpret the frozen R2 comparator and prospectively freeze the R3
+> reliability-baseline protocol. Do not start R3 implementation automatically.
 
-Only after R2 and R3 are complete should a new learned R4 protocol be frozen and
-trained.
+Only after R3 is complete should a new learned R4 protocol be frozen and
+trained; R2 alone does not decide Gate A.

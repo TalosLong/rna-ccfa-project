@@ -19,7 +19,7 @@ from rna_ccfa.global_refolding_r2 import (
     ViennaRNAConfig,
     build_constraint_string,
     canonical_sha256,
-    contains_crossing_pairs,
+    pair_capability_flags,
     parse_and_validate_output,
     query_rnafold_version,
     run_constrained_rnafold,
@@ -37,20 +37,20 @@ ROOT = Path(__file__).resolve().parents[1]
 NORMALIZED = ROOT / "normalized/legacy121_v1/predictions.jsonl"
 MANIFESTS = ROOT / "results/evidence_guidance/e0/clean_manifests.jsonl"
 INTEGRITY = ROOT / "results/global_constrained_refolding_r2/integrity"
-ELIGIBILITY = INTEGRITY / "r2_manifest_eligibility.csv"
-ELIGIBILITY_SUMMARY = INTEGRITY / "r2_eligibility_summary.json"
-MATCHED_B1 = INTEGRITY / "r2_matched_b1_view.csv"
+ELIGIBILITY = INTEGRITY / "r2_manifest_eligibility_v1_0_2.csv"
+ELIGIBILITY_SUMMARY = INTEGRITY / "r2_eligibility_summary_v1_0_2.json"
+MATCHED_B1 = INTEGRITY / "r2_matched_b1_view_v1_0_2.csv"
 DEFAULT_OUT = ROOT / "results/global_constrained_refolding_r2"
 
 EXPECTED_MANIFEST_SHA256 = "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca"
-EXPECTED_ELIGIBILITY_SHA256 = "b01487b0751cd0beba2220d58b69334a2e8b85264e90950e8a80320157300373"
-EXPECTED_MATCHED_B1_SHA256 = "d90641209a2f86e1c4f8aa0651eb2752ac7dff4378a263d8fc3f6a4bccd1cf34"
+EXPECTED_ELIGIBILITY_SHA256 = "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3"
+EXPECTED_MATCHED_B1_SHA256 = "f616ab7591d6615de1fd815a9499f3c8c53616c76d5a47e79872d170eaaa6a46"
 EXPECTED_COUNTS = {
     "manifest_count": 7260,
-    "pair_eligible": 3543,
-    "pair_ineligible": 87,
+    "pair_eligible": 3523,
+    "pair_ineligible": 107,
     "unpaired_eligible": 3630,
-    "eligible_total": 7173,
+    "eligible_total": 7153,
 }
 SOURCES = ("rnafold", "petfold", "trrosettarna2_native_ss")
 
@@ -126,10 +126,13 @@ def load_eligibility() -> tuple[dict[str, dict[str, str]], dict[str, Any]]:
         "manifest_source_sha256": EXPECTED_MANIFEST_SHA256,
         "clean_manifest_count": 7260,
         "pair_manifest_count": 3630,
-        "pair_eligible_count": 3543,
-        "pair_ineligible_crossing_count": 87,
+        "pair_eligible_count": 3523,
+        "pair_capability_ineligible_unique_count": 107,
+        "pair_crossing_flag_count": 87,
+        "pair_minimum_loop_flag_count": 20,
+        "pair_crossing_minimum_loop_overlap_count": 0,
         "unpaired_manifest_count": 3630,
-        "matched_b1_view_rows": 53667,
+        "unpaired_eligible_count": 3630,
     }
     for key, value in expected_summary.items():
         if summary.get(key) != value:
@@ -246,13 +249,33 @@ def execute_one(
             "output_valid": False,
             "constraint_satisfied": False,
         }
-    if eligibility["eligibility_status"] == "R2_INELIGIBLE_CROSSING_EVIDENCE":
-        crossing = contains_crossing_pairs(pairs, len(sequence))
-        if manifest["evidence_channel"] != PAIR_CHANNEL or not crossing:
-            raise AssertionError(f"frozen ineligible row is not crossing pair evidence: {manifest['manifest_id']}")
+    capability_ineligible_statuses = {
+        "R2_INELIGIBLE_CROSSING_EVIDENCE",
+        "R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE",
+        "R2_INELIGIBLE_MULTIPLE_CAPABILITIES",
+    }
+    if eligibility["eligibility_status"] in capability_ineligible_statuses:
+        if manifest["evidence_channel"] != PAIR_CHANNEL:
+            raise AssertionError(
+                f"frozen capability-ineligible row is not pair evidence: {manifest['manifest_id']}"
+            )
+        flags = pair_capability_flags(pairs, len(sequence))
+        observed_status = (
+            "R2_INELIGIBLE_MULTIPLE_CAPABILITIES"
+            if flags["crossing_flag"] and flags["minimum_loop_flag"]
+            else "R2_INELIGIBLE_CROSSING_EVIDENCE"
+            if flags["crossing_flag"]
+            else "R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE"
+            if flags["minimum_loop_flag"]
+            else "R2_ELIGIBLE"
+        )
+        if observed_status != eligibility["eligibility_status"]:
+            raise AssertionError(
+                f"coordinate capability status mismatch: {manifest['manifest_id']}"
+            )
         return {
             **base,
-            "status": "R2_INELIGIBLE_CROSSING_EVIDENCE",
+            "status": eligibility["eligibility_status"],
             "status_detail": eligibility["reason"],
             "command": [],
             "stdin": "",
@@ -373,10 +396,15 @@ def main() -> None:
 
     status_counts = Counter(row["status"] for row in rows)
     eligible_rows = [row for row in rows if row["eligibility_status"] == "R2_ELIGIBLE"]
-    skipped_rows = [row for row in rows if row["status"] == "R2_INELIGIBLE_CROSSING_EVIDENCE"]
+    capability_ineligible_statuses = {
+        "R2_INELIGIBLE_CROSSING_EVIDENCE",
+        "R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE",
+        "R2_INELIGIBLE_MULTIPLE_CAPABILITIES",
+    }
+    skipped_rows = [row for row in rows if row["status"] in capability_ineligible_statuses]
     failed_rows = [
         row for row in rows
-        if row["status"] not in ("PASS", "R2_INELIGIBLE_CROSSING_EVIDENCE")
+        if row["status"] != "PASS" and row["status"] not in capability_ineligible_statuses
     ]
     parsed_rows = [
         {
@@ -440,7 +468,16 @@ def main() -> None:
         "eligible_realization_count": len(eligible_rows),
         "executed_rnafold_count": sum(int(row["attempt_count"] > 0) for row in rows),
         "pass_count": status_counts["PASS"],
-        "ineligible_crossing_skip_count": len(skipped_rows),
+        "capability_ineligible_skip_count": len(skipped_rows),
+        "ineligible_crossing_skip_count": status_counts[
+            "R2_INELIGIBLE_CROSSING_EVIDENCE"
+        ],
+        "ineligible_minimum_loop_skip_count": status_counts[
+            "R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE"
+        ],
+        "ineligible_multiple_capabilities_skip_count": status_counts[
+            "R2_INELIGIBLE_MULTIPLE_CAPABILITIES"
+        ],
         "technical_failure_count": len(failed_rows),
         "status_counts": dict(sorted(status_counts.items())),
         "output_validation_pass_count": sum(row["output_valid"] is True for row in eligible_rows),
@@ -456,7 +493,13 @@ def main() -> None:
     print(json.dumps(integrity, indent=2, sort_keys=True))
     if failed_rows:
         raise SystemExit(2)
-    if status_counts != Counter({"PASS": 7173, "R2_INELIGIBLE_CROSSING_EVIDENCE": 87}):
+    if status_counts != Counter(
+        {
+            "PASS": 7153,
+            "R2_INELIGIBLE_CROSSING_EVIDENCE": 87,
+            "R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE": 20,
+        }
+    ):
         raise AssertionError(f"unexpected final status counts: {status_counts}")
 
 

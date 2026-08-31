@@ -26,7 +26,7 @@ Last updated: 2026-08-31
 
 **R1 gate: PASS.**
 
-## R2 — Global Evidence-Constrained Refolding Baseline — PARTIAL / BLOCKED
+## R2 — Global Evidence-Constrained Refolding Baseline — COMPLETE
 
 ### Protocol freeze
 
@@ -37,6 +37,12 @@ Last updated: 2026-08-31
 - [x] Freeze pair and unpaired channels as separate primary R2 channels.
 - [x] Audit reuse of frozen Legacy121 clean manifests; 87/3,630 pair manifests contain crossing evidence unsupported by standard non-PK ViennaRNA.
 - [x] Freeze prospective v1.0.1 crossing policy: exclude whole crossing manifests without modifying delivered evidence.
+- [x] Freeze prospective v1.0.2 minimum-loop policy before formal metrics:
+  exclude whole pair manifests containing any `j-i<=3` exact pair without
+  changing ViennaRNA or evidence.
+- [x] Rebuild the coordinate-only eligibility audit: 3,523 pair eligible, 87
+  crossing-ineligible, 20 minimum-loop-ineligible, no overlap; unpaired
+  3,630/3,630 eligible.
 - [x] Freeze matched B0/B1/B2 manifest universe and generate the manifest-ID-filtered B1 view.
 - [x] Freeze coverage reporting and RNA-balanced macro / event-pooled micro aggregation semantics.
 - [x] Freeze output parser, validity checks, and provenance fields in the blocked protocol/implementation plan.
@@ -57,18 +63,23 @@ Last updated: 2026-08-31
 - [x] Record 7,153 PASS realizations and 20 fail-closed minimum-loop constraint-satisfaction failures without deleting or substituting rows.
 - [x] Verify all 1,210 zero-density realizations are identical within RNA across both channels and five seeds.
 - [x] Verify historical RNAfold vs R2 0% exact pair-set identity is 121/121 as provenance context only.
-- [ ] Prospectively resolve the minimum-loop representability blocker; do not change eligibility, evidence, or ViennaRNA parameters under the current protocol.
-- [ ] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on Legacy121 only (blocked; formal metrics not started).
-- [ ] Report exact Precision/Recall/F1.
-- [ ] Report TP preservation.
-- [ ] Report FP removal.
-- [ ] Report modification precision.
-- [ ] Map/reuse DIRECT / LOCAL_CONFLICT / NON_EVIDENCED scopes where valid.
-- [ ] Report non-evidenced modification precision, FP removal and TP loss.
-- [ ] Report evidence efficiency (`FP_removed / evidence_items` and optional `Delta_F1 / evidence_items`).
-- [ ] Report source-wise and density-wise summaries.
-- [ ] Verify accounting identities and 100% eligible constraint compliance after an authorized blocker resolution.
-- [x] Write `docs/global_constrained_refolding_r2_results.md` as a partial-execution blocker report; no scientific metric interpretation included.
+- [x] Prospectively resolve the minimum-loop representability blocker through
+  v1.0.2 capability eligibility, without changing evidence or ViennaRNA.
+- [x] Validate and reuse all 7,153 amended eligible B2 outputs; no new
+  RNAfold call required and eligible constraint compliance is 100%.
+- [x] Evaluate B0 Original vs B1 local hard evidence vs B2 global constrained refolding on the complete amended Legacy121 universe.
+- [x] Report exact Precision/Recall/F1.
+- [x] Report TP preservation.
+- [x] Report FP removal.
+- [x] Report modification precision.
+- [x] Map/reuse DIRECT / LOCAL_CONFLICT / NON_EVIDENCED scopes where valid.
+- [x] Report non-evidenced modification precision, FP removal and TP loss.
+- [x] Report evidence efficiency (`FP_removed / evidence_items` and `Delta_F1 / evidence_items`).
+- [x] Report source-wise and density-wise summaries.
+- [x] Verify accounting identities, scope partitions, 0% reproducibility, and
+  100% amended eligible constraint compliance.
+- [x] Expand `docs/global_constrained_refolding_r2_results.md` into the formal
+  R2 result while retaining the historical blocker section.
 
 ### Gate A
 
@@ -184,6 +195,7 @@ Last updated: 2026-08-31
 
 ## Immediate Next Task
 
-> **Implement and execute the frozen R2 global hard-constraint refolding baseline on the deterministic R2_ELIGIBLE matched universe.**
+> **Interpret the completed R2 comparator and prospectively freeze the R3
+> reliability-baseline protocol. Do not start R3 implementation automatically.**
 
 No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.

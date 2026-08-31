@@ -1,0 +1,16 @@
+{
+  "b1_rerun": false,
+  "b1_retuned": false,
+  "eligibility_csv_sha256": "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3",
+  "eligible_manifest_id_count": 7153,
+  "external77_accessed": false,
+  "matched_b0_rows": 21459,
+  "matched_b0_view_sha256": "ed72e474af212bd3805b584e519f8d5cbb251ddc42a52e6b5198260fa9b9a103",
+  "matched_b1_all_condition_rows": 53487,
+  "matched_b1_view_sha256": "f616ab7591d6615de1fd815a9499f3c8c53616c76d5a47e79872d170eaaa6a46",
+  "matched_primary_b1_rows": 21459,
+  "performance_used_for_eligibility": false,
+  "protocol_version": "global_constrained_refolding_r2_protocol_v1.0.2",
+  "selection_rule": "manifest-ID filter using coordinate-only v1.0.2 R2_ELIGIBLE status",
+  "source_b1_results_sha256": "02b3e643bfea267c18a80b85f154aab8dd3957036f71869888f398a2fea915e5"
+}

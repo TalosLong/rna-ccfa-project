@@ -1,0 +1,24 @@
+{
+  "checkpoint_status": "R2_PROTOCOL_AMENDED_V1_0_2__READY_TO_RESUME_R2_EXECUTION",
+  "crossing_minimum_loop_overlap_count": 0,
+  "eligibility_csv_sha256": "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3",
+  "eligibility_summary_sha256": "561440f569deb5c4b3f396b8bb5a87f8eb1c65523435b54e276d6cb80e43495a",
+  "external77_accessed": false,
+  "formal_performance_metric_computed": false,
+  "matched_b0_view_sha256": "ed72e474af212bd3805b584e519f8d5cbb251ddc42a52e6b5198260fa9b9a103",
+  "matched_b1_rerun": false,
+  "matched_b1_view_sha256": "f616ab7591d6615de1fd815a9499f3c8c53616c76d5a47e79872d170eaaa6a46",
+  "matched_universe_summary_sha256": "65066bded85453c30b9e81eee593d9a6c9d25fd1c0e0758b5cf434aabd591849",
+  "new_representability_blocker_detected": false,
+  "pair_crossing_flag_count": 87,
+  "pair_eligible_count": 3523,
+  "pair_manifest_count": 3630,
+  "pair_minimum_loop_flag_count": 20,
+  "protocol_version": "global_constrained_refolding_r2_protocol_v1.0.2",
+  "targeted_tests": {
+    "passed": 23,
+    "status": "PASS"
+  },
+  "unpaired_eligible_count": 3630,
+  "zero_coverage_rna_density_count": 11
+}

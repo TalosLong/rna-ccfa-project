@@ -1,0 +1,28 @@
+{
+  "b2_structures_v1_0_2_sha256": "2659c84816014e4cf8d936b8b9d6696bb4fb7d42aaaffb82bcbd5cea08821f20",
+  "capability_excluded_count": 107,
+  "capability_excluded_entered_metric_universe_count": 0,
+  "capability_excluded_v1_0_2_sha256": "03aef7bab0ba3fb5a169c5ec26f1368d60845c9eb30340a0b4326cf00a9e62d0",
+  "command_config_hashes": [
+    "2c51c9f1753f89e5bfc8d3600be335924c0fa82a191dc0d685d068c37b4a7ff1",
+    "f27e42a106dc806a6bfcd37d4a61d09ef23a832338d09ba41394e196f83bf672"
+  ],
+  "eligible_constraint_satisfaction_count": 7153,
+  "eligible_constraint_satisfaction_rate": 1.0,
+  "eligible_validation_failure_count": 0,
+  "eligible_validation_failures": [],
+  "external77_accessed": false,
+  "formal_summarization_authorized": true,
+  "historical_crossing_skip_rows_preserved": 87,
+  "historical_minimum_loop_failure_rows_preserved": 20,
+  "historical_raw_execution_sha256": "902e237aa496ae9d76a9c4c5cf211fc50d1dcb0664825a511e8724845be17538",
+  "learned_model_trained": false,
+  "missing_eligible_output_count": 0,
+  "new_rnafold_call_count": 0,
+  "protocol_version": "global_constrained_refolding_r2_protocol_v1.0.2",
+  "reused_historical_pass_output_count": 7153,
+  "status": "PASS",
+  "unexpected_validated_output_count": 0,
+  "v1_0_2_eligible_count": 7153,
+  "validated_reused_pass_count": 7153
+}

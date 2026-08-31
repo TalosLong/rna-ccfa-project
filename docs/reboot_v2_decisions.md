@@ -222,7 +222,7 @@ a separate prospective decision resolves the crossing-evidence semantics.
 
 ---
 
-## Execution finding — R2 minimum-loop constraint blocker remains unresolved
+## Historical execution finding — R2 minimum-loop constraint blocker
 
 **Confirmed observation / no resolution decision selected (2026-08-31)**
 
@@ -240,8 +240,55 @@ universe; deleting or rewriting their evidence would change evidence semantics;
 and changing the ViennaRNA minimum-loop setting would change the frozen folding
 model. None of those choices is made retrospectively here.
 
-**Consequence:** current state is
-`R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT`. Formal matched metrics,
-edit/scope decompositions, interpretation, Gate A, and R3/R4 progression remain
-stopped pending a separate prospective resolution. The partial execution and
-blocker artifacts are retained rather than deleting or imputing failed rows.
+**Historical consequence:** the state became
+`R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT`. Formal matched metrics
+remained stopped until the prospective v1.0.2 decision below. The partial
+execution and blocker artifacts remain retained rather than deleted or
+rewritten.
+
+---
+
+## Decision — Prospective R2 minimum-loop eligibility amendment v1.0.2
+
+**Confirmed / 已确定 (2026-08-31, before formal R2 metrics)**
+
+R2 continues to mean standard ViennaRNA 2.4.17 global hard-constrained MFE
+refolding with `/usr/bin/RNAfold --noPS -C --enforceConstraint`. A complete
+positive-pair manifest is solver-capability eligible only when its delivered
+pairs are noncrossing and every exact pair satisfies `j-i>3`. Crossing and
+minimum-loop flags are computed independently from coordinates. Whole
+ineligible manifests are excluded without deleting, weakening, replacing, or
+resampling evidence and without changing ViennaRNA settings.
+
+The deterministic audit found 3,523 eligible pair manifests, 87
+crossing-ineligible manifests, and 20 minimum-loop-ineligible manifests, with
+no overlap; all 3,630 unpaired manifests remain eligible. The matched B0/B1/B2
+universe was refrozen by manifest ID before formal summarization.
+
+**Consequence:** `R2_PROTOCOL_AMENDED_V1_0_2 — READY_TO_RESUME_R2_EXECUTION`.
+Previously generated outputs may be reused only after complete row-level
+provenance and constraint validation.
+
+---
+
+## Result — R2 global constrained-refolding baseline complete
+
+**Confirmed / 已确定 (2026-08-31)**
+
+All 7,153 v1.0.2-eligible historical PASS outputs satisfied manifest,
+sequence/evidence, constraint, command/config, parser, output-hash, and hard-
+constraint checks. No new RNAfold calls were required; all 107 capability-
+ineligible manifests were excluded from the metric universe and their
+historical provenance was preserved.
+
+On the complete matched universe, overall Macro/Micro F1 was
+0.878635/0.861068 for B0, 0.889352/0.872422 for B1, and
+0.924648/0.904747 for B2. B2 had Macro/Micro TP preservation
+0.975358/0.981767, FP removal 0.775728/0.645883, and modification precision
+0.824449/0.736240. Non-evidenced propagation was net beneficial but included
+material harm.
+
+**Consequence:** state is `R2_GLOBAL_CONSTRAINED_REFOLDING_COMPLETE` and next
+state is `READY_FOR_R2_INTERPRETATION_AND_R3_PROTOCOL`. B2 is frozen as the
+future Gate A comparator. Gate A is not decided because R4 does not yet exist,
+and R3 is not started automatically.

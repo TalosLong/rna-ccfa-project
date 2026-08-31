@@ -240,14 +240,17 @@ Freeze project documents and supersede historical E2 training before any learned
 
 ### R2 — Global constrained-refolding baseline
 
-**Status: PARTIAL / BLOCKED.**
+**Status: COMPLETE.**
 
 Freeze and implement a clean hard-constraint global-refolding protocol on Legacy121 using the same clean evidence manifestations as B1 wherever semantics match.
 
-The fixed execution produced 7,153 constraint-compliant eligible folds, 87
-frozen crossing skips, and 20 eligible failures where ViennaRNA omitted a
-forced pair that violates its minimum-loop setting. Formal metrics remain
-stopped pending a prospective resolution.
+Protocol v1.0.2 prospectively froze crossing and minimum-loop capability
+eligibility before formal metrics. The amended universe contains 7,153
+eligible folds (3,523 pair; 3,630 unpaired), all validated at 100% constraint
+satisfaction. Formal matched B0/B1/B2 metrics, full-refold edits, scope
+decomposition, density/source summaries, and evidence efficiency are complete.
+B2 overall Macro/Micro F1 was 0.924648/0.904747 versus 0.889352/0.872422 for
+B1 and 0.878635/0.861068 for B0.
 
 Required outputs:
 
@@ -328,7 +331,7 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 Next task:
 
-> **Prospectively resolve the R2 minimum-loop constraint blocker without using
-> partial performance results, then rerun the complete frozen comparison.**
+> **Interpret the completed R2 comparator and prospectively freeze the R3
+> reliability-baseline protocol. Do not begin R3 implementation automatically.**
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

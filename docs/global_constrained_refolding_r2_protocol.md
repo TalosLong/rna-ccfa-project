@@ -2,11 +2,14 @@
 
 ## Status
 
-**`R2_PROTOCOL_AMENDED` — `READY_FOR_R2_EXECUTION`**
+**`R2_PROTOCOL_AMENDED_V1_0_2` — `R2_EXECUTION_COMPLETE`**
 
-Freeze checkpoint: **FROZEN BEFORE R2 EXECUTION**. Prospective amendment
-v1.0.1 is frozen in `docs/global_constrained_refolding_r2_crossing_policy.md`
-and governs the eligibility universe below.
+Protocol v1.0 was frozen before initial execution; v1.0.1 was frozen before
+formal suite execution; v1.0.2 was frozen after the fail-closed capability
+finding but before any formal performance metric. Amendment v1.0.1 is frozen
+in `docs/global_constrained_refolding_r2_crossing_policy.md` and v1.0.2 in
+`docs/global_constrained_refolding_r2_minimum_loop_policy.md`. Together they
+govern the eligibility universe below.
 
 Protocol v1.0 originally froze before execution. The crossing-evidence
 capability blocker was discovered before formal execution and is resolved
@@ -14,6 +17,11 @@ prospectively by excluding an entire crossing manifest from B2, without
 modifying delivered evidence. Formal R2 execution is authorized only on the
 matched `R2_ELIGIBLE` universe; historical full-universe E1/B1 results remain
 unchanged.
+
+Protocol history is preserved: v1.0 is the initial protocol, v1.0.1 is the
+crossing-evidence representability amendment, and v1.0.2 is the minimum-loop
+representability amendment. v1.0.2 was frozen before any formal R2 performance
+metric was computed.
 
 ## Scientific question
 
@@ -142,6 +150,23 @@ no item is dropped. Primary B0/B1/B2 comparisons use identical eligible
 manifest IDs, with B1 filtered by ID only. RNA-balanced macro aggregation and
 zero-coverage handling are frozen in the amendment document.
 
+## Minimum-loop capability amendment v1.0.2
+
+Under the unchanged ViennaRNA 2.4.17 model, a forced exact pair `(i,j)` is
+representable only when at least three nucleotides occur inside it:
+`j-i-1>=3`, equivalently `j-i>3`. A complete positive-pair manifest is
+eligible only when it is both noncrossing and every delivered pair satisfies
+that minimum-loop condition. Crossing and minimum-loop capability flags are
+stored independently; a manifest with both receives
+`R2_INELIGIBLE_MULTIPLE_CAPABILITIES`. A minimum-loop-only manifest receives
+`R2_INELIGIBLE_MINIMUM_LOOP_EVIDENCE`.
+
+This is a whole-manifest solver-capability exclusion. No offending item is
+deleted or weakened, no evidence is replaced or resampled, and no ViennaRNA
+parameter is changed. The unpaired channel remains governed by its original
+hard-unpaired semantics. Complete details are frozen in
+`docs/global_constrained_refolding_r2_minimum_loop_policy.md`.
+
 ## Folding output and validation contract
 
 For each supported future RNA/evidence realization, retain at least:
@@ -230,6 +255,8 @@ TP-preservation/FP-removal risk–utility comparison, record Gate A failure and
 stop the post-hoc mainline. If B2 leaves headroom, R3 may freeze the simple
 reliability baselines; only then may a new R4 protocol be designed.
 
-R2 execution is authorized on `R2_ELIGIBLE` manifests after the v1.0.1 audit
-artifacts and tests pass. No pseudoknot-capable solver or crossing-evidence
-rewrite is authorized.
+R2 execution and formal summarization are authorized only on v1.0.2
+`R2_ELIGIBLE` manifests after the coordinate-only capability audit, matched
+views, tests, and 100% eligible-output reuse/completion gate pass. No
+pseudoknot-capable solver, evidence rewrite, or ViennaRNA model change is
+authorized.

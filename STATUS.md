@@ -4,13 +4,23 @@ Last updated: 2026-08-31
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT**
+**PROJECT REBOOT v2 — R2_GLOBAL_CONSTRAINED_REFOLDING_COMPLETE**
+
+**Next state: `READY_FOR_R2_INTERPRETATION_AND_R3_PROTOCOL`**
 
 Current working direction:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
-R0 literature/novelty freeze is complete. R1 documentation/task redefinition is complete. R2 environment/interface audit, crossing-policy amendment, coverage audit, matched-universe freeze, and aggregation freeze are complete. The fixed R2 command handled all 7,260 protocol rows: 7,153 eligible folds passed, 87 crossing manifests were skipped exactly as frozen, and 20 additional eligible pair-channel manifests failed hard-constraint satisfaction because ViennaRNA omitted forced pairs that violate its frozen minimum loop size. Formal B0/B1/B2 metric analysis has not started.
+R0 literature/novelty freeze and R1 task redefinition are complete. R2 protocol
+v1.0.2 prospectively freezes both crossing and minimum-loop solver-capability
+eligibility. The amended universe contains 7,153 eligible B2 realizations:
+3,523/3,630 pair and 3,630/3,630 unpaired. All 7,153 existing fixed-command
+outputs passed row-level provenance, parsing, validity, and hard-constraint
+checks; no new RNAfold calls were required. Formal matched B0/B1/B2
+summarization is complete. Overall Macro/Micro F1 is 0.878635/0.861068 for B0,
+0.889352/0.872422 for B1, and 0.924648/0.904747 for B2. Gate A remains
+undecided because R4 does not yet exist.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -157,7 +167,7 @@ Exact canonical-pair equality remains primary. Final paper-level robustness may 
 ```text
 R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
-R2 Global constrained-refolding baseline    PROTOCOL_AMENDED / READY_FOR_R2_EXECUTION
+R2 Global constrained-refolding baseline    COMPLETE
 R3 Reliability baseline suite
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
@@ -186,51 +196,28 @@ If 5-10% controlled evidence noise causes negative structure utility or unsafe T
 
 Open external77 once. If the development effect does not preserve direction, no cross-dataset generalization claim and no external77 rescue tuning.
 
-## Current Task — R2 Execution Blocker
+## Completed Task — R2 Global Constrained Refolding
 
-Before any full R2 run:
-
-1. audit installed ViennaRNA/RNAfold version and hard-constraint interface;
-2. define `POSITIVE_PAIR_EVIDENCE` -> hard pair constraint mapping;
-3. define `UNPAIRED_NUCLEOTIDE_EVIDENCE` -> hard unpaired constraint mapping;
-4. define unsatisfiable/incompatible constraint behavior;
-5. freeze whether pair and unpaired channels remain separate;
-6. reuse the clean Legacy121 evidence manifests without external77 access;
-7. freeze parser/validation/provenance requirements;
-8. create `docs/global_constrained_refolding_r2_protocol.md` before full evaluation.
-
-### R2 execution and blocker result
-
-- `/usr/bin/RNAfold`, version 2.4.17, is the frozen candidate executable;
-  Python `RNA` bindings are absent in all three probed environments.
-- `()` with `--enforceConstraint` expresses a specific forced partner, and
-  `x` expresses forced unpaired; project coordinates use the unique
-  `project_position + 1` ViennaRNA conversion.
-- Seven toy/coordinate/unsatisfiable-constraint checks passed, including
-  parser round-trip and nested-pair checks.
-- The clean suite has 7,260 manifests; 87/3,630
-  `POSITIVE_PAIR_EVIDENCE` manifests across 11 RNAs contain crossing delivered
-  pairs. Standard non-pseudoknot ViennaRNA DBN constraints cannot express these
-  pairs simultaneously. Prospective amendment v1.0.1 excludes those whole
-  manifests without modifying evidence.
-- Eligibility, density/seed/RNA coverage, matched B1 filtering, and
-  RNA-balanced macro aggregation are frozen before execution.
-- The formal runner invoked `/usr/bin/RNAfold` for all 7,173 frozen eligible
-  realizations and retained all 87 frozen crossing skips without substitution.
-- 7,153 eligible realizations passed parsing, validity, and constraint checks.
-- 20 pair-channel realizations across four RNAs failed constraint satisfaction.
-  Every failure contains one forced pair with only two enclosed nucleotides
-  (`j-i=3`); RNAfold warns that the pair violates the minimum loop size of
-  three nucleotides and omits the constraint.
-- This is a deterministic solver/model representability failure, not a
-  transient process failure. The same frozen command cannot resolve it.
-- All 1,210 zero-density realizations were identical within RNA across five
-  seeds and both channels. Historical RNAfold and R2 0% pair sets were also
-  identical for 121/121 RNAs; this is provenance context only.
-- Authoritative state is
-  `R2_EXECUTION_PARTIAL_BLOCKED_MINIMUM_LOOP_CONSTRAINT`. No B0/B1/B2 metrics,
-  edit/scope summaries, interpretation, or Gate A decision are authorized
-  until a prospective decision resolves the newly discovered blocker.
+- Protocol v1.0.2 was frozen before formal metrics. It adds a whole-manifest
+  minimum-loop capability rule (`j-i>3`) to the historical v1.0.1 crossing
+  rule without changing the solver or delivered evidence.
+- The coordinate-only audit found 3,523 eligible, 87 crossing-ineligible, and
+  20 minimum-loop-ineligible pair manifests, with no overlap; all 3,630
+  unpaired manifests remain eligible.
+- Every one of 7,153 amended eligible outputs was validated and reused; no new
+  RNAfold call was needed and eligible constraint satisfaction was 100%.
+- B2 achieved overall Macro/Micro F1 0.924648/0.904747 versus
+  0.889352/0.872422 for B1 and 0.878635/0.861068 for B0.
+- B2 preserved 0.975358 Macro / 0.981767 Micro of original TP and removed
+  0.775728 Macro / 0.645883 Micro of original FP. It made 43,475 beneficial
+  and 15,575 harmful changes.
+- NON_EVIDENCED propagation was net beneficial (36,027 beneficial versus
+  15,575 harmful) but not uniformly safe (Micro modification precision
+  0.698171).
+- Full results and the retained historical blocker record are in
+  `docs/global_constrained_refolding_r2_results.md`.
+- R2 supplies the frozen future Gate A comparator; it does not decide Gate A
+  without a future R4 result.
 
 ## Current Restrictions
 
@@ -238,9 +225,9 @@ Before any full R2 run:
 - **Do not access external77.**
 - **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
-- **Formal R2 execution is authorized only on the frozen R2_ELIGIBLE universe.**
-- **Do not run formal R2 metric analysis or advance to R3 until the minimum-loop
-  constraint blocker is resolved prospectively.**
+- **Do not alter or expand the frozen R2 v1.0.2 comparison universe.**
+- **Do not automatically start R3; first interpret R2 and prospectively freeze
+  the R3 protocol.**
 
 Detailed current-mainline documents:
 

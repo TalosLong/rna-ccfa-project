@@ -122,8 +122,16 @@ environment metadata, deterministic clean-manifest eligibility/coverage, the
 manifest-ID-filtered B1 view, and seven short toy checks; outputs are retained
 under `results/global_constrained_refolding_r2/integrity/`.
 
-## Completion criteria
+## Completion criteria and amendment history
 
-R2 is `R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION` after the v1.0.1
-eligibility, coverage, matched-universe, aggregation, and test checks. Formal
-R2 execution remains a separate task and must use eligible manifests only.
+The v1.0.1 checkpoint was
+`R2_PROTOCOL_AMENDED — READY_FOR_R2_EXECUTION` after the crossing eligibility,
+coverage, matched-universe, aggregation, and test checks. The later fail-closed
+minimum-loop finding produced the separate v1.0.2 amendment before formal
+performance metrics.
+
+Under v1.0.2, completion requires the coordinate-only crossing/minimum-loop
+audit, refrozen matched views, boundary tests, 100% validated output coverage
+for all amended eligible manifests, zero capability-ineligible rows in the
+metric universe, and passing edit/scope/aggregation identities. These checks
+passed for 7,153 eligible realizations; formal R2 summarization is complete.
