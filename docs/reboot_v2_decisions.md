@@ -1,6 +1,6 @@
 # Project Reboot v2 — Research Decisions
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 This file supplements the historical `docs/decisions.md`. Earlier decisions remain part of project history; the decisions below govern the rebooted mainline when they conflict with older planning.
 
@@ -292,3 +292,103 @@ material harm.
 state is `READY_FOR_R2_INTERPRETATION_AND_R3_PROTOCOL`. B2 is frozen as the
 future Gate A comparator. Gate A is not decided because R4 does not yet exist,
 and R3 is not started automatically.
+
+---
+
+## Decision — Freeze R2 interpretation as plausible post-hoc headroom
+
+**Confirmed / 已确定 (2026-09-02)**
+
+B2 is a strong mandatory comparator: its overall Macro/Micro F1 of
+0.924648/0.904747 exceeded B1 and B0 under frozen clean symbolic evidence. It
+is not preservation-safe: Macro/Micro TP preservation was
+0.975358/0.981767, with 4,752 lost original TP and 10,823 new FP.
+NON_EVIDENCED propagation was net useful but imperfect, with 36,027 beneficial
+and 15,575 harmful modifications and 0.698171 Micro modification precision.
+
+**Interpretation:** `POSTHOC_HEADROOM_PLAUSIBLE`. B2 obtains strong correction
+but causes non-negligible collateral damage. The future question is whether a
+pair-selective deletion-only method can retain useful FP removal at
+`TP_preservation >= 0.99`.
+
+**Consequence:** Gate A is `GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL.
+No prospective post-hoc superiority claim over B2 is permitted.
+
+---
+
+## Decision — Freeze separate R3 prediction-only and evidence-conditioned tracks
+
+**Confirmed / 已确定 (2026-09-02, before R3 execution)**
+
+R3 evaluates only original predicted pairs with `DELETE`/FP as the positive
+label. Track P receives no delivered evidence. Track E uses exactly the clean
+R2 evidence realization and the v1.0.2 matched universe: 3,523 pair manifests
+and 3,630 unpaired manifests. Missing GT pairs are excluded because the primary
+task is deletion-only.
+
+Track P freezes P0 training prevalence, P1 authoritative historical v1
+source-agnostic raw score, P2 exact cross-model support with risk `2-support`,
+P3 historical `V3_VETO2_FIXED`, and P4 sequence-only RNAfold thermodynamic BPP.
+Track E freezes E1 Stage E1 local evidence-conflict risk and E2 B2
+survival/disagreement risk. No combined score is frozen in R3 v1, and no
+historical model may be retrained or retuned.
+
+**Consequence:** Track P and Track E must produce separate strongest-comparator
+records, and future R4 must compare against both.
+
+---
+
+## Decision — Freeze R3 risk-control and aggregation semantics
+
+**Confirmed / 已确定 (2026-09-02, before R3 execution)**
+
+AUPRC with `DELETE`/FP positive is the primary discrimination metric; AUROC is
+secondary and positive prevalence is always reported. R3 simulates deletion
+only and plots `1-TP_preservation` against `FP_removal`. Continuous/ordinal
+thresholds are selected on validation data only. Eligibility requires both
+event-pooled and RNA-balanced validation TP preservation at least 0.99; the
+selector then maximizes RNA-balanced FP removal, followed by modification
+precision and conservative tie-breaks.
+
+Event-pooled pair-realization and RNA-balanced summaries are both mandatory.
+RNA is the biological cluster/unit for any final significance test; repeated
+evidence contexts, sources, densities, seeds, and model seeds are not
+independent biological samples.
+
+**Consequence:** strongest Track P and Track E comparators are selected first by
+highest RNA-balanced FP removal at the frozen safety point, then modification
+precision, then AUPRC. Binary baselines retain their fixed operating point and
+are never altered to force 0.99 preservation.
+
+---
+
+## Decision — RNAfold BPP is feasible in the frozen environment
+
+**Confirmed / 已确定 (2026-09-02, interface audit only)**
+
+`/usr/bin/RNAfold` 2.4.17 with
+`--noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2` emitted a complete,
+repeatable, parseable upper-triangle `ubox` matrix on a toy sequence. The third
+field is `sqrt(p)`, indices are one-based, and no Python RNA binding or software
+installation is required.
+
+**Consequence:** status is `R3_BPP_BASELINE_FEASIBLE_WITH_FROZEN_CLI`. P4 will
+apply the same sequence-only thermodynamic probability to original pairs from
+all three sources. It is not an empirically correctness-calibrated probability.
+Formal Legacy121 BPP metrics remain unexecuted.
+
+---
+
+## Decision — R3 protocol is frozen before execution
+
+**Confirmed / 已确定 (2026-09-02)**
+
+`docs/reliability_baseline_r3_protocol.md` and
+`docs/reliability_baseline_r3_implementation_plan.md` freeze the scientific
+question, labels, units, baselines, universes, splits, metrics, calibration
+restrictions, risk–utility analysis, high-preservation selector, leakage
+controls, artifacts, and completion criteria.
+
+**Consequence:** state is `R3_PROTOCOL_FROZEN` and
+`READY_FOR_R3_EXECUTION`. This does not mean R3 is complete and does not
+authorize R4 or learned training.

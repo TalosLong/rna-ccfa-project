@@ -1,12 +1,12 @@
 # Current Status
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2_GLOBAL_CONSTRAINED_REFOLDING_COMPLETE**
+**PROJECT REBOOT v2 — R2_INTERPRETATION_COMPLETE / R3_PROTOCOL_FROZEN**
 
-**Next state: `READY_FOR_R2_INTERPRETATION_AND_R3_PROTOCOL`**
+**Next state: `READY_FOR_R3_EXECUTION`**
 
 Current working direction:
 
@@ -19,8 +19,18 @@ eligibility. The amended universe contains 7,153 eligible B2 realizations:
 outputs passed row-level provenance, parsing, validity, and hard-constraint
 checks; no new RNAfold calls were required. Formal matched B0/B1/B2
 summarization is complete. Overall Macro/Micro F1 is 0.878635/0.861068 for B0,
-0.889352/0.872422 for B1, and 0.924648/0.904747 for B2. Gate A remains
-undecided because R4 does not yet exist.
+0.889352/0.872422 for B1, and 0.924648/0.904747 for B2. The formal R2
+interpretation is frozen as `POSTHOC_HEADROOM_PLAUSIBLE`: B2 is a strong
+comparator but its Macro/Micro TP preservation of 0.975358/0.981767, 4,752
+lost TP, and 10,823 new FP leave a plausible high-preservation question.
+Gate A is `GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL.
+
+The R3 Pair-Reliability Baseline Suite protocol is frozen before execution.
+Track P and Track E are separate; the primary label is DELETE/FP on original
+predicted pairs, primary discrimination is AUPRC, and the primary safety point
+is `TP_preservation >= 0.99`. The frozen ViennaRNA 2.4.17 CLI can export
+deterministic parseable BPP matrices on a toy, so P4 is feasible without a
+Python RNA binding or software installation. No formal R3 metric has been run.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -168,7 +178,7 @@ Exact canonical-pair equality remains primary. Final paper-level robustness may 
 R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
 R2 Global constrained-refolding baseline    COMPLETE
-R3 Reliability baseline suite
+R3 Reliability baseline suite               PROTOCOL FROZEN / NOT EXECUTED
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
 R6 Cross-predictor transfer / LOMO
@@ -219,6 +229,23 @@ Open external77 once. If the development effect does not preserve direction, no 
 - R2 supplies the frozen future Gate A comparator; it does not decide Gate A
   without a future R4 result.
 
+## Completed Task — R2 Interpretation and R3 Protocol Freeze
+
+- `docs/r2_scientific_interpretation.md` strictly separates empirical result,
+  interpretation, and future hypothesis.
+- R2 interpretation status is `POSTHOC_HEADROOM_PLAUSIBLE`.
+- Gate A status is `GATE_A_DEFERRED_R4_REQUIRED`; no PASS/FAIL is assigned
+  before a future R4 comparison.
+- `docs/reliability_baseline_r3_protocol.md` freezes separate prediction-only
+  and evidence-conditioned tracks, original-pair labels, R2 matched-universe
+  joins, dual aggregation, calibration restrictions, deletion-only risk curves,
+  validation-only threshold selection, and strongest-comparator rules.
+- `docs/reliability_baseline_r3_implementation_plan.md` records the future
+  scripts, reusable assets, artifact layout, integrity checks, and execution
+  gate without implementing or running the formal suite.
+- BPP feasibility is `R3_BPP_BASELINE_FEASIBLE_WITH_FROZEN_CLI` using
+  `/usr/bin/RNAfold` 2.4.17 and the frozen partition-function interface.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
@@ -226,8 +253,10 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
 - **Do not alter or expand the frozen R2 v1.0.2 comparison universe.**
-- **Do not automatically start R3; first interpret R2 and prospectively freeze
-  the R3 protocol.**
+- **Do not change the frozen R3 score definitions, threshold rule, or
+  aggregation semantics after viewing held-out results.**
+- **Do not begin R4 until formal R3 execution is complete and a new R4
+  protocol is prospectively frozen.**
 
 Detailed current-mainline documents:
 

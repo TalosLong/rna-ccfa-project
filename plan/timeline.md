@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -106,6 +106,8 @@ undecided because R4 does not yet exist.
 
 ## R3 — Reliability Baseline Suite
 
+**Status: PROTOCOL FROZEN / FORMAL EXECUTION PENDING**
+
 Goal:
 
 Place all simple confidence/reliability alternatives under one evaluation framework.
@@ -125,6 +127,18 @@ Metrics:
 - ECE;
 - risk–utility curves;
 - TP preservation / FP removal.
+
+Frozen execution contract:
+
+- separate Track P prediction-only and Track E evidence-conditioned settings;
+- original predicted pair as the unit and DELETE/FP as the positive class;
+- AUPRC primary, AUROC secondary, and positive prevalence always reported;
+- event-pooled and RNA-balanced summaries with RNA as biological cluster;
+- deletion-only risk–utility and validation-only
+  `TP_preservation >= 0.99` threshold selection;
+- frozen RNAfold 2.4.17 BPP CLI, historical v1/v3, exact agreement, local
+  conflict, and B2 disagreement baselines;
+- no retraining, retuning, external77, or R4.
 
 Completion gate:
 
@@ -282,7 +296,7 @@ R1 documentation freeze
 -> R2 minimum-loop blocker resolution
 -> complete R2 global constrained-refolding baseline
 -> R2 interpretation and R3 protocol freeze
--> R3 reliability baselines
+-> execute frozen R3 reliability baselines
 -> R4 learned clean evidence reconciliation
 ```
 

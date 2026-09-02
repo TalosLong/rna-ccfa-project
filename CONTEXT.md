@@ -1,6 +1,6 @@
 # RNA CCF-A Research Project Context
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## Project Goal
 
@@ -185,7 +185,7 @@ y-axis: FP removal
 R0 Literature & novelty freeze        COMPLETE
 R1 Task/protocol redefinition         COMPLETE
 R2 Global constrained-refolding       COMPLETE
-R3 Reliability baseline suite
+R3 Reliability baseline suite        PROTOCOL FROZEN / NOT EXECUTED
 R4 Clean learned evidence reconciliation
 R5 Noise robustness
 R6 Cross-predictor transfer / LOMO
@@ -212,10 +212,27 @@ amended universe 为 7,153 个 realization（pair 3,523；unpaired 3,630），
 analysis 已完成；B2 overall Macro/Micro F1 为 0.924648/0.904747，B1 为
 0.889352/0.872422，B0 为 0.878635/0.861068。
 
-下一项任务是：
+R2 scientific interpretation 已冻结为：
 
-> **解释已完成的 R2 comparator，并前瞻性冻结 R3 reliability-baseline
-> protocol；不要自动启动 R3 implementation。**
+```text
+R2_INTERPRETATION_COMPLETE
+POSTHOC_HEADROOM_PLAUSIBLE
+GATE_A_DEFERRED_R4_REQUIRED
+```
+
+R3 Pair-Reliability Baseline Suite protocol 已在正式执行前冻结。Track P
+与 Track E 分开；primary label 为 original predicted pair 上的 DELETE/FP；
+primary safety point 为 `TP_preservation >= 0.99`。当前状态：
+
+```text
+R3_PROTOCOL_FROZEN
+READY_FOR_R3_EXECUTION
+```
+
+下一项唯一任务是：
+
+> **严格按冻结 protocol 实现并执行 R3 baseline suite；不要训练或 retune
+> 任何模型，不要访问 external77，不要开始 R4。**
 
 R2、R3 冻结并完成后，才允许冻结新的 R4 learned protocol。
 

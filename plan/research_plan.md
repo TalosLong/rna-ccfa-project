@@ -1,6 +1,6 @@
 # Research Plan — Reboot v2
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## 1. Working Direction
 
@@ -265,7 +265,13 @@ Required outputs:
 
 ### R3 — Reliability baseline suite
 
-Assemble BPP/structural/consensus/history comparators under the new pair-reliability and risk-control metrics.
+**Status: PROTOCOL FROZEN / FORMAL EXECUTION PENDING.**
+
+The frozen suite separates prediction-only Track P from evidence-conditioned
+Track E. It evaluates original predicted pairs with DELETE/FP positive, AUPRC
+primary, deletion-only risk–utility, event-pooled and RNA-balanced summaries,
+and validation-only selection at `TP_preservation >= 0.99`. RNAfold 2.4.17 BPP
+is feasible through the frozen CLI; no software installation is required.
 
 ### R4 — Clean learned evidence reconciliation
 
@@ -331,7 +337,7 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 Next task:
 
-> **Interpret the completed R2 comparator and prospectively freeze the R3
-> reliability-baseline protocol. Do not begin R3 implementation automatically.**
+> **Implement and execute the frozen R3 Pair-Reliability Baseline Suite only.
+> Do not train or retune a model, access external77, or begin R4.**
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

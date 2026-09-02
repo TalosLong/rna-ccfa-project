@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-08-31
+Last updated: 2026-09-02
 
 ## R0 — Literature & Novelty Freeze
 
@@ -83,17 +83,39 @@ Last updated: 2026-08-31
 
 ### Gate A
 
-- [ ] Decide whether source-prediction preservation has plausible headroom versus B2.
-- [ ] If B2 dominates the relevant TP-preservation/FP-removal trade-off, record Gate A failure and stop the post-hoc mainline.
+- [x] Freeze `POSTHOC_HEADROOM_PLAUSIBLE`: B2 is strong but falls below the
+  future `TP_preservation >= 0.99` safety point in both Macro and Micro
+  summaries and causes material lost TP/new FP.
+- [x] Record `GATE_A_DEFERRED_R4_REQUIRED`; do not assign PASS or FAIL before a
+  future prospectively frozen R4 comparison.
 
-## R3 — Reliability Baseline Suite
+## R3 — Reliability Baseline Suite — PROTOCOL FROZEN / NOT EXECUTED
 
-- [ ] Freeze pair-reliability evaluation protocol.
+- [x] Freeze `docs/reliability_baseline_r3_protocol.md` before execution.
+- [x] Separate Track P prediction-only from Track E evidence-conditioned
+  inference and freeze original predicted pair as the primary unit.
+- [x] Freeze DELETE/FP as the positive label and exclude absent GT pairs from
+  the candidate universe.
+- [x] Freeze event-pooled and RNA-balanced summaries with RNA as the biological
+  cluster/unit.
+- [x] Freeze AUPRC as primary discrimination and AUROC as secondary, with
+  positive prevalence always reported.
+- [x] Freeze deletion-only risk–utility curves and validation-only threshold
+  selection at `TP_preservation >= 0.99`.
+- [x] Freeze Track P and Track E strongest-comparator selection rules.
 - [ ] Evaluate historical v1 topology score without retuning.
 - [ ] Evaluate historical v3 fixed consensus veto without retuning.
 - [ ] Add simple exact cross-model agreement score.
-- [ ] Audit feasibility of predictor-independent thermodynamic BPP for predicted pairs.
-- [ ] If feasible, freeze and implement RNAfold BPP baseline.
+- [x] Audit predictor-independent thermodynamic BPP feasibility using only the
+  existing `/usr/bin/RNAfold` 2.4.17 CLI and a toy sequence.
+- [x] Freeze the feasible RNAfold BPP interface, parsing, model settings, and
+  non-probabilistic-correctness interpretation; do not implement the formal
+  Legacy121 run in this task.
+- [ ] Implement the frozen RNAfold BPP baseline without installing/upgrading
+  ViennaRNA or adding the Python RNA binding.
+- [ ] Evaluate frozen E1 local evidence-conflict risk on R2 matched manifests.
+- [ ] Evaluate frozen E2 B2 survival/disagreement risk on R2 v1.0.2 matched
+  manifests only.
 - [ ] Compute AUPRC for DELETE/FP.
 - [ ] Compute AUROC as secondary metric.
 - [ ] Compute Brier score.
@@ -195,7 +217,8 @@ Last updated: 2026-08-31
 
 ## Immediate Next Task
 
-> **Interpret the completed R2 comparator and prospectively freeze the R3
-> reliability-baseline protocol. Do not start R3 implementation automatically.**
+> **Implement and execute only the frozen R3 Pair-Reliability Baseline Suite on
+> Legacy121/R2 v1.0.2 matched inputs. Do not train or retune any model, access
+> external77, or begin R4.**
 
 No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.
