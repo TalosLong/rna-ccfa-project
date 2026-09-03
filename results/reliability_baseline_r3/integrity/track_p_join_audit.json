@@ -1,0 +1,14 @@
+{
+  "all_original_pair_labels_match_shared_evaluator": true,
+  "p0_rows": 10580,
+  "p1_rows_per_seed": 10580,
+  "p2_rows": 10580,
+  "p2_heldout_support_counts": {
+    "0": 504,
+    "1": 586,
+    "2": 4200
+  },
+  "p3_rows_per_seed": 5290,
+  "p4_rows": 10580,
+  "status": "PASS"
+}

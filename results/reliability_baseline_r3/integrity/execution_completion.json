@@ -1,0 +1,15 @@
+{
+  "all_mandatory_baselines_complete": true,
+  "external77_accessed": false,
+  "formal_summaries_reproducible_from_compact_artifacts": true,
+  "historical_v1_v3_retuned": false,
+  "integrity_gates_passed": true,
+  "metric_tests_required_before_execution": true,
+  "new_training_runs": 0,
+  "noise_or_real_evidence": false,
+  "pseudoknot_branch": false,
+  "r4_started": false,
+  "status": "R3_RELIABILITY_BASELINE_SUITE_COMPLETE",
+  "strongest_comparators_frozen": true,
+  "two_d_to_three_d": false
+}

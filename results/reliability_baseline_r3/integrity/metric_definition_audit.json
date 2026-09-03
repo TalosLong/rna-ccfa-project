@@ -1,0 +1,20 @@
+{
+  "auprc": "NON_INTERPOLATED_AVERAGE_PRECISION_TIE_GROUPED",
+  "auroc": "TIE_AWARE_HALF_CREDIT",
+  "calibration_eligible": [
+    "R3-P0",
+    "R3-P1",
+    "R3-P4"
+  ],
+  "calibration_prohibited": [
+    "R3-P2",
+    "R3-P3",
+    "R3-E1",
+    "R3-E2"
+  ],
+  "ece": "10_EQUAL_WIDTH_FIXED_BINS",
+  "ece_amendment_frozen_before_performance": true,
+  "positive_class": "DELETE_FP",
+  "risk_curve": "DELETION_ONLY_EQUAL_SCORE_GROUPS_ATOMIC",
+  "status": "PASS"
+}

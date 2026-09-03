@@ -1,0 +1,24 @@
+{
+  "status": "IMPLEMENTATION_FIXABLE_RESOLVED",
+  "scientific_protocol_changed": false,
+  "formal_artifacts_written_before_resolution": false,
+  "issues": [
+    {
+      "issue": "The first runner attempt compared historical v2 CPU-reconstructed test probabilities against authoritative v1 GPU-stored probabilities using an unnecessary 1e-7 gate.",
+      "observed_max_absolute_difference": 1.7881393432617188e-07,
+      "resolution": "Use already-materialized historical reconstruction scores only for validation and authoritative v1 per-pair scores for P1 held-out evaluation, exactly as frozen. No R3 checkpoint inference was performed."
+    },
+    {
+      "issue": "The second runner attempt checked frozen P3 probabilities against v1 GPU-stored values although historical V3 was built from the audited v2 CPU reconstruction.",
+      "resolution": "Verify P3 score provenance and decisions against the immutable historical V3 input reconstruction. P3 decisions and historical thresholds were not changed."
+    },
+    {
+      "issue": "An initial draft summary pooled fold-specific P0 prevalence constants into an invalid cross-fold ranking.",
+      "resolution": "Remove cross-fold P0 discrimination ranking. Report each rotation/source tied-score point with AUPRC equal to held-out prevalence and tie-aware AUROC 0.5. Calibration remains cross-validated prediction assessment."
+    },
+    {
+      "issue": "A draft P0 prevalence table emitted one source=ALL row for the source-wise reference even though no single source-wise constant exists for that mixed row.",
+      "resolution": "Retain pooled and three individual source strata, and omit the scientifically undefined mixed source-wise constant row."
+    }
+  ]
+}

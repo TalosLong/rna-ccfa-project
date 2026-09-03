@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -106,7 +106,7 @@ undecided because R4 does not yet exist.
 
 ## R3 — Reliability Baseline Suite
 
-**Status: PROTOCOL FROZEN / FORMAL EXECUTION PENDING**
+**Status: COMPLETE**
 
 Goal:
 
@@ -142,7 +142,10 @@ Frozen execution contract:
 
 Completion gate:
 
-Strongest non-learned comparator must be frozen before R4 training.
+Completion checkpoint: the prospective ECE amendment preceded formal metrics;
+all P0--P4 and E1/E2 baselines completed. P3 `V3_VETO2_FIXED` is the strongest
+Track P no-new-training comparator and E1 local conflict is the strongest
+Track E comparator at the frozen safety point. R4 remains unstarted.
 
 ---
 
@@ -297,6 +300,7 @@ R1 documentation freeze
 -> complete R2 global constrained-refolding baseline
 -> R2 interpretation and R3 protocol freeze
 -> execute frozen R3 reliability baselines
+-> interpret R3 and prospectively decide/freeze R4 protocol
 -> R4 learned clean evidence reconciliation
 ```
 

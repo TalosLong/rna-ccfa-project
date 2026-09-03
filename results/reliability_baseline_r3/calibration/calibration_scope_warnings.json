@@ -1,0 +1,11 @@
+{
+  "R3-P0": "constant training-prevalence reference; no ranking utility",
+  "R3-P1": "RAW_UNCALIBRATED; no R3 recalibration",
+  "R3-P4": "thermodynamic pair-probability-derived risk compared descriptively with empirical FP frequency",
+  "prohibited": [
+    "R3-P2",
+    "R3-P3",
+    "R3-E1",
+    "R3-E2"
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "status": "PASS",
+  "command": "PYTHONPATH=src python scripts/summarize_reliability_baseline_r3.py",
+  "source": "versioned compact R3 pair-score and BPP artifacts",
+  "comparison": "SHA256 for every R3 file except the self-referential artifact hash manifest and execution completion record",
+  "all_compared_hashes_identical": true
+}

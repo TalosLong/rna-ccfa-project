@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "targeted_command": "PYTHONPATH=src:. pytest -q tests/test_reliability_baseline_r3.py",
+  "targeted_result": "33 passed",
+  "full_command": "PYTHONPATH=src:. pytest -q",
+  "full_result": "201 passed, 29 subtests passed",
+  "calibration_amendment_tests_preceded_formal_performance": true,
+  "required_definition_and_join_tests_present": true
+}

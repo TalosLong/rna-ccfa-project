@@ -6,6 +6,12 @@
 
 Protocol date: 2026-09-02
 
+Calibration amendment: the prospective fixed-bin ECE definition is frozen in
+`docs/reliability_baseline_r3_calibration_amendment.md` (2026-09-03), before
+any Legacy121 R3 performance number. The original protocol freeze remains
+2026-09-02; the amendment changes no baseline, score, threshold, universe,
+split, or non-calibration metric.
+
 This document freezes the R3 scientific and evaluation contract. It does not
 report any formal R3 metric, train or retune a model, access external77, or
 authorize R4.

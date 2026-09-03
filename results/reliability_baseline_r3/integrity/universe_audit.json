@@ -1,0 +1,41 @@
+{
+  "b0_b1_b2_context_join": "PASS",
+  "b2_join_fraction": 1.0,
+  "capability_ineligible_manifests": 107,
+  "e1_b1_scope_join_fraction": 1.0,
+  "eligible_manifests": 7153,
+  "frozen_grouped_folds": {
+    "0": 25,
+    "1": 24,
+    "2": 24,
+    "3": 24,
+    "4": 24
+  },
+  "matched_source_contexts": 21459,
+  "pair_eligible_manifests": 3523,
+  "pair_realization_rows_per_baseline": 310838,
+  "source_counts": {
+    "petfold": {
+      "delete": 241,
+      "keep": 1463,
+      "pairs": 1704
+    },
+    "rnafold": {
+      "delete": 220,
+      "keep": 1473,
+      "pairs": 1693
+    },
+    "trrosettarna2_native_ss": {
+      "delete": 432,
+      "keep": 1461,
+      "pairs": 1893
+    }
+  },
+  "status": "PASS",
+  "track_p_delete_pairs": 893,
+  "track_p_keep_pairs": 4397,
+  "track_p_original_pairs": 5290,
+  "track_p_source_records": 363,
+  "track_p_unique_rnas": 121,
+  "unpaired_eligible_manifests": 3630
+}

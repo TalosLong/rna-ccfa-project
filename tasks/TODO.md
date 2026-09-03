@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## R0 — Literature & Novelty Freeze
 
@@ -89,7 +89,7 @@ Last updated: 2026-09-02
 - [x] Record `GATE_A_DEFERRED_R4_REQUIRED`; do not assign PASS or FAIL before a
   future prospectively frozen R4 comparison.
 
-## R3 — Reliability Baseline Suite — PROTOCOL FROZEN / NOT EXECUTED
+## R3 — Reliability Baseline Suite — COMPLETE
 
 - [x] Freeze `docs/reliability_baseline_r3_protocol.md` before execution.
 - [x] Separate Track P prediction-only from Track E evidence-conditioned
@@ -103,25 +103,25 @@ Last updated: 2026-09-02
 - [x] Freeze deletion-only risk–utility curves and validation-only threshold
   selection at `TP_preservation >= 0.99`.
 - [x] Freeze Track P and Track E strongest-comparator selection rules.
-- [ ] Evaluate historical v1 topology score without retuning.
-- [ ] Evaluate historical v3 fixed consensus veto without retuning.
-- [ ] Add simple exact cross-model agreement score.
+- [x] Evaluate historical v1 topology score without retuning.
+- [x] Evaluate historical v3 fixed consensus veto without retuning.
+- [x] Add simple exact cross-model agreement score.
 - [x] Audit predictor-independent thermodynamic BPP feasibility using only the
   existing `/usr/bin/RNAfold` 2.4.17 CLI and a toy sequence.
 - [x] Freeze the feasible RNAfold BPP interface, parsing, model settings, and
   non-probabilistic-correctness interpretation; do not implement the formal
   Legacy121 run in this task.
-- [ ] Implement the frozen RNAfold BPP baseline without installing/upgrading
+- [x] Implement the frozen RNAfold BPP baseline without installing/upgrading
   ViennaRNA or adding the Python RNA binding.
-- [ ] Evaluate frozen E1 local evidence-conflict risk on R2 matched manifests.
-- [ ] Evaluate frozen E2 B2 survival/disagreement risk on R2 v1.0.2 matched
+- [x] Evaluate frozen E1 local evidence-conflict risk on R2 matched manifests.
+- [x] Evaluate frozen E2 B2 survival/disagreement risk on R2 v1.0.2 matched
   manifests only.
-- [ ] Compute AUPRC for DELETE/FP.
-- [ ] Compute AUROC as secondary metric.
-- [ ] Compute Brier score.
-- [ ] Compute ECE/reliability bins.
-- [ ] Produce risk–utility curves.
-- [ ] Freeze the strongest non-learned comparator before R4.
+- [x] Compute AUPRC for DELETE/FP.
+- [x] Compute AUROC as secondary metric.
+- [x] Compute Brier score.
+- [x] Compute ECE/reliability bins under the prospective fixed-bin amendment.
+- [x] Produce risk–utility curves.
+- [x] Freeze both strongest no-new-training comparators before R4.
 
 ## Historical Stage E2 — Superseded Before Training
 
@@ -217,8 +217,8 @@ Last updated: 2026-09-02
 
 ## Immediate Next Task
 
-> **Implement and execute only the frozen R3 Pair-Reliability Baseline Suite on
-> Legacy121/R2 v1.0.2 matched inputs. Do not train or retune any model, access
-> external77, or begin R4.**
+> **Interpret the frozen R3 results and make the prospective R4 protocol
+> decision. Do not train R4, access external77, or begin noise/real-evidence
+> work automatically.**
 
-No new learned training is authorized before R2 and R3 are complete and a new R4 protocol is frozen.
+No new learned training is authorized until a new R4 protocol is frozen.

@@ -1,0 +1,14 @@
+{
+  "combined_scores": false,
+  "external77_accessed": false,
+  "gt_use": "LABELS_AND_OUTCOME_METRICS_ONLY",
+  "historical_retuning": false,
+  "missing_gt_pairs_are_candidates": false,
+  "new_training_runs": 0,
+  "noise_or_real_evidence": false,
+  "pseudoknot_branch": false,
+  "r4_started": false,
+  "score_construction_uses_gt": false,
+  "status": "PASS",
+  "two_d_to_three_d": false
+}

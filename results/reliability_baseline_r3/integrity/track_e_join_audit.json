@@ -1,0 +1,12 @@
+{
+  "b0_b1_b2_context_join": "PASS",
+  "b2_join_fraction": 1.0,
+  "capability_ineligible_manifests": 107,
+  "e1_b1_scope_join_fraction": 1.0,
+  "eligible_manifests": 7153,
+  "matched_source_contexts": 21459,
+  "pair_eligible_manifests": 3523,
+  "pair_realization_rows_per_baseline": 310838,
+  "status": "PASS",
+  "unpaired_eligible_manifests": 3630
+}

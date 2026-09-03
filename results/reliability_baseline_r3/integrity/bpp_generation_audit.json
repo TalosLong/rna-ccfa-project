@@ -1,0 +1,1236 @@
+{
+  "all_three_sources_joined": true,
+  "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+  "compact_matrix_records": 156989,
+  "deterministic_rerun_rnas": [
+    "17RA_21_hp_nmr_A",
+    "1A60_44_pseudknot_nmr_A",
+    "9OD4_23_hp_nmr_A"
+  ],
+  "joined_pair_rows_validation_plus_test": 10580,
+  "per_rna": [
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": true,
+      "matrix_sha256": "c5c90061e2a1b09ab34acd9f4227d9a3c650c6cfd3c46a868ff5632e1fb7ccfa",
+      "parse_status": "PASS",
+      "record_count": 210,
+      "rna_id": "17RA_21_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "24587e7d915ab964915c7f9b2b0dfb62a90d1236ea60b1a68932dc8c0476bb5a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": true,
+      "matrix_sha256": "794904fe9a2ba008c1786117771c5f271c5b92c86483735565eedc570e9f4c1a",
+      "parse_status": "PASS",
+      "record_count": 946,
+      "rna_id": "1A60_44_pseudknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "c6e5e9782f6ecb6fc069bcedfa93325b8a540ed0f6ebfa5177489e9157a54bb8"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "f6c32848fcf6705107239f1057901b270ecb5747f379f92d959ab8cd497c747b",
+      "parse_status": "PASS",
+      "record_count": 703,
+      "rna_id": "1A9L_38_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d276b4f122c80d118deedc0b52181f28be5dd1f4ebff5ac0411ffb400abce660"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "4bcfda063131767b16eb06c04dfa39e9f2a0c47afd259d86e3f3ac38e387996a",
+      "parse_status": "PASS",
+      "record_count": 703,
+      "rna_id": "1B36_38_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "bc5277436539450514b6d04bd0fe22632b4e0556da97bad4d5a9c01de9cbda7b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "f655b303c94970fc4b0349522f62f5ffa69e81c03b83a2a2c3cac090a1130bb2",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "1BGZ_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "ed915062c05f765ec53ec9765f0e5c8fd4c4264c8ad946226c799214741604ab"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d735a51ccb0511b2afc2bdd75e4f7ca2ddf793ffc979ed5f5cc5db03c3c40379",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "1BVJ_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "2edb36641ac17962ade4b132ba860c5b7cd1da1e94a92f8466d50767b5b4e119"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1fd82d7869d87a5f00b7026f32a0e63dc029bfa46e33b4bbf53e28034c69cde5",
+      "parse_status": "PASS",
+      "record_count": 276,
+      "rna_id": "1E4P_24_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1792a60d6c640a33076ed73e910c65b6d66758bab30c1d0c294bd695b9114031"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0f5a98bf420b607c265148e6bbd4260e0a0ccee04b5635a3379edefa09add5e6",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "1E95_36_pseudoknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "788aa7b394ed9edf5178d44494eff9bab5bc73bd5dbb4a4091fcbfe21d4da0f3"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9ae698670d4b1419137b055eb0f195472d0c8cfed53ac12cf6c4ba4e75724139",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1F9L_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "664fff6ef92722ed06e057fc81ffc7c815b5f301cc54660bc9f0f92dc2138dc0"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9304750f15edfadcc0007e7eaee1f102c31a61506887d1ee091b93317b067529",
+      "parse_status": "PASS",
+      "record_count": 190,
+      "rna_id": "1HLX_20_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "278f742087727f5ff552bbab1b3589c1325920da6dc64af5eb0b058e0d1f14ee"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "163644ea0f7e2587f4a4d3b8bb78707ee46fc8e106ca51954142acf04a780a94",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1IKD_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "b5b63bc3abb6156d264b1d0bba237aeb5783c6734ac9dc60f63468d0d58a4141"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "4d02f7be99164c9c3bedb8c12f1d4c8a9ed51f216877c480914d2069c58df97d",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1JUR_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "186e9b04cda34d853eb6b316b94cd3df6adc07b0596434792709b06b14047201"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "306572ff419103a448745579a4b7e5b5172d39e0a07b5898146c1a25b786391c",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1K2G_22_dumbbell_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "9e286a27108ccb9c0fb9404d6e4faaffc5757378d0ba5f710da4d9141fadc43e"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "49a6e936e4fa7e0aae5d6aef936e1d3d14ff53f6b6a6c2b3eddb441c324b606d",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1K6H_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f205820448be858ecfbf1b9ee747d2476f13dbe5eaf98edb780c753081602146"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b4fd460b00c68fc466fb89c9c7e6a772ef6c5806d11029478a61cd498ba46e53",
+      "parse_status": "PASS",
+      "record_count": 435,
+      "rna_id": "1LDZ_30_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "7472bea4a6536d0d6b9341a7a2918d55b671b6f7a95655843c7aa38cb680ec5c"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b6ced11db6cfe08dc0dd06a4671db5e09f7f468942cf3d7353dfff2748177423",
+      "parse_status": "PASS",
+      "record_count": 300,
+      "rna_id": "1M82_25_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a4ed69ec978048d650885f8bbc06da6d967a9bfb8c9eb8e3e400f340ccc4f315"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5677afe29e25ed5d060c0692839dd96a83f095dfa05602a1e796ff8fa81befdf",
+      "parse_status": "PASS",
+      "record_count": 276,
+      "rna_id": "1MT4_24_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "41f48d00b5a6d550be40aaab6af1b4e4fd1e0b757b42c0f914a3d7be42662aa9"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "3d3047ef86d511acbfd275f5ab71505ac63c6b9563fa9d4b1335dbbb5d859819",
+      "parse_status": "PASS",
+      "record_count": 1485,
+      "rna_id": "1P5M_55_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1d2bcbceaeea581dae85abc4cddbcb581f541eac967ed045209ab8e3bb08d4c8"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "87b30f5cca1db2fa9729feae0d3e4d2d221a03e818e525aee80f80abad31a064",
+      "parse_status": "PASS",
+      "record_count": 2926,
+      "rna_id": "1P5O_77_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "4d91ab7aaa2d22e8ad746be3dc974822c4315cc66ac12b926b3c806102670a66"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5f8f51564ec5e1e65dcf4cf78bf3a8a3159058edf59f2e8e93599d8a7e77a497",
+      "parse_status": "PASS",
+      "record_count": 210,
+      "rna_id": "1QWA_21_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "c4fe77a61bbbad94620918e7d6d42d9dd091bdba452232447613ae78e39d5171"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5b6279364504ee21234e07c4e019305612e310e79ff8c6ba644fe4e09fd03fbb",
+      "parse_status": "PASS",
+      "record_count": 325,
+      "rna_id": "1QWB_26_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "cb5be543f0698b8a87d31c0dba4d4be540c913eb8005749acefcc3333e8c87cf"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "00e1443c76da883d88b8a01b5715f4bf708c5f4b8ae3e976d5d8a97856aa3a74",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "1R7W_34_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "b586ab753369d3789c44269c516da65913f7c54ba8334c506aed4cdac711b932"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5cd3475374a9d0ef4af48b03709beb20ff677cbba336ad3bab1473cb4c9c7dbe",
+      "parse_status": "PASS",
+      "record_count": 276,
+      "rna_id": "1RHT_24_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "5ca76db3035e308a6febaa054c78c3d215577a7eeb6b9d5478dc41e3d23a0a06"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "8d0928c38820fbe3f673e2034ef1e49d3286684eb5446f1fee82eec6ed18130b",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "1RNK_36_pseudoknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "215a17f3c5b179ea9b28d018a5547039a2c98b7ec85054eaafa08f6f0b31b415"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9c89330f9de751f9213bf556d87d504dbf801968dd4a1caca7fe0eb9cc2e77eb",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "1S2F_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a8adb72355c6ac452873f9e9208149325bc0626af87a55bc1419a8ff7e2039c7"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b5542e2a9dc695e445c3aa07cd1ebc1c21a3ef8cfaafde8ff3686f450172a38b",
+      "parse_status": "PASS",
+      "record_count": 5050,
+      "rna_id": "1S9S_101_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "44dd1724f5e565910b00547e4b4c3a57fbd5c23ff2cb1f2ce8cb3e127cd967e3"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "327d6acbb20ef613f85b33557349d0394be8d7471ba49be5eaa51041a9552b75",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "1T28_34_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "31b74e961af304a76bfae499e50ed4c695040d9b80fc8f3eacb82b6468bbcbf4"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "db3264eaba44c8eead35f283bb10500152f970137a4f9ec1fbcc4fe7a76ebe1b",
+      "parse_status": "PASS",
+      "record_count": 136,
+      "rna_id": "1TBK_17_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "6b0451cc24f204c2149338f4bedb7a5f82ecece0ecceac91fe8447ca9124c227"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "22447c60e6c0f416081d156e3a2dafb8d9baa586a6d7894d462ada06e92e337b",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "1TJZ_26_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "6ecd3d51982889586cf59124a6eb44fc41cb779af26e991a9f3da1038d2a5ca6"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b01544c9e05650e7cb2ebc80382b6dc9e2add82e4cca1d0fc010a89003948329",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "1TLR_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "3cd00990c1ee14e2707975c23b74d83a1f168cf38202ed39113e792016660ea4"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a959ea95c70ab45c4a9a2902cd8addb2fc9198056121a397bf7090cfee2376f8",
+      "parse_status": "PASS",
+      "record_count": 171,
+      "rna_id": "1UUU_19_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "033e5d10080c540be8a179cbe7ddd7b9c256232a199b573ccae2ec93ed679156"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "fb9f10d31cf3ee512623f6fc0c028b95a7e54e074d53c835d0f92911f28c32ae",
+      "parse_status": "PASS",
+      "record_count": 120,
+      "rna_id": "1XWU_16_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d5fe058ac1dc3826e927c21ab1b9877e6bd6ca38f60419a45b8d16fe34f73b98"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0aeec9173a5ea3eda6eb136310fef95b5bde5b7c0a124b9ead1e958a0b169cea",
+      "parse_status": "PASS",
+      "record_count": 465,
+      "rna_id": "1YLG_31_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "2a62b78f86cfd842877cda48d49933ced473025bd3a833bbf14fd93a8991c8c4"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "f60321dd8276187bc46d4dcc2a62c1576fcdcb5448220fd108677ee94aff3282",
+      "parse_status": "PASS",
+      "record_count": 496,
+      "rna_id": "1Z31_32_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "b7c41ce6ec066035c625f04b7775ecf783f3ab68501ddc05950e4c2416f81773"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a8f962633026a275626cf8b9ddf71b42a4614a3593dd2e5b02978dae409482a3",
+      "parse_status": "PASS",
+      "record_count": 351,
+      "rna_id": "2AHT_27_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "775d70bcc0acaf681f93254f56d4449c27b6fe6b2eb8ef11d5ad559a6080cb0b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b5cc6702ed6511a6468076173fa16b4ddec276362517c419101e87fe8d59acaa",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "2ES5_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "4b5621e95f041ca3970730ec29c0caf0e7403f6449d78d414de52d8593ad312d"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0b9d0ea52699b04b64d7b1ac4fdb48289acbe4108c68e6cad42f6337593d2694",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "2EUY_34_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "8d6fdedd19f5a35f029073fc3921535e95aeb1f802d629fcf7213ff254351446"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "bc07f286a5d5c64960e9f59327f469bce92089e7b8e72ac323df95eaab5f7913",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "2FDT_35_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "07aa3a4979e6ac5c98a7e7bb27bc57c7a94b3d70b34cda23f8a6785443b6d111"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "38d99a8bffa76ac38bcca5a320869398b7f61c7d347684b6162ee7bef923965c",
+      "parse_status": "PASS",
+      "record_count": 406,
+      "rna_id": "2GIO_29_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d9ae9c08d394564c4f03a9fee6aa9f16f6e5d85d6ae4f9478e10ca5c3c827c16"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "c68ddccf6b3cf15aa0ef5dacbb97b8d95b3907c923eb621b8c34316b659435e6",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "2GV3_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "7061660cf6a29896550db6dae49bf4e633cd18c9f1684101e75f2a240554c83b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1092e1bd20b680b8c409143d71b73cbcdf0a6b7d684f8236ea516a31e20fe7a1",
+      "parse_status": "PASS",
+      "record_count": 780,
+      "rna_id": "2HUA_40_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "65d6b9b8b9f0fc1c45b5ec93fe3be45dfd49fea47a2a77512b98ee61015bf253"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "3712345e71c2411054c5fe04cae0a29aaad6a66ea24613996b480b0f414fcf72",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "2JTP_34_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f376f3b67bfc6f722a552ff48f451edfb20c025e11a62869282dab050f6b595d"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "05f93e25c48063a619628ce268efa73e31b774d69599eaf7cc5818d422cb4ddb",
+      "parse_status": "PASS",
+      "record_count": 406,
+      "rna_id": "2K5Z_29_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "9ea440be10fbc2b2630450a8b4f58eb9d1f03cce4fad05c0c434ede216527861"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "163c5abb8ced2546a7a6ac8e239175ea2377151aea4ecd6babcf5d75f51c8ab3",
+      "parse_status": "PASS",
+      "record_count": 1128,
+      "rna_id": "2K95_48_pseudoknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "2ee347fafa00e6bbfb6fd02111542b6619d81c6e2a818275c638d2dd1e95983b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b475f8957ffc27be8e35ab03ec473ed045c84192c590eecf5fc7c74e49f64fee",
+      "parse_status": "PASS",
+      "record_count": 231,
+      "rna_id": "2KD8_22_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "72067c26e1a026a45aaa85ce7073db8e2e108924c256061b49d2753f040f54d9"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a337f7ca6837414d4e3829f8638edb9c1988c13d35362ae278319f695e317300",
+      "parse_status": "PASS",
+      "record_count": 1128,
+      "rna_id": "2KE6_49_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d446b2ae98299577799b3c035073fa83428230b69a470c7b556e1abd353c551b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "12d7aeaf09f67e85f1a96478e2eb8b5f67cd5e59f17e11da5387f8116c692ba3",
+      "parse_status": "PASS",
+      "record_count": 703,
+      "rna_id": "2KHY_38_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "199074bf0fc77816c8109e0207718a8859edeac16958ac1cadd396a3c2dcfc2a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "8ee6efdba211e761868a5e0bc76f170322ef3b5b7dae62a6c3b3f1e6f788fb9a",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "2KPV_34_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "69a2bb52b87cd428356454a8c35b824a9236a28e0b708f09bc022a5eedc3985f"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9974d90d7f16ea7bd0d03fb653dbbdc93f3b6b7d1cfa2f45727a1ff61dd86825",
+      "parse_status": "PASS",
+      "record_count": 5151,
+      "rna_id": "2KRL_102_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d52ffe9274c5c040663d2709933d3bd2546592d1f6946ea5096baaaa644b110f"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "bee00cb19af53db20aa06003ace8399d3dbbc006cf5f53c6fb117c60b34d2be4",
+      "parse_status": "PASS",
+      "record_count": 136,
+      "rna_id": "2KVN_17_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "5b0ba94abfb7fb0af11a83f08a61908c5150b1d2f308dd7dfa4acb6660ec32a8"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0590fd62c1f7654abe510c521a683bb1ba8969ac4f0c0ec861f4c412b99f7355",
+      "parse_status": "PASS",
+      "record_count": 1485,
+      "rna_id": "2KZL_55_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1db0a8fdd2e882722122c955d7957427a8822650a419c3d9fa5b00b079378517"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "e96d4625adc790a1c87a214bb01d470af3c710a396d0a4401e57ee9a2bce9199",
+      "parse_status": "PASS",
+      "record_count": 861,
+      "rna_id": "2L2J_42_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f4bb04a2b1e76931ce4c9d70cc0b876d3dfdceae9874684533a7522173afb04a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "4a2b47ed3473b74bbb5fa9d49a37dfd339cd464f5b610cabdb6df9e711e06016",
+      "parse_status": "PASS",
+      "record_count": 595,
+      "rna_id": "2L3E_35_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "99651a6691f80c78cddb2bc7ed2dc38f6ca2d7eb45e36dec48df05704cea0343"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d49d43f72e6351cde10b5b4d10fa293e03591fbfd661d4f848687f3bf180bdaa",
+      "parse_status": "PASS",
+      "record_count": 325,
+      "rna_id": "2L5Z_26_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "9f747b27f8fb58c7ec2c8b9a10b11c40b9862e366da70d8ef87da63105745869"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "3a2f14aebf7a2a2473e0ad7527cafdd7ad9760e5431421b188bb4be17c66a665",
+      "parse_status": "PASS",
+      "record_count": 136,
+      "rna_id": "2LBL_17_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d8172f87cd3f73df53e281afed541b899ceb33502a075f659063e26764309109"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1c95d32e62940511e7c1e6cd99cf81da868e83ab3246fed8f44e887fdfa6b793",
+      "parse_status": "PASS",
+      "record_count": 351,
+      "rna_id": "2LDL_27_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "6ba1991450b4481e3a0c0ad1491138b2bbce8b838214ffec819d066018c62ea9"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "fe7359252ccae2a75c17012629420f5453e73200f143dab32f98532a2a06bde1",
+      "parse_status": "PASS",
+      "record_count": 465,
+      "rna_id": "2LDT_31_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f4e95bd8b2a15ae0a3b86f14abaf17b9a29cb229e83c3a25bb268ef96e0720d0"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "17b331cf2e8309a5df0f1902251e8b7dfdc8431cb1b8eb45de151477690b0cc5",
+      "parse_status": "PASS",
+      "record_count": 666,
+      "rna_id": "2LHP_37_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "98d4bdcb41df4745858be3cfd522655fd5ccb85024fe6c6d461dfc8092d55976"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5a01ae855f555f2a239e185df7c27805fe1e053e1814fe854e87a779fdcd2772",
+      "parse_status": "PASS",
+      "record_count": 496,
+      "rna_id": "2LI4_32_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "7629bda966ae8dfe2d9e75882b61daff9bb21b4aa8e94a5d616c1ae73ef3aa0e"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d015b8d104522d909a215f3e456d21047c30450aeeaffdfd6fbcb8f9ee1e3a73",
+      "parse_status": "PASS",
+      "record_count": 351,
+      "rna_id": "2LJJ_27_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "468ec124624e6616d468e28be8d9a826b3c4e5df4f0064e74f71ac1f7d8bcef9"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5bad13ebb43a044e18c1009d99e5760a83e6be16f1318798ccfacfd5f48bdefa",
+      "parse_status": "PASS",
+      "record_count": 276,
+      "rna_id": "2LK3_24_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "349fa78dfa16f5aab06a456b78b20cdd7c5b90dcef091e61432fc83771c4d2a9"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "35a973b1cfcf1f874e91d8df7ee4e550a4abcf40510cbb9cc92775493ff6d8cd",
+      "parse_status": "PASS",
+      "record_count": 6105,
+      "rna_id": "2LKR_110_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "83d38abb69045276c3bfe808fff1b082dd550343dc3c805e7a3f68ce8b0cf561"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0e1e770785109ed6ae65c8a4482fa119490f890acdc3679ab31eb64e7a18684a",
+      "parse_status": "PASS",
+      "record_count": 351,
+      "rna_id": "2LQZ_27_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a7d159a1007c3b858e1ed249e9cce5c025968e4dc6792883ac79bebc1a6cfaaf"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "957a6781961e3d6d244df6682ccd05d54e899e67687d68f7790806f7d64164b9",
+      "parse_status": "PASS",
+      "record_count": 1176,
+      "rna_id": "2LU0_49_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "be33262421346470eb46c5bbe15c2c009800fa38f1da6798712429b04377ab1b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "b3df5e8d42c302097a0a68ff0711c226cde5b4733d5153ea1e0511090acb35c2",
+      "parse_status": "PASS",
+      "record_count": 378,
+      "rna_id": "2LUN_28_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f61fcf74210d1fabf02988b87d6904f5229154cbc511f84ae289f14abaf27512"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d738ac7731fa41e3387c452bd86b74b1f3361b9db44a1b79c2c9c31b4bbea514",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "2M12_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a1da376d0165a2fdda4d153abdd8b87a684d7eb198b21d6d053cb4dbfa5039aa"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1854ef981e0f3705a549fc6ce45e09c1984dc1839d9f1d87e639c6730a96a802",
+      "parse_status": "PASS",
+      "record_count": 210,
+      "rna_id": "2M21_21_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "ad2985ed17d8c36308700ce72edd11a87d7800e895df13c2d4674bf5a94c42f3"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "7541352d0edcc862d0ae48bc96860646aafdc7e94a797561fcced9a88d89252f",
+      "parse_status": "PASS",
+      "record_count": 1128,
+      "rna_id": "2M8K_48_pseudoknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "4e847130a0d8384a30a629052b69221606690bc51990f874fc7987151ceb6189"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "dca91d0a7f6ccc61ef2fc88a08f00e1800dd561030182ef1ee03d24b1b4ccadb",
+      "parse_status": "PASS",
+      "record_count": 171,
+      "rna_id": "2MEQ_19_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "187d2df096bdad860e9208a2dcd1f4933356d0c39c2ac815d9823545eda9590b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1250d1c6d116dfc5012113abc44836862a64f05bd0dfd5d47b96ae7c07fcf5ef",
+      "parse_status": "PASS",
+      "record_count": 1378,
+      "rna_id": "2MHI_53_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "4212840445eb978540f48a330ae06f1b80f352023521b32b0b618e8ed6a08f76"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a43dc983b2555767eb9630a273551e31673dd9ee2acbce411aa46ef9c5e4851c",
+      "parse_status": "PASS",
+      "record_count": 2278,
+      "rna_id": "2MQT_68_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1d917df8bfe354e304961b85eb7ffa07bc2b6d39645946edf724720db60942af"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "f4e18503f64757da2891ec7a9e7cb57eddecc19dd9ecd7566fa0d12c6d6faeb8",
+      "parse_status": "PASS",
+      "record_count": 1081,
+      "rna_id": "2MTJ_47_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "6ffdf757416f35ff044bb083e44af64f2ecd6967da7224a8bc3eda599ade8723"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d737de460bf24b6bab66fac4e8827a5997a108c54c6abba15e2d979e81525ac5",
+      "parse_status": "PASS",
+      "record_count": 741,
+      "rna_id": "2MXL_39_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "fe6ec06a37b3c2b786fd1fce7fdcb032ec3b59795dcb6d18a3a92799f044dca6"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9349f36e665bf3e95be5775a38897b60ec17ef407d5ce279202223adb7a6b8ab",
+      "parse_status": "PASS",
+      "record_count": 11935,
+      "rna_id": "2N1Q_155_4wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "6053d3078bc39a0e3f0af0d86ca683daa9087a013d993ff4249215589806277e"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "afcfbe33e1e59b821543afac278886ac949515b73f2c615e3627c6b9e2ac3e3e",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "2N2P_23_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "461fd91796dd130ab0c78cd6cdeb9d85a5bd39c06197604072197e70ec11a7f8"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "31b82a8b76469c6f433d19edac7962433722f25d6f033ac3cef80a0fd51a3ad7",
+      "parse_status": "PASS",
+      "record_count": 1891,
+      "rna_id": "2N3Q_62_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "8ea031e2313288b5860181a74103d2f96b695a5438739c1defb9739acced18cc"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "4e461b10909b78b9982d4cf2dc495fc41c4670a00a82fc6682db7d09af304549",
+      "parse_status": "PASS",
+      "record_count": 1378,
+      "rna_id": "2N4L_53_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "077567d6212530981916d9f3e45b620abd868635bfc94b5c12bbed31a7eff3d1"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "2bc58c90e09acd9a692787e5fd97d669d2bba8cc1f6b67ff766c0e3fddcd7d3e",
+      "parse_status": "PASS",
+      "record_count": 2278,
+      "rna_id": "2N6W_68_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "7d66de173b53c8cdd2b3c80bf4cc441e5ce7293144827866240dfbdd68a11790"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "89ecb91b0ee713abe1e2ee3be24daee09fade45e58ff2f6569b418ce703e7bab",
+      "parse_status": "PASS",
+      "record_count": 2211,
+      "rna_id": "2NC1_67_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "165ecd0efad3826374989a283896649e4ee96b3320c7a2760693298b94c16217"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "92292c7973ffccb3cb35ea8656ad164069536fa248421fdc1c136c99de635f8e",
+      "parse_status": "PASS",
+      "record_count": 378,
+      "rna_id": "2NCI_28_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "e2703d36a60fe6a950e216ea8f90490e7affcd7268e3d157f230a06597cb5d0a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "88bc8c08c02ac074788fc202b0e2ac8dade044627f9c3965d1191f5548517609",
+      "parse_status": "PASS",
+      "record_count": 595,
+      "rna_id": "2PCV_35_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "e07730843219d90b9a65edf4533354e299b43bf9b087efba73a64217b23dc185"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "90d27b997935a8c687702d38945956f5539c92950dddf129325d4b0ea40e5a30",
+      "parse_status": "PASS",
+      "record_count": 276,
+      "rna_id": "2QH2_24_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d963c7c4eebf8c38a350021e9084335c79753cf70d154a40f4b1eca3092122d4"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "5ae9ae74e8f55adc93f1ccef43b275e78517eccd4b4cf81ea1c4ddf3f7fc48d6",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "2RO2_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "e38f5c86e19cce2d9951aaab14534e3a7d712b179c1a3519217a2c199ee3cc24"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0c2e908d17aface2cfdd96c312e00c96a799e22966464d5472b547cbdb34515a",
+      "parse_status": "PASS",
+      "record_count": 561,
+      "rna_id": "2RVO_34_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "802f4213aea1d9dc9134a33a1d48916bfe05c60d5b282be81023426ea3ddd460"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a3e55151c47be863147964bf3dad6b5e3fea58952f004444c18251ee8189056b",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "2TPK_35_pseudoknot_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "5b1f1da2157099831ff70e8671ac69f13acde9457a239305b99813de05863e2a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "11855a49b43819e91fab2ee974a3fd7f6b33a1ffaf99c6560c9a20b0a1c9e365",
+      "parse_status": "PASS",
+      "record_count": 325,
+      "rna_id": "387D_26_hpbulge_xray_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "123b90c2e781a44b34a827ff98a031da0411f8b0ed4cac8a7194cc8314c0817b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "1a94cba756f37ce10ae400f3e7de4c63ca3ca465edea760ecb2682b5263c6ca8",
+      "parse_status": "PASS",
+      "record_count": 496,
+      "rna_id": "5A17_32_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "109d72d55d87986996af55a76eac4665e56583b931b1e63bfd21faa1c8003b17"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "a06c9d8be4011a1fe7bd9404c0534ca3b7037bd712582eda1602b6205f7ed407",
+      "parse_status": "PASS",
+      "record_count": 1081,
+      "rna_id": "5KH8_47_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "693f144da1664a5568e366b252339dac4dae713aabe67e246166fe4566171814"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "3cf3a678f4e04ba3a9e9179178b29f11ca5caa6209e7cadd0e4f0ac389461391",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "5KQE_35_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "2af832d6a7c98019cad63cd37137c94a984804896cf08ddf743168bcacd2a4d1"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "ba13df37dcd1af78cc49d872151b0da84b40ad20ce832e9cc9d1cb67dbb658cf",
+      "parse_status": "PASS",
+      "record_count": 406,
+      "rna_id": "5LSN_28_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "2853c88950a19656df079e66c4160d2b250b6f6c2195920726f8abb1e2f90a02"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "aace6ec54e36161da2542a12e966e2e3cb5afc6bdd9dfdd8da459b99bb001869",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "5UF3_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "cd416fad81f4d620ffb211154dc9526f84cd07d636f35cfd056c1bb3de3d988f"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "7af9ffcd54603deb1007db9c731ed551f088e9bf19d24d038fc6a72a66317b43",
+      "parse_status": "PASS",
+      "record_count": 465,
+      "rna_id": "5UZT_31_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f01a2d711b40bdaabc4ba0dadbfac53f280dbfa3393ba00e0010bf5ffce0afb5"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "cb00b2db96a8cd9a2faf3184412491cc0cefe1098171da21427ab3e32347455f",
+      "parse_status": "PASS",
+      "record_count": 820,
+      "rna_id": "5V16_41_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "5cccc166d3a98b8483f123f11101c901ed8af0c490a9458e82409dee68722ef6"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "e1f6e9ba89d251886ffdbbc521f56e03c998fc2903fb6a27b36eaf8275f6f066",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "5WQ1_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a5782f773b2a8f976e0d4dbed223c01b612482daa12ad22c8fd9f1fef03721c7"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "e06e4ef203c90af81b96f1666f7f446c8310971abaa268a80ee893ab6384b690",
+      "parse_status": "PASS",
+      "record_count": 465,
+      "rna_id": "6HYK_31_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1c2cdf2bdd4653870ac450538a5aad4eaaa5fcf2d9cfa2196095b738495d6368"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d8beb1ced29187c0f5c0ecc6f80bd6eff642926a96307fdaf938f1aea5753f40",
+      "parse_status": "PASS",
+      "record_count": 1540,
+      "rna_id": "6NOA_56_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "011f0f191dd76a86935b24eeac0f38212d9920635aaacde0ed932e75393157ea"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "73fc8635c30ba4c47dd78467956f996594c607dbc943f47db31d5b57ddc4f4a0",
+      "parse_status": "PASS",
+      "record_count": 190,
+      "rna_id": "6PK9_20_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "4be752cdcf6536d7987d3f9d48d756f41d3d9f9aa82637000881b2310beb8981"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "7eca53c03b5d6170296b8f622c6e89d70ed40da5e159498d0ed5d8fd27eb738f",
+      "parse_status": "PASS",
+      "record_count": 666,
+      "rna_id": "6U79_37_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "3899eb689ebb7c7c9b64b76bebf3aa28ad3e8cd8af5800802c3f33ba884c8260"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "76d406773c586bc2edd8005234c8b7bd6b60ba39e0af74266cf9a28aae22c038",
+      "parse_status": "PASS",
+      "record_count": 7021,
+      "rna_id": "6UES_119_4wjpseudoknot_cryoEM_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a626149b1f942a8b6257726d7016f15612fd5f097183106cd3cc7a7bd85ff63b"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "ac5ad90760a5d1631c3ceb0f486c40b5d77b78469301b39d73cbf5200e62d47b",
+      "parse_status": "PASS",
+      "record_count": 1830,
+      "rna_id": "6VAR_61_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "566d585350ea1f175b8dc9fee7050ce4e5a601a65966548b4e77c4c43fac4713"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "105bfdd8ad211e9b1123fc2905f1f7136518a92f9cee309fb0e5deb9e5942d96",
+      "parse_status": "PASS",
+      "record_count": 820,
+      "rna_id": "6W3M_41_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "c8650ee63613b82147843f76db5323187672b513428f749501fd527cdfbf42e1"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "84ef48b7cbc96b6052d30940087600adb9800611675c243861e5356473014496",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "7DD4_35_dumbbell_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "9d2c068784c1f1ee3cfe43222b3509e1062649e79c97f22a4709227f0423e96c"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "f7dff57502a1ced2914b51924b767b7d27d4e3ebe0ffe0d889ba322ee1b86925",
+      "parse_status": "PASS",
+      "record_count": 630,
+      "rna_id": "7K4L_36_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "74332a48f3e07de617bab7ec809152cf6d5d57c7ad8b0f367cb8f9d5b313abee"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "bd75344c1c5f7df379d903106886a8aef6a7b65c5435ea0065c3165bdbd2d6f5",
+      "parse_status": "PASS",
+      "record_count": 1770,
+      "rna_id": "7KUB_60_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "942a444a14cd907ee3173f3e2d047c5e5a8c94ecd38b4fb8ab74e32ee0c755f3"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "950b5a731340c1c623856d158218d7a2287bb975136092137d9052ab0d5df09c",
+      "parse_status": "PASS",
+      "record_count": 5253,
+      "rna_id": "7LVA_103_3wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "479a449aafe8c0f6b17bd5cf3639e32eaf1a79574d7331785905f3e86b9e90b6"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "9e26bb4453507222c154ef83a2cfab37141c48eee633528f2bfe8b59e64c936c",
+      "parse_status": "PASS",
+      "record_count": 10011,
+      "rna_id": "7LYG_142_4wj_xray_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "c25b5f9d01f523503883471172a554e0ad7c252b3bc80d1c735365adda7f4b93"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "0604270333d3794ad4e9f5ba8dbdd38a8af2735e78f005d2064429c385b68826",
+      "parse_status": "PASS",
+      "record_count": 4371,
+      "rna_id": "7SHX_94_4wj_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "9f168f22a751ce228b1d3defb0f0364c468b460c25a8591b4ea7b542fcf44235"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "25f5c6f4bd3319080138450b71c230c664bcffad2f615f672eeb685db2fede2c",
+      "parse_status": "PASS",
+      "record_count": 903,
+      "rna_id": "7UGA_43_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "e683113e7d6a7cdefe317d45efc021498f5119f75d9b9f2c0a109bc4cd80afda"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "62b37adf52458419dd894eb261c9b494b0a70b8839c11fd372293ba52af40500",
+      "parse_status": "PASS",
+      "record_count": 2415,
+      "rna_id": "7UMC_70_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "b8c2058a61024b26cfd19e103e7d4da414aa6839654ec7a5e103bc5f1072a15a"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "c3f0e9b089059e9667e2e6de6857848565e2dd28c6301788fef12b01663aaee2",
+      "parse_status": "PASS",
+      "record_count": 378,
+      "rna_id": "7UME_28_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "8e487e86688e51412137e08347794e3bf8290556559282272cadfd707149366f"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "8393fac5262b87addd045ad45b45fd9f194352d14ebca2ac4fc6d98078330303",
+      "parse_status": "PASS",
+      "record_count": 903,
+      "rna_id": "7V06_43_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "698702b27cff094811be90c08c694beb6dd88430690da02fb7b13a2e01a129e5"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "bd127b5419a48425914561aff7fb8490703e6cb3682c262740e19228fcd7b5b7",
+      "parse_status": "PASS",
+      "record_count": 325,
+      "rna_id": "8BWT_26_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "d15d5f26d1ba7ab848808a6bc49428212a2b485e529f545360de2d5a133420de"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d760c0fdad8d2457239d28a9a33b8ddeccc8802ca6907ca2c1e716ea10ddf7e7",
+      "parse_status": "PASS",
+      "record_count": 946,
+      "rna_id": "8CQ1_43_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "f73cf127f6e354a78ca4aebafa1980301829163d766dc1930a4323d6bff35dca"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "dd43a86138488a379fb1cecb019165111094d0a638fc63a9f787fd890a43c6b0",
+      "parse_status": "PASS",
+      "record_count": 2485,
+      "rna_id": "8FCS_71_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "028ddf57aa8e21ab9db096bb02474d096990a4a6dbe6ea9c3fa6a155ab0b2d53"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "c97cc7444e84449b52b86169d8d6c0a55437f8b60cefd6b10f15560abc18f7f9",
+      "parse_status": "PASS",
+      "record_count": 351,
+      "rna_id": "8JHP_27_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "e6aabe084feff1704e589a3f8152d82dd4b4369bcd8840be7031d73e41604516"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "188c6aaead06fb840a4497dd0af2b2df42b851c8c79a03b6c1cb3c883ee69c70",
+      "parse_status": "PASS",
+      "record_count": 171,
+      "rna_id": "8K8B_20_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "0579e43d4f1fbcbcb73e66d8c3859b65fecc5c47bbb5dae3814161ee7be52596"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "771b3ab6cd4eed7a7f257d70e9c43e8e7aea803658dbf99f5096d8d307b34e2f",
+      "parse_status": "PASS",
+      "record_count": 2278,
+      "rna_id": "8SCH_68_hpbulge_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1a7c1337e32e20e5960f53f1131dee9bf4e3d23ca3ed42a09ad1ad43091890ac"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "907759bbb371c3f926cd2c155a4808ecd92187a8e78960f523f8bab486bd341a",
+      "parse_status": "PASS",
+      "record_count": 528,
+      "rna_id": "9FO9_33_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "a50c1413a9b7c17b0a04cf91fdf093fbb8f3a5653d0e978a84b49c27a7dc4a37"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "d53231dd6c3c5659ad22482fda4bc4c36e160ed4cd0f8d512665954952dbc806",
+      "parse_status": "PASS",
+      "record_count": 24976,
+      "rna_id": "9G7C_224_4wj_cryoEM_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "1a53087c5d64502ead3a4fef7f51b00aef25588afa54668c2bcd678f2e02fab7"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": false,
+      "matrix_sha256": "49d7376d5bc49d76bb59f763d343aabde87662b3f5017f01b2f995c63375092c",
+      "parse_status": "PASS",
+      "record_count": 2628,
+      "rna_id": "9OBM_73_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "5dca349e0691661a9a45744bd445ff06a38d87e82a14cbbb8ffc7857a58025c2"
+    },
+    {
+      "command": "LC_ALL=C /usr/bin/RNAfold --noPS --partfunc=1 --bppmThreshold=0 --temp=37 --dangles=2",
+      "deterministic_rerun_audited": true,
+      "matrix_sha256": "86c7a9d005813c16556010afb46bf64ab0dc96ad1a2e8c14d2beaad30aacdcb1",
+      "parse_status": "PASS",
+      "record_count": 253,
+      "rna_id": "9OD4_23_hp_nmr_A",
+      "rnafold_version": "RNAfold 2.4.17",
+      "sequence_sha256": "067ed8cfa56b2e59e44b7b153600a1f1fc2f8474735b17eb85e3778b77fba9a2"
+    }
+  ],
+  "rnafold_version": "RNAfold 2.4.17",
+  "status": "R3_BPP_BASELINE_AVAILABLE",
+  "toy": {
+    "matrix_sha256": "dc2c00237e039b444bc8d83a7d0519bb12ad9dfa7dd9d3766dd0bff40bea16d4",
+    "one_based_3_7_zero_based_2_6_probability": 0.5187533497917155,
+    "parse_status": "PASS",
+    "raw_dotplot_sha256": "487cd7d5066d5057551c8e30aecf156a8ac1c54ef11a97b25d86cce163b57c79",
+    "record_count": 36,
+    "return_code": 0,
+    "stderr": "",
+    "stdout_sha256": "0f61d36625f73d077c3b8ef96e06081e1bb5a850ce2ef0c5d9b226120f414047"
+  },
+  "unique_rnas": 121
+}

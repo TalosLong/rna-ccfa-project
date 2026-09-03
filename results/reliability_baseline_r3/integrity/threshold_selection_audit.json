@@ -1,0 +1,13 @@
+{
+  "equal_score_groups_split": false,
+  "event_and_rna_balanced_tp_preservation_minimum": 0.99,
+  "objective": "MAXIMIZE_RNA_BALANCED_FP_REMOVAL",
+  "selection_partition": "VALIDATION_ONLY",
+  "status": "PASS",
+  "test_label_thresholding": false,
+  "tie_breaks": [
+    "RNA_BALANCED_MODIFICATION_PRECISION",
+    "FEWER_DELETIONS",
+    "HIGHER_THRESHOLD"
+  ]
+}

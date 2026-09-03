@@ -1,13 +1,19 @@
 # Pair-Reliability Baseline Suite R3 Implementation Plan
 
-Status: **PLANNED — NO FORMAL R3 EXECUTION PERFORMED**
+Status: **IMPLEMENTED AND EXECUTED — ORIGINAL PROSPECTIVE PLAN RETAINED**
 
 Date: 2026-09-02
+
+Implementation outcome: 2026-09-03. The plan below was written before formal
+execution and is retained as the prospective implementation record. Execution
+completed in `scripts/run_reliability_baseline_r3.py` and
+`scripts/summarize_reliability_baseline_r3.py`; formal findings are reported in
+`docs/reliability_baseline_r3_results.md`.
 
 Governing protocol:
 `docs/reliability_baseline_r3_protocol.md` (`FROZEN BEFORE R3 EXECUTION`).
 
-This plan describes a future implementation. It does not authorize training,
+At freeze time, this plan described a future implementation. It did not authorize training,
 retuning, Legacy121 R3 metric generation, external77 access, R4, noisy or real
 evidence, a pseudoknot branch, or 2D-to-3D work.
 

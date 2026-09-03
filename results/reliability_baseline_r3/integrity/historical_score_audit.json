@@ -1,0 +1,467 @@
+{
+  "authoritative_v1_variant": "POOLED_SOURCE_AGNOSTIC",
+  "historical_seeds": [
+    17,
+    29,
+    41,
+    53,
+    67
+  ],
+  "p1": [
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 0,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 17,
+      "test_rows": 1082,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 853,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 0,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 29,
+      "test_rows": 1082,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 853,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 0,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.2351741790771484e-07,
+      "seed": 41,
+      "test_rows": 1082,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 853,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 0,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.384185791015625e-07,
+      "seed": 53,
+      "test_rows": 1082,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 853,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 0,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.341104507446289e-07,
+      "seed": 67,
+      "test_rows": 1082,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 853,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 1,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 17,
+      "test_rows": 853,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1397,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 1,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.384185791015625e-07,
+      "seed": 29,
+      "test_rows": 853,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1397,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 1,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.980232238769531e-07,
+      "seed": 41,
+      "test_rows": 853,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1397,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 1,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 3.2782554626464844e-07,
+      "seed": 53,
+      "test_rows": 853,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1397,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 1,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 67,
+      "test_rows": 853,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1397,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 2,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.384185791015625e-07,
+      "seed": 17,
+      "test_rows": 1397,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 953,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 2,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.384185791015625e-07,
+      "seed": 29,
+      "test_rows": 1397,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 953,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 2,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.980232238769531e-07,
+      "seed": 41,
+      "test_rows": 1397,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 953,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 2,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.980232238769531e-07,
+      "seed": 53,
+      "test_rows": 1397,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 953,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 2,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.682209014892578e-07,
+      "seed": 67,
+      "test_rows": 1397,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 953,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 3,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 17,
+      "test_rows": 953,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1005,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 3,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 29,
+      "test_rows": 953,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1005,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 3,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 41,
+      "test_rows": 953,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1005,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 3,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 53,
+      "test_rows": 953,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1005,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 3,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 67,
+      "test_rows": 953,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1005,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 4,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.682209014892578e-07,
+      "seed": 17,
+      "test_rows": 1005,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1082,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 4,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.7881393432617188e-07,
+      "seed": 29,
+      "test_rows": 1005,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1082,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 4,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 2.384185791015625e-07,
+      "seed": 41,
+      "test_rows": 1005,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1082,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 4,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.4901161193847656e-07,
+      "seed": 53,
+      "test_rows": 1005,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1082,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    },
+    {
+      "checkpoint_inference_during_r3": false,
+      "fold": 4,
+      "historical_cpu_reconstruction_vs_authoritative_test_max_abs_error": 1.1920928955078125e-07,
+      "seed": 67,
+      "test_rows": 1005,
+      "test_scores_source": "authoritative_v1_per_pair_scores",
+      "training_during_r3": false,
+      "validation_rows": 1082,
+      "validation_scores_source": "historical_v2.0.1_checkpoint_reconstruction"
+    }
+  ],
+  "p3": [
+    {
+      "fold": 0,
+      "policy_join": "PASS",
+      "seed": 17,
+      "test_rows": 1082,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 0,
+      "policy_join": "PASS",
+      "seed": 29,
+      "test_rows": 1082,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 0,
+      "policy_join": "PASS",
+      "seed": 41,
+      "test_rows": 1082,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 0,
+      "policy_join": "PASS",
+      "seed": 53,
+      "test_rows": 1082,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 0,
+      "policy_join": "PASS",
+      "seed": 67,
+      "test_rows": 1082,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 1,
+      "policy_join": "PASS",
+      "seed": 17,
+      "test_rows": 853,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 1,
+      "policy_join": "PASS",
+      "seed": 29,
+      "test_rows": 853,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 1,
+      "policy_join": "PASS",
+      "seed": 41,
+      "test_rows": 853,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 1,
+      "policy_join": "PASS",
+      "seed": 53,
+      "test_rows": 853,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 1,
+      "policy_join": "PASS",
+      "seed": 67,
+      "test_rows": 853,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 2,
+      "policy_join": "PASS",
+      "seed": 17,
+      "test_rows": 1397,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 2,
+      "policy_join": "PASS",
+      "seed": 29,
+      "test_rows": 1397,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 2,
+      "policy_join": "PASS",
+      "seed": 41,
+      "test_rows": 1397,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 2,
+      "policy_join": "PASS",
+      "seed": 53,
+      "test_rows": 1397,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 2,
+      "policy_join": "PASS",
+      "seed": 67,
+      "test_rows": 1397,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 3,
+      "policy_join": "PASS",
+      "seed": 17,
+      "test_rows": 953,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 3,
+      "policy_join": "PASS",
+      "seed": 29,
+      "test_rows": 953,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 3,
+      "policy_join": "PASS",
+      "seed": 41,
+      "test_rows": 953,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 3,
+      "policy_join": "PASS",
+      "seed": 53,
+      "test_rows": 953,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 3,
+      "policy_join": "PASS",
+      "seed": 67,
+      "test_rows": 953,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 4,
+      "policy_join": "PASS",
+      "seed": 17,
+      "test_rows": 1005,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 4,
+      "policy_join": "PASS",
+      "seed": 29,
+      "test_rows": 1005,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 4,
+      "policy_join": "PASS",
+      "seed": 41,
+      "test_rows": 1005,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 4,
+      "policy_join": "PASS",
+      "seed": 53,
+      "test_rows": 1005,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    },
+    {
+      "fold": 4,
+      "policy_join": "PASS",
+      "seed": 67,
+      "test_rows": 1005,
+      "threshold_semantics": "IMMUTABLE_V3_VETO2_FIXED"
+    }
+  ],
+  "retraining": false,
+  "retuning": false,
+  "status": "PASS"
+}

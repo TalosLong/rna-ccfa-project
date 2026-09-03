@@ -1,6 +1,6 @@
 # Project Reboot v2 — Research Decisions
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 This file supplements the historical `docs/decisions.md`. Earlier decisions remain part of project history; the decisions below govern the rebooted mainline when they conflict with older planning.
 
@@ -392,3 +392,48 @@ controls, artifacts, and completion criteria.
 **Consequence:** state is `R3_PROTOCOL_FROZEN` and
 `READY_FOR_R3_EXECUTION`. This does not mean R3 is complete and does not
 authorize R4 or learned training.
+
+---
+
+## Decision — Prospective R3 ECE calibration amendment
+
+**Confirmed / 已确定 (2026-09-03, before any Legacy121 R3 performance number)**
+
+R3 ECE uses ten immutable equal-width bins `[0,.1),...,[.9,1]` on DELETE-risk
+scores. Empty bins remain explicit with zero contribution and NA empirical
+statistics. Event-pooled ECE bins all events directly; RNA-balanced ECE first
+computes ECE within each RNA and then gives defined RNAs equal weight. Only P0,
+P1, and P4 are calibration-eligible.
+
+**Consequence:** `R3_CALIBRATION_AMENDMENT_FROZEN` and
+`READY_TO_RESUME_R3_EXECUTION`. No baseline, score, threshold, split,
+universe, or other metric changed.
+
+---
+
+## Result — R3 Pair-Reliability Baseline Suite complete
+
+**Confirmed / 已确定 (2026-09-03)**
+
+All frozen P0--P4 and E1/E2 baselines completed. Track P contained 5,290
+original predicted pairs across 121 RNAs and three sources. Track E contained
+3,523 pair and 3,630 unpaired eligible manifests and 310,838 original
+pair-realizations per baseline. Integrity, BPP, historical-score, manifest,
+threshold, calibration, and leakage gates passed.
+
+P3 `V3_VETO2_FIXED` is
+`STRONGEST_R3_PREDICTION_ONLY_BASELINE`: RNA-balanced FP removal was 0.489748
+at TP preservation 0.997588, modification precision 0.965504, and coverage
+0.055930. It is flagged `SOURCE_DEPENDENT_COMPARATOR`. E1 local conflict is
+`STRONGEST_R3_EVIDENCE_CONDITIONED_BASELINE`: RNA-balanced FP removal was
+0.142946 at TP preservation 1.0, modification precision 1.0, and coverage
+0.018623.
+
+P4 BPP had the highest prediction-only AUPRC but failed held-out RNA-balanced
+preservation; E2 B2 disagreement was strong but reproduced B2's below-0.99
+preservation. Historical v1/v3 decisions remain failures under their original
+gates.
+
+**Consequence:** state is `R3_RELIABILITY_BASELINE_SUITE_COMPLETE` and
+`READY_FOR_R3_INTERPRETATION_AND_R4_PROTOCOL_DECISION`. Gate A remains
+`GATE_A_DEFERRED_R4_REQUIRED`; R4 has not started.

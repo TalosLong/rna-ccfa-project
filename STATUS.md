@@ -1,12 +1,12 @@
 # Current Status
 
-Last updated: 2026-09-02
+Last updated: 2026-09-03
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R2_INTERPRETATION_COMPLETE / R3_PROTOCOL_FROZEN**
+**PROJECT REBOOT v2 — R3_RELIABILITY_BASELINE_SUITE_COMPLETE**
 
-**Next state: `READY_FOR_R3_EXECUTION`**
+**Next state: `READY_FOR_R3_INTERPRETATION_AND_R4_PROTOCOL_DECISION`**
 
 Current working direction:
 
@@ -25,12 +25,18 @@ comparator but its Macro/Micro TP preservation of 0.975358/0.981767, 4,752
 lost TP, and 10,823 new FP leave a plausible high-preservation question.
 Gate A is `GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL.
 
-The R3 Pair-Reliability Baseline Suite protocol is frozen before execution.
-Track P and Track E are separate; the primary label is DELETE/FP on original
-predicted pairs, primary discrimination is AUPRC, and the primary safety point
-is `TP_preservation >= 0.99`. The frozen ViennaRNA 2.4.17 CLI can export
-deterministic parseable BPP matrices on a toy, so P4 is feasible without a
-Python RNA binding or software installation. No formal R3 metric has been run.
+The R3 Pair-Reliability Baseline Suite is complete. Its prospective ECE
+amendment was frozen before any Legacy121 R3 performance number. Track P used
+5,290 original predicted pairs; Track E used 3,523 pair and 3,630 unpaired R2
+v1.0.2 eligible manifests, yielding 310,838 pair-realizations per baseline.
+The strongest Track P no-new-training comparator is historical
+`R3-P3 V3_VETO2_FIXED`: RNA-balanced FP removal 0.489748 at TP preservation
+0.997588, with `SOURCE_DEPENDENT_COMPARATOR`. The strongest Track E comparator
+is `R3-E1 LOCAL_CONFLICT`: RNA-balanced FP removal 0.142946 at preservation
+1.0. P4 BPP had the strongest Track P discrimination but failed the held-out
+RNA-balanced 0.99 safety constraint; E2 B2 disagreement was strong but retained
+only 0.975358 RNA-balanced TP. Full results are frozen in
+`docs/reliability_baseline_r3_results.md`.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
 
@@ -178,7 +184,7 @@ Exact canonical-pair equality remains primary. Final paper-level robustness may 
 R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
 R2 Global constrained-refolding baseline    COMPLETE
-R3 Reliability baseline suite               PROTOCOL FROZEN / NOT EXECUTED
+R3 Reliability baseline suite               COMPLETE
 R4 Clean learned evidence reconciliation
 R5 Controlled noise robustness
 R6 Cross-predictor transfer / LOMO
@@ -246,6 +252,25 @@ Open external77 once. If the development effect does not preserve direction, no 
 - BPP feasibility is `R3_BPP_BASELINE_FEASIBLE_WITH_FROZEN_CLI` using
   `/usr/bin/RNAfold` 2.4.17 and the frozen partition-function interface.
 
+## Completed Task — R3 Pair-Reliability Baseline Suite
+
+- The ECE amendment was frozen prospectively with fixed ten-bin event-pooled
+  and per-RNA-then-equal-weight RNA-balanced semantics.
+- Track P completed P0--P4 on 121 RNAs, 363 source records, and 5,290 original
+  pairs; Track E completed E1/E2 on 7,153 eligible manifests and 310,838
+  pair-realizations per baseline.
+- P3 is `STRONGEST_R3_PREDICTION_ONLY_BASELINE`; its RNA-balanced preservation,
+  FP removal, modification precision, and coverage are 0.997588, 0.489748,
+  0.965504, and 0.055930. Its utility is source-dependent.
+- E1 is `STRONGEST_R3_EVIDENCE_CONDITIONED_BASELINE`; corresponding values are
+  1.0, 0.142946, 1.0, and 0.018623.
+- P4 was the strongest prediction-only discriminator (event/RNA AUPRC
+  0.777283/0.915326) but was high-preservation-ineligible; E2 reproduced B2's
+  original-pair preservation/FP-removal point and was likewise ineligible.
+- All joins and leakage gates passed; targeted tests passed 33/33 and the full
+  suite passed 201 tests plus 29 subtests. No new training, retuning,
+  external77 access, or R4 execution occurred.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
@@ -255,8 +280,7 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not alter or expand the frozen R2 v1.0.2 comparison universe.**
 - **Do not change the frozen R3 score definitions, threshold rule, or
   aggregation semantics after viewing held-out results.**
-- **Do not begin R4 until formal R3 execution is complete and a new R4
-  protocol is prospectively frozen.**
+- **Do not execute R4 until a new R4 protocol is prospectively frozen.**
 
 Detailed current-mainline documents:
 

@@ -1,0 +1,8 @@
+{
+  "label": "FULL_REFOLD_REFERENCE",
+  "macro_fp_removal": 0.775728,
+  "macro_tp_preservation": 0.975358,
+  "micro_fp_removal": 0.645883,
+  "micro_tp_preservation": 0.981767,
+  "operation_space": "GLOBAL_REFOLD_NOT_DELETION_ONLY"
+}
