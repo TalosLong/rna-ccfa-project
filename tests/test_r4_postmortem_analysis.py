@@ -112,19 +112,22 @@ def test_channel_difference_is_recorded_without_posthoc_selection():
     assert summary["scientific_firewall"]["seed_or_channel_selected"] is False
 
 
-def test_authoritative_state_records_exact_future_branch_and_independence_boundary():
-    paths = (
+def test_authoritative_state_records_protocol_transition_and_independence_boundary():
+    current_paths = (
         "AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md",
         "plan/timeline.md", "docs/reboot_v2_decisions.md",
-        "docs/reboot_v2_claim_evidence_map.md", "docs/r4_failure_analysis_and_future_decision.md",
+        "docs/reboot_v2_claim_evidence_map.md", "docs/conservative_reconciliation_protocol.md",
+        "docs/conservative_reconciliation_implementation_plan.md",
     )
-    contents = {path: (ROOT / path).read_text() for path in paths}
+    contents = {path: (ROOT / path).read_text() for path in current_paths}
     for text in contents.values():
-        assert "NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN" in text
+        assert "CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN" in text
         assert "R4_GATE_B_FAIL" in text
     for path in ("AGENTS.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md"):
-        assert "FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL" in contents[path]
-    postmortem = contents["docs/r4_failure_analysis_and_future_decision.md"]
+        assert "IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT" in contents[path]
+    postmortem = (ROOT / "docs/r4_failure_analysis_and_future_decision.md").read_text()
+    assert "NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN" in postmortem
+    assert "FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL" in postmortem
     assert "Legacy121-only result may be promoted as independent validation" in postmortem
     assert "external77 remains a one-shot independent test" in postmortem
     assert "R5_NOT_AUTHORIZED" in postmortem

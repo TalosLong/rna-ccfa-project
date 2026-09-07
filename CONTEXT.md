@@ -1,6 +1,6 @@
 # RNA CCF-A Research Project Context
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 ## Project Goal
 
@@ -188,7 +188,7 @@ R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite        COMPLETE
 R4 Clean learned evidence reconciliation   COMPLETE / GATE B FAIL
 R4 postmortem / future-path decision       COMPLETE / NEW HYPOTHESIS ONLY
-New conservative reconciliation protocol  NOT FROZEN / PLANNING ONLY
+Conservative reconciliation protocol      FROZEN / NOT EXECUTED
 R5 Noise robustness                        NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -251,12 +251,19 @@ R4 frozen-output postmortem 已完成。相对 matched B4，ERN 的新增 FP rem
 evidence 则保护 TP。source/channel 分解不支持单一 source 或稳定的
 positive-pair-only 解释。
 
+新的正式方法名为 **Conservative Evidence Reconciliation (CER)**，唯一 primary
+mechanism 是 Context-Corroborated Evidence Gate (CCEG)。它沿用 exact R4
+features 和 simple ERN branch：DIRECT 保护，LOCAL_CONFLICT 按 E1 显式删除，
+NON_EVIDENCED 只有在 usable-evidence risk 与 evidence-masked
+candidate-context risk 同时达到新 validation-locked threshold 时才 DELETE；
+分歧为 ABSTAIN 并保持原 pair。
+
 当前决策与约束是：
 
-> **`NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`：仅允许冻结新的
-> prospective conservative trust-gated/locality-aware reconciliation protocol；
-> 不得实现、训练、rescue R4、访问 external77、开始 R5 noise 或真实
-> SHAPE/DMS/PARS。**
+> **`CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` /
+> `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`：下一任务只允许实现并执行
+> frozen CER Legacy121 development protocol；不得 rescue R4、访问 external77、
+> 开始 R5 noise 或真实 SHAPE/DMS/PARS。**
 
 Legacy121 R4 held-out 结果已经被观察并用于 hypothesis generation，因此
 任何 post-R4 方法都只能把 Legacy121 作为 development data，不能把新的
@@ -269,10 +276,15 @@ removal 严格大于 0.489748、event-pooled FP removal 严格大于 0.347816，
 改进不得由单一 predictor source 驱动。该 Gate 已正式判定为 FAIL，且没有、
 也不得自动用更大架构或 threshold/seed/channel selection rescue。
 
+`CONSERVATIVE_DEV_GATE` 保留 event/RNA TP preservation >=0.99 和 P3
+FP-removal bars，并新增 NON_EVIDENCED safety、matched evidence attribution
+以及严格超过 50% frozen R4 evidence-attributable FP-gain retention。它只决定
+是否值得另行冻结 final policy，不能作为 independent confirmation。
+
 唯一下一任务：
 
 ```text
-FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL
+IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
 ```
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。

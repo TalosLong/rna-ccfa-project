@@ -1,6 +1,6 @@
 # Project Reboot v2 — Research Decisions
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 This file supplements the historical `docs/decisions.md`. Earlier decisions remain part of project history; the decisions below govern the rebooted mainline when they conflict with older planning.
 
@@ -589,3 +589,81 @@ validation.
 independent test. Before it can be accessed, the complete future method,
 features, calibration, thresholds, gates, and analysis plan must be frozen.
 external77 may not be used for rescue.
+
+---
+
+## Decision — Freeze Conservative Evidence Reconciliation with one corroboration gate
+
+**Confirmed / 已确定 (2026-09-08, before implementation or training)**
+
+The new method name is **Conservative Evidence Reconciliation (CER)**. Its sole
+primary mechanism is Context-Corroborated Evidence Gate (CCEG). DIRECT
+positive-pair support is protected, LOCAL_CONFLICT retains the explicit E1
+deletion, and NON_EVIDENCED deletion requires both a usable-evidence risk branch
+and an exactly evidence-masked candidate-context branch to meet one newly
+validation-locked threshold. Branch disagreement is a normal ABSTAIN state and
+leaves the original pair unchanged.
+
+CER reuses the exact R4 80/17/8/4 feature contract and simple ERN branch
+architecture. It does not use source identity, GT-derived inference features,
+B2 disagreement, R4 decisions/thresholds, postmortem bins, attention,
+Transformer, GNN, RNA language model, or foundation model. The scientific
+rationale is independent corroboration for a non-local action whose relation to
+evidence is not explicit; the rule is not fitted from a favorable held-out
+stratum.
+
+**Consequence:** status is
+`CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` and
+`CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`. R4 remains
+`R4_GATE_B_FAIL`. The only next authorized task is
+`IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`.
+
+---
+
+## Decision — Freeze a new development-only safety and attribution gate
+
+**Confirmed / 已确定 (2026-09-08, prospectively)**
+
+`CONSERVATIVE_DEV_GATE` retains event-pooled and RNA-balanced TP preservation
+at least 0.99, event FP removal strictly above 0.347816, RNA-balanced FP
+removal strictly above 0.489748, and improvement over P3 in at least two
+sources including RNAfold or PETfold. It additionally requires both
+NON_EVIDENCED preservation summaries at least 0.99, no evidence-attributable
+reduction in NON_EVIDENCED preservation relative to the matched masked
+control, and retention of strictly more than 50% of the frozen R4 ERN-minus-B4
+FP-removal increment under both aggregations.
+
+This is a Legacy121 development Go/No-Go gate, not R4 Gate B and not paper-level
+confirmation. The complete 200 condition x branch x channel x fold x seed
+matrix must be retained; no seed, channel, density, source, or protocol variant
+may be selected.
+
+**Consequence:** failure stops the conservative mainline and leads to
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION`. A development PASS can authorize only
+a separate prospective final-policy/validation freeze. Neither outcome
+automatically authorizes R5 or external77.
+
+---
+
+## Decision — Freeze CER data roles and external77 one-shot prerequisites
+
+**Confirmed / 已确定 (2026-09-08)**
+
+Legacy121 rotations are now named development train, development validation,
+and development assessment. RNA remains the grouping unit, but no fold is
+pristine confirmation. external77 remains `ONE_SHOT_INDEPENDENT_TEST` and
+`EXTERNAL77_LOCKED`.
+
+Before any external77 path is opened, a separate final-policy seal must contain
+the final architecture/checkpoints, unchanged feature contract, CCEG action
+rule, fitted calibration artifacts, exact numeric threshold, clean-evidence
+generation and eligibility semantics, metrics, source analyses, success rule,
+code/environment hashes, and commands. The clean-evidence contract is already
+fixed to both channels, densities `0,1,5,10,20,50`, evidence seeds
+`101,103,107,109,113`, `simulated_evidence_v1`, and R2 v1.0.2 pair
+eligibility.
+
+**Consequence:** external77 cannot be used for development, retraining,
+recalibration, threshold rescue, feature/method redesign, subset selection, or
+a second attempt. R5, noisy evidence, and real SHAPE/DMS/PARS remain
+unauthorized.

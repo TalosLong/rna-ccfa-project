@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 ## R0 — Literature & Novelty Freeze
 
@@ -187,17 +187,42 @@ Last updated: 2026-09-07
 - [x] Select `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN` without authorizing
   implementation, training, threshold rescue, R5, or external77 access.
 
-## Prospective Conservative Reconciliation — Protocol Planning Only
+## Prospective Conservative Reconciliation — Protocol Frozen
 
-- [ ] Freeze a new scientific hypothesis around trust-gated/locality-aware
+- [x] Freeze a new scientific hypothesis around trust-gated/locality-aware
   reconciliation before any code or training.
-- [ ] Prospectively define trust/locality semantics, permitted inputs, action
+- [x] Prospectively define trust/locality semantics, permitted inputs, action
   space, controls, splits, calibration, thresholds, metrics, and failure gate.
-- [ ] Explicitly treat Legacy121 as development/hypothesis-generation data.
-- [ ] Keep external77 unopened until the complete future method and analysis
+- [x] Explicitly treat Legacy121 as development/hypothesis-generation data.
+- [x] Keep external77 unopened until the complete future method and analysis
   plan are frozen; preserve it as one-shot independent evaluation.
-- [ ] Do not frame the protocol as an R4 threshold move, positive-pair channel
+- [x] Do not frame the protocol as an R4 threshold move, positive-pair channel
   selection, held-out-error tuning, or larger-model rescue.
+- [x] Freeze the sole primary mechanism as Context-Corroborated Evidence Gate
+  over the exact R4 features and simple ERN branch family.
+- [x] Freeze DIRECT protection, E1-compatible LOCAL_CONFLICT deletion, and
+  corroborated NON_EVIDENCED DELETE/KEEP/ABSTAIN semantics.
+- [x] Freeze the matched `CER_EVIDENCE_MASKED` condition and complete 200-run
+  development matrix.
+- [x] Freeze `CONSERVATIVE_DEV_GATE` without altering R4 Gate B.
+- [x] Write the implementation/artifact plan without implementation or
+  training.
+
+### Conservative reconciliation development execution — not started
+
+- [ ] Snapshot and audit all frozen inputs before implementation.
+- [ ] Implement only the frozen CCEG/action/accounting contract and planned
+  synthetic/unit tests.
+- [ ] Build immutable feature references and grouped development split
+  manifests without regenerating evidence.
+- [ ] Complete all 200 condition x branch x channel x fold x seed runs.
+- [ ] Fit validation-only branch calibrators and lock new CCEG thresholds.
+- [ ] Run one sealed development-assessment pass; do not call it independent.
+- [ ] Produce all reliability, utility, action, scope, evidence-attribution,
+  source, comparator, integrity, and reproducibility artifacts.
+- [ ] Apply `CONSERVATIVE_DEV_GATE` once with no rescue.
+- [ ] Update state to the exact PASS/FAIL consequence without automatically
+  starting R5 or external77.
 
 ## R5 — Controlled Noise Robustness
 
@@ -273,18 +298,19 @@ R4_GATE_B_FAIL
 GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
 R4_POSTMORTEM_COMPLETE
-NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
+CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
+CONSERVATIVE_RECONCILIATION_NOT_EXECUTED
+EXTERNAL77_LOCKED
 ```
 
-The future-path decision has been made, but no experiment is authorized. The
-only next task is:
+The new protocol and implementation plan are frozen. The only next task is:
 
 ```text
-FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL
+IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
 ```
 
 R4 is complete under its frozen protocol. Historical E2 remains unauthorized.
 The failed Gate B cannot be reinterpreted by choosing a seed/channel or moving
-the locked operating point. Do not implement or train the future concept, begin
-R5, access external77, or start real-evidence work during the protocol-freeze
-task.
+the locked operating point. The future execution must follow the frozen CER
+protocol exactly. Do not begin R5, access external77, or start real-evidence
+work.

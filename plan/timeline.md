@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -207,14 +207,48 @@ Future-path decision:
 NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
 ```
 
-The only next authorized task is
+At that checkpoint, the only next authorized task was
 `FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`. The possible
 Trust-Gated / Locality-Aware Evidence Reconciliation concept is an untested
 hypothesis, not an authorized implementation or R4 rescue.
 
-Legacy121 is now development/hypothesis-generation data for any post-R4
+Legacy121 is development/hypothesis-generation data for any post-R4
 method. external77 remains unopened and reserved for one-shot independent
 evaluation only after the complete future method and analysis plan are frozen.
+
+---
+
+## Conservative Evidence Reconciliation Development
+
+**Status: `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` — NOT EXECUTED**
+
+Hypothesis:
+
+> Most evidence-attributable useful correction can be retained while
+> suppressing unsafe NON_EVIDENCED propagation.
+
+The sole frozen primary mechanism is Context-Corroborated Evidence Gate
+(CCEG). It protects DIRECT support, retains explicit E1 LOCAL_CONFLICT
+deletion, and permits a NON_EVIDENCED deletion only when separately calibrated
+usable-evidence and evidence-masked candidate-context risks agree above one
+new validation-locked threshold. Disagreement is ABSTAIN. CER uses the exact R4
+features and simple branch architecture; no postmortem-bin rule or capacity
+escalation is permitted.
+
+Legacy121 roles are development train/validation/assessment. The new
+`CONSERVATIVE_DEV_GATE` retains the dual 0.99 safety philosophy, P3 FP-removal
+bars and source consistency, and adds NON_EVIDENCED safety plus matched
+evidence-attribution/gain-retention requirements. It is a development decision,
+not independent confirmation.
+
+Next authorized task:
+
+```text
+IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
+```
+
+R5 remains unauthorized. external77 remains locked and one-shot; it may be
+opened only after a development PASS and a separate complete final-policy seal.
 
 ---
 
@@ -349,9 +383,10 @@ R1 documentation freeze
 -> interpret R3 and prospectively decide/freeze R4 protocol
 -> complete frozen R4 learned clean evidence reconciliation
 -> diagnose frozen R4 outputs and choose the future path
--> freeze a new prospective conservative-reconciliation protocol only
+-> freeze the prospective CER/CCEG development protocol
+-> implement and execute frozen CER on Legacy121 development CV only
 ```
 
-**No scientific execution stage is currently authorized. The next task is
-protocol freeze only. Historical Stage E2, R4 rescue tuning, R5, and external77
-access remain prohibited.**
+**Only the frozen CER Legacy121 development execution is authorized next.
+Historical Stage E2, R4 rescue tuning, R5, and external77 access remain
+prohibited.**

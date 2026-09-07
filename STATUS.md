@@ -1,12 +1,16 @@
 # Current Status
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `R4_POSTMORTEM_COMPLETE`**
+**PROJECT REBOOT v2 — `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN`**
 
-**Future path: `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`**
+**Execution state: `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`**
+
+**Postmortem state: `R4_POSTMORTEM_COMPLETE`**
+
+**R4 state: `R4_COMPLETE` / `R4_GATE_B_FAIL` (unchanged)**
 
 **Gate A: `GATE_A_PASS_POSTHOC_NONDOMINATED`**
 
@@ -14,7 +18,9 @@ Last updated: 2026-09-07
 
 **Next-stage authorization: `R5_NOT_AUTHORIZED`**
 
-**Next authorized task: `FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`**
+**Independent data: `EXTERNAL77_LOCKED`**
+
+**Next authorized task: `IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`**
 
 Current working direction:
 
@@ -86,9 +92,26 @@ advantage was not fold-stable, so no channel rescue is permitted.
 
 This supports only a new hypothesis that most evidence-attributable correction
 may be recoverable while suppressing unsafe non-evidenced propagation. Status
-is `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`; the only next task is to
-freeze a new conservative trust-gated/locality-aware protocol. No implementation
-or training is authorized.
+was `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN` before the present protocol
+freeze.
+
+The new **Conservative Evidence Reconciliation (CER)** protocol is now frozen
+but not executed. Its sole primary mechanism is the Context-Corroborated
+Evidence Gate (CCEG): DIRECT pairs are protected, LOCAL_CONFLICT pairs receive
+the explicit E1 deletion, and a NON_EVIDENCED deletion requires agreement
+between separately calibrated usable-evidence and evidence-masked candidate-
+context risks. Disagreement is a normal ABSTAIN action that leaves the original
+pair unchanged. CER reuses the exact R4 feature allowlist and simple ERN branch
+architecture; it adds no postmortem-bin rule or larger model.
+
+Legacy121 remains development/hypothesis-generation data. The frozen
+`CONSERVATIVE_DEV_GATE` retains both 0.99 preservation requirements and the P3
+FP-removal bars, adds explicit NON_EVIDENCED safety and matched evidence-
+attribution requirements, and operationalizes “most” as retaining strictly
+more than 50% of the frozen R4 ERN-minus-B4 FP-removal increment under both
+aggregations. This gate can authorize only a later final-policy freeze, never a
+paper confirmation. external77 remains unopened and one-shot; R5 remains
+unauthorized.
 
 ## Rebooted Scientific Question
 
@@ -103,7 +126,7 @@ B1 local hard evidence enforcement
 vs
 B2 global evidence-constrained refolding
 vs
-future B4/R4 post-hoc learned evidence reconciliation
+CER post-hoc conservative evidence reconciliation
 ```
 
 The project must explicitly answer:
@@ -237,7 +260,7 @@ R2 Global constrained-refolding baseline    COMPLETE
 R3 Reliability baseline suite               COMPLETE
 R4 Clean learned evidence reconciliation       COMPLETE / GATE B FAIL
 R4 postmortem / future-path decision            COMPLETE / NEW HYPOTHESIS ONLY
-New conservative reconciliation protocol       NOT FROZEN / PLANNING ONLY
+Conservative reconciliation protocol            FROZEN / NOT EXECUTED
 R5 Controlled noise robustness                 NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -387,6 +410,25 @@ Open external77 once. If the development effect does not preserve direction, no 
 - Full diagnostic interpretation is in
   `docs/r4_failure_analysis_and_future_decision.md`.
 
+## Completed Task — Conservative Reconciliation Protocol Freeze
+
+- `docs/conservative_reconciliation_protocol.md` freezes CER and its sole CCEG
+  mechanism without changing R4 or using a postmortem-bin rule.
+- DIRECT is protected, LOCAL_CONFLICT retains the explicit E1 correction, and
+  NON_EVIDENCED deletion requires corroboration by usable-evidence and masked
+  candidate-context risks; disagreement is ABSTAIN.
+- The exact R4 feature allowlist and simple ERN branch family are retained.
+- Legacy121 roles are renamed development train/validation/assessment and are
+  never independent confirmation.
+- `CONSERVATIVE_DEV_GATE` retains both 0.99 preservation bars, both P3
+  FP-removal bars, source consistency, NON_EVIDENCED safety, and matched
+  evidence-attribution/gain-retention criteria.
+- `docs/conservative_reconciliation_implementation_plan.md` defines only the
+  future scripts, artifacts, seals, audits, and tests. Implementation and
+  training have not started.
+- external77 remains locked for a separately presealed one-shot independent
+  test; R5 remains unauthorized.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
@@ -399,10 +441,11 @@ Open external77 once. If the development effect does not preserve direction, no 
   aggregation semantics after viewing held-out results.**
 - **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
   source-consistency requirement after held-out results.**
-- **Do not begin R5, R7 external77, or real-evidence work: no next scientific
-  execution stage is authorized after `R4_GATE_B_FAIL`.**
-- **The only authorized next task is protocol freeze for the new prospective
-  conservative-reconciliation hypothesis; do not implement or train it.**
+- **Do not begin R5, R7 external77, or real-evidence work.**
+- **The only authorized next task is implementation and Legacy121 development
+  execution of the frozen CER protocol; it must not change the protocol.**
+- **Do not implement or execute CER within this completed protocol-freeze
+  task; current execution state remains `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`.**
 - **Legacy121 held-out folds are no longer pristine confirmation for any method
   designed after the R4 postmortem. Keep external77 unopened until a complete
   future protocol and analysis plan are frozen.**

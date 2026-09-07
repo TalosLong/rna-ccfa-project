@@ -1,10 +1,11 @@
 # Reboot v2 Claim–Evidence Map
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 This file supplements the historical `docs/claim_evidence_map.md`. Historical claims/results remain unchanged; this map defines the claims allowed after Project Reboot v2.
 
-Current future-path status: **`NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`**.
+Current future-path status: **`CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` /
+`CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`**.
 The frozen scientific decision remains **`R4_GATE_B_FAIL`**; R5 is not
 authorized.
 
@@ -19,7 +20,8 @@ authorized.
 | A learned post-hoc method can estimate pair-level residual error better than frozen no-new-training comparators. | R4 ERN event/RNA AUPRC was 0.811406/0.897194. Matched B4 event/RNA AUPRC was 0.771726/0.884302, showing an evidence-attributable discrimination increment. | **SUPPORTED ON LEGACY121 DEVELOPMENT ONLY** | No unseen-predictor or cross-dataset claim; R6/R7 were not run. |
 | Learned evidence reconciliation improves FP removal at high TP preservation. | ERN event/RNA FP removal was 0.475531/0.660806, but event TP preservation was 0.989682 and failed the frozen 0.99 condition. Gate B failed. | **NOT SUPPORTED UNDER FROZEN SAFETY GATE** | No rescue tuning. Only a separately frozen conservative-hypothesis protocol may be considered next. |
 | Evidence can improve non-evidenced pairs without excessive collateral TP loss. | ERN NON_EVIDENCED removal was useful but lost a mean 2,687.8 TP; scope TP preservation was 0.988801. Relative to B4, it supplied 44.0% of additional FP removal but all material additional TP loss. | **MIXED / SAFETY REQUIREMENT FAILED** | Do not claim safe propagation. Any new trust/locality semantics must be frozen prospectively before implementation. |
-| Most evidence-attributable useful correction can be retained while suppressing unsafe NON_EVIDENCED propagation. | Post-hoc attribution found 56.0% of ERN-minus-B4 FP-removal gain in perfectly precise LOCAL_CONFLICT, 44.0% in NON_EVIDENCED, and all material additional TP loss in NON_EVIDENCED. This is hypothesis-generating Legacy121 evidence only. | **FUTURE HYPOTHESIS / NOT TESTED** | Freeze a falsifiable conservative-reconciliation protocol; Legacy121 is development-only and external77 remains the one-shot independent test. |
+| Most evidence-attributable useful correction can be retained while suppressing unsafe NON_EVIDENCED propagation. | Post-hoc attribution found 56.0% of ERN-minus-B4 FP-removal gain in perfectly precise LOCAL_CONFLICT, 44.0% in NON_EVIDENCED, and all material additional TP loss in NON_EVIDENCED. CER/CCEG is now prospectively frozen but not executed. | **PROTOCOL FROZEN / HYPOTHESIS NOT TESTED** | Execute the exact CER Legacy121 development protocol and apply `CONSERVATIVE_DEV_GATE`; do not call it independent validation. |
+| Candidate-context corroboration makes non-evidenced evidence propagation safe while preserving most evidence-attributable gain. | No CER result exists. CCEG is a prospective mechanism motivated by causal/action semantics, not a result inferred from a favorable R4 diagnostic bin. | **NOT TESTED** | Complete all CER/masked development runs and satisfy every safety, attribution, gain-retention, and source condition before freezing any final claim. |
 | The method is model-agnostic / transfers to unseen predictors. | v1 LOMO did not reproduce across all three predictors. | **NOT SUPPORTED CURRENTLY** | R6 LOMO under rebooted method; claim only if supported. |
 | The method generalizes across datasets. | Legacy121 held-out outcomes have been interpreted and can no longer validate a newly designed method independently. external77 126/126 is prepared but remains unopened by learned methods. | **NOT TESTED** | Freeze the entire future method and analysis plan before a one-shot external77 evaluation; never use external77 for rescue. |
 | The method is robust to noisy evidence. | Corruption mechanism exists but full rebooted noisy evaluation was not run; R5 is not authorized after Gate B failure. | **NOT TESTED** | Only if later separately authorized: prospectively frozen controlled-noise work with Gate C. |

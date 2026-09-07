@@ -1,6 +1,6 @@
 # Research Plan — Reboot v2
 
-Last updated: 2026-09-07
+Last updated: 2026-09-08
 
 ## 1. Working Direction
 
@@ -180,6 +180,14 @@ and B4.
 
 No Transformer/GNN/foundation-model escalation is authorized unless a simple architecture first establishes signal beyond the strongest frozen non-learned baseline.
 
+After R4 Gate B failure, the prospectively frozen successor is **Conservative
+Evidence Reconciliation (CER)** with one Context-Corroborated Evidence Gate
+(CCEG). CER retains the exact R4 features and simple branch architecture. It
+changes action structure only: DIRECT support protects a pair, LOCAL_CONFLICT
+retains the explicit E1 deletion, and NON_EVIDENCED deletion requires
+agreement between usable-evidence and evidence-masked candidate-context risk.
+Branch disagreement is ABSTAIN. This is a new hypothesis, not an R4 rescue.
+
 ## 10. Metrics
 
 ### Pair reliability
@@ -325,11 +333,34 @@ B4 came from perfectly precise `LOCAL_CONFLICT`; `NON_EVIDENCED` contributed
 The loss was distributed across sources and channels, and the positive-pair
 preservation advantage was not fold-stable.
 
-**Decision: `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`.** The only
-authorized next task is to freeze a new prospective conservative
+**Decision at that checkpoint: `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`.**
+The next task at that checkpoint was to freeze a new prospective conservative
 trust-gated/locality-aware reconciliation protocol. This is not R4 threshold
 movement, channel selection, held-out rescue, feature addition, or architecture
-escalation. No implementation or training is authorized.
+escalation. No implementation or training was authorized at that checkpoint.
+
+### Conservative reconciliation development
+
+**Status: `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` /
+`CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`.**
+
+The protocol freezes CER/CCEG, the unchanged R4 feature contract and simple
+branch architecture, paired `CER_EVIDENCE_MASKED` control, grouped Legacy121
+development CV, validation-only calibration and thresholding, complete
+KEEP/DELETE/ABSTAIN accounting, and a new `CONSERVATIVE_DEV_GATE`.
+
+The development gate is not R4 Gate B. It retains event-pooled and RNA-balanced
+TP preservation at least 0.99, event/RNA FP removal strictly above the frozen
+P3 bars, and source consistency. It additionally requires both
+NON_EVIDENCED preservation summaries at least 0.99, no evidence-attributable
+reduction of NON_EVIDENCED preservation relative to the matched control, and
+strictly more than 50% retention of the frozen R4 evidence-attributable FP-
+removal increment under both aggregations.
+
+Legacy121 assessment folds provide internal development evidence only. A gate
+PASS could authorize only a separate final-policy/validation protocol freeze;
+it would not constitute paper confirmation or automatically authorize R5,
+R6, or external77.
 
 ### R5 — Noise robustness
 
@@ -402,17 +433,18 @@ Prediction-only topology/consensus is insufficient for safe correction
 -> optional real probing and 3D validation establish practical relevance
 ```
 
-## 14. Current Hold State
+## 14. Current Execution State
 
 **Do not train historical Stage E2.**
 
-No scientific execution stage is authorized. The only planning action is:
+The conservative protocol and implementation plan are frozen. The only
+authorized next task is:
 
-> **`FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`**
+> **`IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`**
 
-The future hypothesis is justified but its protocol is not frozen. Do not
-implement or train it, rescue the R4 held-out result, start R5, access
-external77, or begin real-evidence work.
+That future task must implement the frozen contract without variant selection
+or R4 rescue. This protocol-freeze task performed no implementation or
+training. Do not start R5, access external77, or begin real-evidence work.
 
 The completed execution state is:
 
@@ -422,7 +454,9 @@ R4_GATE_B_FAIL
 GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
 R4_POSTMORTEM_COMPLETE
-NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
+CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
+CONSERVATIVE_RECONCILIATION_NOT_EXECUTED
+EXTERNAL77_LOCKED
 ```
 
 Legacy121 is development-only for any post-R4 design. external77 remains an
