@@ -1,0 +1,66 @@
+{
+  "analysis_role": "DESCRIPTIVE_HYPOTHESIS_GENERATION_ONLY",
+  "channel_stability": {
+    "fold_seed_comparisons": 25,
+    "fold_summary_comparisons": 5,
+    "positive_pair_higher_preservation_fold_seed_cells": 12,
+    "positive_pair_higher_preservation_fold_summaries": 3,
+    "positive_pair_higher_preservation_seed_summaries": 4,
+    "seed_summary_comparisons": 5
+  },
+  "ern_vs_b4_attribution_mean_per_seed": {
+    "direct_change_in_lost_tp": -122.0,
+    "fraction_of_net_additional_fp_removal_from_local_conflict": 0.5600949693141603,
+    "fraction_of_net_additional_fp_removal_from_non_evidenced": 0.4399050306858397,
+    "local_conflict_additional_removed_fp": 2500.6,
+    "net_additional_lost_tp": 574.2,
+    "net_additional_removed_fp": 4464.6,
+    "non_evidenced_additional_lost_tp": 696.2,
+    "non_evidenced_additional_removed_fp": 1964.0
+  },
+  "frozen_gate_b_decision_unchanged": "R4_GATE_B_FAIL",
+  "frozen_input_hashes": {
+    "docs/clean_learned_evidence_reconciliation_r4_protocol.md": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4",
+    "docs/clean_learned_evidence_reconciliation_r4_results.md": "728e931d4e1329935fe990154940cb0b35900f56d14298d88ef59a7ad8e3fc8c",
+    "results/clean_learned_evidence_reconciliation_r4/features/candidate_rows.parquet": "4f0204611333f8783aced1eddd874dedf71c837debc68515abda54cf35834a7c",
+    "results/clean_learned_evidence_reconciliation_r4/features/feature_contract.json": "154d9e2a59c2d571369edc516c0932b41adb8bea62943a3de6920431e9c7ad28",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_17.parquet": "e1eafb1ad907adabd11072afb84e6b238769916de25999785961ed083a331c0b",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_29.parquet": "e6bcb90f33f26e396babf6a3758f7ca22ad80bca670ab90aea9c246c74810996",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_41.parquet": "9e883edc4ceb55877515a293f173288c4a828591b977de1ca3329d13a2d0e36d",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_53.parquet": "4e87ab134abb40827cd4c3f6549f43dc1324ce2efb26407aaa3d7bf961a2e37a",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_67.parquet": "542e02663e14c9cbb8d1ec6e6e228e1752ce644b680e79289be7a657069e438c",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_17.parquet": "dc8b12ed34e5b55a6a4fd0b93079dc48fe147c781ec5d05ff7bcd096b3451c70",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_29.parquet": "8a112ea13c13b4d1f4209f1a44fd0bcba47aec0734d8d49c9b726051155500bf",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_41.parquet": "b9b78f48ef04d4c43be35e47477b5b892d642359588de21088d402addc9c7d30",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_53.parquet": "21dd488d7324cbde91c7c67803b5ed4eb2f27f06eb344c9ca2ebf29a2efe3771",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_67.parquet": "5498879eadd96801dc557403ecfe02ae4a89ae84f35720a59b58630f9e39cb17",
+    "results/clean_learned_evidence_reconciliation_r4/summaries/gate_b.json": "91e5cce227a7928b29536e49908af55fe195d72d1761a36be31d29fe97dd3bc6"
+  },
+  "gate_b_miss": {
+    "excess_mean_lost_tp_event_scale": 82.76999999997672,
+    "frozen_requirement": 0.99,
+    "maximum_integer_lost_tp_events_for_0_99": 2606,
+    "observed_event_tp_preservation": 0.9896824148290827,
+    "observed_mean_lost_tp_events_per_seed": 2689.0,
+    "preservation_gap": 0.00031758517091728944,
+    "threshold_rescue_permitted": false,
+    "total_tp_opportunity_events_per_seed": 260623
+  },
+  "outputs": {
+    "channel_stability": "results/clean_learned_evidence_reconciliation_r4/postmortem/channel_preservation_stability.csv",
+    "diagnostic_breakdowns": "results/clean_learned_evidence_reconciliation_r4/postmortem/diagnostic_breakdowns.csv"
+  },
+  "schema_version": "r4_postmortem_diagnostic_v1",
+  "scientific_firewall": {
+    "ern_or_b4_retrained": false,
+    "external77_accessed": false,
+    "historical_e2_executed": false,
+    "model_feature_added": false,
+    "new_model_trained": false,
+    "noisy_or_real_evidence_accessed": false,
+    "r5_started": false,
+    "seed_or_channel_selected": false,
+    "threshold_changed": false
+  },
+  "status": "POSTHOC_DIAGNOSTIC_COMPLETE"
+}

@@ -1,6 +1,6 @@
 # Project Reboot v2 — Research Decisions
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 This file supplements the historical `docs/decisions.md`. Earlier decisions remain part of project history; the decisions below govern the rebooted mainline when they conflict with older planning.
 
@@ -521,3 +521,71 @@ statement that the post-hoc operating region remains distinct. It does not
 override `R4_GATE_B_FAIL`. Project state is `R4_COMPLETE`, and R5, external77,
 and real-evidence execution are not authorized. Any continuation requires a
 new prospective decision and cannot be a rescue of the observed R4 result.
+
+---
+
+## Decision — R4 failure localizes to unsafe non-evidenced propagation
+
+**Confirmed / 已确定 (2026-09-07, post-hoc diagnostic only)**
+
+The frozen ERN-versus-B4 held-out decisions were decomposed without retraining,
+recalibration, threshold changes, or seed/channel selection. Of the mean
+4,464.6 additional FP removals attributable to usable evidence, 2,500.6
+(56.0%) occurred in perfectly precise `LOCAL_CONFLICT` and 1,964.0 (44.0%) in
+`NON_EVIDENCED`. `NON_EVIDENCED` also contributed all material additional TP
+loss (+696.2 per seed); DIRECT evidence protected 122.0 TP relative to B4,
+leaving a net +574.2 lost TP. Source-level benefit and loss were distributed
+across RNAfold, PETfold, and trRosettaRNA2.
+
+The observed event TP preservation was 0.9896824148 against the frozen
+0.990000 requirement, a gap of approximately 0.000318 or a descriptive scale
+of 82.77 excess lost-TP events per seed in the fixed universe. Positive-pair
+preservation exceeded unpaired preservation in four of five seed summaries,
+but only three of five fold summaries and 12/25 fold-by-seed cells.
+
+**Consequence:** Gate B remains `R4_GATE_B_FAIL`. The diagnostic strata and
+channel difference cannot be used for threshold rescue, channel selection, or
+retrospective policy construction.
+
+---
+
+## Decision — A new conservative hypothesis is justified, but no protocol exists
+
+**Confirmed / 已确定 (2026-09-07)**
+
+The selected future-path status is:
+
+```text
+NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
+```
+
+The sole justified conceptual hypothesis is:
+
+> Most evidence-attributable useful correction may be recoverable while
+> suppressing unsafe NON_EVIDENCED propagation.
+
+The working concept may be called Trust-Gated / Locality-Aware Evidence
+Reconciliation. This is not a moved R4 threshold, positive-pair-only rescue,
+held-out-error tuning exercise, feature authorization, or larger-model
+authorization. It is an untested future hypothesis.
+
+**Consequence:** R5 remains unauthorized. The only next authorized task is
+`FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`; implementation
+or training remains prohibited.
+
+---
+
+## Decision — Legacy121 is no longer a pristine confirmatory test for future methods
+
+**Confirmed / 已确定 (2026-09-07)**
+
+Legacy121 R4 held-out outcomes have now been observed and used for scientific
+interpretation and hypothesis generation. Any method designed afterward may
+use Legacy121 only as development/hypothesis-generation data under a newly
+frozen protocol; a Legacy121-only result cannot be described as independent
+validation.
+
+**Consequence:** external77 remains unopened and reserved as a one-shot
+independent test. Before it can be accessed, the complete future method,
+features, calibration, thresholds, gates, and analysis plan must be frozen.
+external77 may not be used for rescue.

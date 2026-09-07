@@ -171,6 +171,34 @@ Last updated: 2026-09-07
   the correction-preservation plane.
 - [x] Record that Gate B failure does not authorize rescue or R5.
 
+### R4 postmortem and future-path decision
+
+- [x] Verify frozen R4 candidate/held-out artifact hashes before diagnostics.
+- [x] Quantify the 0.000318 Gate B miss and descriptive lost-TP event scale.
+- [x] Decompose ERN/B4 FP-removal and TP-loss differences by scope and source.
+- [x] Decompose `NON_EVIDENCED` behavior by channel, density, separation, stem
+  position/boundary, pair type, P2 agreement, P4 risk, ERN risk, and ERN–B4
+  risk shift.
+- [x] Test whether the positive-pair preservation difference is stable across
+  seeds and folds without selecting a channel.
+- [x] Freeze the supported/unsupported R4 claim boundary.
+- [x] Record that post-R4 methods cannot use Legacy121 held-out folds as
+  pristine confirmation.
+- [x] Select `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN` without authorizing
+  implementation, training, threshold rescue, R5, or external77 access.
+
+## Prospective Conservative Reconciliation — Protocol Planning Only
+
+- [ ] Freeze a new scientific hypothesis around trust-gated/locality-aware
+  reconciliation before any code or training.
+- [ ] Prospectively define trust/locality semantics, permitted inputs, action
+  space, controls, splits, calibration, thresholds, metrics, and failure gate.
+- [ ] Explicitly treat Legacy121 as development/hypothesis-generation data.
+- [ ] Keep external77 unopened until the complete future method and analysis
+  plan are frozen; preserve it as one-shot independent evaluation.
+- [ ] Do not frame the protocol as an R4 threshold move, positive-pair channel
+  selection, held-out-error tuning, or larger-model rescue.
+
 ## R5 — Controlled Noise Robustness
 
 - [ ] Freeze noisy-evidence protocol using controlled 5%, 10%, 20%, 30% corruption where valid.
@@ -244,11 +272,19 @@ R4_COMPLETE
 R4_GATE_B_FAIL
 GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
+R4_POSTMORTEM_COMPLETE
+NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
 ```
 
-> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`: do not rescue R4, begin R5, access
-> external77, or start real-evidence work without a new prospective decision.**
+The future-path decision has been made, but no experiment is authorized. The
+only next task is:
+
+```text
+FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL
+```
 
 R4 is complete under its frozen protocol. Historical E2 remains unauthorized.
 The failed Gate B cannot be reinterpreted by choosing a seed/channel or moving
-the locked operating point.
+the locked operating point. Do not implement or train the future concept, begin
+R5, access external77, or start real-evidence work during the protocol-freeze
+task.

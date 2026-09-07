@@ -190,6 +190,34 @@ external77, and real evidence are not authorized.
 
 ---
 
+## R4 Postmortem — Failure Mechanism and Future Path
+
+**Status: `R4_POSTMORTEM_COMPLETE`**
+
+Frozen-output diagnostics attributed 56.0% of ERN's net additional FP removal
+over matched B4 to perfectly precise `LOCAL_CONFLICT`, and 44.0% to
+`NON_EVIDENCED`. All material additional TP loss occurred in
+`NON_EVIDENCED`; DIRECT evidence protected TP. Loss and benefit were
+source-broad, while the positive-pair preservation advantage was not stable
+across folds. These observations do not alter `R4_GATE_B_FAIL`.
+
+Future-path decision:
+
+```text
+NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
+```
+
+The only next authorized task is
+`FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`. The possible
+Trust-Gated / Locality-Aware Evidence Reconciliation concept is an untested
+hypothesis, not an authorized implementation or R4 rescue.
+
+Legacy121 is now development/hypothesis-generation data for any post-R4
+method. external77 remains unopened and reserved for one-shot independent
+evaluation only after the complete future method and analysis plan are frozen.
+
+---
+
 ## R5 — Controlled Noise Robustness
 
 **Status: NOT AUTHORIZED AFTER R4 GATE B FAIL**
@@ -320,8 +348,10 @@ R1 documentation freeze
 -> execute frozen R3 reliability baselines
 -> interpret R3 and prospectively decide/freeze R4 protocol
 -> complete frozen R4 learned clean evidence reconciliation
--> project hold after R4 Gate B failure
+-> diagnose frozen R4 outputs and choose the future path
+-> freeze a new prospective conservative-reconciliation protocol only
 ```
 
-**No scientific next stage is currently authorized. Historical Stage E2 and
-R4 rescue tuning remain prohibited.**
+**No scientific execution stage is currently authorized. The next task is
+protocol freeze only. Historical Stage E2, R4 rescue tuning, R5, and external77
+access remain prohibited.**

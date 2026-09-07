@@ -187,6 +187,8 @@ R1 Task/protocol redefinition         COMPLETE
 R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite        COMPLETE
 R4 Clean learned evidence reconciliation   COMPLETE / GATE B FAIL
+R4 postmortem / future-path decision       COMPLETE / NEW HYPOTHESIS ONLY
+New conservative reconciliation protocol  NOT FROZEN / PLANNING ONLY
 R5 Noise robustness                        NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -243,15 +245,34 @@ Gate B 仅因 event preservation 低于 0.99 而失败；其余数值与 source
 consistency 条件通过。B2 与 R4 在 correction-preservation plane 上互不支配，
 故 Gate A boundedly PASS，但这不覆盖 Gate B 失败。
 
-当前约束是：
+R4 frozen-output postmortem 已完成。相对 matched B4，ERN 的新增 FP removal
+中 56.0% 来自 perfect-precision `LOCAL_CONFLICT`，44.0% 来自
+`NON_EVIDENCED`；后者同时贡献全部 material additional TP loss，DIRECT
+evidence 则保护 TP。source/channel 分解不支持单一 source 或稳定的
+positive-pair-only 解释。
 
-> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`：不得 rescue R4，不得访问
-> external77，不得开始 R5 noise 或真实 SHAPE/DMS/PARS；任何新实验必须先有
-> 新的 prospective decision。**
+当前决策与约束是：
+
+> **`NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`：仅允许冻结新的
+> prospective conservative trust-gated/locality-aware reconciliation protocol；
+> 不得实现、训练、rescue R4、访问 external77、开始 R5 noise 或真实
+> SHAPE/DMS/PARS。**
+
+Legacy121 R4 held-out 结果已经被观察并用于 hypothesis generation，因此
+任何 post-R4 方法都只能把 Legacy121 作为 development data，不能把新的
+Legacy121-only 结果称为 independent validation。external77 继续保持 unopened
+one-shot independent test；必须在完整未来方法和 analysis plan 前瞻冻结后才能
+访问，且不得用于 rescue。
 
 Gate B 已冻结为 event/RNA TP preservation 均至少 0.99、RNA-balanced FP
 removal 严格大于 0.489748、event-pooled FP removal 严格大于 0.347816，且
 改进不得由单一 predictor source 驱动。该 Gate 已正式判定为 FAIL，且没有、
 也不得自动用更大架构或 threshold/seed/channel selection rescue。
+
+唯一下一任务：
+
+```text
+FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL
+```
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。

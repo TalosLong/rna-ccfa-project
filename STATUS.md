@@ -4,11 +4,17 @@ Last updated: 2026-09-07
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `R4_COMPLETE` / `R4_GATE_B_FAIL`**
+**PROJECT REBOOT v2 — `R4_POSTMORTEM_COMPLETE`**
+
+**Future path: `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`**
 
 **Gate A: `GATE_A_PASS_POSTHOC_NONDOMINATED`**
 
+**Gate B: `R4_GATE_B_FAIL` (unchanged)**
+
 **Next-stage authorization: `R5_NOT_AUTHORIZED`**
+
+**Next authorized task: `FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`**
 
 Current working direction:
 
@@ -69,6 +75,20 @@ conjunctive event `TP_preservation >= 0.99` condition. The decision is
 `R4_GATE_B_FAIL`; no rescue tuning was performed. B2 removes more FP, while R4
 preserves more TP and has higher modification precision, so Gate A is boundedly
 `GATE_A_PASS_POSTHOC_NONDOMINATED`. R5 is not authorized.
+
+The frozen-output R4 postmortem is complete. Relative to B4, ERN gained a mean
+4,464.6 removed FP and lost a net additional 574.2 TP per seed. Perfectly
+precise `LOCAL_CONFLICT` supplied 2,500.6 (56.0%) of the marginal FP removal;
+`NON_EVIDENCED` supplied 1,964.0 (44.0%) and all material additional harm
+(+696.2 lost TP), partly offset by protection of 122.0 DIRECT TP. Loss was
+distributed across all sources and both channels. The positive-pair preservation
+advantage was not fold-stable, so no channel rescue is permitted.
+
+This supports only a new hypothesis that most evidence-attributable correction
+may be recoverable while suppressing unsafe non-evidenced propagation. Status
+is `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`; the only next task is to
+freeze a new conservative trust-gated/locality-aware protocol. No implementation
+or training is authorized.
 
 ## Rebooted Scientific Question
 
@@ -216,6 +236,8 @@ R1 Task/protocol redefinition               COMPLETE
 R2 Global constrained-refolding baseline    COMPLETE
 R3 Reliability baseline suite               COMPLETE
 R4 Clean learned evidence reconciliation       COMPLETE / GATE B FAIL
+R4 postmortem / future-path decision            COMPLETE / NEW HYPOTHESIS ONLY
+New conservative reconciliation protocol       NOT FROZEN / PLANNING ONLY
 R5 Controlled noise robustness                 NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -347,6 +369,24 @@ Open external77 once. If the development effect does not preserve direction, no 
 - Full results are in
   `docs/clean_learned_evidence_reconciliation_r4_results.md`.
 
+## Completed Task — R4 Postmortem and Future-Path Decision
+
+- The analysis read only sealed R4 held-out scores and immutable candidate
+  metadata; all frozen input hashes matched.
+- The Gate B gap is 0.000317585 in event TP preservation, corresponding
+  descriptively to about 82.77 excess mean lost-TP events on the fixed 260,623
+  TP-event universe. This is not a threshold-rescue target.
+- `LOCAL_CONFLICT` contributed 56.0% of ERN's net added FP removal over B4 at
+  perfect precision. `NON_EVIDENCED` contributed 44.0% and all material added
+  TP loss; DIRECT evidence protected TP.
+- TP loss was distributed across RNAfold, PETfold, trRosettaRNA2 and both
+  evidence channels. Positive-pair preservation was not fold-stable.
+- The selected branch is
+  `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`. R4 Gate B remains FAIL and R5
+  remains unauthorized.
+- Full diagnostic interpretation is in
+  `docs/r4_failure_analysis_and_future_decision.md`.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
@@ -360,7 +400,12 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
   source-consistency requirement after held-out results.**
 - **Do not begin R5, R7 external77, or real-evidence work: no next scientific
-  stage is authorized after `R4_GATE_B_FAIL`.**
+  execution stage is authorized after `R4_GATE_B_FAIL`.**
+- **The only authorized next task is protocol freeze for the new prospective
+  conservative-reconciliation hypothesis; do not implement or train it.**
+- **Legacy121 held-out folds are no longer pristine confirmation for any method
+  designed after the R4 postmortem. Keep external77 unopened until a complete
+  future protocol and analysis plan are frozen.**
 
 Detailed current-mainline documents:
 

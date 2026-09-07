@@ -41,13 +41,20 @@ R1 documentation freeze
 -> R3 scientific interpretation
 -> freeze new R4 protocol
 -> implement and execute frozen R4 learned clean evidence reconciliation
--> stop after frozen R4 Gate B failure pending a new prospective decision
+-> R4 postmortem and future-path decision
+-> freeze a new prospective conservative-reconciliation protocol only
 ```
 
 R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
 `R4_GATE_B_FAIL` because event-pooled TP preservation was below 0.99. Gate A is
 `GATE_A_PASS_POSTHOC_NONDOMINATED`, but it does not override Gate B. No R5,
 external77, real-evidence, or rescue execution is currently authorized.
+
+The frozen-output R4 postmortem is complete. It selected
+`NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`: the only authorized next task is
+`FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`. This is planning
+authorization only; no implementation, training, R5, or external evaluation is
+authorized.
 
 ## R4 Constraints
 
@@ -82,6 +89,17 @@ architecture after held-out results. Completed R4 established
 Do not begin R5 noise, real SHAPE/DMS/PARS work, or R7 external evaluation.
 Do not rescue R4 by moving thresholds, choosing seeds/channels, adding
 features, or increasing model complexity.
+
+## Post-R4 Development Boundary
+
+Legacy121 R4 held-out outcomes have been observed and used for post-hoc
+diagnosis. Any future method designed from those findings must treat Legacy121
+as development/hypothesis-generation data, not pristine confirmation. No
+Legacy121-only result may be promoted as independent validation.
+
+external77 remains unopened and one-shot. Before any future access, the full
+method, feature/action contract, calibration, thresholds, gates, and analysis
+plan must be prospectively frozen. external77 may never be used for rescue.
 
 ## Locked Independent Data
 

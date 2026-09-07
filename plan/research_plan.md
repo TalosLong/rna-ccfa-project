@@ -108,6 +108,11 @@ Development-only dataset for:
 - simulated evidence;
 - Go/No-Go decisions.
 
+The frozen R4 held-out folds have now been observed and used for post-hoc
+diagnosis. Any method designed after R4 must treat all Legacy121 folds as
+development/hypothesis-generation data; a new Legacy121-only result is not
+independent confirmation.
+
 ### external77-derived 42-RNA set
 
 Locked independent test only. No feature redesign, model selection, threshold tuning, or rescue analysis may use it before R7.
@@ -310,6 +315,22 @@ predictors, but the event preservation requirement failed. Gate A is
 `GATE_A_PASS_POSTHOC_NONDOMINATED`; Gate B is `R4_GATE_B_FAIL`. No rescue was
 performed and R5 is not authorized.
 
+### R4 postmortem — conservative future hypothesis
+
+**Status: `R4_POSTMORTEM_COMPLETE`.**
+
+Frozen-output diagnostics found that 56.0% of ERN's net added FP removal over
+B4 came from perfectly precise `LOCAL_CONFLICT`; `NON_EVIDENCED` contributed
+44.0% and all material additional TP loss, while DIRECT evidence protected TP.
+The loss was distributed across sources and channels, and the positive-pair
+preservation advantage was not fold-stable.
+
+**Decision: `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN`.** The only
+authorized next task is to freeze a new prospective conservative
+trust-gated/locality-aware reconciliation protocol. This is not R4 threshold
+movement, channel selection, held-out rescue, feature addition, or architecture
+escalation. No implementation or training is authorized.
+
 ### R5 — Noise robustness
 
 **Not authorized after `R4_GATE_B_FAIL`.** Do not freeze or execute controlled
@@ -385,11 +406,13 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 **Do not train historical Stage E2.**
 
-No scientific next stage is authorized:
+No scientific execution stage is authorized. The only planning action is:
 
-> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`: do not rescue the held-out result,
-> start R5, access external77, or begin real-evidence work without a new
-> prospective decision.**
+> **`FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL`**
+
+The future hypothesis is justified but its protocol is not frozen. Do not
+implement or train it, rescue the R4 held-out result, start R5, access
+external77, or begin real-evidence work.
 
 The completed execution state is:
 
@@ -398,6 +421,12 @@ R4_COMPLETE
 R4_GATE_B_FAIL
 GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
+R4_POSTMORTEM_COMPLETE
+NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN
 ```
+
+Legacy121 is development-only for any post-R4 design. external77 remains an
+unopened one-shot independent test and may be accessed only after the complete
+future method, calibration, thresholds, gates, and analysis plan are frozen.
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.
