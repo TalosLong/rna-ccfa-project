@@ -1,6 +1,6 @@
 # RNA CCF-A Research Project Context
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 ## Project Goal
 
@@ -186,7 +186,7 @@ R0 Literature & novelty freeze        COMPLETE
 R1 Task/protocol redefinition         COMPLETE
 R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite        COMPLETE
-R4 Clean learned evidence reconciliation
+R4 Clean learned evidence reconciliation   PROTOCOL FROZEN / NOT EXECUTED
 R5 Noise robustness
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -221,20 +221,29 @@ GATE_A_DEFERRED_R4_REQUIRED
 ```
 
 R3 Pair-Reliability Baseline Suite 已严格按冻结 protocol 完成；ECE amendment
-在任何正式 performance number 前冻结。Track P strongest comparator 为
-`R3-P3 V3_VETO2_FIXED`，Track E strongest comparator 为
-`R3-E1 LOCAL_CONFLICT`。当前状态：
+在任何正式 performance number 前冻结。R3 scientific interpretation 也已完成：
+prediction-only reliability 存在可利用信号，但 discrimination 不等于安全
+selective correction；P3 是 source-dependent 的 frozen high-preservation
+prediction-only comparator；E1 安全但覆盖不足；E2/B2 暴露大量 correction
+signal，却不满足 deletion-only R4 的安全要求。
+
+新的 clean learned R4 protocol 已前瞻性冻结，工作名为 ERN。当前状态：
 
 ```text
-R3_RELIABILITY_BASELINE_SUITE_COMPLETE
-READY_FOR_R3_INTERPRETATION_AND_R4_PROTOCOL_DECISION
+R3_INTERPRETATION_COMPLETE
+R4_PROTOCOL_FROZEN
+R4_NOT_EXECUTED
+GATE_A_DEFERRED_R4_REQUIRED
 ```
 
 下一项唯一任务是：
 
-> **解释冻结的 R3 结果并前瞻性决定/冻结 R4 protocol；不要自动训练 R4，
-> 不要访问 external77。**
+> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`：仅实现并执行冻结 protocol 中的简单
+> ERN 与 matched evidence-masked B4。不要访问 external77，不要开始 R5
+> noise 或真实 SHAPE/DMS/PARS。**
 
-R2、R3 冻结并完成后，才允许冻结新的 R4 learned protocol。
+Gate B 已冻结为 event/RNA TP preservation 均至少 0.99、RNA-balanced FP
+removal 严格大于 0.489748、event-pooled FP removal 严格大于 0.347816，且
+改进不得由单一 predictor source 驱动。失败不得自动用更大架构 rescue。
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。

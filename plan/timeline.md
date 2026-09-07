@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -151,26 +151,39 @@ Track E comparator at the frozen safety point. R4 remains unstarted.
 
 ## R4 — Clean Learned Evidence Reconciliation
 
+**Status: `R4_PROTOCOL_FROZEN` — `R4_NOT_EXECUTED`**
+
 Goal:
 
 Test whether a simple learned post-hoc method uses clean sparse evidence better than all frozen baselines.
 
-Requirements before training:
+Protocol-freeze requirements:
 
-- R2 complete;
-- R3 complete;
-- new R4 protocol frozen;
-- B0/B1/B2/B4 comparison fixed;
-- calibration and operating-point procedure fixed;
-- external77 still locked.
+- [x] R2 complete;
+- [x] R3 complete and scientifically interpreted;
+- [x] new R4 protocol frozen;
+- [x] B0/B1/B2, R3-P3, R3-E1, and B4 comparisons fixed;
+- [x] calibration and validation-only operating-point procedure fixed;
+- [x] exact Gate B and multi-source rule fixed;
+- [x] external77 remains locked;
+- [ ] implement and execute frozen R4.
 
-Candidate implementation:
+Frozen starting implementation:
 
 Reuse the historical E2 candidate/evidence encoder as a starting architecture, but under new reboot success criteria.
 
 Primary Go/No-Go:
 
-At a prospectively frozen high-preservation operating point, learned reconciliation must improve FP removal over the strongest frozen non-learned baseline and not be driven by one source only.
+Held-out event-pooled and RNA-balanced TP preservation must both be at least
+0.99; RNA-balanced FP removal must be strictly above 0.489748 and event-pooled
+FP removal strictly above 0.347816. Improvement over P3 must occur in at least
+two sources, including RNAfold or PETfold. Paired B4 is a mandatory separate
+evidence-attribution control, not an additional numerical Gate B bar. Failure
+does not authorize automatic architecture escalation.
+
+Immediate next task: `IMPLEMENT_AND_EXECUTE_FROZEN_R4`. Historical E2 remains
+superseded; R5/noisy evidence, external77, and real evidence remain out of
+scope.
 
 ---
 

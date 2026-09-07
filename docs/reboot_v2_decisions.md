@@ -437,3 +437,46 @@ gates.
 **Consequence:** state is `R3_RELIABILITY_BASELINE_SUITE_COMPLETE` and
 `READY_FOR_R3_INTERPRETATION_AND_R4_PROTOCOL_DECISION`. Gate A remains
 `GATE_A_DEFERRED_R4_REQUIRED`; R4 has not started.
+
+---
+
+## Interpretation — R3 supports a bounded R4 test, not a safety claim
+
+**Confirmed / 已确定 (2026-09-07, frozen R3 results only)**
+
+R3 establishes that prediction-only context contains residual-error signal,
+but P4's strong discrimination did not produce a safe held-out operating point.
+P3 `V3_VETO2_FIXED` is the frozen high-preservation prediction-only comparator
+and is materially source-dependent. E1 local conflict is perfectly precise but
+coverage-limited. E2/B2 demonstrates broad evidence-related correction signal
+while retaining below-0.99 preservation and full-refold collateral edits.
+
+**Consequence:** simple learned evidence reconciliation has reasonable but
+untested headroom. State is `R3_INTERPRETATION_COMPLETE`; Gate A remains
+`GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL.
+
+---
+
+## Decision — Freeze the simple ERN R4 protocol before execution
+
+**Confirmed / 已确定 (2026-09-07, before R4 implementation or training)**
+
+`docs/clean_learned_evidence_reconciliation_r4_protocol.md` freezes original
+predicted pairs as candidates, DELETE/FP as the positive label, deletion-only
+edits, inference-time prediction/evidence features, separate permutation-
+invariant evidence encoders, a simple DeepSets-style ERN, matched
+evidence-masked B4, RNA-grouped splits, validation-only calibration and
+threshold selection, KEEP/DELETE/ABSTAIN, mandatory baselines/metrics, and full
+provenance and leakage controls.
+
+Gate B requires all of: event-pooled and RNA-balanced TP preservation at least
+0.99, RNA-balanced FP removal strictly above 0.489748, event-pooled FP removal
+strictly above 0.347816, and improvement over P3 in at least two sources
+including RNAfold or PETfold. E1 at RNA-balanced FP removal 0.142946 and TP
+preservation 1.0 remains a mandatory comparison. Paired B4 is a mandatory
+separate evidence-attribution analysis, not an additional numerical Gate B
+bar. A failure cannot be rescued automatically with a larger architecture.
+
+**Consequence:** state is `R4_PROTOCOL_FROZEN` and `R4_NOT_EXECUTED`. The next
+task is `IMPLEMENT_AND_EXECUTE_FROZEN_R4`. Historical E2 is not executed;
+external77, noisy evidence, and real SHAPE/DMS/PARS remain out of scope.

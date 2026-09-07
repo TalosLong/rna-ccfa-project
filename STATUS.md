@@ -1,12 +1,14 @@
 # Current Status
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — R3_RELIABILITY_BASELINE_SUITE_COMPLETE**
+**PROJECT REBOOT v2 — `R3_INTERPRETATION_COMPLETE` / `R4_PROTOCOL_FROZEN`**
 
-**Next state: `READY_FOR_R3_INTERPRETATION_AND_R4_PROTOCOL_DECISION`**
+**Execution state: `R4_NOT_EXECUTED`**
+
+**Next task: `IMPLEMENT_AND_EXECUTE_FROZEN_R4`**
 
 Current working direction:
 
@@ -39,6 +41,24 @@ only 0.975358 RNA-balanced TP. Full results are frozen in
 `docs/reliability_baseline_r3_results.md`.
 
 The historical `evidence_guidance_stage_e2_v1` protocol remains frozen as provenance but was superseded **before training**. It must not be executed as the current next step.
+
+The scientific interpretation of the frozen R3 results is complete. R3 shows
+usable prediction-only discrimination, but not a safe learned operating point:
+P4 discriminates strongly yet misses RNA-balanced 0.99 preservation; P3 is the
+frozen high-preservation prediction-only comparator but is source-dependent;
+E1 is perfectly precise but coverage-limited; and E2/B2 exposes broad evidence
+signal while retaining unsafe collateral TP loss. This supports a bounded,
+simple R4 test without predetermining its outcome. Gate A remains
+`GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL.
+
+The clean learned R4 protocol is now prospectively frozen under working name
+Evidence Reconciliation Network (ERN). R4 is deletion-only, uses RNA-grouped
+train/validation/held-out roles, validation-only calibration and threshold
+selection, and requires a matched evidence-masked B4. Its exact Gate B bars are
+event-pooled and RNA-balanced TP preservation at least 0.99, RNA-balanced FP
+removal strictly above 0.489748, event-pooled FP removal strictly above
+0.347816, and improvement not driven by one predictor source. The protocol and
+implementation plan were frozen without implementing or training R4.
 
 ## Rebooted Scientific Question
 
@@ -185,7 +205,7 @@ R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
 R2 Global constrained-refolding baseline    COMPLETE
 R3 Reliability baseline suite               COMPLETE
-R4 Clean learned evidence reconciliation
+R4 Clean learned evidence reconciliation       PROTOCOL FROZEN / NOT EXECUTED
 R5 Controlled noise robustness
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -202,7 +222,12 @@ If matched global constrained refolding dominates the relevant TP-preservation /
 
 ### Gate B — Learned utility
 
-At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), a future learned R4 method must improve FP removal over the strongest frozen non-learned baseline and not be driven by one source only.
+Learned R4 must satisfy all frozen held-out criteria: event-pooled and
+RNA-balanced `TP_preservation >= 0.99`, RNA-balanced
+`FP_removal > 0.489748`, event-pooled `FP_removal > 0.347816`, and improvement
+not driven by one source. Matched B4 is a mandatory evidence-attribution
+comparison, not an extra numerical Gate B bar. Failure does not authorize
+automatic architecture escalation.
 
 ### Gate C — Noise robustness
 
@@ -271,16 +296,38 @@ Open external77 once. If the development effect does not preserve direction, no 
   suite passed 201 tests plus 29 subtests. No new training, retuning,
   external77 access, or R4 execution occurred.
 
+## Completed Task — R3 Interpretation and R4 Protocol Freeze
+
+- `docs/r3_scientific_interpretation.md` separates frozen empirical results,
+  bounded interpretation, and untested R4 requirements.
+- Status is `R3_INTERPRETATION_COMPLETE`; R4 headroom is scientifically
+  reasonable but untested, and Gate A remains `GATE_A_DEFERRED_R4_REQUIRED`.
+- `docs/clean_learned_evidence_reconciliation_r4_protocol.md` freezes the
+  simple ERN inputs, evidence encodings, architecture, B4 control, grouped
+  splits, calibration, threshold selection, actions, metrics, comparisons,
+  source-consistency rule, and exact Gate B.
+- `docs/clean_learned_evidence_reconciliation_r4_implementation_plan.md`
+  defines planned code and artifact contracts, historical E2 reuse boundaries,
+  provenance, leakage/hash checks, and tests without implementing or executing
+  R4.
+- Historical E2 runtime source is not available as auditable source code; its
+  documented feature/architecture contracts remain sufficient implementation
+  provenance and this is not a scientific blocker.
+- State is `R4_PROTOCOL_FROZEN` and `R4_NOT_EXECUTED`. The next task is
+  `IMPLEMENT_AND_EXECUTE_FROZEN_R4` under the frozen protocol.
+
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
 - **Do not access external77.**
-- **Do not introduce a larger learned architecture before R2/R3 and a new frozen R4 protocol.**
+- **Implement R4 only as the frozen simple ERN/B4 experiment; do not introduce
+  a Transformer, GNN, foundation model, or post-hoc rescue search.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
 - **Do not alter or expand the frozen R2 v1.0.2 comparison universe.**
 - **Do not change the frozen R3 score definitions, threshold rule, or
   aggregation semantics after viewing held-out results.**
-- **Do not execute R4 until a new R4 protocol is prospectively frozen.**
+- **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
+  source-consistency requirement after held-out results.**
 
 Detailed current-mainline documents:
 

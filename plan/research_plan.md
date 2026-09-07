@@ -1,6 +1,6 @@
 # Research Plan — Reboot v2
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 ## 1. Working Direction
 
@@ -169,7 +169,9 @@ Internal working name: **Evidence Reconciliation Network (ERN)**.
 
 The historical E2 DeepSets-style architecture may be reused as an implementation starting point because it already supports a source-agnostic candidate branch and permutation-invariant evidence-set encoding.
 
-However, the historical E2 success criteria are superseded. A new R4 protocol must be frozen after R2/R3 and must compare against B0/B1/B2/B4.
+The historical E2 success criteria are superseded. The new R4 protocol is now
+frozen after R2/R3 and requires comparisons against B0/B1/B2, R3-P3, R3-E1,
+and B4.
 
 No Transformer/GNN/foundation-model escalation is authorized unless a simple architecture first establishes signal beyond the strongest frozen non-learned baseline.
 
@@ -278,7 +280,31 @@ are recorded in `docs/reliability_baseline_r3_results.md`.
 
 ### R4 — Clean learned evidence reconciliation
 
-Freeze a new protocol only after R2/R3 are complete. Train simple ERN and compare against B0/B1/B2/B4.
+**Status: `R4_PROTOCOL_FROZEN` — `R4_NOT_EXECUTED`.**
+
+The frozen experiment uses original predicted pairs as candidates, DELETE/FP
+as the positive label, the historical source-agnostic candidate encoding plus
+frozen P2/P4 inference-time context, and separate permutation-invariant
+positive-pair/unpaired evidence encoders. The starting model is a simple
+DeepSets-style ERN; primary R4 remains deletion-only. Predictor identity is
+evaluation metadata, not a shortcut feature.
+
+RNA is the split unit. Preprocessing is training-only; checkpoint selection,
+monotone Platt calibration, and the operating point use validation only. B4 is
+a separately trained paired control with identical rows, architecture,
+capacity, optimization, splits, seeds, calibration, and threshold procedure;
+only usable evidence is exactly masked.
+
+Frozen Gate B requires held-out event-pooled and RNA-balanced TP preservation
+at least 0.99, RNA-balanced FP removal strictly above 0.489748, event-pooled FP
+removal strictly above 0.347816, and positive improvement over P3 in at least
+two sources including RNAfold or PETfold. E1 at RNA-balanced FP removal
+0.142946 and preservation 1.0 remains a mandatory comparison. Matched B4 is a
+separate required evidence-attribution analysis, not an added numerical Gate B
+bar. Failure does not authorize automatic architecture escalation.
+
+Protocol and implementation-plan documents are complete. No R4 code or model
+was executed in the freeze task.
 
 ### R5 — Noise robustness
 
@@ -310,9 +336,24 @@ Only after the 2D task is stable.
 
 If global constrained refolding dominates the post-hoc approach across the relevant TP-preservation / FP-removal trade-off, stop the post-hoc mainline.
 
+Current status is `GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL. B2 is a
+`FULL_REFOLD_REFERENCE`; Gate A can be decided only after frozen R4 execution
+and full correction-preservation/edit-accounting comparison.
+
 ### Gate B — Learned reconciliation utility
 
-At a prospectively frozen high-preservation operating point (current target `TP_preservation >= 0.99`), the learned method must improve FP removal over the strongest frozen non-learned baseline and must not depend on only one source.
+At the prospectively frozen operating point, learned R4 must satisfy all of:
+
+```text
+event-pooled TP_preservation       >= 0.99
+RNA-balanced TP_preservation       >= 0.99
+RNA-balanced FP_removal            >  0.489748
+event-pooled FP_removal            >  0.347816
+```
+
+Improvement over P3 must occur in at least two sources including RNAfold or
+PETfold; no single source may drive the success claim. Matched B4 remains a
+mandatory, separately interpreted evidence-attribution control.
 
 ### Gate C — Noise robustness
 
@@ -340,7 +381,17 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 Next task:
 
-> **Interpret the frozen R3 result and prospectively decide/freeze the R4
-> protocol. Do not train R4 or access external77 in that task.**
+> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`: implement and execute the exact simple
+> ERN and matched B4 experiment specified in
+> `docs/clean_learned_evidence_reconciliation_r4_protocol.md`. Keep external77
+> locked and do not begin noise or real-evidence work.**
+
+The interpretation/protocol-freeze task ended in:
+
+```text
+R3_INTERPRETATION_COMPLETE
+R4_PROTOCOL_FROZEN
+R4_NOT_EXECUTED
+```
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-09-03
+Last updated: 2026-09-07
 
 ## R0 — Literature & Novelty Freeze
 
@@ -128,18 +128,27 @@ Last updated: 2026-09-03
 - [x] `evidence_guidance_stage_e2_v1` remains an immutable historical protocol/design artifact.
 - [x] Its architecture may be reused later as a candidate implementation asset.
 - [x] It is **not authorized for execution** under its historical success criteria.
-- [ ] Any future learned clean-evidence experiment must be frozen as R4 after R2/R3.
+- [x] Any future learned clean-evidence experiment is prospectively frozen as
+  R4 after R2/R3, without executing historical E2.
 
 ## R4 — Clean Learned Evidence Reconciliation
 
-- [ ] Require R2 complete, R3 complete, and Gate A not terminating the mainline.
-- [ ] Freeze a new R4 protocol before training.
-- [ ] Define pair-level calibrated error probability as the primary learned output.
-- [ ] Keep `KEEP / DELETE / ABSTAIN`; no pair addition in primary R4.
-- [ ] Define matched evidence-masked control B4.
-- [ ] Freeze train-only preprocessing/calibration and validation-only operating-point selection.
-- [ ] Freeze high-preservation operating point; current candidate target `TP_preservation >= 0.99`.
-- [ ] Compare B0/B1/B2/B3/B4 vs learned R4.
+- [x] Complete the frozen R3 scientific interpretation; retain
+  `GATE_A_DEFERRED_R4_REQUIRED` without assigning PASS or FAIL.
+- [x] Require R2 complete, R3 complete, and Gate A not terminating the mainline.
+- [x] Freeze a new R4 protocol before training.
+- [x] Define pair-level calibrated error probability as the primary learned output.
+- [x] Keep `KEEP / DELETE / ABSTAIN`; no pair addition in primary R4.
+- [x] Define matched evidence-masked control B4.
+- [x] Freeze train-only preprocessing and validation-only calibration,
+  checkpoint, and operating-point selection.
+- [x] Freeze simultaneous event-pooled and RNA-balanced
+  `TP_preservation >= 0.99` requirements.
+- [x] Freeze exact FP-removal bars and source-consistency criteria for Gate B.
+- [x] Write the implementation and artifact plan without implementing or
+  executing R4.
+- [ ] Implement and execute the frozen simple ERN/B4 protocol.
+- [ ] Compare B0/B1/B2, R3-P3, R3-E1, B4, and learned R4.
 - [ ] Report AUPRC/Brier/ECE and risk–utility curves.
 - [ ] Report direct/local/non-evidenced behavior and evidence efficiency.
 - [ ] Report source-wise behavior.
@@ -147,9 +156,14 @@ Last updated: 2026-09-03
 
 ### Gate B
 
-- [ ] Learned method must beat the strongest frozen non-learned baseline in FP removal at the frozen high-preservation operating point.
-- [ ] Improvement must not be driven by only one source.
-- [ ] If failed, do not escalate architecture complexity as a rescue.
+- [x] Prospectively freeze Gate B as event/RNA TP preservation at least 0.99,
+  RNA-balanced FP removal strictly above 0.489748, and event-pooled FP removal
+  strictly above 0.347816.
+- [x] Prospectively freeze the requirement that improvement not be driven by
+  only one source; require matched B4 as a separate evidence-attribution test.
+- [x] Freeze the rule that failure does not authorize architecture-complexity
+  escalation as a rescue.
+- [ ] Evaluate Gate B only after the complete frozen R4 execution.
 
 ## R5 — Controlled Noise Robustness
 
@@ -217,8 +231,18 @@ Last updated: 2026-09-03
 
 ## Immediate Next Task
 
-> **Interpret the frozen R3 results and make the prospective R4 protocol
-> decision. Do not train R4, access external77, or begin noise/real-evidence
-> work automatically.**
+Current state:
 
-No new learned training is authorized until a new R4 protocol is frozen.
+```text
+R3_INTERPRETATION_COMPLETE
+R4_PROTOCOL_FROZEN
+R4_NOT_EXECUTED
+```
+
+> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`: implement and run only the simple ERN
+> and matched B4 specified by the frozen R4 protocol. Keep external77 locked
+> and do not begin R5 noise or real-evidence work.**
+
+R4 was not executed in the protocol-freeze task. Historical E2 remains
+unauthorized; R4 execution must use the new frozen protocol and may not change
+features, thresholds, Gate B, or evaluation semantics after held-out results.

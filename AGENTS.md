@@ -38,33 +38,47 @@ Current authorized sequence:
 R1 documentation freeze
 -> R2 global evidence-constrained refolding baseline
 -> R3 reliability baseline suite
+-> R3 scientific interpretation
 -> freeze new R4 protocol
--> R4 learned clean evidence reconciliation
+-> implement and execute frozen R4 learned clean evidence reconciliation
 ```
 
-No new learned evidence model is authorized before R2 and R3 are complete and a new R4 protocol is frozen.
+R2/R3 and the R4 protocol freeze are complete. The current authorized next task
+is `IMPLEMENT_AND_EXECUTE_FROZEN_R4`; only the simple ERN/B4 experiment in
+`docs/clean_learned_evidence_reconciliation_r4_protocol.md` is authorized.
 
-## R2 Constraints
+## R4 Constraints
 
-The immediate experimental task is a classical global evidence-constrained refolding baseline.
+The frozen R2/R3 inputs, universes, comparators, thresholds, metrics, and
+results are read-only. R4 must:
 
-Before full R2 execution:
+- use original predicted pairs as the primary unit and remain deletion-only;
+- keep RNA as the biological split unit with no source-record leakage;
+- use only the frozen feature allowlist and source-independent simple ERN;
+- run the exactly matched evidence-masked B4 control;
+- fit preprocessing on training data and select checkpoint, calibration, and
+  threshold on validation data only;
+- apply one locked held-out policy without rescue thresholds;
+- report every channel/fold/seed and all mandatory reliability, utility,
+  decomposition, efficiency, and source-wise outputs.
 
-- audit the installed ViennaRNA/RNAfold version and constraint interface;
-- define exact mappings for positive-pair and unpaired-nucleotide evidence;
-- define unsatisfiable-constraint behavior;
-- freeze the protocol in `docs/global_constrained_refolding_r2_protocol.md`;
-- reuse Legacy121 and existing clean evidence manifests without accessing external77.
-
-R2 must compare at least:
+Frozen Gate B is conjunctive:
 
 ```text
-B0 Original
-B1 completed local hard evidence baseline
-B2 global evidence-constrained refolding
+event-pooled TP_preservation       >= 0.99
+RNA-balanced TP_preservation       >= 0.99
+RNA-balanced FP_removal            >  0.489748
+event-pooled FP_removal            >  0.347816
 ```
 
-Required outputs include exact structure metrics, TP preservation, FP removal, modification precision, direct/local/non-evidenced decomposition, evidence efficiency, source-wise summaries and reproducibility/provenance checks.
+Success also requires improvement not driven by one predictor source. Paired
+B4 is a mandatory separate evidence-attribution control, not an additional
+numerical Gate B bar. Do not change these criteria or automatically escalate
+architecture after held-out results. Gate A remains
+`GATE_A_DEFERRED_R4_REQUIRED` until completed R4 is compared with frozen B2.
+
+Do not begin R5 noise, real SHAPE/DMS/PARS work, or R7 external evaluation as
+part of R4.
 
 ## Locked Independent Data
 
