@@ -480,3 +480,44 @@ bar. A failure cannot be rescued automatically with a larger architecture.
 **Consequence:** state is `R4_PROTOCOL_FROZEN` and `R4_NOT_EXECUTED`. The next
 task is `IMPLEMENT_AND_EXECUTE_FROZEN_R4`. Historical E2 is not executed;
 external77, noisy evidence, and real SHAPE/DMS/PARS remain out of scope.
+
+---
+
+## Result — Frozen R4 ERN/B4 experiment complete
+
+**Confirmed / 已确定 (2026-09-07)**
+
+All 100 frozen condition x channel x fold x seed runs completed, followed by
+100 validation-only monotone Platt calibrations and threshold locks and 100
+one-shot held-out evaluations. The primary combined ERN five-seed mean had
+event/RNA TP preservation 0.989682/0.991936, FP removal 0.475531/0.660806,
+and modification precision 0.898838/0.944218. RNA-balanced FP-removal
+improvement over P3 was positive in all three predictor sources.
+
+Matched B4 had event/RNA TP preservation 0.991886/0.993570 and FP removal
+0.386622/0.615236. ERN improved AUPRC, Brier, ECE, FP removal, and delta F1
+over B4, but reduced both preservation summaries. Evidence therefore supplies
+incremental learned signal without satisfying the frozen safe-policy gate.
+
+**Consequence:** Gate B is `R4_GATE_B_FAIL` because event TP preservation was
+strictly below 0.99; its other numerical and source-consistency conditions
+passed. No seed/channel selection, threshold rescue, retraining, feature
+change, or architecture escalation is authorized.
+
+---
+
+## Decision — Gate A passes bounded non-dominance; R5 is not authorized
+
+**Confirmed / 已确定 (2026-09-07, after complete frozen R4)**
+
+B2 remains the `FULL_REFOLD_REFERENCE`. B2 removes more FP than ERN
+(event/RNA 0.645883/0.775728 versus 0.475531/0.660806), while ERN preserves
+more original TP (0.989682/0.991936 versus 0.981767/0.975358), has higher
+modification precision, and adds no pairs. Neither method dominates the
+correction-preservation plane; delta F1 is not used alone.
+
+**Consequence:** Gate A is `GATE_A_PASS_POSTHOC_NONDOMINATED`, a bounded
+statement that the post-hoc operating region remains distinct. It does not
+override `R4_GATE_B_FAIL`. Project state is `R4_COMPLETE`, and R5, external77,
+and real-evidence execution are not authorized. Any continuation requires a
+new prospective decision and cannot be a rescue of the observed R4 result.

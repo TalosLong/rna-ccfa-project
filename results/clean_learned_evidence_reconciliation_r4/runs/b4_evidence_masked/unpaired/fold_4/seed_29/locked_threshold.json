@@ -1,0 +1,40 @@
+{
+  "calibration_sha256": "0c3fc4d9ef5ea8341f1dd876550d70c6000195807a8c7b9b17a1decfdb5fd736",
+  "channel": "unpaired",
+  "checkpoint_sha256": "bc9423a4f9b4f263dd2ebad3b2ce8289b849d90aae5a32f746b5e7ee0506f5d0",
+  "condition": "B4_EVIDENCE_MASKED",
+  "eligibility_constraints": {
+    "event_tp_preservation_gte": 0.99,
+    "rna_balanced_tp_preservation_gte": 0.99
+  },
+  "equal_scores_handled_as_indivisible_blocks": true,
+  "held_out_labels_accessed": false,
+  "rescue_threshold": false,
+  "schema_version": "r4_locked_threshold_v1",
+  "seed": 29,
+  "selected_validation_metrics": {
+    "eligible": true,
+    "event_deleted_pair_count": 2220,
+    "event_fp_removal": 0.44966442953020136,
+    "event_modification_precision": 0.9054054054054054,
+    "event_tp_preservation": 0.992497320471597,
+    "rna_balanced_fp_removal": 0.5567758541543708,
+    "rna_balanced_modification_precision": 0.9470899470899471,
+    "rna_balanced_tp_preservation": 0.9953133102297522,
+    "selected": true,
+    "threshold": 0.5898247683532988,
+    "threshold_semantics": "DELETE_RISK_GTE"
+  },
+  "selection_order": [
+    "maximize_RNA-balanced_FP_removal",
+    "maximize_RNA-balanced_modification_precision",
+    "fewer_deletions",
+    "numerically_higher_threshold"
+  ],
+  "selection_partition": "validation_only",
+  "status": "LOCKED",
+  "test_fold": 4,
+  "threshold": 0.5898247683532988,
+  "threshold_semantics": "DELETE_RISK_GTE",
+  "validation_risk_curve_sha256": "468c3608c8cb4cd7748c3099d4b1e278d214f31125c22b59e4817d9e5db87499"
+}

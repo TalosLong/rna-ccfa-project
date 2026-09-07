@@ -1,0 +1,9 @@
+{
+  "all_after_lock": true,
+  "evaluated_runs": 100,
+  "held_out_used_for_selection": false,
+  "one_shot": true,
+  "rescue_thresholds": false,
+  "schema_version": "r4_held_out_execution_audit_v1",
+  "status": "PASS"
+}

@@ -41,11 +41,13 @@ R1 documentation freeze
 -> R3 scientific interpretation
 -> freeze new R4 protocol
 -> implement and execute frozen R4 learned clean evidence reconciliation
+-> stop after frozen R4 Gate B failure pending a new prospective decision
 ```
 
-R2/R3 and the R4 protocol freeze are complete. The current authorized next task
-is `IMPLEMENT_AND_EXECUTE_FROZEN_R4`; only the simple ERN/B4 experiment in
-`docs/clean_learned_evidence_reconciliation_r4_protocol.md` is authorized.
+R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
+`R4_GATE_B_FAIL` because event-pooled TP preservation was below 0.99. Gate A is
+`GATE_A_PASS_POSTHOC_NONDOMINATED`, but it does not override Gate B. No R5,
+external77, real-evidence, or rescue execution is currently authorized.
 
 ## R4 Constraints
 
@@ -74,11 +76,12 @@ event-pooled FP_removal            >  0.347816
 Success also requires improvement not driven by one predictor source. Paired
 B4 is a mandatory separate evidence-attribution control, not an additional
 numerical Gate B bar. Do not change these criteria or automatically escalate
-architecture after held-out results. Gate A remains
-`GATE_A_DEFERRED_R4_REQUIRED` until completed R4 is compared with frozen B2.
+architecture after held-out results. Completed R4 established
+`GATE_A_PASS_POSTHOC_NONDOMINATED` and `R4_GATE_B_FAIL`.
 
-Do not begin R5 noise, real SHAPE/DMS/PARS work, or R7 external evaluation as
-part of R4.
+Do not begin R5 noise, real SHAPE/DMS/PARS work, or R7 external evaluation.
+Do not rescue R4 by moving thresholds, choosing seeds/channels, adding
+features, or increasing model complexity.
 
 ## Locked Independent Data
 

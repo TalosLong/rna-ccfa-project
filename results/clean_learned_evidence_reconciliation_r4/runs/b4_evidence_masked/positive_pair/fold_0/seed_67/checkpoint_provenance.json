@@ -1,0 +1,19 @@
+{
+  "channel": "positive_pair",
+  "checkpoint_sha256": "2899528d2d600da5f0667b8298461aefb01cf4ca6b6e08ec8fba083224f5efe8",
+  "condition": "B4_EVIDENCE_MASKED",
+  "held_out_labels_accessed": false,
+  "schema_version": "r4_checkpoint_provenance_v1",
+  "seed": 67,
+  "selected_epoch": 0,
+  "selection_partition": "validation_only",
+  "status": "LOCKED",
+  "test_fold": 0,
+  "tie_break": [
+    "lower_binary_log_loss",
+    "higher_AUPRC",
+    "earlier_epoch"
+  ],
+  "validation_auprc": 0.7920112942239932,
+  "validation_unweighted_binary_log_loss": 0.32138512322097634
+}

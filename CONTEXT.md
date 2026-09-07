@@ -186,8 +186,8 @@ R0 Literature & novelty freeze        COMPLETE
 R1 Task/protocol redefinition         COMPLETE
 R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite        COMPLETE
-R4 Clean learned evidence reconciliation   PROTOCOL FROZEN / NOT EXECUTED
-R5 Noise robustness
+R4 Clean learned evidence reconciliation   COMPLETE / GATE B FAIL
+R5 Noise robustness                        NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
 R8 Real evidence
@@ -227,23 +227,31 @@ selective correction；P3 是 source-dependent 的 frozen high-preservation
 prediction-only comparator；E1 安全但覆盖不足；E2/B2 暴露大量 correction
 signal，却不满足 deletion-only R4 的安全要求。
 
-新的 clean learned R4 protocol 已前瞻性冻结，工作名为 ERN。当前状态：
+新的 clean learned R4 protocol 已前瞻性冻结并完整执行，工作名为 ERN。当前状态：
 
 ```text
-R3_INTERPRETATION_COMPLETE
-R4_PROTOCOL_FROZEN
-R4_NOT_EXECUTED
-GATE_A_DEFERRED_R4_REQUIRED
+R4_COMPLETE
+R4_GATE_B_FAIL
+GATE_A_PASS_POSTHOC_NONDOMINATED
+R5_NOT_AUTHORIZED
 ```
 
-下一项唯一任务是：
+冻结 R4 的 100/100 training runs、validation-only calibration/threshold seals
+和 one-shot held-out evaluations 均已完成。ERN combined event/RNA TP
+preservation 为 0.989682/0.991936，FP removal 为 0.475531/0.660806。
+Gate B 仅因 event preservation 低于 0.99 而失败；其余数值与 source
+consistency 条件通过。B2 与 R4 在 correction-preservation plane 上互不支配，
+故 Gate A boundedly PASS，但这不覆盖 Gate B 失败。
 
-> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`：仅实现并执行冻结 protocol 中的简单
-> ERN 与 matched evidence-masked B4。不要访问 external77，不要开始 R5
-> noise 或真实 SHAPE/DMS/PARS。**
+当前约束是：
+
+> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`：不得 rescue R4，不得访问
+> external77，不得开始 R5 noise 或真实 SHAPE/DMS/PARS；任何新实验必须先有
+> 新的 prospective decision。**
 
 Gate B 已冻结为 event/RNA TP preservation 均至少 0.99、RNA-balanced FP
 removal 严格大于 0.489748、event-pooled FP removal 严格大于 0.347816，且
-改进不得由单一 predictor source 驱动。失败不得自动用更大架构 rescue。
+改进不得由单一 predictor source 驱动。该 Gate 已正式判定为 FAIL，且没有、
+也不得自动用更大架构或 threshold/seed/channel selection rescue。
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。

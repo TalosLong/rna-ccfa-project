@@ -1,0 +1,47 @@
+{
+  "channels": [
+    "positive_pair",
+    "unpaired"
+  ],
+  "clean_manifest_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+  "conditions": [
+    "ERN",
+    "B4_EVIDENCE_MASKED"
+  ],
+  "expected_training_runs": 100,
+  "external77_data_accessed": false,
+  "feature_allowlist_modified": false,
+  "folds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "frozen_inputs_match_preflight_snapshot": true,
+  "grouped_split_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+  "historical_e2_runner_executed": false,
+  "input_hashes": {
+    "clean_manifests": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "grouped_split": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+    "legacy121": "e8ce10ce2670739be70b1f98c02604b8d19e783497ce05e4d11d3282aebe5c22",
+    "r2_eligibility": "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3",
+    "r3_e1": "6710b73a2d4416e6305d39a31ff8e34aaff84547734065ff90ddcc7d4bd71433",
+    "r3_p2": "19d3f9bc0148134690218d16ff97a91ea6d4f3447a7311a3a0534ec01b9d8cbb",
+    "r3_p4": "097b2c2473fae8b80132d3921be14cd6b8e352d244a48e5d04b34fc2f12c55de",
+    "r4_implementation_plan": "2d8cb56cf53e1acdcd3474d347d448c1e43e74e69fbb75040cbd9795fbee2d11",
+    "r4_protocol": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4"
+  },
+  "phase": "PRETRAINING",
+  "r4_protocol_unchanged": true,
+  "rescue_tuning_performed": false,
+  "schema_version": "r4_protocol_audit_v1",
+  "seeds": [
+    17,
+    29,
+    41,
+    53,
+    67
+  ],
+  "status": "PASS"
+}

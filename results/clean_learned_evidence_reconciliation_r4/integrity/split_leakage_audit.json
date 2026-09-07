@@ -1,0 +1,17 @@
+{
+  "biological_unit": "RNA",
+  "fold_counts": {
+    "0": 25,
+    "1": 24,
+    "2": 24,
+    "3": 24,
+    "4": 24
+  },
+  "grouped_split_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+  "identity_components_crossing_folds": 0,
+  "rna_count": 121,
+  "schema_version": "r4_split_leakage_audit_v1",
+  "source_record_count": 363,
+  "source_records_grouped_with_rna": true,
+  "status": "PASS"
+}

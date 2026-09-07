@@ -1,0 +1,13 @@
+{
+  "calibration_sha256": "4c0e157e0fef3d3353e6e8298409552b7d23362238975cd75b34e60c9b083be2",
+  "channel": "positive_pair",
+  "checkpoint_sha256": "b0a5dfad7197329fdf52af75db6164945ac3b4fec9247c262159a1a2e5bc245c",
+  "condition": "B4_EVIDENCE_MASKED",
+  "held_out_labels_accessed_before_seal": false,
+  "locked_threshold_sha256": "0b1f206d6b7577bbe1e513389a286dfbb913aed5ce5a897bcdb84bcb8faf6ce3",
+  "schema_version": "r4_pre_held_out_lock_seal_v1",
+  "seed": 67,
+  "status": "SEALED_BEFORE_HELD_OUT",
+  "test_fold": 1,
+  "validation_risk_curve_sha256": "b6190f91a6480cdf5f14e7fee8661062a083f68ead567c2ba6a7392162e9c32d"
+}

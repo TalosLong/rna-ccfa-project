@@ -1,0 +1,35 @@
+{
+  "artifact_hashes": {
+    "results/clean_learned_evidence_reconciliation_r4/features/candidate_rows.parquet": "4f0204611333f8783aced1eddd874dedf71c837debc68515abda54cf35834a7c",
+    "results/clean_learned_evidence_reconciliation_r4/features/feature_contract.json": "154d9e2a59c2d571369edc516c0932b41adb8bea62943a3de6920431e9c7ad28",
+    "results/clean_learned_evidence_reconciliation_r4/features/positive_pair_items.parquet": "935bb8e1fe61fec766a2223704c116ebf2f866d859493987eb53acea19143027",
+    "results/clean_learned_evidence_reconciliation_r4/features/unpaired_nucleotide_items.parquet": "4455b5441ee81b7f44bc2a6bd5b62b76de8230471400680895486cc58ddf3bf5"
+  },
+  "candidate_rows": 310838,
+  "candidate_rows_by_channel": {
+    "positive_pair": 152138,
+    "unpaired": 158700
+  },
+  "eligible_manifests": 7153,
+  "evidence_regenerated": false,
+  "external77_data_accessed": false,
+  "historical_e2_runner_executed": false,
+  "item_incidences_by_channel": {
+    "positive_pair": 411297,
+    "unpaired": 507455
+  },
+  "noisy_or_real_evidence_accessed": false,
+  "positive_pair_manifests": 3523,
+  "rna_count": 121,
+  "schema_version": "r4_feature_build_completion_v1",
+  "scope_counts": {
+    "positive_pair:DIRECT": 20610,
+    "positive_pair:LOCAL_CONFLICT": 1357,
+    "positive_pair:NON_EVIDENCED": 130171,
+    "unpaired:LOCAL_CONFLICT": 4621,
+    "unpaired:NON_EVIDENCED": 154079
+  },
+  "source_record_count": 363,
+  "status": "PASS",
+  "unpaired_manifests": 3630
+}

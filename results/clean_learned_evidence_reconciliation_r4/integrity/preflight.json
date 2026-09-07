@@ -1,0 +1,68 @@
+{
+  "schema_version": "r4_preflight_v1",
+  "status": "PASS",
+  "phase": "BEFORE_R4_CODE_CHANGES",
+  "git_head": "095ec8dc3d43e02a0ca9287f896393038981ead7",
+  "git_status_clean_before_snapshot": true,
+  "protocol_status": "R4_PROTOCOL_FROZEN_NOT_EXECUTED",
+  "protocol_sha256": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4",
+  "implementation_plan_sha256": "2d8cb56cf53e1acdcd3474d347d448c1e43e74e69fbb75040cbd9795fbee2d11",
+  "r3_results_sha256": "137961edb9b795f0d407a6eecdde42b3fc1d993edcc8c2a75ab58f36d62f6874",
+  "r2_results_sha256": "5c38181e0438ae4320e080905b01a3a17e0fa5909de95048d22b5ddfb2fac163",
+  "grouped_cv": {
+    "path": "results/selective_refiner_protocol/legacy121_grouped_cv_folds.csv",
+    "expected_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+    "observed_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+    "rna_rows": 121,
+    "fold_counts": {"0": 25, "1": 24, "2": 24, "3": 24, "4": 24},
+    "source_records_per_rna": 3,
+    "status": "PASS"
+  },
+  "legacy121": {
+    "rna_count": 121,
+    "source_record_count": 363,
+    "original_pair_count": 5290,
+    "status": "PASS"
+  },
+  "clean_evidence": {
+    "clean_manifest_count": 7260,
+    "clean_manifest_sha256": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "noise_level_required": 0,
+    "evidence_regenerated": false,
+    "status": "PASS"
+  },
+  "r2_v1_0_2_track_e": {
+    "positive_pair_eligible_manifests": 3523,
+    "unpaired_eligible_manifests": 3630,
+    "eligible_manifests": 7153,
+    "capability_ineligible_manifests": 107,
+    "status": "PASS"
+  },
+  "r3_required_artifacts": {
+    "p2_rows": 10580,
+    "p4_rows": 10580,
+    "e1_pair_realization_rows": 310838,
+    "all_joins": "PASS",
+    "status": "PASS"
+  },
+  "runtime": {
+    "host": "autodl-container-c62840940c-26388afc",
+    "scheduler": "NONE",
+    "tmux_available": false,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_memory_mib": 24576,
+    "python": "/root/miniconda3/envs/nufold_P/bin/python",
+    "python_version": "3.10.20",
+    "torch_version": "2.0.1+cu117",
+    "cuda_available": true
+  },
+  "hard_restrictions": {
+    "external77_data_accessed": false,
+    "noisy_evidence_accessed": false,
+    "real_evidence_accessed": false,
+    "historical_e2_runner_executed": false,
+    "r2_r3_frozen_artifacts_modified": false,
+    "r4_training_started": false
+  },
+  "scientific_execution_authorized": true
+}

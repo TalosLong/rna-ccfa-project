@@ -280,7 +280,7 @@ are recorded in `docs/reliability_baseline_r3_results.md`.
 
 ### R4 — Clean learned evidence reconciliation
 
-**Status: `R4_PROTOCOL_FROZEN` — `R4_NOT_EXECUTED`.**
+**Status: `R4_COMPLETE` — `R4_GATE_B_FAIL`.**
 
 The frozen experiment uses original predicted pairs as candidates, DELETE/FP
 as the positive label, the historical source-agnostic candidate encoding plus
@@ -303,12 +303,17 @@ two sources including RNAfold or PETfold. E1 at RNA-balanced FP removal
 separate required evidence-attribution analysis, not an added numerical Gate B
 bar. Failure does not authorize automatic architecture escalation.
 
-Protocol and implementation-plan documents are complete. No R4 code or model
-was executed in the freeze task.
+The frozen execution completed 100/100 ERN/B4 runs. Primary combined ERN
+event/RNA preservation was 0.989682/0.991936 and FP removal was
+0.475531/0.660806. Source improvement over P3 was positive in all three
+predictors, but the event preservation requirement failed. Gate A is
+`GATE_A_PASS_POSTHOC_NONDOMINATED`; Gate B is `R4_GATE_B_FAIL`. No rescue was
+performed and R5 is not authorized.
 
 ### R5 — Noise robustness
 
-Evaluate controlled symbolic evidence corruption. Decide prospectively whether a trust mechanism is required.
+**Not authorized after `R4_GATE_B_FAIL`.** Do not freeze or execute controlled
+noise work without a new prospective project decision.
 
 ### R6 — Cross-predictor transfer
 
@@ -336,9 +341,10 @@ Only after the 2D task is stable.
 
 If global constrained refolding dominates the post-hoc approach across the relevant TP-preservation / FP-removal trade-off, stop the post-hoc mainline.
 
-Current status is `GATE_A_DEFERRED_R4_REQUIRED`, neither PASS nor FAIL. B2 is a
-`FULL_REFOLD_REFERENCE`; Gate A can be decided only after frozen R4 execution
-and full correction-preservation/edit-accounting comparison.
+Current status is `GATE_A_PASS_POSTHOC_NONDOMINATED`. B2 is a
+`FULL_REFOLD_REFERENCE`: it removes more FP, whereas completed R4 preserves
+more TP and has higher modification precision. This bounded non-dominance
+decision does not override the failed Gate B.
 
 ### Gate B — Learned reconciliation utility
 
@@ -375,23 +381,23 @@ Prediction-only topology/consensus is insufficient for safe correction
 -> optional real probing and 3D validation establish practical relevance
 ```
 
-## 14. Immediate Next Step
+## 14. Current Hold State
 
 **Do not train historical Stage E2.**
 
-Next task:
+No scientific next stage is authorized:
 
-> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`: implement and execute the exact simple
-> ERN and matched B4 experiment specified in
-> `docs/clean_learned_evidence_reconciliation_r4_protocol.md`. Keep external77
-> locked and do not begin noise or real-evidence work.**
+> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`: do not rescue the held-out result,
+> start R5, access external77, or begin real-evidence work without a new
+> prospective decision.**
 
-The interpretation/protocol-freeze task ended in:
+The completed execution state is:
 
 ```text
-R3_INTERPRETATION_COMPLETE
-R4_PROTOCOL_FROZEN
-R4_NOT_EXECUTED
+R4_COMPLETE
+R4_GATE_B_FAIL
+GATE_A_PASS_POSTHOC_NONDOMINATED
+R5_NOT_AUTHORIZED
 ```
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

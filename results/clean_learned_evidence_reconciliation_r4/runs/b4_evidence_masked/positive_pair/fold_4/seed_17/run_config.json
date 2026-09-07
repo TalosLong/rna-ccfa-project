@@ -1,0 +1,51 @@
+{
+  "architecture": "FROZEN_ERN_EXACT",
+  "batch_order": "numpy.default_rng(seed + epoch)",
+  "channel": "positive_pair",
+  "checkpoint_sha256": "8aeee65ad70870bbb02b28f6d9c34dabd9b4b6fd699ce6656961d87f373fb2aa",
+  "command_family": "train_clean_learned_evidence_reconciliation_r4.py",
+  "condition": "B4_EVIDENCE_MASKED",
+  "cublas_workspace_config": ":4096:8",
+  "deterministic_algorithms": true,
+  "device": "cuda",
+  "dirty_tree_expected_during_execution": true,
+  "evidence_masked": true,
+  "feature_contract_sha256": "154d9e2a59c2d571369edc516c0932b41adb8bea62943a3de6920431e9c7ad28",
+  "grouped_split_sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+  "held_out_labels_accessed": false,
+  "numpy_version": "2.2.6",
+  "parameter_count": 32161,
+  "pos_weight": 5.1819236016371075,
+  "pos_weight_source": "train_only",
+  "preprocessing_sha256": "a49fcd1e57df5ded04dfbbcf3faae089c32bcbd671d66408315a2e9e0fcb384b",
+  "protocol_sha256": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4",
+  "python_version": "3.10.8",
+  "schema_version": "r4_run_config_v1",
+  "seed": 17,
+  "split_manifest_sha256": "55d478fed5ec26c73267ee3e90061e3695e4cfb4660280d3a90a6043edbfa1ca",
+  "test_fold": 4,
+  "train_delete": 14660,
+  "train_folds": [
+    1,
+    2,
+    3
+  ],
+  "train_keep": 75967,
+  "training_config": {
+    "batch_size": 256,
+    "checkpoint_metric": "validation_unweighted_binary_log_loss",
+    "checkpoint_tie_break": [
+      "higher_validation_AUPRC",
+      "earlier_epoch"
+    ],
+    "early_stopping_patience": 12,
+    "gradient_clip": 5.0,
+    "learning_rate": 0.001,
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 100,
+    "optimizer": "AdamW",
+    "pos_weight": "KEEP_train / DELETE_train",
+    "weight_decay": 0.0001
+  },
+  "validation_fold": 0
+}

@@ -151,7 +151,7 @@ Track E comparator at the frozen safety point. R4 remains unstarted.
 
 ## R4 — Clean Learned Evidence Reconciliation
 
-**Status: `R4_PROTOCOL_FROZEN` — `R4_NOT_EXECUTED`**
+**Status: `R4_COMPLETE` — `R4_GATE_B_FAIL`**
 
 Goal:
 
@@ -166,7 +166,7 @@ Protocol-freeze requirements:
 - [x] calibration and validation-only operating-point procedure fixed;
 - [x] exact Gate B and multi-source rule fixed;
 - [x] external77 remains locked;
-- [ ] implement and execute frozen R4.
+- [x] implement and execute frozen R4 (100/100 runs).
 
 Frozen starting implementation:
 
@@ -181,13 +181,18 @@ two sources, including RNAfold or PETfold. Paired B4 is a mandatory separate
 evidence-attribution control, not an additional numerical Gate B bar. Failure
 does not authorize automatic architecture escalation.
 
-Immediate next task: `IMPLEMENT_AND_EXECUTE_FROZEN_R4`. Historical E2 remains
-superseded; R5/noisy evidence, external77, and real evidence remain out of
-scope.
+Completion checkpoint: ERN primary combined event/RNA preservation was
+0.989682/0.991936 and FP removal was 0.475531/0.660806. The event preservation
+condition failed; all other numerical and source-consistency Gate B conditions
+passed. Gate A is `GATE_A_PASS_POSTHOC_NONDOMINATED`; Gate B is
+`R4_GATE_B_FAIL`. Historical E2 remains superseded, and R5/noisy evidence,
+external77, and real evidence are not authorized.
 
 ---
 
 ## R5 — Controlled Noise Robustness
+
+**Status: NOT AUTHORIZED AFTER R4 GATE B FAIL**
 
 Goal:
 
@@ -314,7 +319,9 @@ R1 documentation freeze
 -> R2 interpretation and R3 protocol freeze
 -> execute frozen R3 reliability baselines
 -> interpret R3 and prospectively decide/freeze R4 protocol
--> R4 learned clean evidence reconciliation
+-> complete frozen R4 learned clean evidence reconciliation
+-> project hold after R4 Gate B failure
 ```
 
-**Historical Stage E2 training is not an authorized next step.**
+**No scientific next stage is currently authorized. Historical Stage E2 and
+R4 rescue tuning remain prohibited.**

@@ -1,0 +1,13 @@
+{
+  "schema_version": "r4_test_audit_v1",
+  "status": "PASS",
+  "command": "PYTHONPATH=src:.:/root/autodl-tmp/tools/mm_venv/lib/python3.10/site-packages python -m pytest -q tests",
+  "tests_passed": 236,
+  "tests_failed": 0,
+  "subtests_passed": 29,
+  "r4_targeted_tests": 35,
+  "toy_synthetic_end_to_end_passed": true,
+  "scientific_training_started_before_required_tests_passed": false,
+  "external77_data_accessed": false,
+  "historical_e2_runner_executed": false
+}

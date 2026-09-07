@@ -4,11 +4,11 @@ Last updated: 2026-09-07
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `R3_INTERPRETATION_COMPLETE` / `R4_PROTOCOL_FROZEN`**
+**PROJECT REBOOT v2 — `R4_COMPLETE` / `R4_GATE_B_FAIL`**
 
-**Execution state: `R4_NOT_EXECUTED`**
+**Gate A: `GATE_A_PASS_POSTHOC_NONDOMINATED`**
 
-**Next task: `IMPLEMENT_AND_EXECUTE_FROZEN_R4`**
+**Next-stage authorization: `R5_NOT_AUTHORIZED`**
 
 Current working direction:
 
@@ -59,6 +59,16 @@ event-pooled and RNA-balanced TP preservation at least 0.99, RNA-balanced FP
 removal strictly above 0.489748, event-pooled FP removal strictly above
 0.347816, and improvement not driven by one predictor source. The protocol and
 implementation plan were frozen without implementing or training R4.
+
+The frozen R4 execution is now complete: all 100 ERN/B4 channel x fold x seed
+runs, 100 validation-only calibrations/threshold locks, and 100 one-shot
+held-out evaluations completed. Primary combined ERN achieved event/RNA TP
+preservation 0.989682/0.991936 and FP removal 0.475531/0.660806. It exceeded
+both FP-removal bars and improved over P3 in all three sources, but failed the
+conjunctive event `TP_preservation >= 0.99` condition. The decision is
+`R4_GATE_B_FAIL`; no rescue tuning was performed. B2 removes more FP, while R4
+preserves more TP and has higher modification precision, so Gate A is boundedly
+`GATE_A_PASS_POSTHOC_NONDOMINATED`. R5 is not authorized.
 
 ## Rebooted Scientific Question
 
@@ -205,8 +215,8 @@ R0 Literature & novelty freeze              COMPLETE
 R1 Task/protocol redefinition               COMPLETE
 R2 Global constrained-refolding baseline    COMPLETE
 R3 Reliability baseline suite               COMPLETE
-R4 Clean learned evidence reconciliation       PROTOCOL FROZEN / NOT EXECUTED
-R5 Controlled noise robustness
+R4 Clean learned evidence reconciliation       COMPLETE / GATE B FAIL
+R5 Controlled noise robustness                 NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
 R8 Real experimental evidence
@@ -313,21 +323,44 @@ Open external77 once. If the development effect does not preserve direction, no 
 - Historical E2 runtime source is not available as auditable source code; its
   documented feature/architecture contracts remain sufficient implementation
   provenance and this is not a scientific blocker.
-- State is `R4_PROTOCOL_FROZEN` and `R4_NOT_EXECUTED`. The next task is
-  `IMPLEMENT_AND_EXECUTE_FROZEN_R4` under the frozen protocol.
+- At the protocol-freeze checkpoint, state was `R4_PROTOCOL_FROZEN` and
+  `R4_NOT_EXECUTED`, and the next task was `IMPLEMENT_AND_EXECUTE_FROZEN_R4`.
+
+## Completed Task — Frozen R4 ERN/B4 Execution
+
+- The exact 121-RNA, 363-source-record, 7,153-manifest, 310,838-event feature
+  universe passed all preflight, split, hash, and feature-firewall audits.
+- All 100 expected training runs completed under the frozen architecture and
+  optimization contract. All calibrators and thresholds were selected using
+  validation only and sealed before 100 one-shot held-out evaluations.
+- ERN primary combined five-seed event/RNA AUPRC was 0.811406/0.897194.
+  Event/RNA TP preservation was 0.989682/0.991936; FP removal was
+  0.475531/0.660806; modification precision was 0.898838/0.944218.
+- Matched B4 had event AUPRC 0.771726, event/RNA preservation
+  0.991886/0.993570, and event/RNA FP removal 0.386622/0.615236. Evidence
+  improved reliability and removal but reduced preservation.
+- Source-wise RNA FP-removal improvements over P3 were positive for RNAfold,
+  PETfold, and trRosettaRNA2. Source consistency passed.
+- Gate B is `R4_GATE_B_FAIL` solely because five-seed mean event TP
+  preservation was below 0.99. Gate A is
+  `GATE_A_PASS_POSTHOC_NONDOMINATED`; R5 is not authorized.
+- Full results are in
+  `docs/clean_learned_evidence_reconciliation_r4_results.md`.
 
 ## Current Restrictions
 
 - **Do not train historical Stage E2.**
 - **Do not access external77.**
-- **Implement R4 only as the frozen simple ERN/B4 experiment; do not introduce
-  a Transformer, GNN, foundation model, or post-hoc rescue search.**
+- **Do not rescue the failed R4 Gate B with threshold changes, seed/channel
+  selection, new features, or a Transformer/GNN/foundation model.**
 - **Do not retune v1/v2/v3 on Legacy121 to rescue old claims.**
 - **Do not alter or expand the frozen R2 v1.0.2 comparison universe.**
 - **Do not change the frozen R3 score definitions, threshold rule, or
   aggregation semantics after viewing held-out results.**
 - **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
   source-consistency requirement after held-out results.**
+- **Do not begin R5, R7 external77, or real-evidence work: no next scientific
+  stage is authorized after `R4_GATE_B_FAIL`.**
 
 Detailed current-mainline documents:
 

@@ -1,0 +1,23 @@
+{
+  "artifact_hashes": {
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_17.parquet": "e1eafb1ad907adabd11072afb84e6b238769916de25999785961ed083a331c0b",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_29.parquet": "e6bcb90f33f26e396babf6a3758f7ca22ad80bca670ab90aea9c246c74810996",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_41.parquet": "9e883edc4ceb55877515a293f173288c4a828591b977de1ca3329d13a2d0e36d",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_53.parquet": "4e87ab134abb40827cd4c3f6549f43dc1324ce2efb26407aaa3d7bf961a2e37a",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/b4_evidence_masked_combined_seed_67.parquet": "542e02663e14c9cbb8d1ec6e6e228e1752ce644b680e79289be7a657069e438c",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_17.parquet": "dc8b12ed34e5b55a6a4fd0b93079dc48fe147c781ec5d05ff7bcd096b3451c70",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_29.parquet": "8a112ea13c13b4d1f4209f1a44fd0bcba47aec0734d8d49c9b726051155500bf",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_41.parquet": "b9b78f48ef04d4c43be35e47477b5b892d642359588de21088d402addc9c7d30",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_53.parquet": "21dd488d7324cbde91c7c67803b5ed4eb2f27f06eb344c9ca2ebf29a2efe3771",
+    "results/clean_learned_evidence_reconciliation_r4/pair_scores/ern_combined_seed_67.parquet": "5498879eadd96801dc557403ecfe02ae4a89ae84f35720a59b58630f9e39cb17"
+  },
+  "candidate_rows_per_combination": 310838,
+  "candidate_rows_unique_and_complete": true,
+  "condition_seed_combinations": 10,
+  "ensemble_or_channel_selection": false,
+  "positive_pair_rows": 152138,
+  "schema_version": "r4_combined_track_e_audit_v1",
+  "status": "PASS",
+  "third_model_trained": false,
+  "unpaired_rows": 158700
+}

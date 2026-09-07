@@ -1,0 +1,314 @@
+{
+  "architecture_and_capacity_identical": true,
+  "b4_evidence_proxies_visible": [],
+  "candidate_rows_identical": true,
+  "folds_identical": true,
+  "labels_identical": true,
+  "matched_pairs": 50,
+  "only_difference": "B4_USABLE_EVIDENCE_BLOCK_EXACT_ZERO",
+  "pairs": [
+    {
+      "channel": "positive_pair",
+      "fold": 0,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 0,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 0,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 0,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 0,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 1,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 1,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 1,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 1,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 1,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 2,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 2,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 2,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 2,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 2,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 3,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 3,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 3,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 3,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 3,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 4,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 4,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 4,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 4,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "positive_pair",
+      "fold": 4,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "unpaired",
+      "fold": 0,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "unpaired",
+      "fold": 0,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "unpaired",
+      "fold": 0,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "unpaired",
+      "fold": 0,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "unpaired",
+      "fold": 0,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "unpaired",
+      "fold": 1,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "unpaired",
+      "fold": 1,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "unpaired",
+      "fold": 1,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "unpaired",
+      "fold": 1,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "unpaired",
+      "fold": 1,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "unpaired",
+      "fold": 2,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "unpaired",
+      "fold": 2,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "unpaired",
+      "fold": 2,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "unpaired",
+      "fold": 2,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "unpaired",
+      "fold": 2,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "unpaired",
+      "fold": 3,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "unpaired",
+      "fold": 3,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "unpaired",
+      "fold": 3,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "unpaired",
+      "fold": 3,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "unpaired",
+      "fold": 3,
+      "matched": true,
+      "seed": 67
+    },
+    {
+      "channel": "unpaired",
+      "fold": 4,
+      "matched": true,
+      "seed": 17
+    },
+    {
+      "channel": "unpaired",
+      "fold": 4,
+      "matched": true,
+      "seed": 29
+    },
+    {
+      "channel": "unpaired",
+      "fold": 4,
+      "matched": true,
+      "seed": 41
+    },
+    {
+      "channel": "unpaired",
+      "fold": 4,
+      "matched": true,
+      "seed": 53
+    },
+    {
+      "channel": "unpaired",
+      "fold": 4,
+      "matched": true,
+      "seed": 67
+    }
+  ],
+  "schema_version": "r4_ern_b4_pairing_audit_v1",
+  "seeds_optimizer_batch_order_checkpoint_selection_identical": true,
+  "status": "PASS"
+}

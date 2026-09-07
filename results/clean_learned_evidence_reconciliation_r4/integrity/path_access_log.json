@@ -1,0 +1,17 @@
+{
+  "allowlisted_input_classes": [
+    "Legacy121",
+    "clean_E0_manifests",
+    "R2_eligibility",
+    "R3_P2",
+    "R3_P4",
+    "R3_E1"
+  ],
+  "external77_data_paths_opened": [],
+  "historical_contracts_read_for_implementation_audit_only": true,
+  "historical_e2_runner_paths_opened": [],
+  "noisy_evidence_paths_opened": [],
+  "real_evidence_paths_opened": [],
+  "schema_version": "r4_path_access_log_v1",
+  "status": "PASS"
+}

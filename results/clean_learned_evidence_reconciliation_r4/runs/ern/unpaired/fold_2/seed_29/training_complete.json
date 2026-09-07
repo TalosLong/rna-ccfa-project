@@ -1,0 +1,17 @@
+{
+  "channel": "unpaired",
+  "checkpoint_sha256": "48e8db952c50fb758e1b95811cfd1584839f3c0d90b7dd53a72d6adf5bcc67b0",
+  "condition": "ERN",
+  "epochs_completed": 13,
+  "held_out_labels_accessed": false,
+  "held_out_rows_loaded": 0,
+  "preprocessing_sha256": "7faa162abda8e1b0652e46817e078d2a7f5b2cad3f79277cd0387f3ae74c79a9",
+  "schema_version": "r4_training_completion_v1",
+  "seed": 29,
+  "selected_epoch": 0,
+  "status": "PASS",
+  "test_fold": 2,
+  "train_rows": 88200,
+  "validation_rows": 28590,
+  "validation_scores_sha256": "ea97dfb299ed5d0c9669ad732e404427c422d9f91dbae87f31b70065ae40ca8d"
+}

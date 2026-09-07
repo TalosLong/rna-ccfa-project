@@ -1,0 +1,12 @@
+{
+  "external77_data_accessed": false,
+  "gate_a": "GATE_A_PASS_POSTHOC_NONDOMINATED",
+  "gate_b": "R4_GATE_B_FAIL",
+  "held_out_evaluations": 100,
+  "historical_e2_runner_executed": false,
+  "primary_seed_count": 5,
+  "rescue_tuning_performed": false,
+  "schema_version": "r4_summary_completion_v1",
+  "status": "PASS",
+  "training_runs": 100
+}

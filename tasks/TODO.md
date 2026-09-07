@@ -147,12 +147,12 @@ Last updated: 2026-09-07
 - [x] Freeze exact FP-removal bars and source-consistency criteria for Gate B.
 - [x] Write the implementation and artifact plan without implementing or
   executing R4.
-- [ ] Implement and execute the frozen simple ERN/B4 protocol.
-- [ ] Compare B0/B1/B2, R3-P3, R3-E1, B4, and learned R4.
-- [ ] Report AUPRC/Brier/ECE and risk–utility curves.
-- [ ] Report direct/local/non-evidenced behavior and evidence efficiency.
-- [ ] Report source-wise behavior.
-- [ ] Do not access external77.
+- [x] Implement and execute the frozen simple ERN/B4 protocol (100/100 runs).
+- [x] Compare B0/B1/B2, R3-P3, R3-E1, B4, and learned R4.
+- [x] Report AUPRC/Brier/ECE and risk–utility curves.
+- [x] Report direct/local/non-evidenced behavior and evidence efficiency.
+- [x] Report source-wise behavior.
+- [x] Complete R4 without accessing the external77 independent matrix.
 
 ### Gate B
 
@@ -163,7 +163,13 @@ Last updated: 2026-09-07
   only one source; require matched B4 as a separate evidence-attribution test.
 - [x] Freeze the rule that failure does not authorize architecture-complexity
   escalation as a rescue.
-- [ ] Evaluate Gate B only after the complete frozen R4 execution.
+- [x] Evaluate Gate B only after the complete frozen R4 execution:
+  `R4_GATE_B_FAIL` because event TP preservation was 0.989682; all other
+  numerical and source-consistency conditions passed.
+- [x] Apply Gate A after R4/B2 comparison:
+  `GATE_A_PASS_POSTHOC_NONDOMINATED` because neither operating point dominates
+  the correction-preservation plane.
+- [x] Record that Gate B failure does not authorize rescue or R5.
 
 ## R5 — Controlled Noise Robustness
 
@@ -234,15 +240,15 @@ Last updated: 2026-09-07
 Current state:
 
 ```text
-R3_INTERPRETATION_COMPLETE
-R4_PROTOCOL_FROZEN
-R4_NOT_EXECUTED
+R4_COMPLETE
+R4_GATE_B_FAIL
+GATE_A_PASS_POSTHOC_NONDOMINATED
+R5_NOT_AUTHORIZED
 ```
 
-> **`IMPLEMENT_AND_EXECUTE_FROZEN_R4`: implement and run only the simple ERN
-> and matched B4 specified by the frozen R4 protocol. Keep external77 locked
-> and do not begin R5 noise or real-evidence work.**
+> **`PROJECT_HOLD_AFTER_R4_GATE_B_FAIL`: do not rescue R4, begin R5, access
+> external77, or start real-evidence work without a new prospective decision.**
 
-R4 was not executed in the protocol-freeze task. Historical E2 remains
-unauthorized; R4 execution must use the new frozen protocol and may not change
-features, thresholds, Gate B, or evaluation semantics after held-out results.
+R4 is complete under its frozen protocol. Historical E2 remains unauthorized.
+The failed Gate B cannot be reinterpreted by choosing a seed/channel or moving
+the locked operating point.

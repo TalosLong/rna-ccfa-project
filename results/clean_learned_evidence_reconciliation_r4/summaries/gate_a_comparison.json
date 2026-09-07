@@ -1,0 +1,35 @@
+{
+  "b2": {
+    "event_fp_removal": 0.6458827043712039,
+    "event_modification_precision": 0.7362404741744285,
+    "event_tp_preservation": 0.9817667665555228,
+    "lost_tp": 4752,
+    "new_fp": 10823,
+    "new_tp": 11042,
+    "removed_fp": 32433,
+    "rna_fp_removal": 0.7757276379786469,
+    "rna_modification_precision": 0.8244488802265577,
+    "rna_tp_preservation": 0.9753577800550285
+  },
+  "b2_has_fp_removal_advantage": true,
+  "b2_operating_space": "FULL_REFOLD_REFERENCE",
+  "bounded_decision_rule": "FAIL only if matched B2 dominates the relevant TP-preservation/FP-removal trade-off",
+  "delta_f1_only_ranking_forbidden": true,
+  "interpretation": "The methods occupy different correction-preservation points; neither is declared globally superior from delta F1 alone.",
+  "r4_deletion_only": true,
+  "r4_five_seed_mean": {
+    "event_delta_f1": 0.030235461867706825,
+    "event_fp_removal": 0.47553121577217955,
+    "event_lost_tp": 2689.0,
+    "event_modification_precision": 0.8988375289913959,
+    "event_removed_fp": 23878.8,
+    "event_tp_preservation": 0.9896824148290827,
+    "rna_delta_f1": 0.027921823088599685,
+    "rna_fp_removal": 0.6608056989362379,
+    "rna_modification_precision": 0.9442176409830768,
+    "rna_tp_preservation": 0.9919357603393568
+  },
+  "r4_has_preservation_advantage": true,
+  "schema_version": "r4_gate_a_comparison_v1",
+  "status": "GATE_A_PASS_POSTHOC_NONDOMINATED"
+}
