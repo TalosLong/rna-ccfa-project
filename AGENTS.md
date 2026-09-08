@@ -13,6 +13,11 @@ Before substantial work, read:
 - `docs/reboot_v2_claim_evidence_map.md`;
 - `docs/conservative_reconciliation_protocol.md`;
 - `docs/conservative_reconciliation_implementation_plan.md`;
+- `docs/phase2_ccfa_upgrade_proposal.md`;
+- `docs/phase2_literature_novelty_audit.md`;
+- `docs/phase2_dataset_strategy.md`;
+- `docs/phase2_risk_control_design.md`;
+- `docs/phase2_target_venues.md`;
 - `plan/research_plan.md`;
 - `plan/timeline.md`;
 - `tasks/TODO.md`;
@@ -26,15 +31,20 @@ Do not invent experimental results, alter raw historical data, or reinterpret fa
 
 ## Reboot v2 Execution Rule
 
-The current mainline is:
+The frozen Phase I mainline is:
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
+
+The current Phase II design direction is:
+
+> **Risk-Controlled Structured Evidence Refinement for RNA Secondary Structure
+> Prediction**
 
 The historical `evidence_guidance_stage_e2_v1` protocol is **frozen but superseded before training**.
 
 **Do not implement or run historical Stage E2 training.**
 
-Current authorized sequence:
+The completed Phase I sequence is:
 
 ```text
 R1 documentation freeze
@@ -47,7 +57,6 @@ R1 documentation freeze
 -> freeze a new prospective conservative-reconciliation protocol
 -> implement and execute frozen conservative-reconciliation development only
 -> consolidate the bounded paper story after the conservative development gate failure
--> draft the manuscript outline and assemble figure data from frozen artifacts only
 ```
 
 R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
@@ -60,9 +69,23 @@ The frozen-output R4 postmortem and exact Conservative Evidence Reconciliation
 `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` and
 `CONSERVATIVE_DEV_GATE_FAIL`. Paper-story consolidation is also complete, with
 the bounded decision `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS` under a
-reliability/mechanistic framing. The only authorized next task is
-`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, using frozen artifacts
-only. R5 and external evaluation remain unauthorized.
+reliability/mechanistic framing.
+
+Phase II is now initiated as a separate research direction:
+
+```text
+PHASE1_RESEARCH_COMPLETE
+PHASE1_PAPER_STORY_VIABLE
+PHASE2_INITIATED
+PHASE2_NOVELTY_AND_METHOD_DESIGN
+PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
+EXTERNAL77_LOCKED
+```
+
+The only authorized next task is `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`.
+No model implementation, training, evidence generation, external77 access, or
+historical R5/R6/R8 execution is authorized.
 
 ## R4 Constraints
 
@@ -102,8 +125,9 @@ features, or increasing model complexity.
 
 Legacy121 R4 held-out outcomes have been observed and used for post-hoc
 diagnosis. Any future method designed from those findings must treat Legacy121
-as development/hypothesis-generation data, not pristine confirmation. No
-Legacy121-only result may be promoted as independent validation.
+as `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`, not Phase II architecture-selection or
+pristine confirmation data. No Legacy121-only result may be promoted as
+independent validation.
 
 external77 remains unopened and one-shot. Before any future access, the full
 method, feature/action contract, calibration, thresholds, gates, and analysis
@@ -140,13 +164,46 @@ preservation was lower than the matched masked control in both aggregations.
 Do not rescue with an alternate CCEG, threshold movement, seed/channel
 selection, new feature, or larger architecture. The consolidated paper story
 is viable only as a bounded reliability/mechanistic study, not as a successful
-CER method claim. The only authorized next task is
-`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`; R5, R6, R7, external77,
-noisy evidence, and real evidence remain unauthorized.
+CER method claim. Phase II may use this only as motivation; it may not rescue
+CER or reinterpret either failed gate.
+
+## Phase II Design Boundary
+
+Phase II's provisional title is **Risk-Controlled Structured Evidence
+Refinement for RNA Secondary Structure Prediction**. The design-level novelty
+decision is `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`, but the method name,
+architecture, dataset, decoder, loss, calibration, numerical risk target, and
+gate thresholds are not frozen.
+
+The primary concept must remain more than “replace the MLP with a GNN”:
+
+- represent original and plausible alternative pairs with explicit structural
+  relations;
+- separate source-prediction context, evidence, and evidence-transport
+  eligibility;
+- support valid KEEP/DELETE/ADD/REPLACE/ABSTAIN decisions with an exact primary
+  noncrossing decoder and explicit edit cost relative to the source prediction;
+- calibrate/select risk at the RNA or prospectively defined RNA-cluster unit;
+- call a method conformal or guaranteed only when its precise assumptions and
+  theorem are satisfied; and
+- test predictor-family transfer, controlled evidence noise, and independent
+  data prospectively.
+
+Generic pair graphs, GNNs, constrained RNA decoding, evidence-guided folding,
+pair-specific probing-evidence probabilities, input-prediction fixing,
+abstention, conformal prediction, and RNA foundation models are established
+prior art and are not independent novelty claims.
+
+The next task may freeze a Development-v2 dataset/task protocol and audit
+predictor deployability. It may not implement a model, train, inspect
+external77, run real-probing experiments, or create scientific performance
+results.
 
 ## Locked Independent Data
 
-The external77-derived 42-RNA x three-source normalized matrix is complete and is a **locked independent test**.
+The external77-derived 42-RNA x three-source normalized matrix remains a
+**locked one-shot independent asset**. It has not been assessed for fitness to
+the revised Phase II action space or predictor panel.
 
 Do not access external77 for:
 
@@ -157,7 +214,11 @@ Do not access external77 for:
 - rescue analysis;
 - intermediate Go/No-Go decisions.
 
-It is opened only at R7 after the development protocol is frozen.
+It may be opened only after the final applicable method, feature/action
+contract, calibration/risk policy, thresholds, evidence semantics, metrics,
+analysis plan, and success/failure rule are prospectively frozen. Phase II may
+instead require a separately locked Independent-v2 set; that design decision
+must not expose external77.
 
 ## Historical Results
 
@@ -172,7 +233,11 @@ Do not retune Legacy121 v4/v5 rules or thresholds to rescue the closed predictio
 
 ## Model Escalation Rule
 
-Do not introduce a Transformer, GNN, foundation model, new large predictor, or substantially more complex architecture merely to rescue a failed simple baseline.
+Do not introduce a Transformer, GNN, foundation model, new large predictor, or
+substantially more complex architecture merely to rescue a failed Phase I
+baseline. Phase II may prospectively compare such components only after its new
+dataset/task protocol is frozen and only when they test the structured
+transport/risk hypothesis rather than capacity alone.
 
 A simple learned method must first demonstrate value beyond the strongest frozen non-learned baselines at the prospectively defined risk/preservation operating point.
 

@@ -2,7 +2,7 @@
 
 Last updated: 2026-09-08
 
-## 1. Working Direction
+## 1. Phase I Working Direction — Complete and Frozen
 
 > **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
 
@@ -20,7 +20,10 @@ vs
 post-hoc evidence reconciliation
 ```
 
-The project does not assume that post-hoc reconciliation is useful; R2-R4 must establish that it adds value over simply refolding under the same evidence.
+Phase I did not assume that post-hoc reconciliation was useful; its completed
+R2--R4/CER sequence established a bounded mechanistic paper story while failing
+both learned safety gates. Phase II is separately defined in Section 14 and
+does not alter these results.
 
 ## 2. Core Research Questions
 
@@ -464,18 +467,84 @@ global constrained refolding is strong but sacrifices more source-predictor TP
 
 This is a reliability/mechanistic story, not a claim that CER passes its gate.
 
-## 14. Current Execution State
+## 14. Phase II — Risk-Controlled Structured Evidence Refinement
+
+Phase I is research-complete and retains its bounded paper story. Phase II is a
+new research direction, not R4/CER rescue. Its central question is how sparse
+evidence can be transported only through structurally justified paths, used to
+make valid edits beyond deletion-only correction, and subjected to explicit
+harmful-edit risk control.
+
+The primary design direction is a modest typed candidate-pair representation
+with separated prediction-context, evidence, and transport-eligibility terms;
+learned edit energies; explicit cost relative to the source prediction; an exact
+primary noncrossing decoder for KEEP/DELETE/ADD/REPLACE; ABSTAIN; and RNA-cluster
+risk calibration. This design is justified by the novelty audit but is not
+frozen or authorized for implementation.
+
+### Phase II data roles
+
+- Legacy121: `PHASE1_HISTORICAL_DIAGNOSTIC_DATA` only.
+- Development-v2: new, sequence-identity-filtered, family-aware and preferably
+  temporally auditable structures for Phase II training/model selection/risk
+  calibration.
+- Final independent: a separately sealed Independent-v2 is preferred if the
+  revised task does not match external77; external77 remains unopened and may
+  serve only a prospectively declared bridge or independent cohort.
+
+### Phase II evidence ladder
+
+- E0: clean symbolic evidence.
+- E1: controlled contradiction/noise/missingness at 5%, 10%, 20%, and 30%.
+- E2: SHAPE/DMS/PARS with paired accepted structures and frozen preprocessing.
+
+No noisy or real evidence is authorized yet.
+
+### Phase II roadmap
+
+```text
+P0  literature / novelty audit                         COMPLETE (design only)
+P1  dataset and predictor audit                        DESIGN DRAFT ONLY
+P2  structured task / dataset protocol freeze          NEXT AUTHORIZED
+P3  minimal structured baseline                        NOT AUTHORIZED
+P4  primary model implementation                       NOT AUTHORIZED
+P5  clean-evidence Development-v2                      NOT AUTHORIZED
+P6  controlled-noise robustness                        NOT AUTHORIZED
+P7  cross-predictor-family transfer                     NOT AUTHORIZED
+P8  real probing evidence                              NOT AUTHORIZED
+P9  independent one-shot test                          NOT AUTHORIZED
+P10 optional 2D -> 3D                                  NOT AUTHORIZED
+P11 manuscript / submission                            NOT AUTHORIZED
+```
+
+### Phase II prospective gates
+
+- P0 novelty: the joint gap survives an updated prior-art audit.
+- P1 structured utility: ADD/REPLACE adds value beyond matched deletion-only.
+- P2 safety: a risk-controlled policy reduces harmful edits at meaningful
+  coverage and satisfies a frozen preservation guard.
+- P3 predictor transfer: direction survives an unseen predictor family.
+- P4 noise robustness: usefulness remains at 5--10% corruption.
+- P5 independent validation: a sealed one-shot cohort preserves direction.
+- P6 real evidence: if required for the target venue, real probing supports the
+  central phenomenon.
+
+Numerical thresholds are not frozen in this planning task. Failed gates do not
+automatically authorize architecture, split, seed, or threshold rescue.
+
+## 15. Current Execution State
 
 **Do not train historical Stage E2.**
 
-Paper-story consolidation is complete. The only authorized next task is:
+Phase I paper-story consolidation is complete. Phase II P0 design is complete.
+The only authorized next task is:
 
-> **`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`**
+> **`FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`**
 
-That task is limited to writing and assembling plotting tables from already
-frozen artifacts. The conjunctive development failure does not authorize
-variant selection or R4 rescue. Do not start R5, access external77, or begin
-real-evidence work.
+That task is limited to a prospective dataset/task protocol, predictor
+deployability audit, and risk-control feasibility decision. It does not
+authorize model implementation, training, evidence generation, new scientific
+evaluation, external77 access, or real-evidence work.
 
 The completed execution state is:
 
@@ -490,11 +559,18 @@ CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
 CONSERVATIVE_DEV_GATE_FAIL
 PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE
 PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS
+PHASE1_RESEARCH_COMPLETE
+PHASE1_PAPER_STORY_VIABLE
+PHASE2_INITIATED
+PHASE2_NOVELTY_AND_METHOD_DESIGN
+PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
 
-Legacy121 is development-only for any post-R4 design. external77 remains an
-unopened one-shot independent test and may be accessed only after the complete
-future method, calibration, thresholds, gates, and analysis plan are frozen.
+Legacy121 is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`. external77 remains an
+unopened one-shot asset and may be accessed only after the complete applicable
+future method, calibration/risk policy, thresholds, evidence semantics, gates,
+and analysis plan are frozen.
 
 Detailed rationale and reboot contract: `docs/project_reboot_v2.md`.

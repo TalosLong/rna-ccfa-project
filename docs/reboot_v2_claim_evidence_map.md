@@ -4,12 +4,18 @@ Last updated: 2026-09-08
 
 This file supplements the historical `docs/claim_evidence_map.md`. Historical claims/results remain unchanged; this map defines the claims allowed after Project Reboot v2.
 
-Current future-path status: **`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
+Current Phase I status: **`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
 `CONSERVATIVE_DEV_GATE_FAIL` /
 `PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE` /
 `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**.
 The frozen scientific decision remains **`R4_GATE_B_FAIL`**; R5 is not
 authorized.
+
+Current Phase II design status: **`PHASE2_INITIATED` /
+`PHASE2_NOVELTY_AND_METHOD_DESIGN` /
+`PHASE2_PRIMARY_DIRECTION_JUSTIFIED` /
+`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`**. Legacy121 is
+`PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; external77 is `ONE_SHOT_LOCKED`.
 
 | Candidate claim | Current evidence | Status | Required next evidence |
 | --- | --- | --- | --- |
@@ -30,6 +36,10 @@ authorized.
 | The method is robust to noisy evidence. | Corruption mechanism exists but full rebooted noisy evaluation was not run; R5 is not authorized after Gate B failure. | **NOT TESTED** | Only if later separately authorized: prospectively frozen controlled-noise work with Gate C. |
 | The method works with real experimental evidence. | No rebooted real-modality dataset/protocol is frozen, and real-evidence work is not authorized. | **NOT TESTED** | Only after later authorization: R8 provenance/mapping audit plus matched classical/post-hoc comparison. |
 | Refined/reconciled 2D improves downstream 3D. | None. | **NOT TESTED** | Optional frozen 2D->3D paired experiment after stable 2D method. |
+| Phase II has a defensible joint method hypothesis beyond “RNA + GNN.” | A literature audit through 2026-09-08 found strong isolated prior art but did not locate a method jointly addressing preservation-aware evidence transport, valid minimum-cost edits relative to an existing prediction, and RNA-cluster harmful-edit control. | **PHASE2_DIRECTION_JUSTIFIED; NOT A PERFORMANCE CLAIM** | Re-audit before protocol freeze/submission; freeze Development-v2 and task; test every component against matched simpler controls. |
+| KEEP/DELETE/ADD/REPLACE structured refinement improves on deletion-only correction. | No Phase II model or experiment exists. | **NOT TESTED** | Prospective Development-v2 protocol and Gate P1; exact validity and coupled REPLACE accounting. |
+| A Phase II policy formally controls harmful-edit risk. | General RCPS/CRC prior art exists, but the proposed HarmRate and exact decoder are not yet shown to form a valid nested/monotone policy family. | **NOT ESTABLISHED** | Freeze the exact loss, calibration unit, assumptions and theorem; otherwise use the label empirical selective risk control. |
+| Phase II transfers to unseen predictor families. | No Phase II predictor panel or leave-one-family-out experiment exists. | **NOT TESTED** | Freeze a diverse deployable source panel and LOPFO design on Development-v2 before implementation. |
 
 ## Claims explicitly excluded as novelty
 
@@ -66,3 +76,20 @@ clean symbolic-evidence boundary explicit:
 This claim supports a reliability/mechanistic paper framing. It does not make
 CER a validated method, convert either failed gate to PASS, or establish
 independent, unseen-predictor, noisy/real-evidence, or 3D generalization.
+
+## Phase II candidate claim firewall
+
+Phase II currently supports only a **research-direction** statement:
+
+> Existing work separately covers RNA graph models, evidence-guided folding,
+> structured decoding, and statistical risk control; a qualified open question
+> is whether these can be composed into a preservation-aware evidence-transport
+> and valid-edit policy whose harmful edit risk is prospectively controlled at
+> an RNA biological unit.
+
+It does not yet support claims of method novelty after peer-review-level audit,
+performance improvement, safe evidence transport, formal conformal guarantee,
+unseen-predictor transfer, noise robustness, independent validation, real
+probing utility, or 3D benefit. Generic GNN, constrained decoder, conformal,
+abstention, and foundation-model components are explicitly excluded as
+standalone novelty claims.

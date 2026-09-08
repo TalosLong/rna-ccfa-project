@@ -241,8 +241,51 @@ Last updated: 2026-09-08
   plan, and main/supplementary table plan.
 - [x] Decide `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS` under the bounded
   Legacy121 clean-evidence development scope.
-- [x] Preserve Legacy121 as `DEVELOPMENT_ONLY`, external77 as locked, R5 as
-  unauthorized, and both R4/CER failures unchanged.
+- [x] Preserve Legacy121 as Phase I development evidence, external77 as locked,
+  R5 as unauthorized, and both R4/CER failures unchanged.
+
+## Phase II P0 — Novelty and Method Design — COMPLETE
+
+- [x] Preserve all Phase I results and failed gates without rescue or
+  reinterpretation.
+- [x] Redefine Legacy121 as `PHASE1_HISTORICAL_DIAGNOSTIC_DATA` for Phase II.
+- [x] Complete a fresh literature/novelty audit through 2026-09-08 covering RNA
+  refinement, evidence-guided folding, graph/structured decoding, selective and
+  conformal risk control, foundation models, and cross-domain post-processing.
+- [x] Record that pair graphs, GNNs, constrained decoders, evidence fusion,
+  abstention, conformal prediction, and foundation models are not novel alone.
+- [x] Compare three model families and select risk-controlled structured
+  refinement as the primary design direction.
+- [x] Define a candidate KEEP/DELETE/ADD/REPLACE/ABSTAIN action space with exact
+  primary noncrossing validity enforcement.
+- [x] Draft Development-v2, predictor-family transfer, E0/E1/E2 evidence, risk
+  control, evaluation, gate, roadmap, and venue strategies.
+- [x] Decide `PHASE2_PRIMARY_DIRECTION_JUSTIFIED` while keeping
+  `PROTOCOL_NOT_FROZEN` and `PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`.
+- [x] Keep external77 `ONE_SHOT_LOCKED`; no data access, code, training, or new
+  scientific evaluation occurred.
+
+## Phase II P1/P2 — Dataset and Task Protocol Freeze — NEXT
+
+- [ ] Re-audit exact source datasets, licenses, releases, annotation provenance,
+  Legacy121 overlap, and predictor-training overlap without opening external77.
+- [ ] Freeze Development-v2 identity, family, temporal, length/type, and
+  pseudoknot eligibility rules.
+- [ ] Audit and freeze a minimal deployable predictor-family panel and LOPFO
+  grouping; do not treat NuFold as a like-for-like 2D source predictor.
+- [ ] Freeze candidate generation, labels, action semantics, structured
+  validity, exact decoder, edit cost/accounting, and ABSTAIN level.
+- [ ] Freeze clean symbolic evidence semantics for ADD/REPLACE-compatible
+  structured editing; do not run noisy or real evidence.
+- [ ] Determine whether the proposed risk loss/policy family permits valid
+  formal control; otherwise freeze a finite-policy or explicitly empirical
+  fallback.
+- [ ] Freeze splits, calibration units, model/control comparisons, metrics,
+  gate definitions, hashes, leakage guards, and reproducibility checks.
+- [ ] Decide prospectively whether external77 remains a Phase I bridge asset or
+  can participate in a later sealed Phase II multi-cohort plan; do not inspect
+  it.
+- [ ] Do not implement or train a Phase II model in this task.
 
 ## R5 — Controlled Noise Robustness
 
@@ -323,22 +366,22 @@ CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
 CONSERVATIVE_DEV_GATE_FAIL
 PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE
 PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS
+PHASE1_RESEARCH_COMPLETE
+PHASE1_PAPER_STORY_VIABLE
+PHASE2_INITIATED
+PHASE2_NOVELTY_AND_METHOD_DESIGN
+PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
 
-The exact frozen development experiment is complete. The only next task is:
+The only next task is:
 
 ```text
-DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA
+FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL
 ```
 
-Paper-story consolidation is complete with
-`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`. The next task may draft the
-manuscript outline and assemble plotting tables from existing frozen artifacts
-only. R4 is complete under its frozen protocol and historical E2 remains
-unauthorized. The failed Gate B cannot be reinterpreted by choosing a
-seed/channel or moving the locked operating point. CER completed 200/200 runs
-but failed its separate development gate because NON_EVIDENCED TP preservation
-was lower than its matched masked control in both event and RNA aggregation.
-No new experiment, rescue, R5, external77 access, or real-evidence work is
-authorized.
+Phase I paper-story viability remains unchanged. Phase II may now freeze its
+new dataset and structured task protocol, but may not implement an architecture,
+train, generate evidence, evaluate performance, inspect external77, or start the
+old R5/R6/R8 roadmap. R4 and CER failures remain frozen.

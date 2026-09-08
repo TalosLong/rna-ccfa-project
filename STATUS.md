@@ -4,9 +4,17 @@ Last updated: 2026-09-08
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE`**
+**Phase I: `PHASE1_RESEARCH_COMPLETE`**
 
-**Paper viability: `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**
+**Phase I paper: `PHASE1_PAPER_STORY_VIABLE` /
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**
+
+**Phase II: `PHASE2_INITIATED` /
+`PHASE2_NOVELTY_AND_METHOD_DESIGN`**
+
+**Phase II novelty decision: `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`**
+
+**Phase II implementation: `PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`**
 
 **Development decision: `CONSERVATIVE_DEV_GATE_FAIL`**
 
@@ -22,11 +30,12 @@ Last updated: 2026-09-08
 
 **Independent data: `EXTERNAL77_LOCKED`**
 
-**Next authorized task: `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`**
+**Next authorized task: `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`**
 
-Current working direction:
+Current Phase II working direction:
 
-> **Post-hoc Evidence Reconciliation for RNA Secondary Structure Predictions**
+> **Risk-Controlled Structured Evidence Refinement for RNA Secondary
+> Structure Prediction**
 
 R0 literature/novelty freeze and R1 task redefinition are complete. R2 protocol
 v1.0.2 prospectively freezes both crossing and minimum-loop solver-capability
@@ -97,8 +106,8 @@ may be recoverable while suppressing unsafe non-evidenced propagation. Status
 was `NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN` before the present protocol
 freeze.
 
-The new **Conservative Evidence Reconciliation (CER)** protocol is now frozen
-but not executed. Its sole primary mechanism is the Context-Corroborated
+The **Conservative Evidence Reconciliation (CER)** protocol was frozen and has
+since been executed. Its sole primary mechanism is the Context-Corroborated
 Evidence Gate (CCEG): DIRECT pairs are protected, LOCAL_CONFLICT pairs receive
 the explicit E1 deletion, and a NON_EVIDENCED deletion requires agreement
 between separately calibrated usable-evidence and evidence-masked candidate-
@@ -142,7 +151,46 @@ failed gate, or establish independent/noisy/real-evidence performance. The
 canonical consolidation is
 `docs/paper_story_and_results_consolidation.md`.
 
-## Rebooted Scientific Question
+## Phase II Initiation — Design Only
+
+The user has authorized a new Phase II research direction while keeping Phase I
+frozen. Legacy121 is now `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; it may explain
+failure mechanisms and support compatibility tests, but it cannot drive Phase
+II architecture selection or independent claims. external77 remains
+`ONE_SHOT_LOCKED` and was not accessed.
+
+A literature audit through 2026-09-08 found dense prior art for RNA graph
+models, neural scoring plus constrained decoding, evidence-guided refolding,
+post-processing for structural validity, selective prediction, and conformal
+risk control. The defensible gap is their joint use for preservation-aware
+evidence transport, valid minimum-cost KEEP/DELETE/ADD/REPLACE edits, and
+RNA-cluster-level harmful-edit control. The design decision is therefore
+`PHASE2_PRIMARY_DIRECTION_JUSTIFIED`, not a claim that any individual GNN,
+decoder, or conformal component is novel.
+
+The provisional primary concept is a modest typed candidate-pair representation
+with separated source-context/evidence/transport scores, neural edit energies,
+an exact deterministic noncrossing decoder, explicit cost relative to the
+source prediction, ABSTAIN, and a statistically justified harmful-edit risk
+controller. Formal conformal language is permitted only if the future loss,
+policy nesting, exchangeability, and cluster calibration satisfy the applicable
+theorem; otherwise the method must be described as empirical selective risk
+control.
+
+The Phase II design set is canonical in:
+
+- `docs/phase2_ccfa_upgrade_proposal.md`;
+- `docs/phase2_literature_novelty_audit.md`;
+- `docs/phase2_dataset_strategy.md`;
+- `docs/phase2_risk_control_design.md`; and
+- `docs/phase2_target_venues.md`.
+
+No Phase II protocol, final method name, architecture, feature contract,
+dataset, numerical risk target, or gate threshold is frozen. No code, model,
+training, evidence generation, new performance evaluation, or independent-data
+access was authorized or performed.
+
+## Phase I Rebooted Scientific Question
 
 > Given an RNA sequence, an already-computed secondary-structure prediction from an existing predictor, and sparse external structural evidence, can a post-hoc method identify and selectively correct residual pair errors while preserving predictor information that is already correct?
 
@@ -290,12 +338,19 @@ R3 Reliability baseline suite               COMPLETE
 R4 Clean learned evidence reconciliation       COMPLETE / GATE B FAIL
 R4 postmortem / future-path decision            COMPLETE / NEW HYPOTHESIS ONLY
 Conservative reconciliation protocol            FROZEN / NOT EXECUTED
+Conservative reconciliation development         COMPLETE / DEV GATE FAIL
+Phase I paper-story consolidation                COMPLETE / VIABLE
 R5 Controlled noise robustness                 NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
 R8 Real experimental evidence
 R9 Final calibrated KEEP/DELETE/ABSTAIN
 Optional 2D -> 3D validation
+
+Phase II P0 novelty/design audit                COMPLETE / DIRECTION JUSTIFIED
+Phase II P1 dataset/predictor audit             DESIGN DRAFT ONLY
+Phase II P2 dataset/task protocol freeze        NEXT AUTHORIZED TASK
+Phase II P3--P11 execution                      NOT AUTHORIZED
 ```
 
 ## Go / No-Go Gates
@@ -470,21 +525,27 @@ Open external77 once. If the development effect does not preserve direction, no 
   aggregation semantics after viewing held-out results.**
 - **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
   source-consistency requirement after held-out results.**
-- **Do not begin R5, R7 external77, or real-evidence work.**
+- **Do not begin old R5/R6/R7/R8, external77, or real-evidence work.**
 - **Do not rescue `CONSERVATIVE_DEV_GATE_FAIL` with an alternate CCEG,
   threshold movement, seed/channel selection, new feature, or larger model.**
+- **Do not implement or train any Phase II model.**
 - **The only authorized next task is
-  `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, using frozen artifacts
-  only.**
-- **Legacy121 held-out folds are no longer pristine confirmation for any method
-  designed after the R4 postmortem. Keep external77 unopened until a complete
-  future protocol and analysis plan are frozen.**
+  `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`.**
+- **Legacy121 is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`, not Phase II
+  architecture-selection or independent-validation data. Keep external77
+  unopened until a complete applicable future policy and analysis plan are
+  frozen.**
 
 Detailed current-mainline documents:
 
 - `docs/project_reboot_v2.md`
 - `docs/reboot_v2_decisions.md`
 - `docs/reboot_v2_claim_evidence_map.md`
+- `docs/phase2_ccfa_upgrade_proposal.md`
+- `docs/phase2_literature_novelty_audit.md`
+- `docs/phase2_dataset_strategy.md`
+- `docs/phase2_risk_control_design.md`
+- `docs/phase2_target_venues.md`
 - `plan/research_plan.md`
 - `plan/timeline.md`
 - `tasks/TODO.md`

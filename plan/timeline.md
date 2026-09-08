@@ -270,10 +270,9 @@ a successful CER method paper. The frozen story links B2 non-dominance,
 prediction-context signal, ERN-versus-B4 evidence attribution, scope-localized
 `NON_EVIDENCED` harm, and the prospective CER matched-control failure.
 
-The next authorized task is
-`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, limited to writing and
-assembling existing frozen outputs. No new experiment, R5, external77, noisy or
-real evidence, R6, or 3D analysis is authorized.
+At completion, the next planned Phase I task was manuscript assembly. The user
+has since initiated Phase II as a separate design track. That does not alter the
+Phase I paper decision or authorize any old R5--R9 execution.
 
 ---
 
@@ -396,25 +395,54 @@ No 3D claim without reproducible paired downstream benefit.
 
 ---
 
+## Phase II — Risk-Controlled Structured Evidence Refinement
+
+**Status: `PHASE2_INITIATED` — `PHASE2_NOVELTY_AND_METHOD_DESIGN` —
+`PHASE2_PRIMARY_DIRECTION_JUSTIFIED`**
+
+Phase II is not a numbered continuation of R5--R9 and not a rescue of R4/CER.
+Its independent roadmap is:
+
+```text
+P0  literature / novelty audit                         COMPLETE (design only)
+P1  dataset and predictor audit                        DESIGN DRAFT ONLY
+P2  structured task / dataset protocol freeze          NEXT AUTHORIZED
+P3  minimal structured baseline                        NOT AUTHORIZED
+P4  primary model implementation                       NOT AUTHORIZED
+P5  clean-evidence Development-v2                      NOT AUTHORIZED
+P6  controlled-noise robustness                        NOT AUTHORIZED
+P7  cross-predictor-family transfer                     NOT AUTHORIZED
+P8  real probing evidence                              NOT AUTHORIZED
+P9  independent one-shot test                          NOT AUTHORIZED
+P10 optional 2D -> 3D                                  NOT AUTHORIZED
+P11 manuscript / submission                            NOT AUTHORIZED
+```
+
+P0 found a qualified joint novelty gap around preservation-aware evidence
+transport, valid minimum-cost structured edits, and RNA-cluster harmful-edit
+risk control. Pair graphs, GNNs, constrained decoding, evidence fusion,
+abstention, conformal prediction, and foundation models are not novel alone.
+
+Legacy121 is now `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`. Development-v2 must be
+new, identity-filtered, family-aware, predictor-diverse, and preferably support
+a temporal audit. external77 remains `ONE_SHOT_LOCKED` and may not be inspected
+while determining whether a separate Independent-v2 is needed.
+
+`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`: no Phase II source/model code, training,
+evidence generation, scientific evaluation, noisy/real evidence, or independent
+test may start before a complete prospective protocol.
+
+---
+
 ## Current Immediate Sequence
 
 ```text
-R1 documentation freeze
--> R2 protocol freeze
--> R2 minimum-loop blocker resolution
--> complete R2 global constrained-refolding baseline
--> R2 interpretation and R3 protocol freeze
--> execute frozen R3 reliability baselines
--> interpret R3 and prospectively decide/freeze R4 protocol
--> complete frozen R4 learned clean evidence reconciliation
--> diagnose frozen R4 outputs and choose the future path
--> freeze the prospective CER/CCEG development protocol
--> implement and execute frozen CER on Legacy121 development CV only
--> consolidate the bounded reliability/mechanistic paper story
--> draft the manuscript outline and assemble figure data from frozen artifacts
+Phase I research and paper-story consolidation                COMPLETE
+-> Phase II P0 literature/novelty and method design           COMPLETE
+-> freeze Phase II Development-v2 dataset and task protocol   NEXT
 ```
 
-**Only `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA` is authorized next.
-It may use existing frozen artifacts only. Historical Stage E2, R4/CER rescue
-tuning, new scientific experiments, R5, and external77 access remain
-prohibited.**
+**Only `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL` is authorized next. It is a
+design/protocol task. Historical Stage E2, R4/CER rescue, Phase II
+implementation/training, old R5--R9, noisy/real evidence, and external77 access
+remain prohibited.**

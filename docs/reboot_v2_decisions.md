@@ -725,3 +725,87 @@ artifacts only. This decision does not alter `R4_GATE_B_FAIL` or
 `CONSERVATIVE_DEV_GATE_FAIL`, authorize a new experiment, open external77,
 start R5/R6, or support independent, unseen-predictor, noisy/real-evidence,
 safe-non-local-propagation, global-superiority, or 3D claims.
+
+---
+
+## Decision — Initiate Phase II without reopening Phase I
+
+**Confirmed / 已确定 (2026-09-08, design and literature audit only)**
+
+The user authorized a separate Phase II research direction aimed at a CCF-A
+capable contribution or an equivalently strong Q1 journal. Phase I remains
+research-complete and retains its bounded reliability/mechanistic paper story.
+`R4_GATE_B_FAIL` and `CONSERVATIVE_DEV_GATE_FAIL` are immutable and are not
+converted into Phase II baselines to be rescued by threshold, seed, channel,
+source, feature, or capacity selection.
+
+Phase II's provisional title is **Risk-Controlled Structured Evidence
+Refinement for RNA Secondary Structure Prediction**. Its central question is
+whether sparse structural evidence can be transported through an existing
+prediction only along structurally justified paths and under statistically
+defensible harmful-edit control, while supporting valid edits beyond deletion.
+
+**Consequence:** state is `PHASE1_RESEARCH_COMPLETE`,
+`PHASE1_PAPER_STORY_VIABLE`, `PHASE2_INITIATED`, and
+`PHASE2_NOVELTY_AND_METHOD_DESIGN`. No Phase II implementation or training is
+authorized.
+
+## Decision — Select a qualified risk-controlled structured-refinement direction
+
+**Confirmed / 已确定 (2026-09-08, after fresh prior-art audit)**
+
+The audit found strong prior art for every isolated ingredient: graph/contact
+representations, GNNs, pair-specific probing-evidence probabilities,
+evidence-guided hard/soft folding, input-prediction “fixing,” learned scores plus
+DP/matching/parsing, validity-enforcing post-processing, selective prediction,
+conformal risk control, conformal structured prediction, and RNA foundation
+models. In particular, Hong et al.'s 2024 fixing task, ICML 2024
+assignment/K-rook work, ICLR 2025 DEPfold, and ShapeSorter prevent generic
+claims around source scaffolding, structured post-processing/decoding, or
+pair-specific evidence. ICLR 2024/2025 risk work likewise prevents relabeling
+calibration or graph conformal prediction as a new risk method.
+
+The remaining qualified gap is the *joint* problem of preserving an arbitrary
+source prediction, estimating evidence-to-edit transport eligibility, making
+valid minimum-cost KEEP/DELETE/ADD/REPLACE/ABSTAIN decisions, and controlling a
+prospectively defined harmful-edit loss at an RNA/family-cluster unit.
+
+Three model families were compared: Pair-Graph Trust Refinement, Energy-Based
+Minimal-Edit Refinement, and Risk-Controlled Structured Refinement. The third is
+selected as the primary concept, with the energy-based family as the required
+simple baseline.
+
+**Consequence:** `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`, but
+`PROTOCOL_NOT_FROZEN` and `PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`. The direction
+must be rejected or downgraded if a refreshed audit closes the joint gap or the
+risk-control assumptions cannot be satisfied. No GNN, Transformer, foundation
+model, or decoder is authorized by this decision.
+
+## Decision — Replace Legacy121 with Development-v2 for Phase II design
+
+**Confirmed / 已确定 (2026-09-08, prospective data-role decision)**
+
+Legacy121 outputs were observed and used to construct the Phase II hypothesis.
+It is therefore renamed `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`. It may support
+Phase I reproduction, diagnostic examples, and compatibility tests, but cannot
+be the primary basis for Phase II architecture selection, risk calibration, or
+independent validation.
+
+Phase II requires Development-v2: new structures with exact provenance,
+sequence-identity filtering, family-aware grouping, type/length diversity,
+predictor-training-overlap audits, and a temporal split where feasible. The
+predictor panel must support leave-one-predictor-family-out evaluation and
+should prioritize a small deployable set spanning thermodynamic, comparative,
+learned-thermodynamic, end-to-end neural, and optionally one foundation-model
+family. NuFold is a 3D predictor and is not treated as a like-for-like 2D source.
+
+external77 remains `ONE_SHOT_LOCKED` and was not accessed. Because the Phase II
+task adds ADD/REPLACE, modern predictors, and structured risk control,
+external77 is retained as a Phase I bridge candidate rather than automatically
+declared the sole Phase II final test. A separately locked Independent-v2 may be
+required.
+
+**Consequence:** the only next authorized task is
+`FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`. It may freeze data/task/risk
+semantics but may not implement or train models, generate evidence, run new
+scientific evaluations, access external77, or begin old R5/R6/R8 work.
