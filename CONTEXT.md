@@ -310,3 +310,42 @@ DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA
 scientific experiment。
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。
+
+---
+
+## Phase II current-state addendum (2026-09-09)
+
+The Phase I text above is immutable historical provenance. The manuscript-only
+next task recorded there was superseded when the user initiated Phase II; it is
+not the current execution instruction.
+
+Phase II P0 novelty design and P1/P2 dataset/task protocol freeze are complete:
+
+```text
+PHASE1_RESEARCH_COMPLETE
+PHASE1_PAPER_STORY_VIABLE
+R4_GATE_B_FAIL
+CONSERVATIVE_DEV_GATE_FAIL
+PHASE2_INITIATED
+PHASE2_NOVELTY_AND_METHOD_DESIGN
+PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
+EXTERNAL77_LOCKED
+```
+
+The canonical protocol is `docs/phase2_dataset_and_task_protocol.md`. Legacy121
+is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; external77 is sealed as a
+`PHASE1_BRIDGE_INDEPENDENT_ASSET`; Independent-v2 is the future Phase II primary
+one-shot set and has not been selected.
+
+The next proposed task, which begins only on explicit authorization, is:
+
+```text
+IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES
+```
+
+It is restricted to the synthetic/non-learned infrastructure in
+`docs/phase2_p3_minimal_baseline_implementation_plan.md`. No primary-model code,
+training, biological performance evaluation, evidence generation, external77,
+old R5/R6/R8, real probing or 3D work is authorized.

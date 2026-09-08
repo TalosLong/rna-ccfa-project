@@ -6,7 +6,7 @@ Status:
 PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
-PROTOCOL_NOT_FROZEN
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
 IMPLEMENTATION_NOT_AUTHORIZED
 ```
 
@@ -15,9 +15,10 @@ Provisional research title:
 > **Risk-Controlled Structured Evidence Refinement for RNA Secondary
 > Structure Prediction**
 
-This is a research-direction document, not a frozen protocol. The final method
-name, feature contract, model, decoder, datasets, loss, risk level, and gate
-thresholds remain undecided until the next authorized task.
+This remains the research-direction document. The canonical dataset/task,
+decoder and risk contracts are now frozen separately in
+`docs/phase2_dataset_and_task_protocol.md`. The final method name and learned
+architecture remain undecided, and no implementation or training is authorized.
 
 ## 1. Phase boundary
 
@@ -387,30 +388,28 @@ All future reports must include:
 10. **Optional 3D:** paired downstream evaluation with one frozen 3D pipeline;
     never inferred from 2D F1 alone.
 
-Primary aggregation units and statistical tests remain to be frozen. RNA and
-family-cluster summaries must accompany event pooling.
+Primary aggregation units and the finite-family risk procedure are now frozen
+in `PHASE2_DTP_V1.0`. RNA and family-cluster summaries accompany event pooling.
 
 ## 12. Prospective Phase II gates
 
-Numerical thresholds are deliberately **not frozen** in this design task.
+Gate definitions are frozen in the canonical protocol:
 
-- **Gate P0 — Novelty:** a refreshed audit must retain a specific joint gap;
-  generic GNN, constrained decoding, and conformal components do not qualify.
-- **Gate P1 — Structured utility:** the valid KEEP/DELETE/ADD/REPLACE policy
-  must beat a matched deletion-only version through correct additions and
-  replacements, not only capacity or more edits.
-- **Gate P2 — Safety:** the risk-controlled policy must materially reduce
-  harmful edits at matched or explicitly traded coverage, while satisfying a
-  prospectively frozen TP-preservation guard.
-- **Gate P3 — Predictor transfer:** improvement direction must survive an
-  unseen predictor family; no source-specific rescue threshold.
-- **Gate P4 — Noise robustness:** usefulness and risk direction must persist at
-  least under 5% and 10% prospectively generated evidence corruption.
-- **Gate P5 — Independent validation:** a one-shot locked set must preserve the
-  predeclared effect direction without retraining or redesign.
-- **Gate P6 — Real evidence:** if required by the selected venue, SHAPE/DMS/PARS
-  experiments with paired references must support the core transport/safety
-  phenomenon.
+- **P0 NOVELTY:** PASS remains `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`.
+- **P1 DATA/PROTOCOL:** provenance, leakage, source panel, decoder, risk,
+  metrics, controls and hashes must be complete.
+- **P2 STRUCTURED BASELINE:** ADD/REPLACE must add correction headroom over
+  deletion-only or the interpretation reverts to deletion-only.
+- **P3 SAFETY:** finite-family risk control must improve HarmRate over the
+  same-capacity no-risk control at nonzero useful coverage.
+- **P4 PREDICTOR TRANSFER:** direction survives every held-out family.
+- **P5 NOISE:** the risk contract/useful coverage survive 5% and 10% corruption.
+- **P6 INDEPENDENT:** Independent-v2 one-shot direction is retained.
+- **P7 REAL EVIDENCE:** required when the final venue/claim depends on probing.
+
+Only `alpha=0.10`, `delta=0.05`, and the 240-cluster risk readiness minimum are
+numerical now. Other thresholds require prospective scientific/statistical
+justification and are not copied from Phase I.
 
 A failed gate freezes that claim and triggers review; it does not automatically
 authorize a larger architecture, alternate split, or threshold rescue.
@@ -419,9 +418,9 @@ authorize a larger architecture, alternate split, or threshold rescue.
 
 ```text
 P0  literature / novelty audit                         COMPLETE (design only)
-P1  dataset and predictor audit                        DESIGN DRAFT ONLY
-P2  structured task and protocol freeze                NOT STARTED
-P3  minimal structured baselines                       NOT AUTHORIZED
+P1  dataset and predictor audit                        COMPLETE / FROZEN
+P2  structured task and protocol freeze                COMPLETE / FROZEN
+P3  minimal structured baselines                       NEXT PROPOSED / NOT STARTED
 P4  primary model implementation                       NOT AUTHORIZED
 P5  clean-evidence Development-v2                      NOT AUTHORIZED
 P6  controlled-noise robustness                        NOT AUTHORIZED
@@ -432,8 +431,9 @@ P10 optional 2D -> 3D                                  NOT AUTHORIZED
 P11 manuscript / submission                            NOT AUTHORIZED
 ```
 
-The current task completes P0 planning and only drafts P1/P2 design. It does
-not authorize implementation.
+P1/P2 are complete. P3 begins only on explicit authorization under the frozen
+minimal-baseline implementation plan; primary-model implementation remains
+unauthorized.
 
 ## 14. Publication potential
 
@@ -470,16 +470,17 @@ This proposal does not establish:
 - 3D benefit; or
 - CCF-A / Q1 acceptance likelihood.
 
-## 16. Next authorized task
+## 16. Next proposed task
 
-Because the qualified joint novelty gap is defensible, the only next authorized
-task is:
+Because the qualified joint novelty gap is defensible and P1/P2 are frozen, the
+next proposed task, requiring explicit authorization, is:
 
 ```text
-FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL
+IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES
 ```
 
-That task must resolve dataset provenance, identity/family/temporal grouping,
-predictor availability, candidate generation, action labels, exact decoder
-constraints, edit accounting, and risk-calibration units before any model code
-or training is authorized.
+That task is limited to synthetic-fixture schema, candidate, exact-DP,
+action/component and risk-bound infrastructure in
+`docs/phase2_p3_minimal_baseline_implementation_plan.md`. It does not authorize
+the primary model, training, evidence generation, biological performance or
+independent-data access.

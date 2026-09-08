@@ -1,6 +1,6 @@
 # TODO — Project Reboot v2
 
-Last updated: 2026-09-08
+Last updated: 2026-09-09
 
 ## R0 — Literature & Novelty Freeze
 
@@ -265,27 +265,46 @@ Last updated: 2026-09-08
 - [x] Keep external77 `ONE_SHOT_LOCKED`; no data access, code, training, or new
   scientific evaluation occurred.
 
-## Phase II P1/P2 — Dataset and Task Protocol Freeze — NEXT
+## Phase II P1/P2 — Dataset and Task Protocol Freeze — COMPLETE
 
-- [ ] Re-audit exact source datasets, licenses, releases, annotation provenance,
+- [x] Re-audit exact source datasets, licenses, releases, annotation provenance,
   Legacy121 overlap, and predictor-training overlap without opening external77.
-- [ ] Freeze Development-v2 identity, family, temporal, length/type, and
+- [x] Freeze Development-v2 identity, family, temporal, length/type, and
   pseudoknot eligibility rules.
-- [ ] Audit and freeze a minimal deployable predictor-family panel and LOPFO
+- [x] Audit and freeze a minimal deployable predictor-family panel and LOPFO
   grouping; do not treat NuFold as a like-for-like 2D source predictor.
-- [ ] Freeze candidate generation, labels, action semantics, structured
+- [x] Freeze candidate generation, labels, action semantics, structured
   validity, exact decoder, edit cost/accounting, and ABSTAIN level.
-- [ ] Freeze clean symbolic evidence semantics for ADD/REPLACE-compatible
+- [x] Freeze clean symbolic evidence semantics for ADD/REPLACE-compatible
   structured editing; do not run noisy or real evidence.
-- [ ] Determine whether the proposed risk loss/policy family permits valid
+- [x] Determine whether the proposed risk loss/policy family permits valid
   formal control; otherwise freeze a finite-policy or explicitly empirical
   fallback.
-- [ ] Freeze splits, calibration units, model/control comparisons, metrics,
+- [x] Freeze splits, calibration units, model/control comparisons, metrics,
   gate definitions, hashes, leakage guards, and reproducibility checks.
-- [ ] Decide prospectively whether external77 remains a Phase I bridge asset or
+- [x] Decide prospectively whether external77 remains a Phase I bridge asset or
   can participate in a later sealed Phase II multi-cohort plan; do not inspect
   it.
-- [ ] Do not implement or train a Phase II model in this task.
+- [x] Do not implement or train a Phase II model in this task.
+
+Outcome:
+
+```text
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
+FINITE_FAMILY_RISK_CONTROLLING_POLICY_SELECTION
+EXTERNAL77 = PHASE1_BRIDGE_INDEPENDENT_ASSET / LOCKED
+Independent-v2 = future Phase II primary one-shot set
+```
+
+## Phase II P3 — Minimal Structured Baselines — NEXT PROPOSED
+
+- [ ] Begin only after explicit authorization and a matching protocol manifest.
+- [ ] Implement schema/candidate/exact-DP/action/component/risk-bound
+  infrastructure using synthetic fixtures first.
+- [ ] Verify exhaustive short-sequence equivalence, validity, determinism,
+  fail-closed behavior, leakage firewall and edit accounting.
+- [ ] Keep primary GNN/Graph Transformer, training, Development-v2 performance,
+  evidence generation and independent data out of scope.
 
 ## R5 — Controlled Noise Robustness
 
@@ -371,17 +390,18 @@ PHASE1_PAPER_STORY_VIABLE
 PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
 PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
 
-The only next task is:
+The next proposed task, requiring explicit authorization, is:
 
 ```text
-FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL
+IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES
 ```
 
-Phase I paper-story viability remains unchanged. Phase II may now freeze its
-new dataset and structured task protocol, but may not implement an architecture,
-train, generate evidence, evaluate performance, inspect external77, or start the
-old R5/R6/R8 roadmap. R4 and CER failures remain frozen.
+Phase I paper-story viability remains unchanged. The Phase II P1/P2 protocol is
+frozen, but the primary architecture and all training/performance work remain
+unauthorized. P3 is limited to the separate minimal-baseline plan. No evidence,
+external77 or old R5/R6/R8 work is authorized. R4 and CER failures remain frozen.

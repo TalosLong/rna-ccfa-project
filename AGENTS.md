@@ -18,6 +18,11 @@ Before substantial work, read:
 - `docs/phase2_dataset_strategy.md`;
 - `docs/phase2_risk_control_design.md`;
 - `docs/phase2_target_venues.md`;
+- `docs/phase2_dataset_source_audit.md`;
+- `docs/phase2_dataset_and_task_protocol.md`;
+- `docs/phase2_structured_decoder_protocol.md`;
+- `docs/phase2_p3_minimal_baseline_implementation_plan.md`;
+- `docs/phase2_protocol_freeze_manifest.md`;
 - `plan/research_plan.md`;
 - `plan/timeline.md`;
 - `tasks/TODO.md`;
@@ -79,13 +84,16 @@ PHASE1_PAPER_STORY_VIABLE
 PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
 PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
 
-The only authorized next task is `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`.
-No model implementation, training, evidence generation, external77 access, or
-historical R5/R6/R8 execution is authorized.
+The P1/P2 dataset/task protocol freeze is complete. The next proposed task is
+`IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`, but it begins only on explicit
+authorization and is limited to the frozen P3 plan. No primary-model
+implementation, training, evidence generation, Development-v2 performance
+experiment, external77 access, or historical R5/R6/R8 execution is authorized.
 
 ## R4 Constraints
 
@@ -172,10 +180,13 @@ CER or reinterpret either failed gate.
 Phase II's provisional title is **Risk-Controlled Structured Evidence
 Refinement for RNA Secondary Structure Prediction**. The design-level novelty
 decision is `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`, but the method name,
-architecture, dataset, decoder, loss, calibration, numerical risk target, and
-gate thresholds are not frozen.
+primary architecture and learned score remain unfrozen. Dataset roles,
+candidate/action/E0 semantics, exact primary decoder, finite-family risk route,
+`alpha`, `delta`, metrics and qualitative gates are frozen in
+`PHASE2_DTP_V1.0`; they may change only through a prospective versioned
+amendment before outcomes.
 
-The primary concept must remain more than “replace the MLP with a GNN”:
+The frozen task concept remains more than “replace the MLP with a GNN”:
 
 - represent original and plausible alternative pairs with explicit structural
   relations;
@@ -194,10 +205,12 @@ pair-specific probing-evidence probabilities, input-prediction fixing,
 abstention, conformal prediction, and RNA foundation models are established
 prior art and are not independent novelty claims.
 
-The next task may freeze a Development-v2 dataset/task protocol and audit
-predictor deployability. It may not implement a model, train, inspect
-external77, run real-probing experiments, or create scientific performance
-results.
+The authoritative protocol is `docs/phase2_dataset_and_task_protocol.md`, with
+the exact decoder, finite-family risk controller, source audit, hashes and P3
+boundary in its linked documents. P3 may implement only minimal non-learned
+structured-baseline infrastructure after explicit authorization. It may not
+implement/train the primary model, inspect external77, generate evidence, run
+real-probing experiments, or create scientific performance results.
 
 ## Locked Independent Data
 

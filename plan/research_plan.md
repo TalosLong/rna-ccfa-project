@@ -480,17 +480,17 @@ with separated prediction-context, evidence, and transport-eligibility terms;
 learned edit energies; explicit cost relative to the source prediction; an exact
 primary noncrossing decoder for KEEP/DELETE/ADD/REPLACE; ABSTAIN; and RNA-cluster
 risk calibration. This design is justified by the novelty audit but is not
-frozen or authorized for implementation.
+implemented. Its dataset/task/decoder/risk contracts are now frozen in
+`PHASE2_DTP_V1.0`; the final learned architecture and method name remain open.
 
 ### Phase II data roles
 
 - Legacy121: `PHASE1_HISTORICAL_DIAGNOSTIC_DATA` only.
-- Development-v2: new, sequence-identity-filtered, family-aware and preferably
-  temporally auditable structures for Phase II training/model selection/risk
-  calibration.
-- Final independent: a separately sealed Independent-v2 is preferred if the
-  revised task does not match external77; external77 remains unopened and may
-  serve only a prospectively declared bridge or independent cohort.
+- Development-v2: RNA3DB-2D experimental core plus RNASSTR/Rfam training-only
+  supplements, with 80/80 identity and higher-priority family connected
+  components, five disjoint roles and a 2024-12-04 PDB temporal cutoff.
+- Final independent: a separately sealed Independent-v2 is the primary Phase II
+  one-shot set. external77 remains unopened as a Phase I bridge asset.
 
 ### Phase II evidence ladder
 
@@ -504,9 +504,9 @@ No noisy or real evidence is authorized yet.
 
 ```text
 P0  literature / novelty audit                         COMPLETE (design only)
-P1  dataset and predictor audit                        DESIGN DRAFT ONLY
-P2  structured task / dataset protocol freeze          NEXT AUTHORIZED
-P3  minimal structured baseline                        NOT AUTHORIZED
+P1  dataset and predictor audit                        COMPLETE / FROZEN
+P2  structured task / dataset protocol freeze          COMPLETE / FROZEN
+P3  minimal structured baseline                        NEXT PROPOSED / NOT STARTED
 P4  primary model implementation                       NOT AUTHORIZED
 P5  clean-evidence Development-v2                      NOT AUTHORIZED
 P6  controlled-noise robustness                        NOT AUTHORIZED
@@ -517,34 +517,38 @@ P10 optional 2D -> 3D                                  NOT AUTHORIZED
 P11 manuscript / submission                            NOT AUTHORIZED
 ```
 
-### Phase II prospective gates
+### Phase II frozen prospective gates
 
-- P0 novelty: the joint gap survives an updated prior-art audit.
-- P1 structured utility: ADD/REPLACE adds value beyond matched deletion-only.
-- P2 safety: a risk-controlled policy reduces harmful edits at meaningful
-  coverage and satisfies a frozen preservation guard.
-- P3 predictor transfer: direction survives an unseen predictor family.
-- P4 noise robustness: usefulness remains at 5--10% corruption.
-- P5 independent validation: a sealed one-shot cohort preserves direction.
-- P6 real evidence: if required for the target venue, real probing supports the
-  central phenomenon.
+- P0 NOVELTY: PASS remains `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`.
+- P1 DATA/PROTOCOL: provenance, leakage, source panel, decoder, risk, metrics,
+  controls and hashes are complete.
+- P2 STRUCTURED BASELINE: ADD/REPLACE must add real correction headroom beyond
+  deletion-only or the interpretation reverts to deletion-only.
+- P3 SAFETY: finite-family control must improve HarmRate versus same-capacity
+  no-risk control at nonzero useful coverage; all-abstain cannot pass.
+- P4 PREDICTOR TRANSFER: direction survives every held-out predictor family.
+- P5 NOISE: risk contract and useful coverage survive 5--10% corruption.
+- P6 INDEPENDENT: sealed Independent-v2 one-shot direction is retained.
+- P7 REAL EVIDENCE: required if the final venue/claim depends on probing.
 
-Numerical thresholds are not frozen in this planning task. Failed gates do not
-automatically authorize architecture, split, seed, or threshold rescue.
+The risk procedure freezes `alpha=0.10`, `delta=0.05` and at least 240
+risk-calibration biological clusters. Other numerical gates remain unset until
+scientifically/statistically justified prospectively. Failed gates do not
+authorize architecture, split, seed or threshold rescue.
 
 ## 15. Current Execution State
 
 **Do not train historical Stage E2.**
 
-Phase I paper-story consolidation is complete. Phase II P0 design is complete.
-The only authorized next task is:
+Phase I paper-story consolidation and Phase II P0--P2 protocol design are
+complete. The next proposed task, requiring explicit authorization, is:
 
-> **`FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`**
+> **`IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`**
 
-That task is limited to a prospective dataset/task protocol, predictor
-deployability audit, and risk-control feasibility decision. It does not
-authorize model implementation, training, evidence generation, new scientific
-evaluation, external77 access, or real-evidence work.
+That task is limited to synthetic-fixture schema, candidate, exact-DP,
+action/component and risk-bound infrastructure under the frozen P3 plan. It
+does not authorize the primary model, training, Development-v2 performance,
+evidence generation, external77 or real-evidence work.
 
 The completed execution state is:
 
@@ -564,6 +568,7 @@ PHASE1_PAPER_STORY_VIABLE
 PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
+PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
 PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```

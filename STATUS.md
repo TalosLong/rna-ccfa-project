@@ -1,6 +1,6 @@
 # Current Status
 
-Last updated: 2026-09-08
+Last updated: 2026-09-09
 
 ## Current Stage
 
@@ -13,6 +13,8 @@ Last updated: 2026-09-08
 `PHASE2_NOVELTY_AND_METHOD_DESIGN`**
 
 **Phase II novelty decision: `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`**
+
+**Phase II protocol: `PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN`**
 
 **Phase II implementation: `PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`**
 
@@ -30,7 +32,7 @@ Last updated: 2026-09-08
 
 **Independent data: `EXTERNAL77_LOCKED`**
 
-**Next authorized task: `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`**
+**Next proposed task: `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`**
 
 Current Phase II working direction:
 
@@ -151,13 +153,12 @@ failed gate, or establish independent/noisy/real-evidence performance. The
 canonical consolidation is
 `docs/paper_story_and_results_consolidation.md`.
 
-## Phase II Initiation — Design Only
+## Phase II P1/P2 Dataset and Task Protocol Freeze
 
-The user has authorized a new Phase II research direction while keeping Phase I
-frozen. Legacy121 is now `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; it may explain
-failure mechanisms and support compatibility tests, but it cannot drive Phase
-II architecture selection or independent claims. external77 remains
-`ONE_SHOT_LOCKED` and was not accessed.
+Phase I remains frozen. Legacy121 is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; it may
+support provenance, schema and toy compatibility checks but cannot drive Phase
+II architecture selection, calibration or independent claims. external77 was
+not accessed and remains locked.
 
 A literature audit through 2026-09-08 found dense prior art for RNA graph
 models, neural scoring plus constrained decoding, evidence-guided refolding,
@@ -168,27 +169,40 @@ RNA-cluster-level harmful-edit control. The design decision is therefore
 `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`, not a claim that any individual GNN,
 decoder, or conformal component is novel.
 
-The provisional primary concept is a modest typed candidate-pair representation
-with separated source-context/evidence/transport scores, neural edit energies,
-an exact deterministic noncrossing decoder, explicit cost relative to the
-source prediction, ABSTAIN, and a statistically justified harmful-edit risk
-controller. Formal conformal language is permitted only if the future loss,
-policy nesting, exchangeability, and cluster calibration satisfy the applicable
-theorem; otherwise the method must be described as empirical selective risk
-control.
+The canonical Phase II dataset/task protocol is now frozen as
+`PHASE2_DTP_V1.0`. Development-v2 uses a PDB-derived RNA3DB-2D experimental
+core and only permits RNASSTR/Rfam comparative annotations in TRAIN or
+MODEL_SELECTION. It freezes 80% identity at 80% bilateral coverage plus a
+higher-priority family/provenance connected-component firewall, five disjoint
+cluster roles, a 2024-12-04 PDB temporal cutoff, a four-family primary source
+panel, complete legal candidate generation, exact noncrossing DP, symmetric-
+difference edit cost and component-level ABSTAIN.
 
-The Phase II design set is canonical in:
+The theorem audit rejected standard conformal risk control: structured policy
+changes can substitute edits and the HarmRate ratio is not monotone. The sole
+primary route is `FINITE_FAMILY_RISK_CONTROLLING_POLICY_SELECTION`, with six
+predeclared complete policies, simultaneous Hoeffding upper bounds, biological
+cluster calibration, `alpha=0.10`, `delta=0.05`, and a 240-cluster formal-
+readiness minimum. Claims are limited to the exact marginal expected-loss
+statement; no per-RNA, conditional, FDR or conformal language is allowed.
+
+The Phase II design/protocol set is canonical in:
 
 - `docs/phase2_ccfa_upgrade_proposal.md`;
 - `docs/phase2_literature_novelty_audit.md`;
 - `docs/phase2_dataset_strategy.md`;
-- `docs/phase2_risk_control_design.md`; and
-- `docs/phase2_target_venues.md`.
+- `docs/phase2_risk_control_design.md`;
+- `docs/phase2_target_venues.md`;
+- `docs/phase2_dataset_source_audit.md`;
+- `docs/phase2_dataset_and_task_protocol.md`;
+- `docs/phase2_structured_decoder_protocol.md`;
+- `docs/phase2_p3_minimal_baseline_implementation_plan.md`; and
+- `docs/phase2_protocol_freeze_manifest.md`.
 
-No Phase II protocol, final method name, architecture, feature contract,
-dataset, numerical risk target, or gate threshold is frozen. No code, model,
-training, evidence generation, new performance evaluation, or independent-data
-access was authorized or performed.
+No final method name, primary architecture or learned score is frozen or
+implemented. No code, model, training, evidence generation, new performance
+evaluation, source prediction, data materialization or independent-data
+access occurred in this task.
 
 ## Phase I Rebooted Scientific Question
 
@@ -348,9 +362,10 @@ R9 Final calibrated KEEP/DELETE/ABSTAIN
 Optional 2D -> 3D validation
 
 Phase II P0 novelty/design audit                COMPLETE / DIRECTION JUSTIFIED
-Phase II P1 dataset/predictor audit             DESIGN DRAFT ONLY
-Phase II P2 dataset/task protocol freeze        NEXT AUTHORIZED TASK
-Phase II P3--P11 execution                      NOT AUTHORIZED
+Phase II P1 dataset/predictor audit             COMPLETE / FROZEN
+Phase II P2 dataset/task protocol freeze        COMPLETE / FROZEN
+Phase II P3 minimal structured baselines        NEXT PROPOSED / NOT STARTED
+Phase II P4--P11 primary/scientific execution   NOT AUTHORIZED
 ```
 
 ## Go / No-Go Gates
@@ -528,9 +543,10 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not begin old R5/R6/R7/R8, external77, or real-evidence work.**
 - **Do not rescue `CONSERVATIVE_DEV_GATE_FAIL` with an alternate CCEG,
   threshold movement, seed/channel selection, new feature, or larger model.**
-- **Do not implement or train any Phase II model.**
-- **The only authorized next task is
-  `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`.**
+- **Do not implement or train the Phase II primary model.**
+- **The P1/P2 protocol task is complete. The next proposed task is
+  `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`, which begins only on
+  explicit authorization and is limited to the frozen P3 plan.**
 - **Legacy121 is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`, not Phase II
   architecture-selection or independent-validation data. Keep external77
   unopened until a complete applicable future policy and analysis plan are
@@ -546,6 +562,11 @@ Detailed current-mainline documents:
 - `docs/phase2_dataset_strategy.md`
 - `docs/phase2_risk_control_design.md`
 - `docs/phase2_target_venues.md`
+- `docs/phase2_dataset_source_audit.md`
+- `docs/phase2_dataset_and_task_protocol.md`
+- `docs/phase2_structured_decoder_protocol.md`
+- `docs/phase2_p3_minimal_baseline_implementation_plan.md`
+- `docs/phase2_protocol_freeze_manifest.md`
 - `plan/research_plan.md`
 - `plan/timeline.md`
 - `tasks/TODO.md`

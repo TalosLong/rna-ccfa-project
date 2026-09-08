@@ -398,16 +398,17 @@ No 3D claim without reproducible paired downstream benefit.
 ## Phase II — Risk-Controlled Structured Evidence Refinement
 
 **Status: `PHASE2_INITIATED` — `PHASE2_NOVELTY_AND_METHOD_DESIGN` —
-`PHASE2_PRIMARY_DIRECTION_JUSTIFIED`**
+`PHASE2_PRIMARY_DIRECTION_JUSTIFIED` —
+`PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN`**
 
 Phase II is not a numbered continuation of R5--R9 and not a rescue of R4/CER.
 Its independent roadmap is:
 
 ```text
 P0  literature / novelty audit                         COMPLETE (design only)
-P1  dataset and predictor audit                        DESIGN DRAFT ONLY
-P2  structured task / dataset protocol freeze          NEXT AUTHORIZED
-P3  minimal structured baseline                        NOT AUTHORIZED
+P1  dataset and predictor audit                        COMPLETE / FROZEN
+P2  structured task / dataset protocol freeze          COMPLETE / FROZEN
+P3  minimal structured baseline                        NEXT PROPOSED / NOT STARTED
 P4  primary model implementation                       NOT AUTHORIZED
 P5  clean-evidence Development-v2                      NOT AUTHORIZED
 P6  controlled-noise robustness                        NOT AUTHORIZED
@@ -428,9 +429,10 @@ new, identity-filtered, family-aware, predictor-diverse, and preferably support
 a temporal audit. external77 remains `ONE_SHOT_LOCKED` and may not be inspected
 while determining whether a separate Independent-v2 is needed.
 
-`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`: no Phase II source/model code, training,
-evidence generation, scientific evaluation, noisy/real evidence, or independent
-test may start before a complete prospective protocol.
+`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`: no primary Phase II model code,
+training, evidence generation, scientific evaluation, noisy/real evidence, or
+independent test may start. The P3 synthetic/minimal-baseline task begins only
+after explicit authorization under its frozen implementation plan.
 
 ---
 
@@ -439,10 +441,12 @@ test may start before a complete prospective protocol.
 ```text
 Phase I research and paper-story consolidation                COMPLETE
 -> Phase II P0 literature/novelty and method design           COMPLETE
--> freeze Phase II Development-v2 dataset and task protocol   NEXT
+-> Phase II P1/P2 dataset/predictor/task protocol freeze       COMPLETE
+-> implement minimal structured baseline infrastructure       NEXT PROPOSED
 ```
 
-**Only `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL` is authorized next. It is a
-design/protocol task. Historical Stage E2, R4/CER rescue, Phase II
-implementation/training, old R5--R9, noisy/real evidence, and external77 access
-remain prohibited.**
+**The next proposed task is `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES` and
+requires explicit authorization. It is limited to the frozen P3 plan.
+Historical Stage E2, R4/CER rescue, primary-model implementation/training,
+Development-v2 performance, old R5--R9, noisy/real evidence, and external77
+access remain prohibited.**

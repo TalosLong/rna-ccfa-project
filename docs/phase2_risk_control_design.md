@@ -1,8 +1,8 @@
 # Phase II Risk-Control Design
 
-Status: **`PHASE2_RISK_CONTROL_DESIGN_DRAFT`**
+Status: **`PHASE2_RISK_CONTROL_PROTOCOL_FROZEN`**
 
-Protocol: **`NOT_FROZEN`**
+Protocol: **`FINITE_FAMILY_RISK_CONTROLLING_POLICY_SELECTION`**
 
 Implementation: **`NOT_AUTHORIZED`**
 
@@ -179,27 +179,25 @@ repeat Phase I's forbidden rescue pattern. Primary guarantees should therefore
 be marginal across independent RNA/family clusters, with source/family results
 as audits unless a valid simultaneous group-control procedure is frozen.
 
-## 6. Recommended primary design
+## 6. Frozen primary design
 
-The next protocol should try the following hierarchy:
+The protocol audit applied the following hierarchy:
 
 1. **Safety loss:** RNA-balanced HarmRate with full edit-atom accounting.
 2. **Safety guard:** RNA-balanced and event-pooled TP preservation.
-3. **Policy family:** a predeclared structured edit-cost / commitment family
-   with ABSTAIN; verify whether committed edit sets and the selected loss are
-   actually nested/monotone.
+3. **Policy family:** predeclared complete structured component-commitment
+   policies with ABSTAIN.
 4. **Calibration unit:** family/identity-disjoint RNA clusters from
    Development-v2, never candidate pairs.
-5. **Formal route:** CRC only if the theorem's loss, nesting, exchangeability,
-   and no-model-selection-on-calibration conditions are satisfied.
-6. **Fallback route:** finite-family simultaneous risk upper bounds selected on
+5. **Formal-route audit:** standard conformal risk control is rejected because
+   the end-to-end policy and HarmRate loss are not nested/monotone.
+6. **Selected route:** finite-family simultaneous risk upper bounds selected on
    an isolated calibration split.
-7. **Fail-closed route:** if neither is statistically defensible, label the
-   method `EMPIRICAL_SELECTIVE_RISK_CONTROL` and make no formal guarantee.
+7. **Fail-closed route:** if the frozen finite-family assumptions/readiness do
+   not hold, return all-abstain and make no formal useful-policy claim.
 
-The confidence level, `alpha`, `delta`, bound, finite policy grid, and tie-breaks
-are intentionally not chosen here. They must be justified by scientific harm
-tolerance and sample size before outcome analysis.
+The exact target, bound, policy family and tie handling are frozen in Section
+13 and the canonical dataset/task protocol.
 
 ## 7. Data partition contract
 
@@ -222,14 +220,14 @@ test whether the locked direction and empirical risk behavior transfer.
 
 ## 8. Selective action semantics
 
-ABSTAIN can operate at three levels, to be chosen prospectively:
+ABSTAIN was compared at three levels:
 
 - **edit-level:** do not commit a particular otherwise valid edit;
 - **region-level:** preserve a coupled stem/competition component when actions
   cannot be made safely in isolation;
 - **RNA-level:** return `S0` unchanged when no policy meets the risk contract.
 
-The primary recommendation is component/region-level abstention because RNA
+The frozen primary level is component/region-level abstention because RNA
 validity couples competing pairs. Every abstained item remains in reliability
 and coverage accounting. An RNA returned unchanged is not a successful edit and
 must contribute zero edit coverage.
@@ -289,11 +287,149 @@ Utility and coverage gates must be conjunctive with safety.
 
 Failure of any necessary item blocks the word “conformal” or “guaranteed.”
 
-## 12. Current conclusion
+## 12. Theorem audit conclusion
 
-Risk-controlled structured refinement is scientifically justified as a Phase II
-direction because it directly targets Phase I's collateral-harm mechanism.
-Formal feasibility is **not yet established**. The next dataset/task protocol
-must either freeze a mathematically valid nested policy and loss, or explicitly
-choose a finite-policy/empirical fallback. No numerical risk target, controller,
-or guarantee is frozen by this document.
+Standard conformal risk control requires a suitable monotone loss along a
+nested/conservative policy parameter; this is explicit in the ICLR 2024
+[Conformal Risk Control](https://research.google/pubs/conformal-risk-control/)
+result. The proposed structured decoder does not meet that contract:
+
+- changing an edit penalty or threshold can replace one valid structured edit
+  with another instead of returning a subset of the former edit set;
+- component recombination couples decisions; and
+- HarmRate has a policy-dependent denominator, so deleting a committed edit can
+  increase or decrease the realized ratio.
+
+Consequently, neither policy nestedness nor loss monotonicity can be proved.
+The selected primary route is therefore **not**
+`FORMAL_CONFORMAL_RISK_CONTROL`. It is the discrete, complete-policy alternative
+below, aligned with risk-controlling prediction-set/Learn-then-Test reasoning
+for bounded loss ([Bates et al.](https://arxiv.org/abs/2101.02703)).
+
+## 13. Frozen finite-family risk-controlling policy selection
+
+### 13.1 Target and calibration unit
+
+For RNA `R`, freeze
+
+\[
+L_R=\operatorname{HarmRate}_R=H_R/\max(1,A_R)\in[0,1].
+\]
+
+For biological component `C`, define `L_C` as the unweighted mean `L_R` over
+RNA records in that component. Independent/exchangeable Development-v2
+biological components are the calibration observations. The controlled
+population quantity is the expected cluster-balanced per-RNA loss
+`E_C[L_C]`, not a conditional family guarantee and not
+`P(HarmRate_R <= alpha)`.
+
+No-edit RNAs have HarmRate 0 and edit coverage 0. They remain in the loss mean,
+RNA coverage denominator and all-abstain report. Pair events, predictors and
+evidence realizations within a cluster are not extra calibration samples.
+
+### 13.2 Score calibration is separate from risk control
+
+The future scorer must emit one real-valued harmfulness logit `z_a` for every
+proposed edit atom. On SCORE_CALIBRATION only, fit one source-independent
+monotone Platt map
+
+\[
+\hat p_a=\operatorname{sigmoid}(a z_a+b),\qquad a\ge0,
+\]
+
+by minimizing RNA-balanced binary log loss plus
+`1e-6*(a^2+b^2)`: every RNA has total weight one, divided equally over its
+proposed atoms. Fit one map across all predictor families; source-specific maps
+are prohibited. Exact optimizer/tolerance and fitted parameters must be sealed
+before RISK_CALIBRATION. Degenerate one-class or nonfinite calibration fails
+closed to all-abstain rather than switching calibrators.
+
+This Platt map is ordinary probability calibration. It supplies the fixed score
+used to define complete policies but contributes no formal guarantee. The
+simultaneous bounded-loss risk calibration below is the control mechanism.
+
+### 13.3 Fixed policy family
+
+After model, score calibration, decoder and `lambda_edit` are locked, define a
+component harm score as the maximum calibrated harmful-atom probability among
+the atoms in the component. The six complete policies are:
+
+```text
+K = 6
+tau in {0.010, 0.025, 0.050, 0.100, 0.200, 1.000}
+pi_tau commits a component iff its maximum harm score <= tau;
+otherwise it restores that complete component to S0.
+```
+
+Each `pi_tau` includes exact decoding, component construction, reversion and
+validity audit. The family is frozen before RISK_CALIBRATION labels are used.
+An all-abstain sentinel is a failure fallback and not one of the six candidates.
+Direct, mutually consistent E0 hard facts remain feasibility constraints.
+
+The six thresholds are a prospectively logarithmic/coarse resolution grid over
+the calibrated harmfulness scale, including the declared 0.10 risk target and a
+no-score-rejection endpoint. They are policy definitions, not observed-result
+gates, and cannot be densified after risk outcomes.
+
+### 13.4 Simultaneous upper bounds and selection
+
+Freeze `alpha=0.10` and `delta=0.05`. For `n` independent risk-calibration
+components and policy `k`, compute mean bounded loss `bar_L_k` and
+
+\[
+U_k=\min\left(1,\bar L_k+
+\sqrt{\frac{\log(K/\delta)}{2n}}\right).
+\]
+
+Hoeffding's inequality with a union bound makes all six upper bounds
+simultaneous at confidence at least `1-delta`, under the stated sampling
+assumptions. Choose among policies with `U_k <= alpha` by:
+
+1. highest committed edit-atom coverage;
+2. highest RNA-level coverage;
+3. smallest `U_k`;
+4. fewest committed atoms; then
+5. smallest `tau`.
+
+All comparisons use exact unrounded sufficient statistics; reported values may
+be rounded only after selection. If no policy qualifies, return all-abstain and
+declare that no nontrivial risk-controlled policy was found. Zero coverage can
+never pass the Phase II safety gate.
+
+The values have a prospective interpretation: `alpha=0.10` targets at least
+90% modification precision under matching atom accounting, while `delta=0.05`
+is the confidence budget over risk-calibration sampling. They are not inherited
+from Phase I's 0.99 TP-preservation gate.
+
+### 13.5 Readiness and assumptions
+
+At zero empirical loss, the frozen bound can satisfy `U_k<=0.10` only when
+
+\[
+n\ge \left\lceil\log(6/0.05)/(2\times0.10^2)\right\rceil=240.
+\]
+
+Thus RISK_CALIBRATION must contain at least 240 disjoint biological components.
+Fewer components fail formal readiness; roles cannot be merged and the bound
+cannot be changed after outcomes.
+
+The confidence statement is conditional on: the six policies being fixed
+before risk outcomes; independent/exchangeable biological components from the
+target Development-v2 population; bounded correctly labeled loss; no use of
+risk-calibration data in training/model/score-calibrator/policy-family design;
+and complete inclusion of no-edit/abstained RNAs. Family/source shift is audited
+and tested by LOPFO and Independent-v2; it is not covered by the marginal bound.
+
+### 13.6 Frozen claim language
+
+If assumptions and readiness pass, the allowed statement is:
+
+> With probability at least 0.95 over the risk-calibration components, the
+> selected member of the six predeclared complete structured policies has
+> expected cluster-balanced per-RNA HarmRate at most 0.10 for an exchangeable
+> new component from the same target population.
+
+Do not call this conformal, per-RNA, family-conditional, predictor-conditional,
+distribution-shift robust, or an FDR guarantee. If any assumption fails, report
+`EMPIRICAL_SELECTIVE_RISK_CONTROL` for that analysis and remove formal claim
+language.

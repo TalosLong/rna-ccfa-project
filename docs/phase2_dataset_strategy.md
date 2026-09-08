@@ -1,14 +1,16 @@
 # Phase II Dataset and Predictor Strategy
 
-Status: **`PHASE2_P1_DATASET_STRATEGY_DRAFT`**
+Status: **`SUPERSEDED_BY_PHASE2_DTP_V1.0`**
 
 Execution: **`NOT_AUTHORIZED`**
 
 external77: **`ONE_SHOT_LOCKED_NOT_ACCESSED`**
 
-This document defines design requirements. It does not select records, inspect
-external77, download data, run predictors, generate evidence, or freeze the
-final dataset protocol.
+This document preserves the P1 design rationale. The authoritative frozen
+contract is now `docs/phase2_dataset_and_task_protocol.md`, supported by
+`docs/phase2_dataset_source_audit.md`. No records were selected, external77 was
+not inspected, and no data, predictor, evidence, training or performance run
+occurred during the freeze task.
 
 ## 1. Why the data strategy must change
 

@@ -809,3 +809,54 @@ required.
 `FREEZE_PHASE2_DATASET_AND_TASK_PROTOCOL`. It may freeze data/task/risk
 semantics but may not implement or train models, generate evidence, run new
 scientific evaluations, access external77, or begin old R5/R6/R8 work.
+
+## Decision — Freeze Phase II Development-v2 and structured-task protocol
+
+**Confirmed / 已确定 (2026-09-09, prospective protocol only)**
+
+The P1 source audit accepts RNA3DB-2D v1 as the Development-v2 experimental
+core and restricts RNASSTR/Rfam comparative annotations to TRAIN and
+MODEL_SELECTION. bpRNA-1m, RNAStrAlign, ArchiveII and bpRNA-new remain overlap
+registries because exact artifact/license or predictor-use independence is not
+sufficiently established. No records were selected or downloaded.
+
+Biological connected components are formed by fixed 80% sequence identity at
+80% bilateral global-alignment coverage, exact identity/provenance/conformer
+edges, and higher-priority source-backed family edges. Components are disjoint
+across TRAIN, MODEL_SELECTION, SCORE_CALIBRATION, RISK_CALIBRATION and one-use
+DEVELOPMENT_ASSESSMENT. The PDB temporal cutoff is 2024-12-04; missing dates are
+`NOT_AVAILABLE`, never inferred.
+
+The primary source panel freezes four algorithmic families: RNAfold 2.7.2,
+MXfold2 v0.1.2, UFold commit `75bd9acc...`, and RiNALMo commit `2c2c5c1...`
+with its named bpRNA-SS checkpoint. Every artifact must pass a pre-prediction
+license/version/hash/training-overlap audit. LOPFO holds out a full family;
+source identity and predictor-specific risk thresholds are prohibited.
+
+The structured task uses the complete legal AU/UA/GC/CG/GU/UG, `j-i>3`,
+single-partner, noncrossing candidate universe for 30--600 nt RNAs. It freezes
+KEEP/DELETE/ADD/coupled-REPLACE/component-ABSTAIN, symmetric-difference edit
+costs 0/1/1/2, clean E0 pair/unpaired facts, radius-two typed evidence
+transport, and deterministic exact weighted interval DP. Pseudoknots remain a
+separate future ILP track.
+
+The theorem audit rejects standard conformal risk control because structured
+policy changes can substitute edits and per-RNA HarmRate is non-monotone. The
+sole primary route is `FINITE_FAMILY_RISK_CONTROLLING_POLICY_SELECTION`: six
+complete component policies, simultaneous Hoeffding upper bounds over
+biological calibration components, `alpha=0.10`, `delta=0.05`, and a minimum
+readiness count of 240 risk-calibration components. The permitted guarantee is
+only the stated marginal expected cluster-balanced HarmRate claim under its
+assumptions; it is not conformal, conditional, FDR or per-RNA control.
+
+external77 was not accessed and is assigned
+`PHASE1_BRIDGE_INDEPENDENT_ASSET`. A separately sealed, temporally newer,
+family/sequence-disjoint Independent-v2 is the Phase II primary one-shot set.
+
+**Consequence:** state is `PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN` and
+`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`. The next proposed task is
+`IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`, beginning only on explicit
+authorization and limited to synthetic/non-learned protocol infrastructure.
+Primary-model implementation, training, evidence generation, Development-v2
+performance, external77, old R5/R6/R8, real probing and 3D remain unauthorized.
+Phase I results and both failed gates are unchanged.

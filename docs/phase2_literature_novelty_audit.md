@@ -7,6 +7,9 @@ Cut-off: **2026-09-08**
 Scope: design evidence only; no model, dataset, or scientific experiment was
 executed.
 
+Subsequent state: P1/P2 is frozen in `docs/phase2_dataset_and_task_protocol.md`;
+any `PROTOCOL_NOT_FROZEN` wording below records the P0 audit checkpoint.
+
 ## 1. Audit question and method
 
 This audit asks whether the proposed Phase II direction—risk-controlled,
