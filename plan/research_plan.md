@@ -370,6 +370,26 @@ the matched evidence-masked control in both event and RNA aggregation. The
 development gate is final `CONSERVATIVE_DEV_GATE_FAIL`; no rescue variant is
 authorized.
 
+### Paper-story consolidation
+
+**Status: `PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE` /
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`.**
+
+The primary paper framing is a bounded reliability/mechanistic study of why
+better evidence information does not automatically yield safer non-local RNA
+secondary-structure correction. The correction–preservation evaluation
+framework is a secondary contribution. The viable claim is limited to clean
+symbolic evidence on Legacy121 development data: usable evidence adds
+residual-error signal beyond matched controls, while learned
+`NON_EVIDENCED` propagation contributes both FP correction and collateral TP
+loss.
+
+The paper is not framed as a successful CER method paper. It does not claim
+independent validation, unseen-predictor transfer, noisy/real-evidence utility,
+safe non-local propagation, global-refolding superiority, or 3D benefit.
+Canonical story, master table, hypothesis outcomes, figure/table plan, and
+claim firewall are in `docs/paper_story_and_results_consolidation.md`.
+
 ### R5 — Noise robustness
 
 **Not authorized after `R4_GATE_B_FAIL`.** Do not freeze or execute controlled
@@ -429,29 +449,33 @@ If 5-10% controlled evidence noise causes negative structure utility or unsafe T
 
 external77 is opened once. If the development effect does not preserve direction, do not claim cross-dataset generalization and do not tune on external77 to rescue the result.
 
-## 13. Paper Story if Successful
+## 13. Frozen Paper Story
 
 ```text
-Prediction-only topology/consensus is insufficient for safe correction
--> sparse external evidence has direct/local utility
--> global constrained refolding is a strong traditional comparator
--> post-hoc reconciliation preserves source-predictor information while using evidence
--> calibrated reliability gives a better correction-preservation trade-off
--> effect survives noise, predictor shifts, and locked independent data
--> optional real probing and 3D validation establish practical relevance
+global constrained refolding is strong but sacrifices more source-predictor TP
+-> prediction context ranks residual errors but does not guarantee a safe tail
+-> matched ERN/B4 establishes incremental evidence signal across current sources
+-> explicit/local evidence behavior is highly reliable
+-> NON_EVIDENCED propagation creates both correction and collateral loss
+-> CER restores absolute preservation but fails matched-control non-local safety
+-> safe post-hoc correction requires correction–preservation and scope-resolved
+   evidence-attribution evaluation, not discrimination or aggregate F1 alone
 ```
+
+This is a reliability/mechanistic story, not a claim that CER passes its gate.
 
 ## 14. Current Execution State
 
 **Do not train historical Stage E2.**
 
-The frozen conservative development experiment is complete. The only
-authorized next task is:
+Paper-story consolidation is complete. The only authorized next task is:
 
-> **`PAPER_STORY_AND_RESULTS_CONSOLIDATION`**
+> **`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`**
 
-The conjunctive development failure does not authorize variant selection or R4
-rescue. Do not start R5, access external77, or begin real-evidence work.
+That task is limited to writing and assembling plotting tables from already
+frozen artifacts. The conjunctive development failure does not authorize
+variant selection or R4 rescue. Do not start R5, access external77, or begin
+real-evidence work.
 
 The completed execution state is:
 
@@ -464,6 +488,8 @@ R4_POSTMORTEM_COMPLETE
 CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
 CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
 CONSERVATIVE_DEV_GATE_FAIL
+PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE
+PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS
 EXTERNAL77_LOCKED
 ```
 

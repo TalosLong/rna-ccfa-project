@@ -4,7 +4,9 @@ Last updated: 2026-09-08
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE`**
+**PROJECT REBOOT v2 — `PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE`**
+
+**Paper viability: `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**
 
 **Development decision: `CONSERVATIVE_DEV_GATE_FAIL`**
 
@@ -20,7 +22,7 @@ Last updated: 2026-09-08
 
 **Independent data: `EXTERNAL77_LOCKED`**
 
-**Next authorized task: `PAPER_STORY_AND_RESULTS_CONSOLIDATION`**
+**Next authorized task: `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`**
 
 Current working direction:
 
@@ -126,8 +128,19 @@ NON_EVIDENCED TP preservation remained above 0.99 and mean lost TP fell to
 2,192.8, but preservation was lower than the matched masked control in both
 event and RNA aggregation. Those two frozen Gate 2 conditions failed; all
 other conditions passed. No rescue is authorized. Legacy121 remains
-development-only, external77 remains locked, and the next task is
-`PAPER_STORY_AND_RESULTS_CONSOLIDATION`.
+development-only and external77 remains locked.
+
+Paper-story consolidation is complete. The viable primary framing is a
+bounded reliability/mechanistic study of why evidence information does not
+automatically yield safe non-local correction, with the correction–preservation
+evaluation framework as a secondary contribution. The central supported claim
+is restricted to Legacy121 development data and clean symbolic evidence:
+usable evidence adds residual-error signal beyond matched controls, while
+learned `NON_EVIDENCED` propagation adds both useful FP removal and collateral
+TP loss. This does not promote CER as a validated method, reinterpret either
+failed gate, or establish independent/noisy/real-evidence performance. The
+canonical consolidation is
+`docs/paper_story_and_results_consolidation.md`.
 
 ## Rebooted Scientific Question
 
@@ -461,7 +474,8 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not rescue `CONSERVATIVE_DEV_GATE_FAIL` with an alternate CCEG,
   threshold movement, seed/channel selection, new feature, or larger model.**
 - **The only authorized next task is
-  `PAPER_STORY_AND_RESULTS_CONSOLIDATION`.**
+  `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, using frozen artifacts
+  only.**
 - **Legacy121 held-out folds are no longer pristine confirmation for any method
   designed after the R4 postmortem. Keep external77 unopened until a complete
   future protocol and analysis plan are frozen.**

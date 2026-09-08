@@ -5,7 +5,9 @@ Last updated: 2026-09-08
 This file supplements the historical `docs/claim_evidence_map.md`. Historical claims/results remain unchanged; this map defines the claims allowed after Project Reboot v2.
 
 Current future-path status: **`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
-`CONSERVATIVE_DEV_GATE_FAIL`**.
+`CONSERVATIVE_DEV_GATE_FAIL` /
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE` /
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**.
 The frozen scientific decision remains **`R4_GATE_B_FAIL`**; R5 is not
 authorized.
 
@@ -15,13 +17,14 @@ authorized.
 | Clean symbolic evidence has direct/local correction value. | Stage E1: all clean hard edits beneficial under frozen semantics; direct/local effects positive. | **SUPPORTED_DEVELOPMENT_ONLY** | Already retained as B1; not a novelty claim. |
 | Clean local hard evidence propagates useful information to non-evidenced pairs. | Stage E1 non-evidenced pair set unchanged in all evaluations. | **NOT SUPPORTED / STRUCTURALLY ZERO IN B1** | R2/R4 compare useful non-local changes rather than mere propagation. |
 | Global constrained refolding is a strong alternative to post-hoc reconciliation. | R2 v1.0.2 completed 7,153/7,153 amended eligible outputs at 100% constraint satisfaction. Overall B2 Macro/Micro F1 was 0.924648/0.904747 versus 0.889352/0.872422 for matched B1 and 0.878635/0.861068 for B0. | **SUPPORTED AS STRONG CLASSICAL BASELINE** | Freeze B2 as the mandatory future Gate A comparator; do not infer learned-method performance. |
+| Clean sparse evidence adds residual pair-error signal, but learned use beyond direct support/local conflict creates a correction–preservation trade-off. | R4 ERN improved discrimination/calibration/FP removal over matched B4; scope accounting assigned all material marginal TP harm to NON_EVIDENCED. CER retained evidence-attributable FP gain and exceeded 0.99 absolute preservation, but again reduced NON_EVIDENCED preservation relative to its matched masked control. | **SUPPORTED ON LEGACY121 DEVELOPMENT DATA** | Primary bounded paper claim; retain clean-evidence, current-source, and development-only qualifiers. |
 | Preserving the source predictor output adds value over refolding from sequence under the same evidence. | R4 ERN preserved more original TP than B2 (event/RNA 0.989682/0.991936 versus 0.981767/0.975358) and had higher modification precision, while B2 removed more FP. The operating spaces differ and neither dominates the correction-preservation plane. | **GATE_A_PASS_POSTHOC_NONDOMINATED** | Bounded development-only conclusion; do not claim ERN superiority or independent generalization. |
 | The frozen R3 suite defines and evaluates fair reliability comparators. | The prospective ECE amendment preceded all formal metrics. P0--P4 and E1/E2 completed with full integrity. P3 is the strongest Track P no-new-training comparator (RNA-balanced FP removal 0.489748 at preservation 0.997588); E1 is the strongest Track E comparator (0.142946 at preservation 1.0). | **SUPPORTED AS FROZEN R4 COMPARATOR SUITE** | Retain both records as immutable comparators in any future prospective protocol. |
 | A learned post-hoc method can estimate pair-level residual error better than frozen no-new-training comparators. | R4 ERN event/RNA AUPRC was 0.811406/0.897194. Matched B4 event/RNA AUPRC was 0.771726/0.884302, showing an evidence-attributable discrimination increment. | **SUPPORTED ON LEGACY121 DEVELOPMENT ONLY** | No unseen-predictor or cross-dataset claim; R6/R7 were not run. |
 | Learned evidence reconciliation improves FP removal at high TP preservation. | ERN event/RNA FP removal was 0.475531/0.660806, but event TP preservation was 0.989682 and failed the frozen 0.99 condition. Gate B failed. | **NOT SUPPORTED UNDER FROZEN SAFETY GATE** | No rescue tuning. Only a separately frozen conservative-hypothesis protocol may be considered next. |
 | Evidence can improve non-evidenced pairs without excessive collateral TP loss. | ERN NON_EVIDENCED removal was useful but lost a mean 2,687.8 TP; scope TP preservation was 0.988801. Relative to B4, it supplied 44.0% of additional FP removal but all material additional TP loss. | **MIXED / SAFETY REQUIREMENT FAILED** | Do not claim safe propagation. Any new trust/locality semantics must be frozen prospectively before implementation. |
 | Most evidence-attributable useful correction can be retained while suppressing unsafe NON_EVIDENCED propagation. | CER retained 1.00049/1.46949 of frozen R4 event/RNA evidence-attributable FP-removal gain and reduced mean NON_EVIDENCED lost TP to 2,192.8, but its NON_EVIDENCED preservation was lower than the matched masked control under both aggregations. | **MIXED; CONSERVATIVE_DEV_GATE_FAIL** | Consolidate as bounded development evidence; no rescue experiment is authorized. |
-| Candidate-context corroboration makes non-evidenced evidence propagation safe while preserving most evidence-attributable gain. | CER absolute NON_EVIDENCED TP preservation was 0.990864/0.992543 and evidence gains were positive, but matched masked preservation was higher at 0.991702/0.994180. | **NOT SUPPORTED UNDER FROZEN MATCHED-CONTROL SAFETY GATE** | `PAPER_STORY_AND_RESULTS_CONSOLIDATION`; do not freeze a final policy or open external77. |
+| Candidate-context corroboration makes non-evidenced evidence propagation safe while preserving most evidence-attributable gain. | CER absolute NON_EVIDENCED TP preservation was 0.990864/0.992543 and evidence gains were positive, but matched masked preservation was higher at 0.991702/0.993584. | **NOT SUPPORTED UNDER FROZEN MATCHED-CONTROL SAFETY GATE** | Preserve as a negative result; do not freeze a final policy or open external77. |
 | The method is model-agnostic / transfers to unseen predictors. | v1 LOMO did not reproduce across all three predictors. | **NOT SUPPORTED CURRENTLY** | R6 LOMO under rebooted method; claim only if supported. |
 | The method generalizes across datasets. | Legacy121 held-out outcomes have been interpreted and can no longer validate a newly designed method independently. external77 126/126 is prepared but remains unopened by learned methods. | **NOT TESTED** | Freeze the entire future method and analysis plan before a one-shot external77 evaluation; never use external77 for rescue. |
 | The method is robust to noisy evidence. | Corruption mechanism exists but full rebooted noisy evaluation was not run; R5 is not authorized after Gate B failure. | **NOT TESTED** | Only if later separately authorized: prospectively frozen controlled-noise work with Gate C. |
@@ -48,3 +51,18 @@ The project must not claim novelty for any of the following in isolation:
 R4 failed its frozen safety gate, so this statement is not an allowed current
 claim. Any future paper-level claim requires a newly prospective protocol and
 independent evidence; the R4 postmortem alone cannot revive it.
+
+## Current bounded paper-level claim
+
+The current manuscript may state only, with the Legacy121 development and
+clean symbolic-evidence boundary explicit:
+
+> Sparse structural evidence adds measurable residual pair-error information
+> beyond matched candidate-context controls, but learned propagation beyond
+> directly supported or locally conflicting pairs introduces additional loss
+> of correct predictor information. Reliable evidence use is therefore a
+> correction–preservation problem, not only a discrimination problem.
+
+This claim supports a reliability/mechanistic paper framing. It does not make
+CER a validated method, convert either failed gate to PASS, or establish
+independent, unseen-predictor, noisy/real-evidence, or 3D generalization.

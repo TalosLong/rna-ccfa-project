@@ -112,7 +112,7 @@ def test_channel_difference_is_recorded_without_posthoc_selection():
     assert summary["scientific_firewall"]["seed_or_channel_selected"] is False
 
 
-def test_authoritative_state_records_protocol_transition_and_independence_boundary():
+def test_authoritative_state_records_paper_transition_and_independence_boundary():
     current_paths = ("AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md",
                      "plan/research_plan.md", "plan/timeline.md",
                      "docs/reboot_v2_decisions.md", "docs/reboot_v2_claim_evidence_map.md")
@@ -120,8 +120,14 @@ def test_authoritative_state_records_protocol_transition_and_independence_bounda
     for text in contents.values():
         assert "CONSERVATIVE_DEV_GATE_FAIL" in text
         assert "R4_GATE_B_FAIL" in text
-    for path in ("AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md"):
-        assert "PAPER_STORY_AND_RESULTS_CONSOLIDATION" in contents[path]
+    for path in ("AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md", "plan/timeline.md"):
+        assert "PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS" in contents[path]
+        assert "DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA" in contents[path]
+    story = (ROOT / "docs/paper_story_and_results_consolidation.md").read_text()
+    assert "PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS" in story
+    assert "Legacy121 development" in story
+    assert "R4_GATE_B_FAIL" in story
+    assert "CONSERVATIVE_DEV_GATE_FAIL" in story
     protocol = (ROOT / "docs/conservative_reconciliation_protocol.md").read_text()
     implementation = (ROOT / "docs/conservative_reconciliation_implementation_plan.md").read_text()
     assert "CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN_NOT_EXECUTED" in protocol

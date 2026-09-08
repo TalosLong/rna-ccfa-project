@@ -696,3 +696,32 @@ rescue, seed/channel selection, R5, or external77 access is authorized. The
 only next task is `PAPER_STORY_AND_RESULTS_CONSOLIDATION`. Legacy121 remains
 development-only; `R4_GATE_B_FAIL` and `GATE_A_PASS_POSTHOC_NONDOMINATED`
 remain unchanged.
+
+---
+
+## Decision — Freeze a bounded reliability/mechanistic paper story
+
+**Confirmed / 已确定 (2026-09-08, after result consolidation only)**
+
+The current results support a standalone paper only under a bounded
+reliability/mechanistic framing: clean sparse structural evidence adds
+residual pair-error signal beyond matched candidate-context controls, while
+learned use outside direct support or local conflict creates a persistent
+correction–preservation trade-off. The correction–preservation evaluation
+framework is a secondary contribution.
+
+The project is not framed as a successful CER method paper. B2/R4
+non-dominance, ERN-versus-B4 evidence attribution, 3/3 current-source FP-
+removal direction, perfect-precision clean `LOCAL_CONFLICT`, scope-localized
+`NON_EVIDENCED` harm, and the prospective CER matched-control failure form the
+evidence chain. All claims remain restricted to Legacy121 development data and
+clean symbolic evidence.
+
+**Consequence:** status is
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE` and
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`. The only next authorized task is
+`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, using already frozen
+artifacts only. This decision does not alter `R4_GATE_B_FAIL` or
+`CONSERVATIVE_DEV_GATE_FAIL`, authorize a new experiment, open external77,
+start R5/R6, or support independent, unseen-predictor, noisy/real-evidence,
+safe-non-local-propagation, global-superiority, or 3D claims.

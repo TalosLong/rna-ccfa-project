@@ -226,6 +226,24 @@ Last updated: 2026-09-08
 - [x] Update state to the exact PASS/FAIL consequence without automatically
   starting R5 or external77.
 
+## Paper Story and Results Consolidation — COMPLETE
+
+- [x] Reorganize R2/R3/R4/CER around scientific questions rather than project
+  chronology.
+- [x] Build one action-space-aware master results table spanning B0, B1/E1,
+  B2, P3, R4 B4/ERN, and CER masked/CER.
+- [x] Freeze H1--H10 outcomes against the reboot claim–evidence map.
+- [x] Compare method, reliability/mechanistic, and benchmark/evaluation
+  framings without promoting either failed gate.
+- [x] Select reliability/mechanistic study as the primary framing and the
+  correction–preservation evaluation framework as a secondary contribution.
+- [x] Freeze the central claim, claim firewall, limitations, five-main-figure
+  plan, and main/supplementary table plan.
+- [x] Decide `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS` under the bounded
+  Legacy121 clean-evidence development scope.
+- [x] Preserve Legacy121 as `DEVELOPMENT_ONLY`, external77 as locked, R5 as
+  unauthorized, and both R4/CER failures unchanged.
+
 ## R5 — Controlled Noise Robustness
 
 - [ ] Freeze noisy-evidence protocol using controlled 5%, 10%, 20%, 30% corruption where valid.
@@ -303,18 +321,24 @@ R4_POSTMORTEM_COMPLETE
 CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
 CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
 CONSERVATIVE_DEV_GATE_FAIL
+PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE
+PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS
 EXTERNAL77_LOCKED
 ```
 
 The exact frozen development experiment is complete. The only next task is:
 
 ```text
-PAPER_STORY_AND_RESULTS_CONSOLIDATION
+DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA
 ```
 
-R4 is complete under its frozen protocol. Historical E2 remains unauthorized.
-The failed Gate B cannot be reinterpreted by choosing a seed/channel or moving
-the locked operating point. CER completed 200/200 runs but failed its separate
-development gate because NON_EVIDENCED TP preservation was lower than its
-matched masked control in both event and RNA aggregation. No rescue, R5,
-external77 access, or real-evidence work is authorized.
+Paper-story consolidation is complete with
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`. The next task may draft the
+manuscript outline and assemble plotting tables from existing frozen artifacts
+only. R4 is complete under its frozen protocol and historical E2 remains
+unauthorized. The failed Gate B cannot be reinterpreted by choosing a
+seed/channel or moving the locked operating point. CER completed 200/200 runs
+but failed its separate development gate because NON_EVIDENCED TP preservation
+was lower than its matched masked control in both event and RNA aggregation.
+No new experiment, rescue, R5, external77 access, or real-evidence work is
+authorized.

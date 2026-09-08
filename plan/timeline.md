@@ -253,9 +253,27 @@ CONSERVATIVE_DEV_GATE_FAIL
 
 CER passed the overall safety/utility, source, evidence-gain, and gain-retention
 conditions. It failed the two matched-control NON_EVIDENCED preservation
-conditions. The next authorized task is
+conditions. At that checkpoint the next authorized task was
 `PAPER_STORY_AND_RESULTS_CONSOLIDATION`. R5 remains unauthorized; external77
 remains locked and one-shot.
+
+---
+
+## Paper Story and Results Consolidation
+
+**Status: `PAPER_STORY_AND_RESULTS_CONSOLIDATION_COMPLETE` —
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`**
+
+The consolidated paper is viable as a bounded reliability/mechanistic study,
+with correction–preservation evaluation as a secondary contribution. It is not
+a successful CER method paper. The frozen story links B2 non-dominance,
+prediction-context signal, ERN-versus-B4 evidence attribution, scope-localized
+`NON_EVIDENCED` harm, and the prospective CER matched-control failure.
+
+The next authorized task is
+`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, limited to writing and
+assembling existing frozen outputs. No new experiment, R5, external77, noisy or
+real evidence, R6, or 3D analysis is authorized.
 
 ---
 
@@ -392,8 +410,11 @@ R1 documentation freeze
 -> diagnose frozen R4 outputs and choose the future path
 -> freeze the prospective CER/CCEG development protocol
 -> implement and execute frozen CER on Legacy121 development CV only
+-> consolidate the bounded reliability/mechanistic paper story
+-> draft the manuscript outline and assemble figure data from frozen artifacts
 ```
 
-**Only the frozen CER Legacy121 development execution is authorized next.
-Historical Stage E2, R4 rescue tuning, R5, and external77 access remain
+**Only `DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA` is authorized next.
+It may use existing frozen artifacts only. Historical Stage E2, R4/CER rescue
+tuning, new scientific experiments, R5, and external77 access remain
 prohibited.**

@@ -47,6 +47,7 @@ R1 documentation freeze
 -> freeze a new prospective conservative-reconciliation protocol
 -> implement and execute frozen conservative-reconciliation development only
 -> consolidate the bounded paper story after the conservative development gate failure
+-> draft the manuscript outline and assemble figure data from frozen artifacts only
 ```
 
 R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
@@ -57,9 +58,11 @@ external77, real-evidence, or rescue execution is currently authorized.
 The frozen-output R4 postmortem and exact Conservative Evidence Reconciliation
 (CER) Legacy121 development experiment are complete. Current status is
 `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` and
-`CONSERVATIVE_DEV_GATE_FAIL`. The only authorized next task is
-`PAPER_STORY_AND_RESULTS_CONSOLIDATION`. R5 and external evaluation remain
-unauthorized.
+`CONSERVATIVE_DEV_GATE_FAIL`. Paper-story consolidation is also complete, with
+the bounded decision `PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS` under a
+reliability/mechanistic framing. The only authorized next task is
+`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`, using frozen artifacts
+only. R5 and external evaluation remain unauthorized.
 
 ## R4 Constraints
 
@@ -135,9 +138,11 @@ feature, or larger architecture.
 CER failed the conjunctive development gate because NON_EVIDENCED TP
 preservation was lower than the matched masked control in both aggregations.
 Do not rescue with an alternate CCEG, threshold movement, seed/channel
-selection, new feature, or larger architecture. The only authorized next task
-is `PAPER_STORY_AND_RESULTS_CONSOLIDATION`; R5, R6, R7, external77, noisy
-evidence, and real evidence remain unauthorized.
+selection, new feature, or larger architecture. The consolidated paper story
+is viable only as a bounded reliability/mechanistic study, not as a successful
+CER method claim. The only authorized next task is
+`DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA`; R5, R6, R7, external77,
+noisy evidence, and real evidence remain unauthorized.
 
 ## Locked Independent Data
 

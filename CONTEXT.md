@@ -188,7 +188,8 @@ R2 Global constrained-refolding       COMPLETE
 R3 Reliability baseline suite        COMPLETE
 R4 Clean learned evidence reconciliation   COMPLETE / GATE B FAIL
 R4 postmortem / future-path decision       COMPLETE / NEW HYPOTHESIS ONLY
-Conservative reconciliation protocol      FROZEN / NOT EXECUTED
+Conservative reconciliation development   COMPLETE / DEV GATE FAIL
+Paper story and results consolidation      COMPLETE / VIABLE BOUNDED STORY
 R5 Noise robustness                        NOT AUTHORIZED
 R6 Cross-predictor transfer / LOMO
 R7 Locked external77 independent test
@@ -264,12 +265,11 @@ development-assessment evaluations 均完整。primary combined event/RNA TP
 preservation 为 0.991586/0.992930，FP removal 为 0.475575/0.682200；matched
 masked FP removal 为 0.386622/0.615236。
 
-当前决策与约束是：
+该 development checkpoint 的决策与约束是：
 
 > **`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
-> `CONSERVATIVE_DEV_GATE_FAIL`：下一任务只允许
-> `PAPER_STORY_AND_RESULTS_CONSOLIDATION`；不得 rescue、访问 external77、
-> 开始 R5 noise 或真实 SHAPE/DMS/PARS。**
+> `CONSERVATIVE_DEV_GATE_FAIL`：不得 rescue、访问 external77、开始 R5
+> noise 或真实 SHAPE/DMS/PARS。**
 
 Legacy121 R4 held-out 结果已经被观察并用于 hypothesis generation，因此
 任何 post-R4 方法都只能把 Legacy121 作为 development data，不能把新的
@@ -292,10 +292,21 @@ CER 满足所有 overall、source、evidence-attribution 和 gain-retention 条�
 两项均失败。因此 development gate 为最终 FAIL，不允许 alternate CCEG、
 threshold rescue 或 seed/channel selection。
 
+paper-story consolidation 已完成，结论为
+`PAPER_STORY_VIABLE_WITH_CURRENT_RESULTS`。主 framing 是 bounded
+reliability/mechanistic study：clean sparse evidence 确实增加 residual-error
+signal，但 learned `NON_EVIDENCED` propagation 同时产生 correction 和
+collateral TP loss。correction–preservation evaluation framework 是 secondary
+contribution；不把 CER 写成成功 method paper，也不声称 independent/noisy/
+real-evidence/generalization/3D benefit。
+
 唯一下一任务：
 
 ```text
-PAPER_STORY_AND_RESULTS_CONSOLIDATION
+DRAFT_MANUSCRIPT_OUTLINE_AND_ASSEMBLE_FIGURE_DATA
 ```
+
+该任务只允许写稿和整理 frozen artifact 中已有的 figure/table data；不允许新
+scientific experiment。
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。
