@@ -1,0 +1,18 @@
+{
+  "branch": "CONTEXT_BRANCH",
+  "channel": "positive_pair",
+  "checkpoint_sha256": "b0a5dfad7197329fdf52af75db6164945ac3b4fec9247c262159a1a2e5bc245c",
+  "condition": "CER",
+  "development_assessment_labels_accessed": false,
+  "development_assessment_rows_loaded": 0,
+  "development_train_rows": 89051,
+  "development_validation_rows": 37869,
+  "epochs_completed": 13,
+  "model_seed": 67,
+  "preprocessing_sha256": "2b1a9f13beabac3e72960d0b39ad73fa793145ffd8c4bb01b71aa95198b6bde1",
+  "rotation": 1,
+  "schema_version": "conservative_reconciliation_training_completion_v1",
+  "selected_epoch": 0,
+  "status": "PASS",
+  "validation_logits_sha256": "f9dd5fa6e4a2de5d04027d7c161fb11bda8d05a070ebdb536be43f5cf48434a7"
+}

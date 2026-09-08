@@ -46,6 +46,7 @@ R1 documentation freeze
 -> R4 postmortem and future-path decision
 -> freeze a new prospective conservative-reconciliation protocol
 -> implement and execute frozen conservative-reconciliation development only
+-> consolidate the bounded paper story after the conservative development gate failure
 ```
 
 R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
@@ -53,12 +54,12 @@ R2/R3 and the frozen R4 ERN/B4 execution are complete. R4 is
 `GATE_A_PASS_POSTHOC_NONDOMINATED`, but it does not override Gate B. No R5,
 external77, real-evidence, or rescue execution is currently authorized.
 
-The frozen-output R4 postmortem is complete. The resulting Conservative
-Evidence Reconciliation (CER) protocol is now
-`CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` and
-`CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`. The only authorized next task is
-`IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`. R5 and
-external evaluation remain unauthorized.
+The frozen-output R4 postmortem and exact Conservative Evidence Reconciliation
+(CER) Legacy121 development experiment are complete. Current status is
+`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` and
+`CONSERVATIVE_DEV_GATE_FAIL`. The only authorized next task is
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION`. R5 and external evaluation remain
+unauthorized.
 
 ## R4 Constraints
 
@@ -131,9 +132,12 @@ threshold/calibrator/checkpoint as a fitted CER artifact. A failed development
 gate cannot be rescued through another threshold, seed/channel selection,
 feature, or larger architecture.
 
-A CER development PASS authorizes only a separate final-policy/validation
-protocol freeze. It does not automatically authorize R5, R6, R7, external77,
-noisy evidence, or real evidence.
+CER failed the conjunctive development gate because NON_EVIDENCED TP
+preservation was lower than the matched masked control in both aggregations.
+Do not rescue with an alternate CCEG, threshold movement, seed/channel
+selection, new feature, or larger architecture. The only authorized next task
+is `PAPER_STORY_AND_RESULTS_CONSOLIDATION`; R5, R6, R7, external77, noisy
+evidence, and real evidence remain unauthorized.
 
 ## Locked Independent Data
 

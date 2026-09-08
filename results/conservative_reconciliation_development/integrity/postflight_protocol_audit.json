@@ -1,0 +1,48 @@
+{
+  "branches": [
+    "EVIDENCE_BRANCH",
+    "CONTEXT_BRANCH"
+  ],
+  "cer_implementation_plan_unchanged": true,
+  "cer_protocol_unchanged": true,
+  "channels": [
+    "positive_pair",
+    "unpaired"
+  ],
+  "conditions": [
+    "CER",
+    "CER_EVIDENCE_MASKED"
+  ],
+  "expected_training_runs": 200,
+  "external77_data_paths_opened": [],
+  "feature_allowlist_modified": false,
+  "feature_contract": {
+    "candidate": 80,
+    "descriptors": 4,
+    "positive_pair_item": 17,
+    "unpaired_item": 8
+  },
+  "frozen_inputs_match_preflight_snapshot": true,
+  "historical_e2_runner_paths_opened": [],
+  "model_seeds": [
+    17,
+    29,
+    41,
+    53,
+    67
+  ],
+  "noisy_or_real_evidence_paths_opened": [],
+  "phase": "POSTFLIGHT",
+  "r4_fitted_artifacts_reused": false,
+  "r4_gate_b_decision": "R4_GATE_B_FAIL",
+  "rescue_tuning_performed": false,
+  "rotations": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "schema_version": "conservative_reconciliation_protocol_audit_v1",
+  "status": "PASS"
+}

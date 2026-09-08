@@ -4,9 +4,9 @@ Last updated: 2026-09-08
 
 ## Current Stage
 
-**PROJECT REBOOT v2 — `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN`**
+**PROJECT REBOOT v2 — `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE`**
 
-**Execution state: `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`**
+**Development decision: `CONSERVATIVE_DEV_GATE_FAIL`**
 
 **Postmortem state: `R4_POSTMORTEM_COMPLETE`**
 
@@ -20,7 +20,7 @@ Last updated: 2026-09-08
 
 **Independent data: `EXTERNAL77_LOCKED`**
 
-**Next authorized task: `IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`**
+**Next authorized task: `PAPER_STORY_AND_RESULTS_CONSOLIDATION`**
 
 Current working direction:
 
@@ -112,6 +112,22 @@ more than 50% of the frozen R4 ERN-minus-B4 FP-removal increment under both
 aggregations. This gate can authorize only a later final-policy freeze, never a
 paper confirmation. external77 remains unopened and one-shot; R5 remains
 unauthorized.
+
+The exact frozen CER/CCEG development experiment is complete: 200/200 training
+runs, 200 validation-only branch calibrations, 100 validation-only policy
+calibrations and threshold seals, and 100 sealed development-assessment
+evaluations. Primary combined five-seed event/RNA TP preservation was
+0.991586/0.992930 and FP removal was 0.475575/0.682200. The matched masked FP
+removal was 0.386622/0.615236, so G_event=0.0889535 and G_RNA=0.0669639;
+the frozen R4 incremental-gain retention ratios were 1.00049/1.46949.
+
+The conjunctive decision is `CONSERVATIVE_DEV_GATE_FAIL`. Absolute
+NON_EVIDENCED TP preservation remained above 0.99 and mean lost TP fell to
+2,192.8, but preservation was lower than the matched masked control in both
+event and RNA aggregation. Those two frozen Gate 2 conditions failed; all
+other conditions passed. No rescue is authorized. Legacy121 remains
+development-only, external77 remains locked, and the next task is
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION`.
 
 ## Rebooted Scientific Question
 
@@ -442,10 +458,10 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not change frozen R4 features, calibration, threshold rules, Gate B, or
   source-consistency requirement after held-out results.**
 - **Do not begin R5, R7 external77, or real-evidence work.**
-- **The only authorized next task is implementation and Legacy121 development
-  execution of the frozen CER protocol; it must not change the protocol.**
-- **Do not implement or execute CER within this completed protocol-freeze
-  task; current execution state remains `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`.**
+- **Do not rescue `CONSERVATIVE_DEV_GATE_FAIL` with an alternate CCEG,
+  threshold movement, seed/channel selection, new feature, or larger model.**
+- **The only authorized next task is
+  `PAPER_STORY_AND_RESULTS_CONSOLIDATION`.**
 - **Legacy121 held-out folds are no longer pristine confirmation for any method
   designed after the R4 postmortem. Keep external77 unopened until a complete
   future protocol and analysis plan are frozen.**

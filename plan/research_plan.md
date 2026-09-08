@@ -341,8 +341,8 @@ escalation. No implementation or training was authorized at that checkpoint.
 
 ### Conservative reconciliation development
 
-**Status: `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` /
-`CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`.**
+**Status: `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
+`CONSERVATIVE_DEV_GATE_FAIL`.**
 
 The protocol freezes CER/CCEG, the unchanged R4 feature contract and simple
 branch architecture, paired `CER_EVIDENCE_MASKED` control, grouped Legacy121
@@ -361,6 +361,14 @@ Legacy121 assessment folds provide internal development evidence only. A gate
 PASS could authorize only a separate final-policy/validation protocol freeze;
 it would not constitute paper confirmation or automatically authorize R5,
 R6, or external77.
+
+The frozen execution completed 200/200 runs and all calibration/threshold
+seals. CER met both 0.99 overall preservation bars, both FP-removal bars,
+source consistency, positive matched evidence attribution, and majority R4
+gain retention. It failed because NON_EVIDENCED TP preservation was lower than
+the matched evidence-masked control in both event and RNA aggregation. The
+development gate is final `CONSERVATIVE_DEV_GATE_FAIL`; no rescue variant is
+authorized.
 
 ### R5 — Noise robustness
 
@@ -437,14 +445,13 @@ Prediction-only topology/consensus is insufficient for safe correction
 
 **Do not train historical Stage E2.**
 
-The conservative protocol and implementation plan are frozen. The only
+The frozen conservative development experiment is complete. The only
 authorized next task is:
 
-> **`IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT`**
+> **`PAPER_STORY_AND_RESULTS_CONSOLIDATION`**
 
-That future task must implement the frozen contract without variant selection
-or R4 rescue. This protocol-freeze task performed no implementation or
-training. Do not start R5, access external77, or begin real-evidence work.
+The conjunctive development failure does not authorize variant selection or R4
+rescue. Do not start R5, access external77, or begin real-evidence work.
 
 The completed execution state is:
 
@@ -455,7 +462,8 @@ GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
 R4_POSTMORTEM_COMPLETE
 CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
-CONSERVATIVE_RECONCILIATION_NOT_EXECUTED
+CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
+CONSERVATIVE_DEV_GATE_FAIL
 EXTERNAL77_LOCKED
 ```
 

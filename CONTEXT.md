@@ -258,11 +258,17 @@ NON_EVIDENCED 只有在 usable-evidence risk 与 evidence-masked
 candidate-context risk 同时达到新 validation-locked threshold 时才 DELETE；
 分歧为 ABSTAIN 并保持原 pair。
 
+冻结的 CER development 实验现已完成：200/200 training runs、200 branch
+calibrations、100 CCEG policy calibrations/threshold seals 和 100 sealed
+development-assessment evaluations 均完整。primary combined event/RNA TP
+preservation 为 0.991586/0.992930，FP removal 为 0.475575/0.682200；matched
+masked FP removal 为 0.386622/0.615236。
+
 当前决策与约束是：
 
-> **`CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` /
-> `CONSERVATIVE_RECONCILIATION_NOT_EXECUTED`：下一任务只允许实现并执行
-> frozen CER Legacy121 development protocol；不得 rescue R4、访问 external77、
+> **`CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` /
+> `CONSERVATIVE_DEV_GATE_FAIL`：下一任务只允许
+> `PAPER_STORY_AND_RESULTS_CONSOLIDATION`；不得 rescue、访问 external77、
 > 开始 R5 noise 或真实 SHAPE/DMS/PARS。**
 
 Legacy121 R4 held-out 结果已经被观察并用于 hypothesis generation，因此
@@ -281,10 +287,15 @@ FP-removal bars，并新增 NON_EVIDENCED safety、matched evidence attribution
 以及严格超过 50% frozen R4 evidence-attributable FP-gain retention。它只决定
 是否值得另行冻结 final policy，不能作为 independent confirmation。
 
+CER 满足所有 overall、source、evidence-attribution 和 gain-retention 条件，
+但 NON_EVIDENCED TP preservation 低于 matched masked control 的 event/RNA
+两项均失败。因此 development gate 为最终 FAIL，不允许 alternate CCEG、
+threshold rescue 或 seed/channel selection。
+
 唯一下一任务：
 
 ```text
-IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
+PAPER_STORY_AND_RESULTS_CONSOLIDATION
 ```
 
 详细 reboot specification 见 `docs/project_reboot_v2.md`。

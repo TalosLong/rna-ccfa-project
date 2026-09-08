@@ -1,0 +1,63 @@
+{
+  "cer_implementation_plan_sha256": "d496fea068032ef6b5e823d6c8b9b97d26e9db7a54ca217256446cfe96034119",
+  "cer_protocol_sha256": "b2ed83b7e1b9bcf992a3f8e562b640968692693cbdee4aa3d94ac3b7da54179a",
+  "feature_contract": {
+    "candidate_dimension": 80,
+    "evidence_descriptor_dimension": 4,
+    "exact_allowlist_and_order_verified": true,
+    "positive_pair_item_dimension": 17,
+    "unpaired_item_dimension": 8
+  },
+  "git_head": "0efb732ed97355b5dd44f3b57d346e5d365a90bb",
+  "git_status_clean_before_snapshot": true,
+  "grouped_split": {
+    "fold_counts": {
+      "0": 25,
+      "1": 24,
+      "2": 24,
+      "3": 24,
+      "4": 24
+    },
+    "rna_count": 121,
+    "sha256": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f",
+    "source_records_per_rna": [
+      3
+    ],
+    "status": "PASS"
+  },
+  "hard_restrictions": {
+    "clean_evidence_regenerated": false,
+    "external77_data_opened": false,
+    "historical_e2_executed": false,
+    "noisy_or_real_evidence_opened": false,
+    "r4_gate_b_changed": false,
+    "scientific_training_started": false
+  },
+  "known_expected_hash_mismatches": {
+    "results/evidence_guidance/e0/protocol_config.json": {
+      "expected": "dd02a79e4ee3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5",
+      "observed": "dd02a79e4ee3a3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5"
+    }
+  },
+  "phase": "BEFORE_CER_CODE_CHANGES",
+  "runtime": {
+    "cuda_available": true,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "python": "/root/miniconda3/envs/nufold_P/bin/python",
+    "python_version": "3.10.20",
+    "torch_version": "2.0.1+cu117"
+  },
+  "schema_version": "conservative_reconciliation_preflight_v1",
+  "scientific_execution_authorized": false,
+  "status": "FAIL",
+  "universe": {
+    "candidate_realization_events": 310838,
+    "positive_pair_item_incidences": 411297,
+    "positive_pair_manifests": 3523,
+    "rna_count": 121,
+    "source_record_count": 363,
+    "total_manifests": 7153,
+    "unpaired_item_incidences": 507455,
+    "unpaired_manifests": 3630
+  }
+}

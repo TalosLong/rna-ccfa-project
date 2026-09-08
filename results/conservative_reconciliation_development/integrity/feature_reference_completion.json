@@ -1,0 +1,33 @@
+{
+  "artifact_hashes": {
+    "results/conservative_reconciliation_development/features/candidate_row_inventory.parquet": "5c7fe0eb70e2e87d08f72c31bd244c92b1058f3ff1328845a08601679e5a990b",
+    "results/conservative_reconciliation_development/features/feature_contract_reference.json": "557ad59295936b292f9195e5403acb8a3765a7b917f23843681a5b1333f30a58",
+    "results/conservative_reconciliation_development/features/positive_pair_item_inventory.parquet": "a5632e3bdaa65ad387ccaf9e8fdd0aa3b19bbf92c143035b2641c5b41f1e347c",
+    "results/conservative_reconciliation_development/features/unpaired_item_inventory.parquet": "1698e1f13ebd678a9834c1c35ab2e6712c4e7e60e0215008b1f5b908f962c0f4"
+  },
+  "candidate_rows": 310838,
+  "clean_evidence_regenerated": false,
+  "feature_values_copied_or_rebuilt": false,
+  "positive_pair_item_incidences": 411297,
+  "positive_pair_manifests": 3523,
+  "rna_count": 121,
+  "schema_version": "conservative_reconciliation_feature_reference_completion_v1",
+  "source_record_count": 363,
+  "split_manifest_count": 10,
+  "split_manifest_hashes": {
+    "results/conservative_reconciliation_development/splits/positive_pair/rotation_0.json": "62cc426238ea13d44b5348fac9c044b0b3f016fee9d690c100e01b1705b55b7b",
+    "results/conservative_reconciliation_development/splits/positive_pair/rotation_1.json": "2f81b7ad2f200d8141bde52dc9ec2d7b4983349ebf5c8a4e7352a85dcb8b1306",
+    "results/conservative_reconciliation_development/splits/positive_pair/rotation_2.json": "67aaba26e118a957dc4107a9dd1f751ce6913130b27f6f75dd9e5c6864e055d3",
+    "results/conservative_reconciliation_development/splits/positive_pair/rotation_3.json": "f4f3b1aece481732be31cfe8d1c032df5c1b19b6812cf6eb52e6c1c5db95b26e",
+    "results/conservative_reconciliation_development/splits/positive_pair/rotation_4.json": "acdfdb53c621e669190384ad3be4fa06eaf215545c7f084bd8025c62ca810eb8",
+    "results/conservative_reconciliation_development/splits/unpaired/rotation_0.json": "3c2d4556289b84136b8be472ecb64b7461052be778257ebd2926515c2f4d8acc",
+    "results/conservative_reconciliation_development/splits/unpaired/rotation_1.json": "d4fa894f497234c9292a753e9ebf9eaa70b553f4b68d9dc04aa7e1896d41acc5",
+    "results/conservative_reconciliation_development/splits/unpaired/rotation_2.json": "865f8765fab6ffc6277cda99fb73404f09ed0f30c735161d3d640bdee7128db9",
+    "results/conservative_reconciliation_development/splits/unpaired/rotation_3.json": "459a1cbc6ab50cc100081428b0c43c211392a5d1fcdcc887173c271f56f8da2b",
+    "results/conservative_reconciliation_development/splits/unpaired/rotation_4.json": "0bba3e10a208ac89dd8e2e21bc5d251cf06c691ebc06ac39c7d65d0489c997c0"
+  },
+  "status": "PASS",
+  "total_manifests": 7153,
+  "unpaired_item_incidences": 507455,
+  "unpaired_manifests": 3630
+}

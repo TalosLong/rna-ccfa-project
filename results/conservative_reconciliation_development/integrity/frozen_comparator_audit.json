@@ -1,0 +1,8 @@
+{
+  "hashes": {
+    "comparison": "17c151926f94818583da04e20db10fdc5b835bd9e80effdf8284cd76b18ddc2e",
+    "gate_b": "91e5cce227a7928b29536e49908af55fe195d72d1761a36be31d29fe97dd3bc6"
+  },
+  "r4_gate_b": "R4_GATE_B_FAIL",
+  "status": "PASS"
+}

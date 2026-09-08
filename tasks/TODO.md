@@ -208,20 +208,22 @@ Last updated: 2026-09-08
 - [x] Write the implementation/artifact plan without implementation or
   training.
 
-### Conservative reconciliation development execution — not started
+### Conservative reconciliation development execution — complete / gate failed
 
-- [ ] Snapshot and audit all frozen inputs before implementation.
-- [ ] Implement only the frozen CCEG/action/accounting contract and planned
+- [x] Snapshot and audit all frozen inputs before implementation.
+- [x] Implement only the frozen CCEG/action/accounting contract and planned
   synthetic/unit tests.
-- [ ] Build immutable feature references and grouped development split
+- [x] Build immutable feature references and grouped development split
   manifests without regenerating evidence.
-- [ ] Complete all 200 condition x branch x channel x fold x seed runs.
-- [ ] Fit validation-only branch calibrators and lock new CCEG thresholds.
-- [ ] Run one sealed development-assessment pass; do not call it independent.
-- [ ] Produce all reliability, utility, action, scope, evidence-attribution,
+- [x] Complete all 200 condition x branch x channel x fold x seed runs.
+- [x] Fit validation-only branch calibrators and lock new CCEG thresholds.
+- [x] Run one sealed development-assessment pass; do not call it independent.
+- [x] Produce all reliability, utility, action, scope, evidence-attribution,
   source, comparator, integrity, and reproducibility artifacts.
-- [ ] Apply `CONSERVATIVE_DEV_GATE` once with no rescue.
-- [ ] Update state to the exact PASS/FAIL consequence without automatically
+- [x] Apply `CONSERVATIVE_DEV_GATE` once with no rescue:
+  `CONSERVATIVE_DEV_GATE_FAIL` because both matched-control NON_EVIDENCED
+  preservation conditions failed.
+- [x] Update state to the exact PASS/FAIL consequence without automatically
   starting R5 or external77.
 
 ## R5 — Controlled Noise Robustness
@@ -299,18 +301,20 @@ GATE_A_PASS_POSTHOC_NONDOMINATED
 R5_NOT_AUTHORIZED
 R4_POSTMORTEM_COMPLETE
 CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN
-CONSERVATIVE_RECONCILIATION_NOT_EXECUTED
+CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE
+CONSERVATIVE_DEV_GATE_FAIL
 EXTERNAL77_LOCKED
 ```
 
-The new protocol and implementation plan are frozen. The only next task is:
+The exact frozen development experiment is complete. The only next task is:
 
 ```text
-IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
+PAPER_STORY_AND_RESULTS_CONSOLIDATION
 ```
 
 R4 is complete under its frozen protocol. Historical E2 remains unauthorized.
 The failed Gate B cannot be reinterpreted by choosing a seed/channel or moving
-the locked operating point. The future execution must follow the frozen CER
-protocol exactly. Do not begin R5, access external77, or start real-evidence
-work.
+the locked operating point. CER completed 200/200 runs but failed its separate
+development gate because NON_EVIDENCED TP preservation was lower than its
+matched masked control in both event and RNA aggregation. No rescue, R5,
+external77 access, or real-evidence work is authorized.

@@ -1,0 +1,15 @@
+{
+  "dimensions": {
+    "candidate": 80,
+    "descriptors": 4,
+    "positive_pair_item": 17,
+    "unpaired_item": 8
+  },
+  "exact_r4_allowlist_and_order": true,
+  "feature_firewall_pass": true,
+  "postmortem_bins_excluded": true,
+  "predictor_identity_excluded": true,
+  "r4_risk_decision_excluded": true,
+  "schema_version": "conservative_reconciliation_feature_contract_audit_v1",
+  "status": "PASS"
+}

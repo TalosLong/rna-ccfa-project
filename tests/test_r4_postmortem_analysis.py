@@ -113,18 +113,19 @@ def test_channel_difference_is_recorded_without_posthoc_selection():
 
 
 def test_authoritative_state_records_protocol_transition_and_independence_boundary():
-    current_paths = (
-        "AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md",
-        "plan/timeline.md", "docs/reboot_v2_decisions.md",
-        "docs/reboot_v2_claim_evidence_map.md", "docs/conservative_reconciliation_protocol.md",
-        "docs/conservative_reconciliation_implementation_plan.md",
-    )
+    current_paths = ("AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md",
+                     "plan/research_plan.md", "plan/timeline.md",
+                     "docs/reboot_v2_decisions.md", "docs/reboot_v2_claim_evidence_map.md")
     contents = {path: (ROOT / path).read_text() for path in current_paths}
     for text in contents.values():
-        assert "CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN" in text
+        assert "CONSERVATIVE_DEV_GATE_FAIL" in text
         assert "R4_GATE_B_FAIL" in text
-    for path in ("AGENTS.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md"):
-        assert "IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT" in contents[path]
+    for path in ("AGENTS.md", "CONTEXT.md", "STATUS.md", "tasks/TODO.md", "plan/research_plan.md"):
+        assert "PAPER_STORY_AND_RESULTS_CONSOLIDATION" in contents[path]
+    protocol = (ROOT / "docs/conservative_reconciliation_protocol.md").read_text()
+    implementation = (ROOT / "docs/conservative_reconciliation_implementation_plan.md").read_text()
+    assert "CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN_NOT_EXECUTED" in protocol
+    assert "IMPLEMENTATION_NOT_STARTED" in implementation
     postmortem = (ROOT / "docs/r4_failure_analysis_and_future_decision.md").read_text()
     assert "NEW_HYPOTHESIS_JUSTIFIED_PROTOCOL_NOT_FROZEN" in postmortem
     assert "FREEZE_NEW_PROSPECTIVE_CONSERVATIVE_RECONCILIATION_PROTOCOL" in postmortem

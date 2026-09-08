@@ -667,3 +667,32 @@ eligibility.
 recalibration, threshold rescue, feature/method redesign, subset selection, or
 a second attempt. R5, noisy evidence, and real SHAPE/DMS/PARS remain
 unauthorized.
+
+---
+
+## Decision — Stop the conservative mainline after the frozen development gate
+
+**Confirmed / 已确定 (2026-09-08, after the sealed Legacy121 development assessment)**
+
+The exact CER/CCEG experiment completed 200/200 training runs, 200 branch
+calibrations, 100 policy calibrations and threshold seals, and 100 sealed
+development-assessment evaluations. Primary combined five-seed event/RNA TP
+preservation was 0.991586/0.992930 and FP removal was 0.475575/0.682200.
+Evidence-attributable gains were G_event=0.0889535 and G_RNA=0.0669639, with
+positive source-wise gain in all three current predictors and more than 50%
+retention of the frozen R4 increment under both aggregations.
+
+The prospectively frozen `CONSERVATIVE_DEV_GATE` nevertheless failed. CER
+NON_EVIDENCED TP preservation was 0.990864 event-pooled and 0.992543
+RNA-balanced, but both values were lower than the matched evidence-masked
+control (0.991702 and 0.993584, respectively). The two no-evidence-attributable-
+harm criteria therefore failed. All other gate conditions passed. The lower
+mean NON_EVIDENCED lost-TP count (2,192.8 versus frozen R4 2,687.8) is
+descriptive support only and does not override the matched-control failures.
+
+**Consequence:** status is `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE`
+and `CONSERVATIVE_DEV_GATE_FAIL`. No alternate CCEG, larger model, threshold
+rescue, seed/channel selection, R5, or external77 access is authorized. The
+only next task is `PAPER_STORY_AND_RESULTS_CONSOLIDATION`. Legacy121 remains
+development-only; `R4_GATE_B_FAIL` and `GATE_A_PASS_POSTHOC_NONDOMINATED`
+remain unchanged.

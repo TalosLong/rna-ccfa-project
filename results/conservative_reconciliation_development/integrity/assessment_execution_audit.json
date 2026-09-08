@@ -1,0 +1,12 @@
+{
+  "all_after_complete_seal": true,
+  "assessment_used_for_selection": false,
+  "evaluations": 100,
+  "independent_confirmation": false,
+  "legacy121_role": "DEVELOPMENT_ONLY",
+  "one_sealed_pass": true,
+  "pair_score_artifacts": 100,
+  "rescue_tuning": false,
+  "schema_version": "conservative_reconciliation_assessment_execution_audit_v1",
+  "status": "PASS"
+}

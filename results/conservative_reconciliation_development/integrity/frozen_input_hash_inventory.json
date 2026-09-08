@@ -1,0 +1,79 @@
+{
+  "expected_hashes": {
+    "docs/clean_learned_evidence_reconciliation_r4_protocol.md": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4",
+    "docs/clean_learned_evidence_reconciliation_r4_results.md": "728e931d4e1329935fe990154940cb0b35900f56d14298d88ef59a7ad8e3fc8c",
+    "docs/r4_failure_analysis_and_future_decision.md": "a7645521b6721eee159c5f009088c742ab5ad053b6bd1a63c9a92b485ab18218",
+    "results/clean_learned_evidence_reconciliation_r4/features/candidate_rows.parquet": "4f0204611333f8783aced1eddd874dedf71c837debc68515abda54cf35834a7c",
+    "results/clean_learned_evidence_reconciliation_r4/features/feature_contract.json": "154d9e2a59c2d571369edc516c0932b41adb8bea62943a3de6920431e9c7ad28",
+    "results/clean_learned_evidence_reconciliation_r4/features/positive_pair_items.parquet": "935bb8e1fe61fec766a2223704c116ebf2f866d859493987eb53acea19143027",
+    "results/clean_learned_evidence_reconciliation_r4/features/unpaired_nucleotide_items.parquet": "4455b5441ee81b7f44bc2a6bd5b62b76de8230471400680895486cc58ddf3bf5",
+    "results/clean_learned_evidence_reconciliation_r4/summaries/ern_vs_b4_summary.csv": "467c4d17adf610edb7c4dc3b3e596ec3793376d885fb01af434c92122e485935",
+    "results/evidence_guidance/e0/clean_manifest_index.csv": "5ebb2cfe0aa7735fe53b3d58462d2ca8209de3ceb5e17a119be0a8de85f85965",
+    "results/evidence_guidance/e0/clean_manifests.jsonl": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "results/evidence_guidance/e0/evidence_universe_by_rna.csv": "873bac39949fda20e7885eb51fd8d6b252fad62edee2d144420f0c490e0e2c09",
+    "results/evidence_guidance/e0/generation_summary.json": "d9d891ed08922b58a1f9af6d23d8e7942fa01fdef576b90daef1f0027cc551c8",
+    "results/evidence_guidance/e0/protocol_config.json": "dd02a79e4ee3a3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5",
+    "results/evidence_guidance/e0/suite_hashes.json": "5ea9cedaff548b70a742f3aaf2a0c96c800933dd28679ee34b295173cb1c0a83",
+    "results/global_constrained_refolding_r2/integrity/r2_manifest_eligibility_v1_0_2.csv": "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3",
+    "results/global_constrained_refolding_r2/integrity/r2_matched_universe_summary_v1_0_2.json": "65066bded85453c30b9e81eee593d9a6c9d25fd1c0e0758b5cf434aabd591849",
+    "results/reliability_baseline_r3/pair_scores/track_e_e1.csv.gz": "6710b73a2d4416e6305d39a31ff8e34aaff84547734065ff90ddcc7d4bd71433",
+    "results/reliability_baseline_r3/summaries/strongest_baselines.json": "0ccb8c92243a18ded7d3d886c9395a5345fc55b22bcf6d5b4b06f0408de7c240",
+    "results/selective_refiner_protocol/legacy121_grouped_cv_folds.csv": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f"
+  },
+  "files": {
+    "docs/clean_learned_evidence_reconciliation_r4_protocol.md": "81ce3923c19a99094418dc5fb568c7081192ac84c542b33dbb4bafa888c739e4",
+    "docs/clean_learned_evidence_reconciliation_r4_results.md": "728e931d4e1329935fe990154940cb0b35900f56d14298d88ef59a7ad8e3fc8c",
+    "docs/conservative_reconciliation_implementation_plan.md": "d496fea068032ef6b5e823d6c8b9b97d26e9db7a54ca217256446cfe96034119",
+    "docs/conservative_reconciliation_protocol.md": "b2ed83b7e1b9bcf992a3f8e562b640968692693cbdee4aa3d94ac3b7da54179a",
+    "docs/r4_failure_analysis_and_future_decision.md": "a7645521b6721eee159c5f009088c742ab5ad053b6bd1a63c9a92b485ab18218",
+    "results/clean_learned_evidence_reconciliation_r4/features/candidate_rows.parquet": "4f0204611333f8783aced1eddd874dedf71c837debc68515abda54cf35834a7c",
+    "results/clean_learned_evidence_reconciliation_r4/features/feature_contract.json": "154d9e2a59c2d571369edc516c0932b41adb8bea62943a3de6920431e9c7ad28",
+    "results/clean_learned_evidence_reconciliation_r4/features/positive_pair_items.parquet": "935bb8e1fe61fec766a2223704c116ebf2f866d859493987eb53acea19143027",
+    "results/clean_learned_evidence_reconciliation_r4/features/unpaired_nucleotide_items.parquet": "4455b5441ee81b7f44bc2a6bd5b62b76de8230471400680895486cc58ddf3bf5",
+    "results/clean_learned_evidence_reconciliation_r4/summaries/ern_vs_b4_summary.csv": "467c4d17adf610edb7c4dc3b3e596ec3793376d885fb01af434c92122e485935",
+    "results/evidence_guidance/e0/clean_manifest_index.csv": "5ebb2cfe0aa7735fe53b3d58462d2ca8209de3ceb5e17a119be0a8de85f85965",
+    "results/evidence_guidance/e0/clean_manifests.jsonl": "c743913d8d0b44cbccaba74b68bebaeb1551a4095d1ae51782435c12e96d11ca",
+    "results/evidence_guidance/e0/evidence_universe_by_rna.csv": "873bac39949fda20e7885eb51fd8d6b252fad62edee2d144420f0c490e0e2c09",
+    "results/evidence_guidance/e0/generation_summary.json": "d9d891ed08922b58a1f9af6d23d8e7942fa01fdef576b90daef1f0027cc551c8",
+    "results/evidence_guidance/e0/protocol_config.json": "dd02a79e4ee3a3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5",
+    "results/evidence_guidance/e0/suite_hashes.json": "5ea9cedaff548b70a742f3aaf2a0c96c800933dd28679ee34b295173cb1c0a83",
+    "results/global_constrained_refolding_r2/integrity/r2_manifest_eligibility_v1_0_2.csv": "a2361b58c7326ca7674cbbdcdce3c6f8c517efcffc159cdf4b5ae0abccbfbfe3",
+    "results/global_constrained_refolding_r2/integrity/r2_matched_universe_summary_v1_0_2.json": "65066bded85453c30b9e81eee593d9a6c9d25fd1c0e0758b5cf434aabd591849",
+    "results/global_constrained_refolding_r2/summaries/overall_summary.csv": "a60c895716e98a4346e159980477d4f50c71e079aaae8b5ee1dc904d3f9d286c",
+    "results/reliability_baseline_r3/pair_scores/track_e_e1.csv.gz": "6710b73a2d4416e6305d39a31ff8e34aaff84547734065ff90ddcc7d4bd71433",
+    "results/reliability_baseline_r3/pair_scores/track_p_p3_seed17.csv.gz": "1ec1e35659ebdf81e9307b92f303ffdda8a81a43d3f854e90e4d2e103832c194",
+    "results/reliability_baseline_r3/summaries/strongest_baselines.json": "0ccb8c92243a18ded7d3d886c9395a5345fc55b22bcf6d5b4b06f0408de7c240",
+    "results/selective_refiner_protocol/legacy121_grouped_cv_folds.csv": "810b04a3963acc7637b60fcb5c2246c765fac334f809a5af9f8f050824ed974f"
+  },
+  "git_head": "0efb732ed97355b5dd44f3b57d346e5d365a90bb",
+  "hash_algorithm": "SHA256",
+  "preflight_attempt_1_retained": "preflight_attempt_1_transcription_error.json",
+  "schema_version": "conservative_reconciliation_frozen_input_hash_inventory_v1",
+  "snapshot_phase": "BEFORE_CER_CODE_CHANGES",
+  "status": "PASS",
+  "transcription_correction": {
+    "authoritative_and_observed_sha256": "dd02a79e4ee3a3a7da484d030415dcee635847ef3daba95e66e4e60b11fcade5",
+    "authoritative_source": "results/clean_learned_evidence_reconciliation_r4/integrity/input_hash_inventory.json",
+    "path": "results/evidence_guidance/e0/protocol_config.json",
+    "scientific_input_changed": false,
+    "training_started_before_correction": false
+  },
+  "tree_hashes": {
+    "results/clean_learned_evidence_reconciliation_r4": {
+      "file_count": 2077,
+      "sha256": "af8a229b44cb6c03f930e761ab9386292da059c2b8b8aab3f2c33934d2b0da8f"
+    },
+    "results/evidence_guidance/e0": {
+      "file_count": 9,
+      "sha256": "e480652089a4387768e14b119d90d233223c889a436f594fba090c5253c94469"
+    },
+    "results/global_constrained_refolding_r2": {
+      "file_count": 48,
+      "sha256": "304aa51e5d11947f7c1cb9634441e1a66b33c6826e3fb1fa053cdbe952a5d3e9"
+    },
+    "results/reliability_baseline_r3": {
+      "file_count": 50,
+      "sha256": "66f41eae3eb957923926d62285b87e12b301c1716957f5d07d8a031fdb4b84c1"
+    }
+  }
+}

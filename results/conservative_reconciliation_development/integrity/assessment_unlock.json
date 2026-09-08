@@ -1,0 +1,9 @@
+{
+  "complete_matrix_audit_sha256": "4c7bdb1ade11829cc3a2f5acb09b70e44519b04818bb0897ec4f864572a15a4b",
+  "development_assessment_access_count_before_unlock": 0,
+  "independent_confirmation": false,
+  "legacy121_role": "DEVELOPMENT_ONLY",
+  "schema_version": "conservative_reconciliation_assessment_unlock_v1",
+  "status": "DEVELOPMENT_ASSESSMENT_UNLOCKED_ONCE",
+  "threshold_lock_audit_sha256": "08f6564960a993dd158e51a5af959fabcac18c45d36492ca4ba6d11e314b5da1"
+}

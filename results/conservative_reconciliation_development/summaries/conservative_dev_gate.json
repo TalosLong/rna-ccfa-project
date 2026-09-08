@@ -1,0 +1,72 @@
+{
+  "all_criteria_conjunctive": true,
+  "cer_source_rna_fp_removal": {
+    "petfold": 0.3154540281894339,
+    "rnafold": 0.25591092430432477,
+    "trrosettarna2_native_ss": 0.799779784450426
+  },
+  "complete_and_valid": true,
+  "event_r4_gain_retention_ratio": 1.0004927653093236,
+  "evidence_attribution_criteria": {
+    "event_r4_gain_retention_gt_0_50": true,
+    "g_event_gt_0": true,
+    "g_rna_gt_0": true,
+    "rna_r4_gain_retention_gt_0_50": true,
+    "source_wise_positive_2_of_3_including_rnafold_or_petfold": true
+  },
+  "evidence_positive_sources": [
+    "rnafold",
+    "petfold",
+    "trrosettarna2_native_ss"
+  ],
+  "evidence_source_gains": {
+    "petfold": 0.12384547891119319,
+    "rnafold": 0.13942792531283074,
+    "trrosettarna2_native_ss": 0.0477413336808894
+  },
+  "g_event": 0.08895349995021418,
+  "g_rna": 0.06696394185261068,
+  "independent_confirmation": false,
+  "legacy121_role": "DEVELOPMENT_ONLY",
+  "masked_source_rna_fp_removal": {
+    "petfold": 0.19160854927824073,
+    "rnafold": 0.11648299899149403,
+    "trrosettarna2_native_ss": 0.7520384507695366
+  },
+  "non_evidenced_safety": {
+    "event_non_evidenced_preservation_gte_masked": false,
+    "event_non_evidenced_tp_preservation_gte_0_99": true,
+    "mean_non_evidenced_lost_tp_lt_2687_8": true,
+    "rna_non_evidenced_preservation_gte_masked": false,
+    "rna_non_evidenced_tp_preservation_gte_0_99": true
+  },
+  "overall_criteria": {
+    "event_fp_removal_gt_0_347816": true,
+    "event_tp_preservation_gte_0_99": true,
+    "rna_fp_removal_gt_0_489748": true,
+    "rna_tp_preservation_gte_0_99": true
+  },
+  "p3_positive_sources": [
+    "rnafold",
+    "petfold",
+    "trrosettarna2_native_ss"
+  ],
+  "p3_source_condition": true,
+  "p3_source_improvement": {
+    "petfold": 0.21613398042111026,
+    "rnafold": 0.24280155178796994,
+    "trrosettarna2_native_ss": 0.16965085561727977
+  },
+  "primary_combined_five_seed_mean": {
+    "event_fp_removal": 0.4755750273822564,
+    "event_tp_preservation": 0.991586314331429,
+    "masked_event_fp_removal": 0.3866215274320422,
+    "masked_rna_fp_removal": 0.6152360692883171,
+    "rna_fp_removal": 0.6822000111409278,
+    "rna_tp_preservation": 0.9929304246359558
+  },
+  "r4_gate_b_decision": "R4_GATE_B_FAIL",
+  "rescue_tuning_performed": false,
+  "rna_r4_gain_retention_ratio": 1.4694861988123744,
+  "status": "CONSERVATIVE_DEV_GATE_FAIL"
+}

@@ -1,0 +1,9 @@
+{
+  "all_runs_retained": true,
+  "completed_runs": 200,
+  "development_assessment_accessed": false,
+  "expected_runs": 200,
+  "schema_version": "conservative_reconciliation_training_matrix_v1",
+  "seed_or_channel_selected": false,
+  "status": "PASS"
+}

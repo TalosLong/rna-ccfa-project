@@ -1,0 +1,25 @@
+{
+  "all_snapshotted_input_file_hashes_unchanged": true,
+  "preflight_tree_hashes": {
+    "results/clean_learned_evidence_reconciliation_r4": {
+      "file_count": 2077,
+      "sha256": "af8a229b44cb6c03f930e761ab9386292da059c2b8b8aab3f2c33934d2b0da8f"
+    },
+    "results/evidence_guidance/e0": {
+      "file_count": 9,
+      "sha256": "e480652089a4387768e14b119d90d233223c889a436f594fba090c5253c94469"
+    },
+    "results/global_constrained_refolding_r2": {
+      "file_count": 48,
+      "sha256": "304aa51e5d11947f7c1cb9634441e1a66b33c6826e3fb1fa053cdbe952a5d3e9"
+    },
+    "results/reliability_baseline_r3": {
+      "file_count": 50,
+      "sha256": "66f41eae3eb957923926d62285b87e12b301c1716957f5d07d8a031fdb4b84c1"
+    }
+  },
+  "r4_gate_b_decision": "R4_GATE_B_FAIL",
+  "schema_version": "conservative_reconciliation_frozen_result_immutability_v1",
+  "status": "PASS",
+  "tracked_frozen_result_changes": []
+}

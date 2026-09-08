@@ -1,0 +1,15 @@
+{
+  "branch_calibrations_complete": 200,
+  "branch_calibrations_expected": 200,
+  "development_assessment_accessed": false,
+  "policy_calibrations_complete": 100,
+  "policy_calibrations_expected": 100,
+  "runs_dropped": 0,
+  "schema_version": "conservative_reconciliation_complete_matrix_audit_v1",
+  "seed_or_channel_selected": false,
+  "status": "PASS",
+  "threshold_seals_complete": 100,
+  "threshold_seals_expected": 100,
+  "training_runs_complete": 200,
+  "training_runs_expected": 200
+}

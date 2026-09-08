@@ -220,7 +220,7 @@ evaluation only after the complete future method and analysis plan are frozen.
 
 ## Conservative Evidence Reconciliation Development
 
-**Status: `CONSERVATIVE_RECONCILIATION_PROTOCOL_FROZEN` — NOT EXECUTED**
+**Status: `CONSERVATIVE_RECONCILIATION_DEVELOPMENT_COMPLETE` — `CONSERVATIVE_DEV_GATE_FAIL`**
 
 Hypothesis:
 
@@ -241,14 +241,21 @@ bars and source consistency, and adds NON_EVIDENCED safety plus matched
 evidence-attribution/gain-retention requirements. It is a development decision,
 not independent confirmation.
 
-Next authorized task:
+Completion checkpoint:
 
 ```text
-IMPLEMENT_AND_EXECUTE_CONSERVATIVE_RECONCILIATION_DEVELOPMENT
+200/200 training runs complete
+200/200 branch calibrations complete
+100/100 policy calibrations and threshold seals complete
+100/100 sealed development-assessment evaluations complete
+CONSERVATIVE_DEV_GATE_FAIL
 ```
 
-R5 remains unauthorized. external77 remains locked and one-shot; it may be
-opened only after a development PASS and a separate complete final-policy seal.
+CER passed the overall safety/utility, source, evidence-gain, and gain-retention
+conditions. It failed the two matched-control NON_EVIDENCED preservation
+conditions. The next authorized task is
+`PAPER_STORY_AND_RESULTS_CONSOLIDATION`. R5 remains unauthorized; external77
+remains locked and one-shot.
 
 ---
 

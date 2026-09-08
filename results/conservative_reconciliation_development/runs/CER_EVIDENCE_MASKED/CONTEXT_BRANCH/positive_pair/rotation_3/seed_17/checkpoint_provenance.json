@@ -1,0 +1,21 @@
+{
+  "branch": "CONTEXT_BRANCH",
+  "channel": "positive_pair",
+  "checkpoint_sha256": "4fe1524bb2403dc8ac6c3f2426485d2f7202c69098120bcc1a140126d8250b85",
+  "condition": "CER_EVIDENCE_MASKED",
+  "development_assessment_labels_accessed": false,
+  "model_seed": 17,
+  "r4_checkpoint_reused": false,
+  "rotation": 3,
+  "schema_version": "conservative_reconciliation_checkpoint_provenance_v1",
+  "selected_epoch": 0,
+  "selection_role": "development_validation_only",
+  "status": "LOCKED",
+  "tie_break": [
+    "lower_binary_log_loss",
+    "higher_AUPRC",
+    "earlier_epoch"
+  ],
+  "validation_auprc": 0.7830423411716553,
+  "validation_unweighted_binary_log_loss": 0.45739235255050514
+}

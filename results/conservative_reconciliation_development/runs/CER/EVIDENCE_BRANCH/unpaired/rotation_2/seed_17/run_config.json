@@ -1,0 +1,44 @@
+{
+  "architecture": "EXACT_R4_ERN_BRANCH",
+  "branch": "EVIDENCE_BRANCH",
+  "channel": "unpaired",
+  "condition": "CER",
+  "development_assessment_fold": 2,
+  "development_assessment_labels_accessed": false,
+  "development_assessment_rows_loaded": 0,
+  "development_train_folds": [
+    0,
+    1,
+    4
+  ],
+  "development_validation_fold": 3,
+  "device": "cuda",
+  "evidence_block_exact_zero": false,
+  "model_seed": 17,
+  "parameter_count": 31873,
+  "pos_weight": 5.966824644549763,
+  "pos_weight_source": "development_train_only",
+  "protocol_sha256": "b2ed83b7e1b9bcf992a3f8e562b640968692693cbdee4aa3d94ac3b7da54179a",
+  "r4_fitted_checkpoint_reused": false,
+  "rotation": 2,
+  "schema_version": "conservative_reconciliation_run_config_v1",
+  "train_delete": 12660,
+  "train_keep": 75540,
+  "training_config": {
+    "batch_size": 256,
+    "checkpoint_metric": "validation_unweighted_binary_log_loss",
+    "checkpoint_tie_break": [
+      "higher_validation_AUPRC",
+      "earlier_epoch"
+    ],
+    "early_stopping_patience": 12,
+    "gradient_clip": 5.0,
+    "learning_rate": 0.001,
+    "loss": "BCEWithLogitsLoss",
+    "max_epochs": 100,
+    "optimizer": "AdamW",
+    "pos_weight": "KEEP_train / DELETE_train",
+    "weight_decay": 0.0001
+  },
+  "usable_evidence": true
+}

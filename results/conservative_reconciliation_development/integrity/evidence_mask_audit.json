@@ -1,0 +1,376 @@
+{
+  "all_materialized": true,
+  "all_weights_and_validation_numeric_outputs_equal": true,
+  "branch_metadata_expected_to_differ": true,
+  "comparison_columns": [
+    "candidate_row_id",
+    "label_delete",
+    "raw_logit"
+  ],
+  "fully_masked_branch_pairs": 50,
+  "pairs": [
+    {
+      "channel": "positive_pair",
+      "model_seed": 17,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 29,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 41,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 53,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 67,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 17,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 29,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 41,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 53,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 67,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 17,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 29,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 41,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 53,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 67,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 17,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 29,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 41,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 53,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 67,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 17,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 29,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 41,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 53,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "positive_pair",
+      "model_seed": 67,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 17,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 29,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 41,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 53,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 67,
+      "rotation": 0,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 17,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 29,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 41,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 53,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 67,
+      "rotation": 1,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 17,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 29,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 41,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 53,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 67,
+      "rotation": 2,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 17,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 29,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 41,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 53,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 67,
+      "rotation": 3,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 17,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 29,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 41,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 53,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    },
+    {
+      "channel": "unpaired",
+      "model_seed": 67,
+      "rotation": 4,
+      "validation_logits_equal": true,
+      "weights_equal": true
+    }
+  ],
+  "schema_version": "conservative_reconciliation_evidence_mask_audit_v1",
+  "status": "PASS",
+  "zeroed_proxies": [
+    "item_tensors",
+    "masks",
+    "item_count",
+    "item_count_div_L",
+    "LOCAL_CONFLICT",
+    "DIRECT",
+    "channel_evidence",
+    "density",
+    "evidence_seed"
+  ]
+}

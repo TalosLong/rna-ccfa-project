@@ -1,0 +1,14 @@
+{
+  "clean_evidence_regenerated": false,
+  "external77_data_read_or_used": false,
+  "historical_e2_executed": false,
+  "noisy_evidence_read_or_used": false,
+  "real_shape_dms_pars_evidence_read_or_used": false,
+  "schema_version": "conservative_reconciliation_forbidden_path_execution_v1",
+  "scientific_data_access_allowlist": [
+    "Legacy121 frozen R4 feature artifacts",
+    "Legacy121 grouped development folds",
+    "frozen R2/R3/R4 comparator artifacts"
+  ],
+  "status": "PASS"
+}

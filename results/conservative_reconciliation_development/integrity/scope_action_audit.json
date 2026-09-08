@@ -1,0 +1,11 @@
+{
+  "direct_keep": true,
+  "local_conflict_delete": true,
+  "non_evidenced_cceg": true,
+  "scope_precedence": [
+    "DIRECT",
+    "LOCAL_CONFLICT",
+    "NON_EVIDENCED"
+  ],
+  "status": "PASS"
+}

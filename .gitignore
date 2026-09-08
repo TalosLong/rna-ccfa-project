@@ -29,6 +29,11 @@ results/clean_learned_evidence_reconciliation_r4/runs/**/validation_scores.parqu
 results/clean_learned_evidence_reconciliation_r4/runs/**/held_out_pair_scores.parquet
 results/clean_learned_evidence_reconciliation_r4/runs/**/held_out_risk_curve.parquet
 
+# CER model binaries and raw validation logits remain local; their hashes and
+# all calibration, lock, assessment, and summary provenance are versioned.
+results/conservative_reconciliation_development/runs/**/checkpoint.pt
+results/conservative_reconciliation_development/runs/**/validation_logits.parquet
+
 # Full deterministic Stage E0 evidence payloads are regenerated from the
 # versioned generator and indexed by committed SHA256 summaries.
 results/evidence_guidance/e0/clean_manifests.jsonl

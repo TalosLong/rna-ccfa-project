@@ -1,0 +1,21 @@
+{
+  "branch_calibration_sha256": {
+    "CONTEXT_BRANCH": "52db9376d5cccaa8fa49e8fc9722f00f9d4fb3cf76ed033691f32e80a37823fc",
+    "EVIDENCE_BRANCH": "2c119d9f59d6fbcc5eec3672fd8256bf4b864a329c9bb741279e3f53f07b18b0"
+  },
+  "branch_checkpoint_sha256": {
+    "CONTEXT_BRANCH": "fadc15e391f15cec4dbd138e2da15e787fe1abbc348de8cc1928fb9b42a413ca",
+    "EVIDENCE_BRANCH": "fadc15e391f15cec4dbd138e2da15e787fe1abbc348de8cc1928fb9b42a413ca"
+  },
+  "channel": "unpaired",
+  "condition": "CER_EVIDENCE_MASKED",
+  "development_assessment_accessed_before_seal": false,
+  "locked_threshold_sha256": "3fbf4cec5abeb5b046083eb7ec0d2d0934b1665fceda3670931155383d7958ba",
+  "model_seed": 41,
+  "policy_calibration_sha256": "5fa72559ac3f0062664a2a92c153c9c039f6813dcae4f5f04f6475eec5e1d939",
+  "rotation": 2,
+  "schema_version": "conservative_reconciliation_pre_assessment_seal_v1",
+  "status": "SEALED_BEFORE_DEVELOPMENT_ASSESSMENT",
+  "validation_cceg_scores_sha256": "dc5191fe3cd35a8bcfcc191fb71fa2751793cb8b6cae23fdd4dd753b43997d17",
+  "validation_risk_curve_sha256": "e27a9f53d9e3d860f047cad9cb04c114c3b17880e2878d2a5b69726a8afde892"
+}
