@@ -16,6 +16,12 @@ Last updated: 2026-09-09
 
 **Phase II protocol: `PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN`**
 
+**Phase II roadmap: `PHASE2_ROADMAP_REVISED`**
+
+**Phase II M0 audit: `PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS`**
+
+**Phase II blocker: `PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`**
+
 **Phase II implementation: `PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`**
 
 **Development decision: `CONSERVATIVE_DEV_GATE_FAIL`**
@@ -32,7 +38,7 @@ Last updated: 2026-09-09
 
 **Independent data: `EXTERNAL77_LOCKED`**
 
-**Next proposed task: `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`**
+**Next proposed task: `RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`**
 
 Current Phase II working direction:
 
@@ -204,6 +210,32 @@ implemented. No code, model, training, evidence generation, new performance
 evaluation, source prediction, data materialization or independent-data
 access occurred in this task.
 
+## Phase II M0 Roadmap Revision and Feasibility Audit
+
+The forward plan is now M0 feasibility/protocol audit, M1 data and minimal
+software, M2 structured-baseline scientific validation, M3 simple learned
+propagation, M4 development robustness/policy lock, M5 one-shot confirmation,
+and M6 writing/optional 3D. The mapping and milestone gates are recorded in
+`docs/phase2_roadmap_revision_20260909.md`; detailed arithmetic and source
+metadata are in `docs/phase2_feasibility_audit.md`.
+
+M0 is complete with blockers. The frozen six-policy Hoeffding calculation is
+consistent: its radius is 0.099869620660 at 240 clusters, 0.069191702846 at
+500, and 0.048925922285 at 1,000. Exact post-firewall cluster counts remain
+`UNKNOWN` until an authorized Development-v2 build. A synthetic valid E0 pair
+absent from `S0` proves that exact hard-E0 satisfaction and unconditional
+fallback to `S0` cannot both be universal. No replacement semantic was chosen.
+
+RMDB/RDAT is a plausible SHAPE metadata route, but no entry, value, cohort or
+reference pairing was materialized. A limited local presence check found
+RNAfold 2.4.17 rather than frozen 2.7.2 and did not identify MXfold2, UFold or
+RiNALMo in the active Python environment; the formal four-source M1 preflight
+has not been run.
+
+The old immediate P3 instruction is superseded by the roadmap revision. P3
+remains not started and will belong to M1 only after a prospective amendment
+resolves the E0/ABSTAIN contract and publishes a new matching manifest.
+
 ## Phase I Rebooted Scientific Question
 
 > Given an RNA sequence, an already-computed secondary-structure prediction from an existing predictor, and sparse external structural evidence, can a post-hoc method identify and selectively correct residual pair errors while preserving predictor information that is already correct?
@@ -364,7 +396,9 @@ Optional 2D -> 3D validation
 Phase II P0 novelty/design audit                COMPLETE / DIRECTION JUSTIFIED
 Phase II P1 dataset/predictor audit             COMPLETE / FROZEN
 Phase II P2 dataset/task protocol freeze        COMPLETE / FROZEN
-Phase II P3 minimal structured baselines        NEXT PROPOSED / NOT STARTED
+Phase II M0 roadmap/feasibility audit           COMPLETE / BLOCKERS RECORDED
+Phase II E0/ABSTAIN protocol resolution         NEXT PROPOSED / NOT STARTED
+Phase II M1 P3 minimal software                 BLOCKED / NOT STARTED
 Phase II P4--P11 primary/scientific execution   NOT AUTHORIZED
 ```
 
@@ -544,9 +578,9 @@ Open external77 once. If the development effect does not preserve direction, no 
 - **Do not rescue `CONSERVATIVE_DEV_GATE_FAIL` with an alternate CCEG,
   threshold movement, seed/channel selection, new feature, or larger model.**
 - **Do not implement or train the Phase II primary model.**
-- **The P1/P2 protocol task is complete. The next proposed task is
-  `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`, which begins only on
-  explicit authorization and is limited to the frozen P3 plan.**
+- **The v1.0 P1/P2 freeze remains historical and unchanged. The next proposed
+  task is `RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`; it may only produce
+  a prospective amendment. P3 implementation remains blocked/not started.**
 - **Legacy121 is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`, not Phase II
   architecture-selection or independent-validation data. Keep external77
   unopened until a complete applicable future policy and analysis plan are
@@ -567,6 +601,8 @@ Detailed current-mainline documents:
 - `docs/phase2_structured_decoder_protocol.md`
 - `docs/phase2_p3_minimal_baseline_implementation_plan.md`
 - `docs/phase2_protocol_freeze_manifest.md`
+- `docs/phase2_roadmap_revision_20260909.md`
+- `docs/phase2_feasibility_audit.md`
 - `plan/research_plan.md`
 - `plan/timeline.md`
 - `tasks/TODO.md`

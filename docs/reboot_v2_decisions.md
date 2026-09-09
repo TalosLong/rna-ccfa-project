@@ -860,3 +860,54 @@ authorization and limited to synthetic/non-learned protocol infrastructure.
 Primary-model implementation, training, evidence generation, Development-v2
 performance, external77, old R5/R6/R8, real probing and 3D remain unauthorized.
 Phase I results and both failed gates are unchanged.
+
+## Decision — Revise Phase II into M0--M6 and resolve feasibility blockers first
+
+Date: 2026-09-09
+
+The user supplied `RNA_Research_Plan_Revised_2026-09-09.md` and authorized a
+documentation/formula/source-metadata feasibility audit. The resulting forward
+sequence is M0 feasibility/protocol audit, M1 data and minimal software, M2
+structured-baseline scientific validation, M3 simple learned propagation, M4
+development robustness and policy lock, M5 one-shot confirmation, and M6
+writing/optional 3D. This ordering explicitly separates P3 software correctness
+from M2 biological value.
+
+The frozen six-policy Hoeffding formula was recomputed. At 240, 500 and 1,000
+independent biological clusters, its additive radii are 0.099869620660,
+0.069191702846 and 0.048925922285. Hence 240 is a near-zero-loss formal minimum,
+not a practical sample-size guarantee. Exact Development-v2 and
+RISK_CALIBRATION connected-component counts are `UNKNOWN` until an authorized
+build applies every identity/family/provenance/role firewall.
+
+A synthetic counterexample establishes a protocol conflict: a valid mandatory
+E0 pair absent from `S0` requires ADD or REPLACE, but component or RNA fallback
+to `S0` removes that mandatory pair. Exact hard-E0 satisfaction and universal
+`S0` fallback therefore cannot both be claimed. Candidate semantics were
+listed, but none was silently selected. `PHASE2_DTP_V1.0`,
+`PHASE2_DECODER_V1.0` and their freeze manifest remain unchanged historical
+records.
+
+RMDB/RDAT was judged a plausible SHAPE source-metadata route because its public
+schema records sequence, structure, conditions, reactivities and errors, and
+the database states CC0 terms. Exact entries, snapshots, condition/reference
+matches, missingness, replicates and development/confirmation roles remain
+`UNKNOWN`; no measurement values or biological records were materialized.
+
+**Consequence:**
+
+```text
+PHASE2_ROADMAP_REVISED
+PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS
+PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
+EXTERNAL77_LOCKED
+```
+
+The former immediate P3 instruction is superseded. The next proposed task is
+`RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`, limited to a prospective
+versioned amendment aligning E0, ABSTAIN, fallback, matched controls and
+accounting. It does not authorize P3 code, Development-v2 construction,
+prediction, training, evidence generation, independent evaluation, real
+evidence or 3D. Phase I results, `R4_GATE_B_FAIL` and
+`CONSERVATIVE_DEV_GATE_FAIL` are unchanged.

@@ -330,6 +330,9 @@ PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
 PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
+PHASE2_ROADMAP_REVISED
+PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS
+PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
 PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
@@ -339,13 +342,19 @@ is `PHASE1_HISTORICAL_DIAGNOSTIC_DATA`; external77 is sealed as a
 `PHASE1_BRIDGE_INDEPENDENT_ASSET`; Independent-v2 is the future Phase II primary
 one-shot set and has not been selected.
 
+The 2026-09-09 roadmap/feasibility audit superseded the former immediate P3
+instruction. It found that a valid positive E0 pair absent from `S0` cannot be
+both mandatory in the returned structure and removed by an unconditional
+component/RNA fallback to `S0`. The old v1.0 freeze is unchanged; a prospective
+amendment is required.
+
 The next proposed task, which begins only on explicit authorization, is:
 
 ```text
-IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES
+RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
 ```
 
-It is restricted to the synthetic/non-learned infrastructure in
-`docs/phase2_p3_minimal_baseline_implementation_plan.md`. No primary-model code,
-training, biological performance evaluation, evidence generation, external77,
-old R5/R6/R8, real probing or 3D work is authorized.
+It is restricted to choosing and freezing prospective E0/ABSTAIN/fallback
+semantics and updating affected contracts/manifests. P3 code, primary-model
+code, data construction, training, biological performance evaluation, evidence
+generation, external77, old R5/R6/R8, real probing and 3D remain unauthorized.

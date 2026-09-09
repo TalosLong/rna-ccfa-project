@@ -23,6 +23,8 @@ Before substantial work, read:
 - `docs/phase2_structured_decoder_protocol.md`;
 - `docs/phase2_p3_minimal_baseline_implementation_plan.md`;
 - `docs/phase2_protocol_freeze_manifest.md`;
+- `docs/phase2_roadmap_revision_20260909.md`;
+- `docs/phase2_feasibility_audit.md`;
 - `plan/research_plan.md`;
 - `plan/timeline.md`;
 - `tasks/TODO.md`;
@@ -89,11 +91,14 @@ PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```
 
-The P1/P2 dataset/task protocol freeze is complete. The next proposed task is
-`IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`, but it begins only on explicit
-authorization and is limited to the frozen P3 plan. No primary-model
-implementation, training, evidence generation, Development-v2 performance
-experiment, external77 access, or historical R5/R6/R8 execution is authorized.
+The P1/P2 dataset/task protocol freeze remains an unchanged historical v1.0
+record. The 2026-09-09 M0 audit found an unresolved conflict between hard E0
+satisfaction and unconditional component/RNA fallback to `S0`. The next
+proposed task is `RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`, requiring
+explicit authorization and a prospective versioned amendment. P3 is not the
+immediate task. No Phase II implementation, primary model, training, evidence
+generation, Development-v2 materialization/performance, external77 access, or
+historical R5/R6/R8 execution is authorized.
 
 ## R4 Constraints
 

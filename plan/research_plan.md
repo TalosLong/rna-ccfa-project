@@ -1,6 +1,6 @@
 # Research Plan — Reboot v2
 
-Last updated: 2026-09-08
+Last updated: 2026-09-09
 
 ## 1. Phase I Working Direction — Complete and Frozen
 
@@ -500,36 +500,45 @@ implemented. Its dataset/task/decoder/risk contracts are now frozen in
 
 No noisy or real evidence is authorized yet.
 
-### Phase II roadmap
+### Phase II revised roadmap
+
+The 2026-09-09 roadmap revision preserves P0--P2 as completed design
+provenance and organizes future execution into M0--M6:
 
 ```text
-P0  literature / novelty audit                         COMPLETE (design only)
-P1  dataset and predictor audit                        COMPLETE / FROZEN
-P2  structured task / dataset protocol freeze          COMPLETE / FROZEN
-P3  minimal structured baseline                        NEXT PROPOSED / NOT STARTED
-P4  primary model implementation                       NOT AUTHORIZED
-P5  clean-evidence Development-v2                      NOT AUTHORIZED
-P6  controlled-noise robustness                        NOT AUTHORIZED
-P7  cross-predictor-family transfer                     NOT AUTHORIZED
-P8  real probing evidence                              NOT AUTHORIZED
-P9  independent one-shot test                          NOT AUTHORIZED
-P10 optional 2D -> 3D                                  NOT AUTHORIZED
-P11 manuscript / submission                            NOT AUTHORIZED
+M0  feasibility and protocol audit                     COMPLETE / BLOCKERS
+M1  data and minimal software foundation               BLOCKED / NOT STARTED
+M2  structured-baseline scientific validation          NOT AUTHORIZED
+M3  simple learned propagation                         NOT AUTHORIZED
+M4  development robustness and policy lock             NOT AUTHORIZED
+M5  one-shot confirmation                              NOT AUTHORIZED
+M6  writing and optional 3D                            NOT AUTHORIZED
 ```
 
-### Phase II frozen prospective gates
+M1 contains P3 software correctness, while M2 is a separate biological value
+test. P3 infrastructure success cannot be reported as ADD/REPLACE utility,
+and M2 success would not itself establish a learned propagation method. Full
+goals, role boundaries, outputs, continuation rules, failure handling and
+12--16 week planning windows are frozen only as a roadmap in
+`docs/phase2_roadmap_revision_20260909.md`; they are not execution authority.
+
+### Phase II prospective decision sequence
 
 - P0 NOVELTY: PASS remains `PHASE2_PRIMARY_DIRECTION_JUSTIFIED`.
-- P1 DATA/PROTOCOL: provenance, leakage, source panel, decoder, risk, metrics,
-  controls and hashes are complete.
-- P2 STRUCTURED BASELINE: ADD/REPLACE must add real correction headroom beyond
-  deletion-only or the interpretation reverts to deletion-only.
-- P3 SAFETY: finite-family control must improve HarmRate versus same-capacity
-  no-risk control at nonzero useful coverage; all-abstain cannot pass.
-- P4 PREDICTOR TRANSFER: direction survives every held-out predictor family.
-- P5 NOISE: risk contract and useful coverage survive 5--10% corruption.
-- P6 INDEPENDENT: sealed Independent-v2 one-shot direction is retained.
-- P7 REAL EVIDENCE: required if the final venue/claim depends on probing.
+- M0 FEASIBILITY: exact formulas and logical contracts are auditable; blockers
+  trigger a prospective amendment before implementation.
+- M1 SOFTWARE/DATA: sources and roles are reproducible and the exact engine
+  passes correctness audits. This is not a scientific-performance gate.
+- M2 STRUCTURED VALUE: ADD/REPLACE must add useful correction beyond matched
+  deletion/local alternatives at prospectively acceptable harm and coverage.
+- M3 PROPAGATION: a simple learned scorer must beat the strongest matched
+  baseline and attribute non-local benefit to the permitted evidence paths.
+- M4 ROBUSTNESS/RISK: source/noise behavior and formal assumptions support a
+  locked nontrivial policy; all-abstain cannot pass a utility gate.
+- M5 CONFIRMATION: the locked direction survives the declared one-shot
+  assessment and independent/real-evidence route.
+- M6 CLAIM: only claim-eligible completed evidence enters the paper or optional
+  downstream 3D study.
 
 The risk procedure freezes `alpha=0.10`, `delta=0.05` and at least 240
 risk-calibration biological clusters. Other numerical gates remain unset until
@@ -541,14 +550,17 @@ authorize architecture, split, seed or threshold rescue.
 **Do not train historical Stage E2.**
 
 Phase I paper-story consolidation and Phase II P0--P2 protocol design are
-complete. The next proposed task, requiring explicit authorization, is:
+complete. M0 has now found a hard-E0 versus `S0` fallback contradiction and
+unknown post-firewall risk-cluster budget. The next proposed task, requiring
+explicit authorization, is:
 
-> **`IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES`**
+> **`RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`**
 
-That task is limited to synthetic-fixture schema, candidate, exact-DP,
-action/component and risk-bound infrastructure under the frozen P3 plan. It
-does not authorize the primary model, training, Development-v2 performance,
-evidence generation, external77 or real-evidence work.
+That task is limited to a prospective versioned amendment aligning hard E0,
+component ABSTAIN, failure fallback, matched controls and accounting. It does
+not authorize P3 code, data materialization, predictors, the primary model,
+training, Development-v2 performance, evidence generation, external77 or
+real-evidence work.
 
 The completed execution state is:
 
@@ -569,6 +581,9 @@ PHASE2_INITIATED
 PHASE2_NOVELTY_AND_METHOD_DESIGN
 PHASE2_PRIMARY_DIRECTION_JUSTIFIED
 PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN
+PHASE2_ROADMAP_REVISED
+PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS
+PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
 PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
 EXTERNAL77_LOCKED
 ```

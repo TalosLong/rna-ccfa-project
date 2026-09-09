@@ -1,6 +1,6 @@
 # Timeline — Project Reboot v2
 
-Last updated: 2026-09-08
+Last updated: 2026-09-09
 
 This timeline supersedes the original Phase 0-8 schedule. Historical Phase 0/1/rule/v1-v3/E1 work is preserved as completed development evidence; the current mainline restarts at R1/R2.
 
@@ -397,27 +397,26 @@ No 3D claim without reproducible paired downstream benefit.
 
 ## Phase II — Risk-Controlled Structured Evidence Refinement
 
-**Status: `PHASE2_INITIATED` — `PHASE2_NOVELTY_AND_METHOD_DESIGN` —
-`PHASE2_PRIMARY_DIRECTION_JUSTIFIED` —
-`PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN`**
+**Status: `PHASE2_INITIATED` — `PHASE2_PRIMARY_DIRECTION_JUSTIFIED` —
+`PHASE2_DATASET_AND_TASK_PROTOCOL_FROZEN` — `PHASE2_ROADMAP_REVISED` —
+`PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS`**
 
 Phase II is not a numbered continuation of R5--R9 and not a rescue of R4/CER.
-Its independent roadmap is:
+P0--P2 remain completed design provenance. Forward execution now follows:
 
 ```text
-P0  literature / novelty audit                         COMPLETE (design only)
-P1  dataset and predictor audit                        COMPLETE / FROZEN
-P2  structured task / dataset protocol freeze          COMPLETE / FROZEN
-P3  minimal structured baseline                        NEXT PROPOSED / NOT STARTED
-P4  primary model implementation                       NOT AUTHORIZED
-P5  clean-evidence Development-v2                      NOT AUTHORIZED
-P6  controlled-noise robustness                        NOT AUTHORIZED
-P7  cross-predictor-family transfer                     NOT AUTHORIZED
-P8  real probing evidence                              NOT AUTHORIZED
-P9  independent one-shot test                          NOT AUTHORIZED
-P10 optional 2D -> 3D                                  NOT AUTHORIZED
-P11 manuscript / submission                            NOT AUTHORIZED
+M0  feasibility / protocol audit            week 1      COMPLETE / BLOCKERS
+M1  data and minimal software foundation    weeks 2-3   BLOCKED / NOT STARTED
+M2  structured-baseline scientific test     weeks 4-5   NOT AUTHORIZED
+M3  simple learned propagation              weeks 6-8   NOT AUTHORIZED
+M4  development robustness / policy lock    weeks 9-10  NOT AUTHORIZED
+M5  one-shot confirmation                   weeks 11-12 NOT AUTHORIZED
+M6  writing / optional downstream 3D        weeks 13-16 NOT AUTHORIZED
 ```
+
+These are workload windows, not calendar promises. M1 contains the synthetic
+P3 correctness work; M2 separately asks whether ADD/REPLACE has biological
+value. A P3 software pass cannot advance the scientific claim by itself.
 
 P0 found a qualified joint novelty gap around preservation-aware evidence
 transport, valid minimum-cost structured edits, and RNA-cluster harmful-edit
@@ -429,10 +428,11 @@ new, identity-filtered, family-aware, predictor-diverse, and preferably support
 a temporal audit. external77 remains `ONE_SHOT_LOCKED` and may not be inspected
 while determining whether a separate Independent-v2 is needed.
 
-`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`: no primary Phase II model code,
-training, evidence generation, scientific evaluation, noisy/real evidence, or
-independent test may start. The P3 synthetic/minimal-baseline task begins only
-after explicit authorization under its frozen implementation plan.
+`PHASE2_IMPLEMENTATION_NOT_AUTHORIZED`: no Phase II implementation, training,
+evidence generation, scientific evaluation, noisy/real evidence, or independent
+test may start. M0 found an unresolved conflict between hard E0 satisfaction
+and unconditional fallback to `S0`; M1/P3 begins only after a prospective
+amendment and separate explicit authorization.
 
 ---
 
@@ -442,11 +442,13 @@ after explicit authorization under its frozen implementation plan.
 Phase I research and paper-story consolidation                COMPLETE
 -> Phase II P0 literature/novelty and method design           COMPLETE
 -> Phase II P1/P2 dataset/predictor/task protocol freeze       COMPLETE
--> implement minimal structured baseline infrastructure       NEXT PROPOSED
+-> Phase II M0 roadmap and feasibility audit                   COMPLETE / BLOCKERS
+-> resolve E0/ABSTAIN/fallback protocol conflict               NEXT PROPOSED
+-> Phase II M1/P3 data and minimal software                    BLOCKED
 ```
 
-**The next proposed task is `IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES` and
-requires explicit authorization. It is limited to the frozen P3 plan.
-Historical Stage E2, R4/CER rescue, primary-model implementation/training,
-Development-v2 performance, old R5--R9, noisy/real evidence, and external77
-access remain prohibited.**
+**The next proposed task is `RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT`
+and requires explicit authorization. It is limited to a prospective amendment;
+the v1.0 files remain historical and unchanged. P3 code, Historical Stage E2,
+R4/CER rescue, primary-model implementation/training, Development-v2 work, old
+R5--R9, noisy/real evidence, 3D, and external77 access remain prohibited.**

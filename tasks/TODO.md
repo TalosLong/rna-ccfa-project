@@ -296,15 +296,65 @@ EXTERNAL77 = PHASE1_BRIDGE_INDEPENDENT_ASSET / LOCKED
 Independent-v2 = future Phase II primary one-shot set
 ```
 
-## Phase II P3 — Minimal Structured Baselines — NEXT PROPOSED
+## Phase II M0 — Roadmap and Feasibility Audit — COMPLETE WITH BLOCKERS
 
-- [ ] Begin only after explicit authorization and a matching protocol manifest.
+- [x] Adopt the revised M0--M6 sequence and distinguish M1/P3 software
+  correctness from M2 biological/scientific validation.
+- [x] Recompute the six-policy Hoeffding radius for 240, 500 and 1,000
+  biological clusters; record exact post-firewall role counts as `UNKNOWN`.
+- [x] Demonstrate the hard-E0 versus `S0` fallback conflict with a valid
+  synthetic ADD/REPLACE counterexample; do not silently choose new semantics.
+- [x] Audit the decomposable-objective boundary of exact interval DP and the
+  sampling assumptions of the frozen finite-family risk statement.
+- [x] Separate TP preservation, HarmRate, edit coverage and RNA coverage.
+- [x] Audit RMDB/RDAT as one prospective SHAPE metadata route without reading
+  a locked cohort, generating evidence or computing performance.
+- [x] Preserve `PHASE2_DTP_V1.0` and its manifest unchanged.
+
+Outcome:
+
+```text
+PHASE2_ROADMAP_REVISED
+PHASE2_M0_FEASIBILITY_AUDIT_COMPLETE_WITH_BLOCKERS
+PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
+PHASE2_IMPLEMENTATION_NOT_AUTHORIZED
+```
+
+## Phase II Protocol Amendment — NEXT PROPOSED
+
+- [ ] Begin only after explicit authorization.
+- [ ] Resolve whether hard E0 uses non-abstainable direct edits, an E0-feasible
+  fallback anchor, defeasible evidence, or restricted E0 admission.
+- [ ] Define valid-E0/S0 incompatibility, component boundaries, failure output,
+  matched masked control and risk/coverage accounting consistently.
+- [ ] Update every affected contract as a prospective version and publish a new
+  manifest; never overwrite the historical v1.0 freeze silently.
+- [ ] Do not implement P3 or inspect biological outcomes in this task.
+
+## Phase II M1 / P3 — Data and Minimal Software — BLOCKED / NOT STARTED
+
+- [ ] Start only after the E0/ABSTAIN amendment is frozen and separately
+  authorized.
+- [ ] Build exact source/checkpoint/license/determinism preflight; do not
+  silently replace missing primary predictors.
+- [ ] Materialize Development-v2 and five roles only under separate data-build
+  authorization; record exact biological cluster budgets and leakage audits.
 - [ ] Implement schema/candidate/exact-DP/action/component/risk-bound
   infrastructure using synthetic fixtures first.
 - [ ] Verify exhaustive short-sequence equivalence, validity, determinism,
   fail-closed behavior, leakage firewall and edit accounting.
-- [ ] Keep primary GNN/Graph Transformer, training, Development-v2 performance,
-  evidence generation and independent data out of scope.
+- [ ] Keep primary learned models, training, Development-v2 performance,
+  evidence generation and independent data out of the software-correctness
+  subtask.
+
+## Phase II M2 — Structured-Baseline Scientific Validation — NOT AUTHORIZED
+
+- [ ] Freeze a separate development-only comparison and utility/coverage gate
+  before outcomes.
+- [ ] Compare S0, direct/local evidence, constrained refolding, deletion-only
+  and full minimum-edit structured refinement on matched inputs.
+- [ ] Continue to M3 only if ADD/REPLACE shows additional useful value at
+  comparable harm; otherwise narrow the question without model escalation.
 
 ## R5 — Controlled Noise Robustness
 
@@ -398,10 +448,12 @@ EXTERNAL77_LOCKED
 The next proposed task, requiring explicit authorization, is:
 
 ```text
-IMPLEMENT_PHASE2_MINIMAL_STRUCTURED_BASELINES
+RESOLVE_PHASE2_E0_ABSTENTION_PROTOCOL_CONFLICT
 ```
 
 Phase I paper-story viability remains unchanged. The Phase II P1/P2 protocol is
-frozen, but the primary architecture and all training/performance work remain
-unauthorized. P3 is limited to the separate minimal-baseline plan. No evidence,
-external77 or old R5/R6/R8 work is authorized. R4 and CER failures remain frozen.
+preserved as historical frozen v1.0, but M0 identified an E0/ABSTAIN semantic
+conflict requiring a prospective amendment. P3 is blocked/not started; the
+primary architecture and all training/performance work remain unauthorized.
+No evidence, external77 or old R5/R6/R8 work is authorized. R4 and CER failures
+remain frozen.
